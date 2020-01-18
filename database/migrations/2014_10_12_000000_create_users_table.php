@@ -28,8 +28,10 @@ class CreateUsersTable extends Migration{
             $table->string('active')->default(0);
             $table->string('code');
             $table->string('actions')->nullable();
+            $table->string('resume')->nullable();
             $table->string('type')->default('user');
             $table->string('signup_method')->default('signup');
+            $table->text('description')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

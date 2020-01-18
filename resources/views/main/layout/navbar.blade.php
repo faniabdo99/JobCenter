@@ -44,9 +44,14 @@
                     <li><a href="companies.html">companies</a></li>
                     <li><a href="company_single.html">company single</a></li>
                     <li><a href="error_page.html">error page</a></li>
-                    <li><a href="{{route('login')}}">login</a></li>
                     <li><a href="pricing_table.html">pricing table</a></li>
-                    <li><a href="{{route('signup')}}">sign up</a></li>
+                    @guest
+                        <li><a href="{{route('login')}}">login</a></li>
+                        <li><a href="{{route('signup')}}">sign up</a></li>
+                    @endguest
+                    @auth 
+                    Logged in 
+                    @endauth
                 </ul>
             </li>
             <li class="has-children">
@@ -125,8 +130,13 @@
                     <li><a href="blog_category_right_sidebar.html">blog category</a></li>
                 </ul>
             </li>
+            @auth 
+                Logged in 
+            @endauth
+            @guest
             <li><a href="{{route('contact')}}">contact</a></li>
             <li><a href="{{route('login')}}">login</a></li>
+            @endguest
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -186,6 +196,7 @@
                 <!-- .cd-dropdown-wrapper -->
             </header>
             <div class="menu_btn_box header_btn jb_cover">
+            @guest
                 <ul>
                     <li>
                         <a href="{{route('signup')}}"><i class="flaticon-man-user"></i> sign up</a>
@@ -194,6 +205,14 @@
                         <a href="{{route('login')}}"> <i class="flaticon-login"></i> login</a>
                     </li>
                 </ul>
+            @endguest 
+            @auth
+            <ul>
+                <li>
+                    <a href="{{auth()->user()->DashLink()}}"><i class="flaticon-man-user"></i> {{auth()->user()->name}}</a>
+                </li>
+            </ul>
+                 @endauth
             </div>
 
             <div class="jb_navigation_wrapper">
@@ -385,14 +404,16 @@
                                     <a href="error_page.html"><i class="fas fa-square"></i>error page</a>
                                 </li>
                                 <li class="parent">
-                                    <a href="{{route('login')}}"><i class="fas fa-square"></i>login</a>
-                                </li>
-                                <li class="parent">
                                     <a href="pricing_table.html"><i class="fas fa-square"></i>pricing table</a>
                                 </li>
-                                <li class="parent">
-                                    <a href="{{route('signup')}}"><i class="fas fa-square"></i>sign_up</a>
-                                </li>
+                                @guest
+                                    <li class="parent">
+                                        <a href="{{route('login')}}"><i class="fas fa-square"></i>login</a>
+                                    </li>
+                                    <li class="parent">
+                                        <a href="{{route('signup')}}"><i class="fas fa-square"></i>sign_up</a>
+                                    </li>
+                                @endguest
 
                             </ul>
                         </li>

@@ -24,6 +24,18 @@
 /*--------------
 1.Theme default CSS
 --------------------------*/
+.notofication-message{
+    width:100%;
+	text-align:center;
+    font-weight:bold;
+    margin : 20px 0px;
+}
+.error-message{
+	color:#b12727;
+}
+.success-message{
+	color:#27b155;
+}
 body, html {
 	font-family: 'Lato';
 	font-size: 16px;
