@@ -1,4 +1,3 @@
-    <!-- chat box Wrapper end -->
     <!--custom js files-->
     <script src="{{url('public/main/js')}}/jquery-3.3.1.min.js"></script>
     <script src="{{url('public/main/js')}}/bootstrap.min.js"></script>

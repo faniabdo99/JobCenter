@@ -9,7 +9,7 @@
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown  d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="index.html"> <span><img src="{{url('public/main/images')}}/logo.png" alt="img"></span></a></h2>
+        <h2><a href="{{route('home')}}"> <span><img src="{{url('public/main/images')}}/logo.png" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -17,124 +17,24 @@
                     <input type="search" placeholder="Search...">
                 </form>
             </li>
-            <li class="has-children">
-                <a href="#">home</a>
-                <ul class="cd-secondary-dropdown icon_menu is-hidden">
-                    <li class="go-back"><a href="#0">Menu</a></li>
-                    <li><a href="index.html">home I</a></li>
-                    <li><a href="index_II.html">home II</a></li>
-                    <li><a href="index_III.html">home III</a></li>
-                </ul>
-            </li>
-            <li class="has-children">
-                <a href="#">jobs</a>
-                <ul class="cd-secondary-dropdown icon_menu is-hidden">
-                    <li class="go-back"><a href="#0">Menu</a></li>
-                    <li><a href="job_listing_grid_left_filter.html">job listing grid </a></li>
-                    <li><a href="job_listing_list_left_filter.html">job listing list</a></li>
-                    <li><a href="job_single.html">job single</a></li>
-                </ul>
-            </li>
+            <li><a href="{{route('home')}}">home</a></li>
+            <li><a href="{{route('jobs')}}">jobs</a></li>
             <!-- .has-children -->
             <li class="has-children">
                 <a href="#">pages</a>
                 <ul class="cd-secondary-dropdown icon_menu is-hidden">
                     <li class="go-back"><a href="#0">Menu</a></li>
-                    <li><a href="about_us.html">about us</a></li>
+                    <li><a href="{{route('about')}}">about us</a></li>
                     <li><a href="companies.html">companies</a></li>
-                    <li><a href="company_single.html">company single</a></li>
-                    <li><a href="error_page.html">error page</a></li>
-                    <li><a href="pricing_table.html">pricing table</a></li>
                     @guest
                         <li><a href="{{route('login')}}">login</a></li>
                         <li><a href="{{route('signup')}}">sign up</a></li>
                     @endguest
-                    @auth 
-                    Logged in 
-                    @endauth
                 </ul>
             </li>
-            <li class="has-children">
-                <a href="#">dashboard</a>
-                <ul class="cd-secondary-dropdown is-hidden">
-                    <li class="go-back"><a href="#0">Menu</a>
-                    </li>
-                    <li class="has-children"> <a href="#">candidate</a>
-                        <ul class="cd-secondary-dropdown is-hidden">
-                            <li class="go-back"><a href="#0">Menu</a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/candidate_applied_job.html">applied job </a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/candidate_dashboard.html">dashboard</a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/candidate_edit_profile.html"> edit profile</a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/candidate_favourite_job.html">favourite job</a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/candidate_resume.html"> resume</a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/message.html"> message</a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/pricing_plans.html">pricing plans</a>
-                            </li>
-                        </ul>
-                        <!-- .cd-secondary-dropdown -->
-                    </li>
-                    <!-- .has-children -->
-                    <li class="has-children"> <a href="#">company</a>
-                        <ul class="cd-secondary-dropdown is-hidden">
-                            <li class="go-back"><a href="#0">Menu</a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/comp_applications.html"> applications </a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/comp_company_page.html">company page</a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/comp_employer_dashboard.html"> dashboard</a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/comp_employer_edit_profile.html">edit profile</a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/comp_employer_manage_jobs.html"> manage jobs</a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/comp_post_new_job.html"> post new job</a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/message.html">message</a>
-                            </li>
-                            <li>
-                                <a href="../dashboard/pricing_plans.html">pricing plans</a>
-                            </li>
-                        </ul>
-                        <!-- .cd-secondary-dropdown -->
-                    </li>
-                </ul>
-                <!-- .cd-secondary-dropdown -->
-            </li>
-            <li class="has-children">
-                <a href="#">blog</a>
-                <ul class="cd-secondary-dropdown icon_menu is-hidden">
-                    <li class="go-back"><a href="#0">Menu</a></li>
-                    <li><a href="blog_single.html">blog single</a></li>
-                    <li><a href="blog_category_right_sidebar.html">blog category</a></li>
-                </ul>
-            </li>
-            @auth 
-                Logged in 
-            @endauth
-            @guest
+            <li><a href="#">blog</a></li>
             <li><a href="{{route('contact')}}">contact</a></li>
+            @guest
             <li><a href="{{route('login')}}">login</a></li>
             @endguest
         </ul>
@@ -143,7 +43,7 @@
     <div class="cp_navi_main_wrapper jb_cover">
         <div class="container-fluid">
             <div class="cp_logo_wrapper">
-                <a href="index.html">
+                <a href="{{route('home')}}">
                     <img src="{{url('public/main/images')}}/logo.png" alt="logo">
                 </a>
             </div>
@@ -218,56 +118,8 @@
             <div class="jb_navigation_wrapper">
                 <div class="mainmenu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                     <ul class="main_nav_ul">
-                        <li class="has-mega gc_main_navigation"><a href="#"
-                                class="gc_main_navigation active_class">home</a>
-                            <ul class="navi_2_dropdown">
-                                <li class="parent">
-                                    <a href="index.html"><i class="fas fa-square"></i>home I </a>
-                                </li>
-                                <li class="parent">
-                                    <a href="index_II.html"><i class="fas fa-square"></i>home II</a>
-                                </li>
-                                <li class="parent">
-                                    <a href="index_III.html"><i class="fas fa-square"></i> home III</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">jobs</a>
-                            <ul class="navi_2_dropdown">
-                                <li class="parent">
-                                    <a href="job_listing_grid_left_filter.html"> <i class="fas fa-square"></i>job
-                                        listing grid </a>
-                                </li>
-                                <li class="parent">
-                                    <a href="job_listing_list_left_filter.html"> <i class="fas fa-square"></i>job
-                                        listing list </a>
-                                </li>
-                                <li class="parent">
-                                    <a href="job_single.html"> <i class="fas fa-square"></i>job single</a>
-                                </li>
-
-                                <li class="parent">
-                                    <a href="#"><i class="fas fa-square"></i>jobs<span><i
-                                                class="fas fa-chevron-right"></i>
-                                        </span></a>
-                                    <ul class="dropdown-menu-right">
-                                        <li>
-                                            <a href="job_listing_grid_left_filter.html"> <i
-                                                    class="fas fa-square"></i>job listing grid </a>
-                                        </li>
-                                        <li>
-                                            <a href="job_listing_list_left_filter.html"> <i
-                                                    class="fas fa-square"></i>job listing list </a>
-                                        </li>
-                                        <li>
-                                            <a href="job_single.html"> <i class="fas fa-square"></i>job single</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                            </ul>
-                        </li>
+                        <li class="gc_main_navigation"><a href="{{route('home')}}" class="gc_main_navigation active_class">home</a></li>
+                        <li class="gc_main_navigation"><a href="{{route('jobs')}}" class="gc_main_navigation">jobs</a></li>
                         <li class="has-mega gc_main_navigation kv_sub_menu">
                             <a href="#" class="gc_main_navigation"> candidates</a>
                             <!-- mega menu start -->
@@ -392,123 +244,15 @@
                         <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">pages</a>
                             <ul class="navi_2_dropdown">
                                 <li class="parent">
-                                    <a href="about_us.html"> <i class="fas fa-square"></i>about us</a>
+                                    <a href="{{route('about')}}"> <i class="fas fa-square"></i>about us</a>
                                 </li>
                                 <li class="parent">
                                     <a href="companies.html"> <i class="fas fa-square"></i>companies</a>
                                 </li>
-                                <li class="parent">
-                                    <a href="company_single.html"> <i class="fas fa-square"></i>company single</a>
-                                </li>
-                                <li class="parent">
-                                    <a href="error_page.html"><i class="fas fa-square"></i>error page</a>
-                                </li>
-                                <li class="parent">
-                                    <a href="pricing_table.html"><i class="fas fa-square"></i>pricing table</a>
-                                </li>
-                                @guest
-                                    <li class="parent">
-                                        <a href="{{route('login')}}"><i class="fas fa-square"></i>login</a>
-                                    </li>
-                                    <li class="parent">
-                                        <a href="{{route('signup')}}"><i class="fas fa-square"></i>sign_up</a>
-                                    </li>
-                                @endguest
-
                             </ul>
                         </li>
-                        <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">dashboard</a>
-                            <ul class="navi_2_dropdown">
-                                <li class="parent">
-                                    <a href="#"><i class="fas fa-square"></i>candidate<span><i
-                                                class="fas fa-chevron-right"></i>
-                                        </span></a>
-                                    <ul class="dropdown-menu-right">
-                                        <li>
-                                            <a href="../dashboard/candidate_applied_job.html"> <i
-                                                    class="fas fa-square"></i>applied job </a>
-                                        </li>
-                                        <li>
-                                            <a href="../dashboard/candidate_dashboard.html"> <i
-                                                    class="fas fa-square"></i> dashboard</a>
-                                        </li>
-                                        <li>
-                                            <a href="../dashboard/candidate_edit_profile.html"> <i
-                                                    class="fas fa-square"></i>edit profile</a>
-                                        </li>
-                                        <li>
-                                            <a href="../dashboard/candidate_favourite_job.html"> <i
-                                                    class="fas fa-square"></i>favourite job</a>
-                                        </li>
-                                        <li>
-                                            <a href="../dashboard/candidate_resume.html"> <i
-                                                    class="fas fa-square"></i>resume</a>
-                                        </li>
-                                        <li>
-                                            <a href="../dashboard/message.html"> <i
-                                                    class="fas fa-square"></i>message</a>
-                                        </li>
-                                        <li>
-                                            <a href="../dashboard/pricing_plans.html"> <i
-                                                    class="fas fa-square"></i>pricing plans</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="parent">
-                                    <a href="#"><i class="fas fa-square"></i>company<span><i
-                                                class="fas fa-chevron-right"></i>
-                                        </span></a>
-                                    <ul class="dropdown-menu-right">
-                                        <li>
-                                            <a href="../dashboard/comp_applications.html"> <i
-                                                    class="fas fa-square"></i>applications </a>
-                                        </li>
-                                        <li>
-                                            <a href="../dashboard/comp_company_page.html"> <i class="fas fa-square"></i>
-                                                company page</a>
-                                        </li>
-                                        <li>
-                                            <a href="../dashboard/comp_employer_dashboard.html"> <i
-                                                    class="fas fa-square"></i>dashboard</a>
-                                        </li>
-                                        <li>
-                                            <a href="../dashboard/comp_employer_edit_profile.html"> <i
-                                                    class="fas fa-square"></i>edit profile</a>
-                                        </li>
-                                        <li>
-                                            <a href="../dashboard/comp_employer_manage_jobs.html"> <i
-                                                    class="fas fa-square"></i>manage jobs</a>
-                                        </li>
-                                        <li>
-                                            <a href="../dashboard/comp_post_new_job.html"> <i
-                                                    class="fas fa-square"></i>post new job</a>
-                                        </li>
-                                        <li>
-                                            <a href="../dashboard/message.html"> <i
-                                                    class="fas fa-square"></i>message</a>
-                                        </li>
-                                        <li>
-                                            <a href="../dashboard/pricing_plans.html"> <i
-                                                    class="fas fa-square"></i>pricing plans</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">blog</a>
-                            <ul class="navi_2_dropdown">
-                                <li class="parent">
-                                    <a href="blog_single.html"> <i class="fas fa-square"></i>blog single</a>
-                                </li>
-                                <li class="parent">
-                                    <a href="blog_category_right_sidebar.html"> <i class="fas fa-square"></i>blog
-                                        category</a>
-                                </li>
-                            </ul>
-                        </li>
+                        <li class="gc_main_navigation"><a href="#" class="gc_main_navigation">blog</a>
                         <li><a href="{{route('contact')}}" class="gc_main_navigation">contact</a></li>
-
                     </ul>
                 </div>
                 <!-- mainmenu end -->
@@ -516,11 +260,9 @@
                     <!-- extra nav -->
                     <div class="extra-nav">
                         <div class="extra-cell">
-                            <button id="quik-search-btn" type="button" class="site-button radius-xl"><i
-                                    class="fas fa-search"></i></button>
+                            <button id="quik-search-btn" type="button" class="site-button radius-xl"><i class="fas fa-search"></i></button>
                         </div>
                     </div>
-
                     <!-- Quik search -->
                     <div class="dez-quik-search bg-primary-dark">
                         <form action="#">
@@ -531,5 +273,20 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row my-5 text-center" width="100%">
+                @if ($errors->any())
+                <div class="col-md-12 col-xs-12 col-sm-12">
+                    @foreach ($errors->all() as $error)
+                    <div class="notofication-message error-message text-center">{{ $error }}</div>
+                    <br>
+                    @endforeach
+                </div>
+                @endif
+                @if(session()->has('success'))
+                    <div class="notofication-message success-message text-center">{{ session()->get('success') }}</div>
+                @endif
         </div>
     </div>

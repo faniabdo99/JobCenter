@@ -50,7 +50,6 @@ class AuthController extends Controller{
                 return redirect()->route('dash.company.home');
             }else{
                 return redirect()->route('home');
-
             }
         }
     }
@@ -60,6 +59,13 @@ class AuthController extends Controller{
         if(isset($User->exists) && $User->exists == true ){
             $User->active = 1;
             $User->save();
+            if($User->type == 'user'){
+                return redirect()->route('dash.user.home')->withSuccess('Your Account Has Been Activated');
+            }elseif($User->type == 'company'){
+                return redirect()->route('dash.company.home')->withSuccess('Your Account Has Been Activated');
+            }else{
+                return redirect()->route('home');
+            }
             //Send to Dasboard With Success Message
         }else{
             exit("This Code is Invalid.");
@@ -84,7 +90,14 @@ class AuthController extends Controller{
         }else{
             $Try = Auth::attempt(['email' => $r->email , 'password' => $r->password] , true);
             if($Try){
-                return redirect()->route('home');
+                $User = User::find(auth()->user()->id);
+                if($User->type == 'user'){
+                    return redirect()->route('dash.user.home');
+                }elseif($User->type == 'company'){
+                    return redirect()->route('dash.company.home');
+                }else{
+                    return redirect()->route('home');
+                }
             }else{
                 return back()->withErrors('Your Login Details are Wrong')->withInput();
             }

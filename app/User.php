@@ -16,6 +16,13 @@ class User extends Authenticatable{
             return $this->image;
         }
     }
+    public function getCoverImageAttribute(){
+        if($this->type == 'company'){
+            return url('storage/app/public/covers/')."/".$this->cover;
+        }else{
+            return null;
+        }
+    }
     public function getCvAttribute(){
         return url('storage/app/public/resumes/')."/".$this->resume;
     }
@@ -26,4 +33,13 @@ class User extends Authenticatable{
             return route('dash.company.home');
         }
     }
+    //Only For Companies
+    public function Jobs(){
+        if($this->type == 'company'){
+            return $this->hasMany(Job::class , 'company_id');
+        }else{
+            return null;
+        }
+    }
+
 }

@@ -10,8 +10,10 @@ class CreateUsersTable extends Migration{
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('contact_email')->unique();
             $table->string('password');
             $table->string('image')->default('profile.png');
+            $table->string('cover')->default('cover.png');
             $table->string('username')->nullable();
             $table->string('phone')->nullable();
             $table->string('website')->nullable();
@@ -26,11 +28,12 @@ class CreateUsersTable extends Migration{
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('active')->default(0);
-            $table->string('code');
-            $table->string('actions')->nullable();
+            $table->integer('code');
+            $table->integer('actions')->nullable();
             $table->string('resume')->nullable();
             $table->string('type')->default('user');
             $table->string('signup_method')->default('signup');
+            $table->string('company_size')->nullable();
             $table->text('description')->nullable();
             $table->rememberToken();
             $table->timestamps();
