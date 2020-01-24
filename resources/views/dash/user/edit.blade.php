@@ -116,7 +116,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="contect_form3">
                                             <label>city</label>
-                                            <input type="text" name="city" value="{{old('city') ?? $User->city}}" >
+                                            <input type="text" name="city" value="{{old('city') ?? $User->City->name}}" >
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">

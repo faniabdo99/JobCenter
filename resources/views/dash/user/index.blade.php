@@ -44,7 +44,7 @@
                                             <h4>{{$User->name}}</h4>
                                             <ul>
                                                 @if($User->job_description)<li><i class="fas fa-suitcase"></i>&nbsp; {{$User->job_description}}</li>@endif
-                                                @if($User->city)<li><i class="flaticon-location-pointer"></i>&nbsp; {{$User->city}}</li>@endif
+                                                @if($User->City->name)<li><i class="flaticon-location-pointer"></i>&nbsp; {{$User->City->name}}</li>@endif
                                             </ul>
                                         </div>
                                     </div>
@@ -70,7 +70,7 @@
                                         </div>
                                     </div>
                                     @endif
-                                    @if($User->city)
+                                    @if($User->City->name)
                                     <div class="jp_listing_overview_list_main_wrapper jb_cover">
                                         <div class="jp_listing_list_icon">
                                             <i class="fas fa-map-marker-alt"></i>
@@ -78,7 +78,7 @@
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
                                                 <li>Location:</li>
-                                                <li>{{$User->city}}</li>
+                                                <li>{{$User->City->name}}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -161,7 +161,6 @@
                                     <div class="emp_job_post jb_cover">
                                         <div class="emp_job_side_img parts">
                                             <i class="fas fa-envelope-open-text"></i>
-
                                         </div>
                                         <div class="emp_job_side_text">
                                             <h1>1,608</h1>

@@ -11,7 +11,7 @@
                 <li><a href="{{route('dash.user.edit')}}"> <i class="fas fa-edit"></i>edit profile</a></li>
                 <li><a href="{{route('dash.user.resume')}}"><i class="fas fa-file"></i>resume </a></li>
                 <li><a href="candidate_favourite_job.html"><i class="fas fa-heart"></i>favourite</a></li>
-                <li><a href="candidate_applied_job.html"><i class="fas fa-check-square"></i>applied job</a></li>
+                <li><a href="{{route('dash.user.applications')}}"><i class="fas fa-check-square"></i>applied job</a></li>
             </ul>
         </div>
     </div>

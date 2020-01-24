@@ -9,7 +9,6 @@ class Application extends Model{
     public function User(){
         return $this->belongsTo(User::class , 'user_id');
     }
-
     public function Job(){
         return $this->belongsTo(Job::class , 'job_id');
     }

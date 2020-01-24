@@ -34,12 +34,18 @@ class User extends Authenticatable{
         }
     }
     //Only For Companies
+    public function Category(){
+        return $this->belongsTo(Category::class , 'category_id');
+    }
     public function Jobs(){
         if($this->type == 'company'){
             return $this->hasMany(Job::class , 'company_id');
         }else{
             return null;
         }
+    }
+    public function City(){
+        return $this->belongsTo(City::class , 'city_id');
     }
 
 }

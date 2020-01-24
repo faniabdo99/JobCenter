@@ -25,7 +25,7 @@
                 <ul class="cd-secondary-dropdown icon_menu is-hidden">
                     <li class="go-back"><a href="#0">Menu</a></li>
                     <li><a href="{{route('about')}}">about us</a></li>
-                    <li><a href="companies.html">companies</a></li>
+                    <li><a href="{{route('companies')}}">companies</a></li>
                     @guest
                         <li><a href="{{route('login')}}">login</a></li>
                         <li><a href="{{route('signup')}}">sign up</a></li>
@@ -247,7 +247,7 @@
                                     <a href="{{route('about')}}"> <i class="fas fa-square"></i>about us</a>
                                 </li>
                                 <li class="parent">
-                                    <a href="companies.html"> <i class="fas fa-square"></i>companies</a>
+                                    <a href="{{route('companies')}}"> <i class="fas fa-square"></i>companies</a>
                                 </li>
                             </ul>
                         </li>

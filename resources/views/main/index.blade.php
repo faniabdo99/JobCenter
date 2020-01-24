@@ -224,9 +224,6 @@
                                         <div class="job_list_next">
                                             <p>{{$Job->Salary}} IQ / Month</p>
                                         </div>
-                                        
-                                        
-
                                     </div>
                                     @empty 
 

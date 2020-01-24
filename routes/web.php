@@ -8,6 +8,9 @@ Route::get('/jobs' , 'FrontEndController@getAllJobs')->name('jobs');
 Route::get('/job/{id}/{slug?}' , 'JobsController@getSingle')->name('job');
 //Applications
 Route::post('/apply/{job_id}/{user_id}' , 'ApplicationsController@postApplication')->middleware(['auth' , 'isNormalUser'])->name('apply.do');
+//Companies View
+Route::get('/companies' , 'FrontEndController@getCompanies')->name('companies');
+Route::get('/company/{id}' , 'FrontEndController@getCompany')->name('company');
 //Users System
 Route::middleware('guest')->group(function(){
     Route::get('/signup' , 'AuthController@getSignup')->name('signup');
@@ -23,6 +26,7 @@ Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
         Route::get('/edit' , 'UserDashController@getEdit')->name('dash.user.edit');
         Route::post('/edit' , 'UserDashController@postEdit')->name('dash.user.edit.do');
         Route::get('/resume' , 'UserDashController@getResume')->name('dash.user.resume');
+        Route::get('/applications' , 'UserDashController@getApplications')->name('dash.user.applications');
     });
     Route::group(['prefix' => 'company','middleware' => ['isCompany']], function () {
         Route::get('/' , 'CompanyDashController@getHome')->name('dash.company.home');

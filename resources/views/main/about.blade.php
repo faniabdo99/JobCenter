@@ -34,22 +34,22 @@
                         <div class="owl-carousel owl-theme">
                             <div class="item">
                                 <div class="about_image">
-                                    <img src="images/about1.jpg" class="img-responsive" alt="">
+                                    <img src="{{url('public/main/images')}}/about1.jpg" class="img-responsive" alt="">
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="about_image">
-                                    <img src="images/about2.jpg" class="img-responsive" alt="">
+                                    <img src="{{url('public/main/images')}}/about2.jpg" class="img-responsive" alt="">
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="about_image">
-                                    <img src="images/about3.jpg" class="img-responsive" alt="">
+                                    <img src="{{url('public/main/images')}}/about3.jpg" class="img-responsive" alt="">
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="about_image">
-                                    <img src="images/about2.jpg" class="img-responsive" alt="">
+                                    <img src="{{url('public/main/images')}}/about2.jpg" class="img-responsive" alt="">
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                     <div class="about_text_wrapper">
                         <p>“Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis ndum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit et nibh vulputate cursus a sit amet mauris. This is Photoshop's version of Lorem um. Proin gravida nibh vel velit auctor aliquet.”</p>
                         <h5> - by <span> sarika fenny</span> (Director) </h5>
-                        <img src="images/sign.png" alt="img">
+                        <img src="{{url('public/main/images')}}/sign.png" alt="img">
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <div class="counter_mockup_design jb_cover">
                         <div class="animation-circle-inverse"><i></i><i></i><i></i></div>
-                        <img src="images/mockup2.png" class="img-responsive" alt="img">
+                        <img src="{{url('public/main/images')}}/mockup2.png" class="img-responsive" alt="img">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
@@ -139,7 +139,7 @@ Professional Web Page.</h3>
                         <div class="col-lg-6 col-md-6 col-12 col-sm-12">
                             <div class="company_main_wrapper">
                                 <div class="company_img_wrapper">
-                                    <img src="images/cmp3.png" alt="team_img1">
+                                    <img src="{{url('public/main/images')}}/cmp3.png" alt="team_img1">
                                     <div class="btc_team_social_wrapper">
                                         <h1>(usa)</h1>
                                     </div>
@@ -155,7 +155,7 @@ Professional Web Page.</h3>
                         <div class="col-lg-6 col-md-6 col-12 col-sm-12">
                             <div class="company_main_wrapper">
                                 <div class="company_img_wrapper">
-                                    <img src="images/cmp4.png" alt="team_img1">
+                                    <img src="{{url('public/main/images')}}/cmp4.png" alt="team_img1">
                                     <div class="btc_team_social_wrapper">
                                         <h1>(usa)</h1>
                                     </div>
@@ -172,7 +172,7 @@ Professional Web Page.</h3>
                             <div class="jb_top_jobs_category job_agency_box jb_cover">
 
                                 <h3><a href="#">laravel</a></h3>
-                                <img src="images/jb1.png" alt="img">
+                                <img src="{{url('public/main/images')}}/jb1.png" alt="img">
 
                             </div>
                         </div>
@@ -180,7 +180,7 @@ Professional Web Page.</h3>
                             <div class="jb_top_jobs_category job_agency_box jb_cover">
 
                                 <h3><a href="#">Wordpress</a></h3>
-                                <img src="images/jb2.png" alt="img">
+                                <img src="{{url('public/main/images')}}/jb2.png" alt="img">
 
                             </div>
                         </div>
@@ -188,7 +188,7 @@ Professional Web Page.</h3>
                             <div class="jb_top_jobs_category job_agency_box jb_cover">
 
                                 <h3><a href="#">AngularJS</a></h3>
-                                <img src="images/jb3.png" alt="img">
+                                <img src="{{url('public/main/images')}}/jb3.png" alt="img">
 
                             </div>
                         </div>
@@ -218,7 +218,7 @@ Professional Web Page.</h3>
 
                                 <div class="team_slider_content jb_cover">
                                     <div class="team_slider_img_box jb_cover">
-                                        <img src="images/team.png" alt="img" class="img-responsive">
+                                        <img src="{{url('public/main/images')}}/team.png" alt="img" class="img-responsive">
                                     </div>
                                     <div class="team_slider_content_btm jb_cover">
                                         <p>(Sr. Advisor)</p>
@@ -231,7 +231,7 @@ Professional Web Page.</h3>
 
                                 <div class="team_slider_content jb_cover">
                                     <div class="team_slider_img_box jb_cover">
-                                        <img src="images/team1.png" alt="img" class="img-responsive">
+                                        <img src="{{url('public/main/images')}}/team1.png" alt="img" class="img-responsive">
                                     </div>
                                     <div class="team_slider_content_btm jb_cover">
                                         <p>(director)</p>
@@ -242,7 +242,7 @@ Professional Web Page.</h3>
                             <div class="item">
                                 <div class="team_slider_content jb_cover">
                                     <div class="team_slider_img_box jb_cover">
-                                        <img src="images/team2.png" alt="img" class="img-responsive">
+                                        <img src="{{url('public/main/images')}}/team2.png" alt="img" class="img-responsive">
                                     </div>
                                     <div class="team_slider_content_btm jb_cover">
                                         <p>(Sr. Advisor)</p>
@@ -254,7 +254,7 @@ Professional Web Page.</h3>
 
                                 <div class="team_slider_content jb_cover">
                                     <div class="team_slider_img_box jb_cover">
-                                        <img src="images/team4.png" alt="img" class="img-responsive">
+                                        <img src="{{url('public/main/images')}}/team4.png" alt="img" class="img-responsive">
                                     </div>
                                     <div class="team_slider_content_btm jb_cover">
                                         <p>(Sr. Advisor)</p>
@@ -272,7 +272,7 @@ Professional Web Page.</h3>
     <!-- job rivew wrapper start-->
     <div class="job_rivew_wrapper jb_cover">
         <div class="job_rivew_img">
-            <img src="images/mockup3.png" alt="img">
+            <img src="{{url('public/main/images')}}/mockup3.png" alt="img">
         </div>
         <div class="job_rivew_testimonial">
             <div class="jb_heading_wraper left_rivew_heading">
@@ -288,7 +288,7 @@ Professional Web Page.</h3>
 
                         <div class="jb_saying_content_wrapper jb_cover">
                             <div class="saying_img">
-                                <img src="images/testi.png" alt="img">
+                                <img src="{{url('public/main/images')}}/testi.png" alt="img">
                             </div>
                             <div class="rating_star"><i class="flaticon-star-1"></i><i class="flaticon-star-1"></i><i class="flaticon-star-1"></i><i class="flaticon-star"></i><i class="flaticon-star"></i></div>
 
@@ -303,7 +303,7 @@ Professional Web Page.</h3>
                     <div class="item">
                         <div class="jb_saying_content_wrapper jb_cover">
                             <div class="saying_img">
-                                <img src="images/testi1.png" alt="img">
+                                <img src="{{url('public/main/images')}}/testi1.png" alt="img">
                             </div>
                             <div class="rating_star"><i class="flaticon-star-1"></i><i class="flaticon-star-1"></i><i class="flaticon-star-1"></i><i class="flaticon-star"></i><i class="flaticon-star"></i></div>
                             <p>“ I don't always clap, but when I do, it'sbecause of Sella. We can't understandhow we've been Sella. ”</p>
@@ -327,7 +327,7 @@ Professional Web Page.</h3>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <div class="download_mockup_design jb_cover">
                         <div class="animation-circle-inverse2"><i></i><i></i><i></i></div>
-                        <img src="images/mockup5.png" class="img-responsive" alt="img">
+                        <img src="{{url('public/main/images')}}/mockup5.png" class="img-responsive" alt="img">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
@@ -347,26 +347,7 @@ Professional Web Page.</h3>
         </div>
     </div>
     <!-- download app wrapper end-->
-    <div class="jb_cover">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="job_newsletter_wrapper jb_cover">
-                        <div class="jb_newslwtteter_left">
-                            <h2> Looking For A Job</h2>
-                            <p>Your next level Product developemnt company assetsYour next level Product </p>
-                        </div>
-                        <div class="jb_newslwtteter_button">
-                            <div class="header_btn search_btn news_btn jb_cover">
-
-                                <a href="#">submit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('main.layout.cta')
     <!-- footer Wrapper Start -->
     @include('main.layout.footer')
     <!-- footer Wrapper End -->

@@ -5,6 +5,7 @@ use Validator;
 use Hash;
 //Models
 use App\User;
+use App\Application;
 class UserDashController extends Controller{
     private function getUser(){
         if(auth()->check()){
@@ -79,6 +80,7 @@ class UserDashController extends Controller{
                 $TheUser->update($UpdateData);
                 return back()->withErrors('Your Current Password is Wrong! Every Thing Else Updated');
             }else{
+                dd($UpdateData);
                 $TheUser->update($UpdateData);
                 return back()->withSuccess('Your Profile is Updated !');
             }
@@ -87,5 +89,10 @@ class UserDashController extends Controller{
     public function getResume(){
         $User = $this->getUser();
         return view('dash.user.resume' , compact('User'));
+    }
+    public function getApplications(){
+        $User = $this->getUser();
+        $Applications = Application::where('user_id' , $User->id)->get();
+        return view('dash.user.applications' , compact('User' , 'Applications'));
     }
 }
