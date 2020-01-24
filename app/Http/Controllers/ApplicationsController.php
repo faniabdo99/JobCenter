@@ -33,10 +33,12 @@ class ApplicationsController extends Controller{
                 $ApplicationData = $r->except('_token');
                 $ApplicationData['user_id'] = $user_id;
                 $ApplicationData['job_id'] = $job_id;
+                $TheJob = Job::findOrFail($job_id);
+                $ApplicationData['company_id'] = $TheJob->company_id;
                 $Application = Application::create($ApplicationData);
                 Mail::to($Application->Job->Company->email)->send(new NewApplicationNoto($Application));
             }
         }
-     
+
     }
 }

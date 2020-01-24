@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Job;
 use App\Category;
+use App\City;
 class FrontEndController extends Controller{
     public function getIndex(){
         $Categories = Category::orderBy('id' , 'desc')->limit(6)->get();
@@ -15,8 +16,9 @@ class FrontEndController extends Controller{
     }
     public function getAllJobs(){
         $Categories = Category::orderBy('id' , 'desc')->limit(6)->get();
+        $Cites = City::orderBy('id' , 'desc')->limit(6)->get();
         $Jobs = Job::orderBy('id' , 'desc')->paginate(12);
-        return view('main.jobs' , compact('Categories' , 'Jobs'));
+        return view('main.jobs' , compact('Categories' , 'Jobs' , 'Cites'));
     }
     public function getCompanies(){
         $Companies = User::where('type' , 'company')->where('active' , '1')->get();

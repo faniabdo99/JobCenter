@@ -27,6 +27,7 @@ Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
         Route::post('/edit' , 'UserDashController@postEdit')->name('dash.user.edit.do');
         Route::get('/resume' , 'UserDashController@getResume')->name('dash.user.resume');
         Route::get('/applications' , 'UserDashController@getApplications')->name('dash.user.applications');
+        Route::get('/favourite' , 'UserDashController@getAllLikes')->name('dash.like.all');
     });
     Route::group(['prefix' => 'company','middleware' => ['isCompany']], function () {
         Route::get('/' , 'CompanyDashController@getHome')->name('dash.company.home');
@@ -39,14 +40,3 @@ Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
 
 });
 Route::get('/logout' , 'AuthController@logout')->middleware('auth')->name('logout');
-
-
-
-
-
-
-
-
-
-
-

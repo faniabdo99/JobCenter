@@ -1,24 +1,19 @@
 (function ($) {
     "use strict";
-
     var tpj = jQuery;
     var revapi24;
-
-
     // preloader js //
     jQuery(window).on('load', function () {
         setTimeout(function () {
             jQuery('.jb_preloader').addClass('loaded');
         }, 1000);
     });
-
-
     // on ready function
     jQuery(document).ready(function ($) {
 
 
 
-        // ===== Scroll to Top ==== 
+        // ===== Scroll to Top ====
         $(window).scroll(function () {
             if ($(this).scrollTop() >= 100) {
                 $('#return-to-top').fadeIn(200);
@@ -32,18 +27,12 @@
             }, 500);
         });
 
-
         /****--------nice select js---------***/
-
         $('select').niceSelect();
-
-
         /*------ Dropify chart Start ------*/
         $(document).ready(function () {
-
             // Basic
             $('.dropify').dropify();
-
             // Translated
             $('.dropify-fr').dropify({
                 messages: {
@@ -53,22 +42,17 @@
                     error: 'Désolé, le fichier trop volumineux'
                 }
             });
-
             // Used events
             var drEvent = $('#input-file-events').dropify();
-
             drEvent.on('click dropify.beforeClear', function (event, element) {
                 return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
             });
-
             drEvent.on('click dropify.afterClear', function (event, element) {
                 alert('File deleted');
             });
-
             drEvent.on('click dropify.errors', function (event, element) {
                 console.log('Has Errors');
             });
-
             var drDestroy = $('#input-file-to-destroy').dropify();
             drDestroy = drDestroy.data('dropify')
             $('#toggleDropify').on('click', function (e) {
@@ -88,7 +72,6 @@
             /* Quik search in header on click function */
             var quikSearch = $("#quik-search-btn");
             var quikSearchRemove = $("#quik-search-remove");
-
             quikSearch.on('click', function () {
                 $('.dez-quik-search').animate({
                     'width': '100%'
@@ -110,13 +93,11 @@
             /* Quik search in header on click function End*/
         }
         quick_search();
-
-
         // Main Slider Animation
 
         (function ($) {
 
-            //Function to animate slider captions 
+            //Function to animate slider captions
             function doAnimations(elems) {
                 //Cache the animationend event in a variable
                 var animEndEv = 'webkitAnimationEnd animationend';
@@ -130,21 +111,21 @@
                 });
             }
 
-            //Variables on page load 
+            //Variables on page load
             var $myCarousel = $('#carousel-example-generic'),
                 $firstAnimatingElems = $myCarousel.find('.carousel-item:first').find("[data-animation ^= 'animated']");
 
-            //Initialize carousel 
+            //Initialize carousel
             $myCarousel.carousel();
 
-            //Animate captions in first slide on page load 
+            //Animate captions in first slide on page load
             doAnimations($firstAnimatingElems);
 
-            //Pause carousel  
+            //Pause carousel
             $myCarousel.carousel('pause');
 
 
-            //Other slides to be animated on carousel slide event 
+            //Other slides to be animated on carousel slide event
             $myCarousel.on('click slide.bs.carousel', function (e) {
                 var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
                 doAnimations($animatingElems);
@@ -244,7 +225,7 @@
         })
 
 
-        //------------ counter-js------------// 
+        //------------ counter-js------------//
 
         $('.counter_wrapper').on('inview', function (event, visible, visiblePartX, visiblePartY) {
             if (visible) {
@@ -330,12 +311,12 @@
             max: 10000,
             values: [900, 4000],
             slide: function (event, ui) {
-                $("#price").val("$" + ui.values[0] + " - " + " $" + ui.values[1]);
+                $("#price").val("IQD " + ui.values[0] + " - " + " IQD" + ui.values[1]);
             }
         });
 
-        $("#price").val("$" + $("#range-price").slider("values", 0) +
-            " - " + " $" + $("#range-price").slider("values", 1));
+        $("#price").val("IQD " + $("#range-price").slider("values", 0) +
+            " - " + " IQD" + $("#range-price").slider("values", 1));
 
         // responsive range js //
 
@@ -345,11 +326,11 @@
             max: 10000,
             values: [900, 4000],
             slide: function (event, ui) {
-                $("#responsive_price").val("$" + ui.values[0] + " - " + " $" + ui.values[1]);
+                $("#responsive_price").val("IQD " + ui.values[0] + " - " + " $" + ui.values[1]);
             }
         });
 
-        $("#responsive_price").val("$" + $("#responsive_range_price").slider("values", 0) +
+        $("#responsive_price").val("IQD " + $("#responsive_range_price").slider("values", 0) +
             " - " + " $" + $("#responsive_range_price").slider("values", 1));
 
 
@@ -586,7 +567,7 @@
             }
 
             function generate_button_message(msg, buttons) {
-                /* Buttons should be object array 
+                /* Buttons should be object array
                   [
                     {
                       name: 'Existing User',
@@ -643,5 +624,26 @@
 
         });
     });
-
+    $('.likeButton').click(function(){
+      var ActionRoute = $(this).attr('action-route');
+      var ItemType = $(this).attr('item-type');
+      var ItemId = $(this).attr('item-id');
+      var ItemOwner = $(this).attr('item-owner');
+      var UserId = $('meta[name=user_id]').attr("content");
+      $.ajax(ActionRoute , {
+        type: 'POST',
+        data: {
+          item_type:ItemType,
+          item_id:ItemId,
+          user_id:UserId,
+          item_owner_id:ItemOwner
+        },
+        success: function(data , status , xhr){
+          $(this).html(data);
+        },
+        error: function(errorMessage){
+          $(this).html(errorMessage);
+        }
+      })
+    });
 })(jQuery);

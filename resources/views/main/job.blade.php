@@ -39,11 +39,23 @@
                                 <h4>{{$Job->position}} @if($Job->experience)({{$Job->experience}} Yrs Exp.)@endif</h4>
                                 <p>{{$Job->Company->name}}</p>
                                 <ul class="job_single_lists">
+                                  @auth
+                                    @php
+                                    $isLikedByUser = \App\Like::where([
+                                      ['item_type' , 'job'],
+                                      ['item_id' , $Job->id],
+                                      ['user_id' , auth()->user()->id],
+                                    ])->count();
+                                    if($isLikedByUser > 0){
+                                      $Liked = 'change change22';
+                                    }
+                                    @endphp
                                     <li>
-                                        <div class="job_adds_right">
-                                            <a href="#!"><i class="far fa-heart"></i></a>
+                                        <div class="job_adds_right {{$Liked ?? ''}}">
+                                            <a class="likeButton" href="javascript:;" item-type="job" action-route="{{route('like.post')}}" item-id="{{$Job->id}}"><i class="far fa-heart"></i></a>
                                         </div>
                                     </li>
+                                  @endauth
                                     <li>
                                         <div class="header_btn search_btn part_time_btn jb_cover">
                                             <a href="#">{{$Job->type}}</a>
@@ -97,7 +109,7 @@
                                 </div>
                             </div>
                             @endif
-                            
+
                             <div class="jp_listing_overview_list_main_wrapper jb_cover">
                                 <div class="jp_listing_list_icon">
                                     <i class="far fa-money-bill-alt"></i>
@@ -107,7 +119,7 @@
                                         <li>Salary:</li>
                                         @if($Job->salary)
                                         <li>{{$Job->salary}} IQD / Month</li>
-                                        @else 
+                                        @else
                                         <li>After Metting</li>
                                         @endif
                                     </ul>
@@ -137,7 +149,7 @@
                                 </div>
                             </div>
                             @endif
-                            @guest 
+                            @guest
                             <div class="header_btn search_btn news_btn overview_btn  jb_cover">
                                 <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal41">login to apply !</a>
                             </div>

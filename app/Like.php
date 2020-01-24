@@ -1,12 +1,11 @@
 <?php
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model{
+class Like extends Model{
     protected $guarded = [];
     public function Job(){
-      return $this->hasMany(Job::class , 'city_id');
+      return $this->belongsTo(Job::class , 'item_id');
     }
 }

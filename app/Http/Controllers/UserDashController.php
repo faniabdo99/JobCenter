@@ -6,6 +6,7 @@ use Hash;
 //Models
 use App\User;
 use App\Application;
+use App\Like;
 class UserDashController extends Controller{
     private function getUser(){
         if(auth()->check()){
@@ -48,7 +49,7 @@ class UserDashController extends Controller{
         if($Validator->fails()){
             return back()->withErrors($Validator->errors()->all())->withInput();
         }else{
-            //Prepare Data 
+            //Prepare Data
             $CurrentPasswordIsWrong = false;
             $UpdateData = $r->except(['_token' , 'c_password' , 'n_password']);
             $UpdateData['username'] = strtolower(str_replace(' ' , '_' , $r->name));
@@ -94,5 +95,13 @@ class UserDashController extends Controller{
         $User = $this->getUser();
         $Applications = Application::where('user_id' , $User->id)->get();
         return view('dash.user.applications' , compact('User' , 'Applications'));
+    }
+    public function getAllLikes(){
+      $User = $this->getUser();
+      $LikedJobs = Like::where([
+        ['item_type' , 'job'],
+        ['user_id' , auth()->user()->id]
+      ])->get();
+      return view('dash.user.faves' , compact('LikedJobs' , 'User'));
     }
 }

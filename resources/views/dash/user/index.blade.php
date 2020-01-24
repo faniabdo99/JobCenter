@@ -4,20 +4,18 @@
     <!-- navi wrapper End -->
     <!-- top header wrapper start -->
     <div class="page_title_section">
-
         <div class="page_header">
             <div class="container">
                 <div class="row">
                     <!-- section_heading start -->
                     <div class="col-xl-9 col-lg-7 col-md-7 col-12 col-sm-12">
-
-                        <h1>Candidate Dashboard</h1>
+                        <h1>Dashboard</h1>
                     </div>
                     <div class="col-xl-3 col-lg-5 col-md-5 col-12 col-sm-12">
                         <div class="sub_title_section">
                             <ul class="sub_title">
                                 <li> <a href="#"> Home </a>&nbsp; / &nbsp; </li>
-                                <li>Candidate Dashboard</li>
+                                <li>Dashboard</li>
                             </ul>
                         </div>
                     </div>
@@ -96,7 +94,7 @@
                                         </div>
                                     </div>
                                     @endif
-                                    
+
                                     <div class="jp_listing_overview_list_main_wrapper jb_cover">
                                         <div class="jp_listing_list_icon">
                                             <i class="fas fa-envelope"></i>
@@ -123,7 +121,7 @@
                                     @endif
 
                                 </div>
-                            </div>                        
+                            </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="job_filter_category_sidebar jb_cover">
                                         <div class="job_filter_sidebar_heading jb_cover">
@@ -152,7 +150,7 @@
 
                                         </div>
                                         <div class="emp_job_side_text">
-                                            <h1>260</h1>
+                                            <h1>{{count($User->Application)}}</h1>
                                             <p>applied jobs</p>
                                         </div>
                                     </div>
@@ -163,7 +161,8 @@
                                             <i class="fas fa-envelope-open-text"></i>
                                         </div>
                                         <div class="emp_job_side_text">
-                                            <h1>1,608</h1>
+
+                                            <h1>{{count($User->FavJobs())}}</h1>
                                             <p>favourite jobs</p>
                                         </div>
                                     </div>
@@ -202,7 +201,7 @@
     <!-- footer Wrapper Start -->
     @include('dash.layout.footer')
     <!-- footer Wrapper End -->
-	
+
     <!--custom js files-->
     @include('dash.layout.scripts')
     <!-- custom js-->

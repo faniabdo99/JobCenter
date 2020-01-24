@@ -39,7 +39,7 @@
                                 <input type="checkbox" value="{{$Category->id}}" id="{{$Category->id}}" name="cb">
                                 <label for="{{$Category->id}}">{{$Category->title}}<span> ({{count($Category->Jobs)}})</span></label>
                             </p>
-                            @empty 
+                            @empty
                             <p class="job_field">
                                 <input type="checkbox" id="all" name="1">
                                 <label for="all">All<span> ({{count($Jobs)}})</span></label>
@@ -53,61 +53,26 @@
                         <div class="job_filter_sidebar_heading jb_cover">
                             <h1>jobs by  location</h1>
                         </div>
-
                         <div class="category_jobbox jb_cover">
-                            <p class="job_field">
-                                <input type="checkbox" id="c01" name="cb">
-                                <label for="c01">Jobs in delhi
-                                    <span> (24)</span></label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c02" name="cb">
-                                <label for="c02">
-                                    Jobs in mumbai
-                                    <span> (1242)</span>
-                                </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c03" name="cb">
-                                <label for="c03">Jobs in chennai
-                                    <span>(458)</span>
-                                </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c04" name="cb">
-                                <label for="c04">Jobs in indore
-                                    <span> (1047)</span>
-                                </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c05" name="cb">
-                                <label for="c05">Job in bhopal <span> (124)</span> </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c06" name="cb">
-                                <label for="c06">Job in pune <span> (124)</span> </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c07" name="cb">
-                                <label for="c07">Job in banglore <span> (124)</span> </label>
-                            </p>
-                            <div class="seeMore"><a href="#">view all categories</a></div>
+                          @forelse($Cites as $City)
+                            <p class="job_field"><input type="checkbox" id="{{$City->id}}" name="cb"><label for="c011">Jobs in {{$City->name}}<span> ({{count($City->Job)}})</span></label></p>
+                          @empty
+                            <p class="job_field">No Cites Yet</p>
+                          @endforelse
                         </div>
                     </div>
-                    
+
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
-                            <h1>salary</h1>
+                            <h1>salary (IQD)</h1>
                         </div>
                         <div class="category_jobbox jb_cover">
                             <div class="widget price-range">
                                 <ul>
                                     <li class="range">
                                         <div id="range-price" class="range-box"></div>
-
                                         <input type="text" id="price" class="price-box" readonly/>
                                     </li>
-
                                 </ul>
                             </div>
                         </div>
@@ -132,11 +97,11 @@
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                                     <div class="jp_job_post_side_img">
-                                                        <img src="{{$Job->Company->profile_image}}" alt="post_img" width="60" height="60" />
+                                                        <img src="{{$Job->Company->profile_image}}" alt="{{$Job->Company->name}}" width="60" height="60" />
                                                         <br> <span>{{$Job->Company->name}}</span>
                                                     </div>
                                                     <div class="jp_job_post_right_cont">
-                                                        <h4><a href="#">{{$Job->title}}, ({{$Job->experience}})</a></h4>
+                                                        <h4><a href="{{route('job' , [$Job->id])}}">{{$Job->title}}, ({{$Job->experience}})</a></h4>
                                                         <ul>
                                                             <li><i class="flaticon-cash"></i>&nbsp; {{$Job->salary}} IQ / Month</li>
                                                             <li><i class="flaticon-location-pointer"></i>&nbsp; {{$Job->address}}</li>
@@ -146,12 +111,21 @@
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                                     <div class="jp_job_post_right_btn_wrapper jb_cover">
                                                         <ul>
+                                                          @auth
+                                                            @php
+                                                              $isLikedByUser = \App\Like::where([
+                                                                ['item_type' , 'job'],
+                                                                ['item_id' , $Job->id],
+                                                                ['user_id' , auth()->user()->id],
+                                                              ])->count();
+                                                            @endphp
                                                             <li>
-                                                                <div class="job_adds_right">
-                                                                    <a href="#!"><i class="far fa-heart"></i></a>
+                                                              <div class="job_adds_right @if($isLikedByUser > 0) change change22 @endif">
+                                                                    <a class="likeButton" href="javascript:;" item-type="job" item-owner={{$Job->Company->id}} action-route="{{route('like.post')}}" item-id="{{$Job->id}}"><i class="far fa-heart"></i></a>
                                                                 </div>
                                                             </li>
-                                                            <li><a href="job_single.html">{{$Job->type}}</a></li>
+                                                          @endauth
+                                                            <li><a href="#">{{$Job->type}}</a></li>
                                                             <li> <a href="#" data-toggle="modal" data-target="#myModal01">apply</a></li>
                                                         </ul>
                                                     </div>
@@ -202,7 +176,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @empty 
+                                    @empty
                                     <p>No Jobs Yet</p>
                                     @endforelse
                                 </div>
@@ -219,7 +193,7 @@
                                                         <br> <span>{{$Job->Company->name}}</span>
                                                     </div>
                                                     <div class="jp_job_post_right_cont">
-                                                        <h4><a href="#">{{$Job->title}}, ({{$Job->experience}} +)</a></h4>
+                                                        <h4><a href="{{route('job' , [$Job->id])}}">{{$Job->title}}, ({{$Job->experience}} +)</a></h4>
 
                                                         <ul>
                                                             <li><i class="flaticon-cash"></i>&nbsp; {{$Job->salary}} IQD / Month</li>
@@ -230,11 +204,22 @@
                                                 <div class="col-lg-3 col-md-3 col-sm-12 col-12">
                                                     <div class="jp_job_post_right_btn_wrapper">
                                                         <ul>
+                                                          @auth
+                                                            @php
+                                                              $isLikedByUser = \App\Like::where([
+                                                                ['item_type' , 'job'],
+                                                                ['item_id' , $Job->id],
+                                                                ['user_id' , auth()->user()->id],
+                                                              ])->count();
+
+                                                            @endphp
+
                                                             <li>
-                                                                <div class="job_adds_right">
-                                                                    <a href="#!"><i class="far fa-heart"></i></a>
+                                                                <div class="job_adds_right @if($isLikedByUser > 0) change change22 @endif">
+                                                                    <a class="likeButton" href="javascript:;" item-type="job" item-owner={{$Job->Company->id}} action-route="{{route('like.post')}}" item-id="{{$Job->id}}"><i class="far fa-heart"></i></a>
                                                                 </div>
                                                             </li>
+                                                          @endauth
                                                             <li><a href="job_single.html">{{$Job->type}}</a></li>
                                                             <li> <a href="#" data-toggle="modal" data-target="#myModal1">apply</a></li>
                                                         </ul>
@@ -283,7 +268,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @empty 
+                                    @empty
                                     <p>No Resultes</p>
                                     @endforelse
                                 </div>
@@ -361,43 +346,11 @@
                         </div>
 
                         <div class="category_jobbox jb_cover">
-                            <p class="job_field">
-                                <input type="checkbox" id="c011" name="cb">
-                                <label for="c011">Jobs in delhi
-                                    <span> (24)</span></label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c021" name="cb">
-                                <label for="c021">
-                                    Jobs in mumbai
-                                    <span> (1242)</span>
-                                </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c031" name="cb">
-                                <label for="c031">Jobs in chennai
-                                    <span>(458)</span>
-                                </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c041" name="cb">
-                                <label for="c041">Jobs in indore
-                                    <span> (1047)</span>
-                                </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c051" name="cb">
-                                <label for="c051">Job in bhopal <span> (124)</span> </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c061" name="cb">
-                                <label for="c061">Job in pune <span> (124)</span> </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c071" name="cb">
-                                <label for="c071">Job in banglore <span> (124)</span> </label>
-                            </p>
-                            <div class="seeMore"><a href="#">view all categories</a></div>
+                          @forelse($Cites as $City)
+                            <p class="job_field"><input type="checkbox" id="{{$City->id}}" name="cb"><label for="c011">Jobs in {{$City->name}}<span> ({{count($City->Job)}})</span></label></p>
+                          @empty
+                            <p class="job_field">No Cites Yet</p>
+                          @endforelse
                         </div>
                     </div>
                     <div class="job_filter_category_sidebar jb_cover">

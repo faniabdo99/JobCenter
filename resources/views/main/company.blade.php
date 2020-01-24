@@ -48,11 +48,23 @@
                             <div class="col-lg-4 col-md-5 col-sm-12 col-12">
                                 <div class="jp_job_post_right_btn_wrapper web_single_btn">
                                     <ul>
-                                        <li>
-                                            <div class="job_adds_right">
-                                                <a href="#!"><i class="far fa-heart"></i></a>
-                                            </div>
-                                        </li>
+                                        @auth
+                                          @php
+                                          $isLikedByUser = \App\Like::where([
+                                            ['item_type' , 'company'],
+                                            ['item_id' , $Company->id],
+                                            ['user_id' , auth()->user()->id],
+                                          ])->count();
+                                          if($isLikedByUser > 0){
+                                            $Liked = 'change change22';
+                                          }
+                                          @endphp
+                                          <li>
+                                              <div class="job_adds_right {{$Liked ?? ''}}">
+                                                  <a class="likeButton" href="javascript:;" item-type="company" action-route="{{route('like.post')}}" item-id="{{$Company->id}}"><i class="far fa-heart"></i></a>
+                                              </div>
+                                          </li>
+                                        @endauth
                                         <li><a href="job_single.html">{{count($Company->Jobs)}} open positions</a></li>
                                     </ul>
                                 </div>
@@ -94,7 +106,7 @@
                         <div class="related_product_job cmpny_related_jobs jb_cover">
                             <div class="owl-carousel owl-theme">
                                 <div class="item">
-                                    
+
                                     @forelse($Jobs1 as $Job)
                                     <div class="job_listing_left_fullwidth cmpny_single_slidr jb_cover">
                                         <div class="row">
@@ -128,10 +140,10 @@
 
                                         </div>
                                     </div>
-                                    @empty 
+                                    @empty
                                     @endforelse
                                 </div>
-                                <div class="item">       
+                                <div class="item">
                                 @forelse($Jobs2 as $Job)
                                 <div class="job_listing_left_fullwidth cmpny_single_slidr jb_cover">
                                     <div class="row">
@@ -190,7 +202,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            
+
                             <div class="jp_listing_overview_list_main_wrapper jb_cover">
                                 <div class="jp_listing_list_icon">
                                     <i class="fas fa-map-marker-alt"></i>

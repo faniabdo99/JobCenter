@@ -26,11 +26,11 @@ class User extends Authenticatable{
     public function getCvAttribute(){
         return url('storage/app/public/resumes/')."/".$this->resume;
     }
-    public function DashLink(){
+    public function DashLink($newRoute = null){
         if($this->type == 'user'){
-            return route('dash.user.home');
+            return route('dash.user.home').'/'.$newRoute;
         }else{
-            return route('dash.company.home');
+            return route('dash.company.home').'/'.$newRoute;
         }
     }
     //Only For Companies
@@ -47,5 +47,19 @@ class User extends Authenticatable{
     public function City(){
         return $this->belongsTo(City::class , 'city_id');
     }
-
+    public function Application(){
+      if($this->type == 'user'){
+        return $this->hasMany(Application::class , 'user_id');
+      }elseif($this->type == 'company'){
+        return $this->hasMany(Application::class , 'company_id');
+      }else {
+        return null;
+      }
+    }
+    public function FavJobs(){
+      return Like::where([
+        ['item_type' , 'job'],
+        ['user_id' , $this->id]
+      ])->get();
+    }
 }

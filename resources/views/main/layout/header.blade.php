@@ -12,6 +12,9 @@
     <meta name="keywords" content="JB desks,job portal,job" />
     <meta name="author" content="Semicolon Group" />
     <meta name="MobileOptimized" content="320" />
+    @auth
+    <meta name="user_id" content="{{auth()->user()->id}}">
+    @endauth
     <!--Template style -->
     <link rel="stylesheet" type="text/css" href="{{url('public/main/css/')}}/animate.css" />
     <link rel="stylesheet" type="text/css" href="{{url('public/main/css/')}}/bootstrap.min.css" />

@@ -7,10 +7,10 @@
         </div>
         <div class="emp_follow_link jb_cover">
            <ul class="feedlist">
-                <li><a href="{{route('dash.user.home')}}" class="link_active"><i class="fas fa-tachometer-alt"></i> dashboard </a></li>
+                <li><a href="{{route('dash.user.home')}}"><i class="fas fa-tachometer-alt"></i> dashboard </a></li>
                 <li><a href="{{route('dash.user.edit')}}"> <i class="fas fa-edit"></i>edit profile</a></li>
                 <li><a href="{{route('dash.user.resume')}}"><i class="fas fa-file"></i>resume </a></li>
-                <li><a href="candidate_favourite_job.html"><i class="fas fa-heart"></i>favourite</a></li>
+                <li><a href="{{route('dash.like.all')}}"><i class="fas fa-heart"></i>favourite</a></li>
                 <li><a href="{{route('dash.user.applications')}}"><i class="fas fa-check-square"></i>applied job</a></li>
             </ul>
         </div>
