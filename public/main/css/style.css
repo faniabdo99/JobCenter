@@ -1,12 +1,12 @@
-/*-------------------------------------   
+/*-------------------------------------
 	Author: JB desks
-	Copyright © 2019-20 
+	Copyright © 2019-20
 	Developed By: Webstrot
 ---------------------------------------
-    
+
     CSS INDEX
     ===================
-	
+
     1. BODY
 	2. CUSTOM CSS / A
 	3. PRELOADER
@@ -127,14 +127,14 @@ a:hover {
   background-color:#fff;
   z-index: 9999999;
   height: 100%;
-  width: 100%;	
+  width: 100%;
   -webkit-transition: .2s all ease;
   -o-transition: .2s all ease;
   transition: .2s all ease;
   -webkit-transition-delay: .5s;
   -o-transition-delay: .5s;
-  transition-delay: .5s; 
- }  
+  transition-delay: .5s;
+ }
 .jb_preloader .spinner_wrap{
 	position: absolute;
 	top: 50%;
@@ -152,25 +152,25 @@ a:hover {
     position: absolute;
     height: 50%;
     width: 100%;
-    background-color: #ff3366;	
+    background-color: #ff3366;
     -webkit-transition: .7s all ease;
     -o-transition: .7s all ease;
     transition: .7s all ease;
 }
 .jb_preloader:before{
     top: 0;
-    left: 0; 
+    left: 0;
 }
 .jb_preloader:after{
     bottom: 0;
-	left: 0; 
+	left: 0;
 }
 .jb_preloader.loaded:before, .jb_preloader.loaded:after{height: 0%;}
 .spinner {
   width: 70px;
   height: 70px;
   background-color: #fff;
-  border-radius: 100%;  
+  border-radius: 100%;
   -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
   animation: sk-scaleout 1.0s infinite ease-in-out;
 }
@@ -182,7 +182,7 @@ a:hover {
   }
 }
 @keyframes sk-scaleout {
-  0% { 
+  0% {
     -webkit-transform: scale(0);
     transform: scale(0);
   } 100% {
@@ -245,9 +245,9 @@ a:hover {
     }
 }
 .cursor {
-  -webkit-border-radius: 50%; 
-   -moz-border-radius: 50%; 
-   border-radius: 50%; 
+  -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   border-radius: 50%;
   display: block;
   position: fixed;
   margin-top: -10px;
@@ -692,7 +692,7 @@ a:hover {
   from {
     -webkit-mask-position: 150%;
   }
-  
+
   to {
     -webkit-mask-position: -50%;
   }
@@ -1067,9 +1067,9 @@ a:hover {
 	position: absolute;
 	display:block;
 	background-color: #fff;
-		-webkit-border-radius: 0; 
-	-moz-border-radius: 0; 
-	border-radius: 0; 
+		-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
 	-moz-box-shadow: 0 6px 12px rgba(0,0,0,.100);
 	-webkit-box-shadow:0 6px 12px rgba(0,0,0,.100);
 	box-shadow: 0 6px 12px rgba(0,0,0,.100);
@@ -1167,7 +1167,7 @@ a:hover {
 	background-image:url('../images/emp_img.png');
 	background-repeat: repeat-x;
 	min-height:466px;
-	background-position: 
+	background-position:
 		0 20%,
 		0 95%,
 		0 0,
@@ -1178,13 +1178,13 @@ a:hover {
 }
 @keyframes para {
 	100% {
-	background-position: 
+	background-position:
 	-5000px 20%,
 	-800px 95%,
 	500px 0,
 	1000px 100%,
 	400px 0;
-  }	
+  }
 }
 .jb_banner_left h1{
 	font-size:50px;
@@ -1192,7 +1192,7 @@ a:hover {
 	text-transform:capitalize;
 	color:#393939;
 	font-weight:400;
-	padding-bottom:20px;	
+	padding-bottom:20px;
 }
 .jb_banner_left p{
 	padding-bottom:30px;
@@ -1208,9 +1208,9 @@ a:hover {
     padding-left: 24px;
     background: transparent;
     color: #555;
-		-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+		-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
 	background:#fff;
 	line-height:50px;
     border: 1px solid #e2e2e2;
@@ -1252,9 +1252,9 @@ a:hover {
     margin-bottom: 15px;
     text-transform: capitalize;
     line-height: 50px;
-	-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+	-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
 	font-style:italic;
     border: 1px solid #e2e2e2;
 	position:relative;
@@ -1431,9 +1431,9 @@ a:hover {
     content: '';
     width: 600px;
     height: 600px;
-   	-webkit-border-radius: 50%; 
-  -moz-border-radius: 50%; 
-   border-radius: 50%; 
+   	-webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+   border-radius: 50%;
     position: absolute;
     bottom: 38%;
     left: 50%;
@@ -1602,9 +1602,9 @@ a:hover {
 }
 .latest_job_tabs .nav-tabs .nav-item.show .nav-link, .latest_job_tabs .nav-tabs .nav-link.active {
     color: #442b90;
-		-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+		-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
 	border:0;
 	background:transparent;
 }
@@ -1685,9 +1685,9 @@ a:hover {
     height: 30px;
     line-height: 30px;
     background: #ff3366;
-   	-webkit-border-radius: 100px; 
-  -moz-border-radius: 100px; 
-   border-radius: 100px; 
+   	-webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+   border-radius: 100px;
     color: #fff;
     opacity: 1 !important;
 }
@@ -1709,9 +1709,9 @@ a:hover {
     height: 50px;
     padding-left: 20px;
     color: #555;
-   	-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+   	-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
     background: transparent;
     text-transform: capitalize;
     line-height: 50px;
@@ -1777,9 +1777,9 @@ a:hover {
 	line-height:40px;
 	background: #ff3366;
     color: #fff;
-	-webkit-border-radius: 50px; 
-  -moz-border-radius: 50px; 
-   border-radius: 50px; 
+	-webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+   border-radius: 50px;
 	border:0;
 	text-align:center;
 	text-transform:capitalize;
@@ -1853,9 +1853,9 @@ a:hover {
     left: 64px;
     right: 0;
     margin: 0 auto;
-   	-webkit-border-radius: 100%; 
-  -moz-border-radius: 100%; 
-   border-radius: 100%; 
+   	-webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+   border-radius: 100%;
     opacity: 0.3;
     -webkit-transform: scale(1.4);
     transform: scale(1.4);
@@ -1978,9 +1978,9 @@ a:hover {
 	border:1px solid #e2e2e2;
 	background:#fff;
     position: absolute;
-		-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+		-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
     text-align: center;
 	-webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
@@ -2005,9 +2005,9 @@ a:hover {
 	border:1px solid #e2e2e2;
 	background:#fff;
     text-align: center;
-	-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+	-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
 	-webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;
@@ -2301,9 +2301,9 @@ a:hover {
     border: 1px solid #e2e2e2;
     background: #fff;
     position: absolute;
-   	-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+   	-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
     text-align: center;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
@@ -2324,9 +2324,9 @@ a:hover {
     border: 1px solid #e2e2e2;
     background: #fff;
     text-align: center;
-  	-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+  	-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;
@@ -2407,7 +2407,7 @@ a:hover {
 	padding-bottom:220px;
 }
 .download_app_store{
-	text-align:right;	
+	text-align:right;
 }
 .download_app_store h1{
 	font-size:44px;
@@ -2455,9 +2455,9 @@ a:hover {
     left: 315px;
     right: 0;
     margin: 0 auto;
-   	-webkit-border-radius: 100%; 
-  -moz-border-radius: 100%; 
-   border-radius: 100%; 
+   	-webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+   border-radius: 100%;
     opacity: 0.3;
     -webkit-transform: scale(12.4);
     transform: scale(2.4);
@@ -2612,7 +2612,7 @@ a:hover {
 	font-size:30px;
 	padding:30px 0;
 	padding-bottom:20px;
-	text-transform:capitalize; 
+	text-transform:capitalize;
 }
 #accordion .card {
   background: #fff;
@@ -2620,7 +2620,7 @@ a:hover {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  margin-bottom:20px;  
+  margin-bottom:20px;
 }
 #accordion .card_pagee h5 {
   font-weight: 500;
@@ -2650,7 +2650,7 @@ a:hover {
     right: 15px;
 }
 #accordion .card_pagee a.collapsed {
-   color: #222; 
+   color: #222;
     background-color: #fff;
     display: block;
     padding: 10px 3px;
@@ -2660,7 +2660,7 @@ a:hover {
     border-bottom: 1px solid #e2e2e2;
 }
 #accordion .card_pagee a{
-    color: #ff3366; 
+    color: #ff3366;
     background-color: #fff;
     display: block;
     padding: 10px 3px;
@@ -2673,7 +2673,7 @@ a:hover {
 	color:#ff3366;
 }
 #accordion .card_pagee a.collapsed:after {
-	 color: #333; 
+	 color: #333;
 }
 .job_newsletter_wrapper{
 	margin:90px 0;
@@ -2973,16 +2973,16 @@ a:hover {
     display: block;
     margin: 5px;
     background: #fff;
-   	-webkit-border-radius: 30px; 
-  -moz-border-radius: 30px; 
-   border-radius: 30px; 
+   	-webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+   border-radius: 30px;
 	-webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
 }
-.about_slider_wrapper .owl-theme .owl-dots .owl-dot.active span, 
+.about_slider_wrapper .owl-theme .owl-dots .owl-dot.active span,
 .about_slider_wrapper .owl-theme .owl-dots .owl-dot:hover span  {
 	background:#ff3366;
 	-webkit-transition: all 0.5s;
@@ -2991,7 +2991,7 @@ a:hover {
     -moz-transition: all 0.5s;
     transition: all 0.5s;
 }
-.about_slider_wrapper .owl-theme .owl-dots .owl-dot.active, 
+.about_slider_wrapper .owl-theme .owl-dots .owl-dot.active,
 .about_slider_wrapper .owl-theme .owl-dots .owl-dot:hover{
 	-webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
@@ -3060,9 +3060,9 @@ a:hover {
     border: 1px solid #e2e2e2;
     background: #fff;
     position: absolute;
-   	-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+   	-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
     text-align: center;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
@@ -3082,9 +3082,9 @@ a:hover {
     border: 1px solid #e2e2e2;
     background: #fff;
     text-align: center;
-   	-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+   	-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;
@@ -3183,7 +3183,7 @@ a:hover {
 	padding:25px;
 }
 .job_field input[type="checkbox"] {
-  display: none; 
+  display: none;
 }
 .job_field label {
   cursor: pointer;
@@ -3205,9 +3205,9 @@ a:hover {
   padding: 0;
   vertical-align: top;
   width: 14px;
- 	-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+ 	-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
 }
 .job_field input[type="checkbox"]:checked + label:before {
 	border: 0;
@@ -3226,7 +3226,7 @@ a:hover {
     margin-left: 26px;
 }
 .job_field input[type="checkbox"] {
-  display: none;  
+  display: none;
 }
 .seeMore a{
 	padding-top:10px;
@@ -3249,9 +3249,9 @@ a:hover {
 }
 .price-range .ui-widget-content .ui-state-default {
     background: #fff;
-   	-webkit-border-radius: 100%; 
-  -moz-border-radius: 100%; 
-   border-radius: 100%; 
+   	-webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+   border-radius: 100%;
     cursor: pointer;
     border: 2px solid #ff3366;
     margin-top: -2px;
@@ -3310,9 +3310,9 @@ a:hover {
 }
 .jp_add_resume_cont .width_50 {margin:0;}
 .jp_add_resume_cont .width_50 .dropify-wrapper{
-		-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+		-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
 	display:inline-block;
 	margin:0;
 	width:150px;
@@ -3344,9 +3344,9 @@ a:hover {
     font-size: 16px;
     height: 41px;
     line-height: 41px;
-	-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+	-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
     width: 41px;
     text-align: center;
 	padding:0;
@@ -3374,9 +3374,9 @@ a:hover {
 }
 .filter-area .nice-select{
 	border:1px solid #e2e2e2;
-		-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+		-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
 	width:230px;
 	text-transform:capitalize;
 }
@@ -3464,7 +3464,7 @@ a:hover {
 }
 .jp_job_post_right_btn_wrapper li:first-child{
 	margin-left:0;
-}  
+}
 .jp_job_post_right_btn_wrapper li:nth-child(2) a::before {
     content: '';
     position: absolute;
@@ -3646,10 +3646,12 @@ a:hover {
 }
 .blog_pagination_section .next:hover i:before, .blog_pagination_section .prev:hover i:before {
 	color:#fff;
-} 
+}
 .blog_pagination_section .third_pagger a {
     background: #ff3366;
     color: #fff;
+		padding: 0 20px;
+		width:100px;
 }
 /***-----job single wrapper css-----***/
 .job_single_wrapper{
@@ -3735,9 +3737,9 @@ a:hover {
 	text-transform:uppercase;
 	font-weight:bold;
 	background:#23c0e9;
-	-webkit-border-radius: 10px; 
-  -moz-border-radius: 10px; 
-   border-radius: 10px; 
+	-webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+   border-radius: 10px;
    -webkit-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	-ms-transition: all 0.5s;
@@ -3765,9 +3767,9 @@ a:hover {
 	text-transform:uppercase;
 	font-weight:bold;
 	background:#ff5353;
-	-webkit-border-radius: 10px; 
-  -moz-border-radius: 10px; 
-   border-radius: 10px; 
+	-webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+   border-radius: 10px;
    -webkit-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	-ms-transition: all 0.5s;
@@ -3882,9 +3884,9 @@ a:hover {
     float: left;
     width: 100%;
     height: 300px;
-		-webkit-border-radius: 10px; 
-  -moz-border-radius: 10px; 
-   border-radius: 10px; 
+		-webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+   border-radius: 10px;
 }
 .jp_listing_left_bottom_sidebar_social_wrapper li{
 	float:left;
@@ -3905,10 +3907,10 @@ a:hover {
 	float:left;
 	width:40px;
 	height:40px;
-		-webkit-border-radius: 50px; 
-  -moz-border-radius: 50px; 
-   border-radius: 50px; 
-	background:transparent; 
+		-webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+   border-radius: 50px;
+	background:transparent;
 	text-align:center;
 	line-height:40px;
 	color:#797979;
@@ -3918,7 +3920,7 @@ a:hover {
 	color:#797979;
 }
 .jp_listing_left_bottom_sidebar_social_wrapper li a:hover{
-	background:#ff3366; 
+	background:#ff3366;
 	border:1px solid #ff3366;
 }
 .jp_listing_left_bottom_sidebar_social_wrapper li a:hover i{
@@ -3953,9 +3955,9 @@ a:hover {
     border: 1px solid #e2e2e2;
     background: #fff;
     position: absolute;
-   	-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+   	-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
     text-align: center;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
@@ -3976,9 +3978,9 @@ a:hover {
     border: 1px solid #e2e2e2;
     background: #fff;
     text-align: center;
-   -webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+   -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;
@@ -4041,7 +4043,7 @@ a:hover {
 	font-size:16px;
 }
 .web_text{
-	padding-left:40px;	
+	padding-left:40px;
 }
 .web_single_btn ul{
 	padding-top:15px;
@@ -4362,13 +4364,13 @@ a:hover {
 	-webkit-border-radius:50px;
 	-moz-border-radius:50px;
 	border-radius:50px;
-	background:transparent; 
+	background:transparent;
 	text-align:center;
 	line-height:35px;
 	color:#797979;
 }
 .jp_blog_bottom_right_cont li a:hover{
-	background:#ff3366; 
+	background:#ff3366;
 	color:#ffffff;
 	-webkit-transition: all 0.5s;
 	-o-transition: all 0.5s;
@@ -4557,9 +4559,9 @@ a:hover {
     padding: 15px 23px;
     font-size: 16px;
     border: 1px solid #e2e2e2;
-   -webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+   -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
     box-shadow: none;
 	-webkit-transition: all 0.3s ease 0s;
    -moz-transition: all 0.3s ease 0s;
@@ -4581,7 +4583,7 @@ a:hover {
 	-webkit-transition: all 0.3s ease 0s;
    -moz-transition: all 0.3s ease 0s;
    -o-transition: all 0.3s ease 0s;
-   transition: all 0.3s ease 0s;	
+   transition: all 0.3s ease 0s;
 }
 .comments_form .form-group{
 	position: relative;
@@ -4677,9 +4679,9 @@ a:hover {
     width: 100%;
     height: 600px;
 	padding:0;
-	-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+	-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
 }
 .contact_field_wrapper{
 	float:left;
@@ -4952,9 +4954,9 @@ a:hover {
     left: auto;
     right: 0;
 	margin-top:30px;
-		-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+		-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
 	border:1px solid #e2e2e2;
 	border-top:2px solid #57ac60;
 	-ms-box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -4972,7 +4974,7 @@ a:hover {
 	float:left;
 	padding:5px 20px;
 	color:#797979;
-	text-transform:capitalize;	
+	text-transform:capitalize;
 }
 .jb_profile_box .list li a:hover{
 	color:#fff;
@@ -5019,9 +5021,9 @@ a:hover {
 	float:left;
 	width:100%;
 	height:900px;
-		-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+		-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
 }
 .index_2_category_job .jb_top_jobs_category:hover{
 	margin-top:0;
@@ -5129,7 +5131,7 @@ a:hover {
 }
 .index_2_category_job .jb_top_jobs_category img{
 	width:auto !important;
-	display:inline-block !important; 
+	display:inline-block !important;
 }
 .index_2_category_job .jb_top_jobs_category{
 	border:1px solid #57ac60;
@@ -5488,7 +5490,7 @@ a:hover {
 }
 .partner_wrapper .jb_top_jobs_category img{
 	width:auto !important;
-	display:inline-block !important; 
+	display:inline-block !important;
 }
 .partner_job_wrapper{
 	padding-bottom:100px;
@@ -5599,9 +5601,9 @@ a:hover {
     text-align:center;
     border: none;
     background-size: 300% 100%;
-   	-webkit-border-radius: 50px; 
-  -moz-border-radius: 50px; 
-   border-radius: 50px; 
+   	-webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+   border-radius: 50px;
     moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
@@ -5749,7 +5751,7 @@ width:100%;
 	position:absolute;
 	top:44%;
 	float:left;
-	width:100%;	
+	width:100%;
 }
 .carousel-nevigation > .prev{
 	left:-138px;
@@ -5900,9 +5902,9 @@ width:100%;
 }
 .index3_form_box{
 	border:1px solid #e2e2e2;
-		-webkit-border-radius: 100px; 
-  -moz-border-radius: 100px; 
-   border-radius: 100px; 
+		-webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+   border-radius: 100px;
 }
 .select_box3{
 	float:left;
@@ -5957,14 +5959,14 @@ width:100%;
 	position:relative;
 }
 .index3_tab_wrapper .nav, .index3_tab_wrapper .nav li{
-		-webkit-border-radius: 100px; 
-  -moz-border-radius: 100px; 
-   border-radius: 100px; 
+		-webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+   border-radius: 100px;
 }
 .index3_tab_wrapper .nav-tabs .nav-item.show .nav-link, .index3_tab_wrapper .nav-tabs .nav-link.active{
-		-webkit-border-radius: 100px; 
-  -moz-border-radius: 100px; 
-   border-radius: 100px; 
+		-webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+   border-radius: 100px;
 	background: rgb(180, 70, 255);
     background: -moz-linear-gradient(90deg, rgb(180, 70, 255) 25%, rgb(109, 104, 254) 100%);
     background: -webkit-linear-gradient(90deg, rgb(180, 70, 255) 25%, rgb(109, 104, 254) 100%);
@@ -6020,9 +6022,9 @@ width:100%;
     -ms-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
-		-webkit-border-radius: 100px; 
-  -moz-border-radius: 100px; 
-   border-radius: 100px; 
+		-webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+   border-radius: 100px;
 }
 .index3_listing_jobs:hover{
 	background: rgb(180, 70, 255);
@@ -6124,9 +6126,9 @@ width:100%;
 .playstore_2 a{
 	height:50px;
 	line-height:50px;
-		-webkit-border-radius: 100px; 
-  -moz-border-radius: 100px; 
-   border-radius: 100px; 
+		-webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+   border-radius: 100px;
 }
 .playstore_2 a.ss_appstore:hover, .playstore_2 a.ss_playstore:hover{
 	background: rgb(180, 70, 255);
@@ -6161,9 +6163,9 @@ width:100%;
     border: 0;
     background: transparent;
     position: absolute;
-   	-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+   	-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
     text-align: center;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
@@ -6187,9 +6189,9 @@ width:100%;
     border:0;
     background: transparent;
     text-align: center;
-  	-webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
-   border-radius: 0; 
+  	-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+   border-radius: 0;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;
@@ -6398,19 +6400,19 @@ width:100%;
     left: -34px;
     top: 46%;
     margin-top: -20px;
-	-webkit-border-radius: 20px; 
-   -moz-border-radius: 20px; 
-    border-radius: 20px; 
-	-ms-transform: rotate(45deg); 
-    -webkit-transform: rotate(45deg); 
+	-webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+    border-radius: 20px;
+	-ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
 .jp_regis_center_tag_wrapper p{
 	color:#222;
 	font-size:20px;
 	font-weight:bold;
-	-ms-transform: rotate(-45deg); 
-    -webkit-transform: rotate(-45deg); 
+	-ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
 	margin-top: 23px;
 }
@@ -6501,9 +6503,9 @@ width:100%;
 	line-height:40px;
 	font-size:16px;
 	background:#fff;
-	-webkit-border-radius: 100px; 
-    -moz-border-radius: 100px; 
-    border-radius: 100px; 
+	-webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
 	text-align:center;
 	color:#222;
 	border:1px solid #e2e2e2;
@@ -6567,7 +6569,7 @@ width:100%;
   bottom: 25px;
   right: 35px;
   width: 55px;
-  height: 55px;  
+  height: 55px;
   border-radius: 50%;
   color: white;
   z-index:100;
@@ -6600,12 +6602,12 @@ width:100%;
   position:fixed;
   right:30px;
   z-index:10000;
-  bottom:34px; 
+  bottom:34px;
 background:#fff;
   width:350px;
   max-width: 85vw;
   max-height:100vh;
-  border-radius:5px;  
+  border-radius:5px;
   -ms-box-shadow: 0 6px 35px rgba(0,0,0,0.1);
     -moz-box-shadow: 0 6px 35px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 6px 35px rgba(0,0,0,0.1);
@@ -6627,10 +6629,10 @@ background:#fff;
     padding-left: 30px;
 }
 .chat-box-body {
-  position: relative;  
-  height:370px;  
+  position: relative;
+  height:370px;
   height:auto;
-  border:1px solid #e2e2e2;  
+  border:1px solid #e2e2e2;
   overflow: hidden;
 }
 .chat-box-body:after {
@@ -6645,13 +6647,13 @@ background:#fff;
   bottom: 0;
   right: 0;
   height:100%;
-  position: absolute;   
+  position: absolute;
 }
 #chat-input {
   background: #fff;
-  width:100%; 
+  width:100%;
   position:relative;
-  height:50px;  
+  height:50px;
   padding-top:10px;
   padding-right:50px;
   padding-bottom:10px;
@@ -6664,7 +6666,7 @@ background:#fff;
   border-top:none;
   border-bottom-right-radius:5px;
   border-bottom-left-radius:5px;
-  overflow:hidden;  
+  overflow:hidden;
 }
 .chat-input > form {
     margin-bottom: 0;
@@ -6681,7 +6683,7 @@ background:#fff;
 #chat-input:-moz-placeholder { /* Firefox 18- */
   color: #777;
 }
-.chat-submit {  
+.chat-submit {
   position: absolute;
     bottom: 7px;
     right: 10px;
@@ -6695,7 +6697,7 @@ background:#fff;
     font-size: 18px;
 }
 .chat-logs {
-  padding:15px; 
+  padding:15px;
   height:370px;
   overflow-y:auto;
 }
@@ -6704,7 +6706,7 @@ background:#fff;
 	background-color: #F5F5F5;
 }
 .chat-logs::-webkit-scrollbar{
-	width: 5px;  
+	width: 5px;
 	background-color: #F5F5F5;
 }
 .chat-logs::-webkit-scrollbar-thumb{
@@ -6746,10 +6748,10 @@ background:#fff;
 }
 .chat-msg {
 	clear:both;
-	float:left; width:100%;  
-	margin-bottom:25px;  
+	float:left; width:100%;
+	margin-bottom:25px;
 }
-.chat-msg.self > .cm-msg-text {  
+.chat-msg.self > .cm-msg-text {
   float:right;
   margin-right:10px;
   background: #ff3366;

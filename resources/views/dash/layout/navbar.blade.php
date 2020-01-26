@@ -1,5 +1,10 @@
- <!-- preloader Start -->
- <div class="jb_preloader">
+@php
+$NavCategories = \App\Category::orderBy('id' , 'desc')->limit(6)->get();
+$NavCities = \App\City::orderBy('id' , 'desc')->limit(6)->get();
+$NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
+@endphp
+<!-- preloader Start -->
+<div class="jb_preloader">
     <div class="spinner_wrap">
         <div class="spinner"></div>
     </div>
@@ -12,11 +17,11 @@
 <nav class="cd-dropdown  d-block d-sm-block d-md-block d-lg-none d-xl-none">
     <h2><a href="index.html"> <span><img src="{{url('public/dash/images')}}/logo.png" alt="img"></span></a></h2>
     <a href="#0" class="cd-close">Close</a>
-   <ul class="cd-dropdown-content">
+    <ul class="cd-dropdown-content">
         <li>
-            <form class="cd-search">
-                <input type="search" placeholder="Search...">
-            </form>
+          <form class="cd-search" action="{{route('search')}}" method="get">
+              <input type="search" name="query" placeholder="Search...">
+          </form>
         </li>
         <li><a href="{{route('home')}}">home</a></li>
         <li><a href="{{route('jobs')}}">jobs</a></li>
@@ -43,7 +48,8 @@
                     <div class="col-lg-12">
                         <div class="cd-dropdown-wrapper">
                             <a class="house_toggle" href="#0">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.177 31.177" style="enable-background:new 0 0 31.177 31.177;" xml:space="preserve" width="25px" height="25px">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.177 31.177" style="enable-background:new 0 0 31.177 31.177;"
+                                  xml:space="preserve" width="25px" height="25px">
                                     <g>
                                         <g>
                                             <path class="menubar" d="M30.23,1.775H0.946c-0.489,0-0.887-0.398-0.887-0.888S0.457,0,0.946,0H30.23    c0.49,0,0.888,0.398,0.888,0.888S30.72,1.775,30.23,1.775z" fill="#004165" />
@@ -52,13 +58,16 @@
                                             <path class="menubar" d="M30.23,9.126H12.069c-0.49,0-0.888-0.398-0.888-0.888c0-0.49,0.398-0.888,0.888-0.888H30.23    c0.49,0,0.888,0.397,0.888,0.888C31.118,8.729,30.72,9.126,30.23,9.126z" fill="#004165" />
                                         </g>
                                         <g>
-                                            <path class="menubar" d="M30.23,16.477H0.946c-0.489,0-0.887-0.398-0.887-0.888c0-0.49,0.398-0.888,0.887-0.888H30.23    c0.49,0,0.888,0.397,0.888,0.888C31.118,16.079,30.72,16.477,30.23,16.477z" fill="#004165" />
+                                            <path class="menubar" d="M30.23,16.477H0.946c-0.489,0-0.887-0.398-0.887-0.888c0-0.49,0.398-0.888,0.887-0.888H30.23    c0.49,0,0.888,0.397,0.888,0.888C31.118,16.079,30.72,16.477,30.23,16.477z"
+                                              fill="#004165" />
                                         </g>
                                         <g>
-                                            <path class="menubar" d="M30.23,23.826H12.069c-0.49,0-0.888-0.396-0.888-0.887c0-0.49,0.398-0.888,0.888-0.888H30.23    c0.49,0,0.888,0.397,0.888,0.888C31.118,23.43,30.72,23.826,30.23,23.826z" fill="#004165" />
+                                            <path class="menubar" d="M30.23,23.826H12.069c-0.49,0-0.888-0.396-0.888-0.887c0-0.49,0.398-0.888,0.888-0.888H30.23    c0.49,0,0.888,0.397,0.888,0.888C31.118,23.43,30.72,23.826,30.23,23.826z"
+                                              fill="#004165" />
                                         </g>
                                         <g>
-                                            <path class="menubar" d="M30.23,31.177H0.946c-0.489,0-0.887-0.396-0.887-0.887c0-0.49,0.398-0.888,0.887-0.888H30.23    c0.49,0,0.888,0.398,0.888,0.888C31.118,30.78,30.72,31.177,30.23,31.177z" fill="#004165" />
+                                            <path class="menubar" d="M30.23,31.177H0.946c-0.489,0-0.887-0.396-0.887-0.887c0-0.49,0.398-0.888,0.887-0.888H30.23    c0.49,0,0.888,0.398,0.888,0.888C31.118,30.78,30.72,31.177,30.23,31.177z"
+                                              fill="#004165" />
                                         </g>
                                     </g>
                                 </svg>
@@ -72,18 +81,20 @@
             <!-- .cd-dropdown-wrapper -->
         </header>
         <div class="menu_btn_box jb_cover">
-           <div class="jb_profile_box">
-               <div class="nice-select" tabindex="0"> <span class="current">
-               <img src="{{$User->profile_image}}" alt="{{$User->name}}">
-               <div class="luca_profile_wrapper"><h1><a href="#">{{$User->name}}</a></h1>
-               <p><a href="#">{{$User->email}}</a></p>
-               </div></span>
-                  <ul class="list">
+            <div class="jb_profile_box">
+                <div class="nice-select" tabindex="0"> <span class="current">
+                        <img src="{{$User->profile_image}}" alt="{{$User->name}}">
+                        <div class="luca_profile_wrapper">
+                            <h1><a href="#">{{$User->name}}</a></h1>
+                            <p><a href="#">{{$User->email}}</a></p>
+                        </div>
+                    </span>
+                    <ul class="list">
                         <li><a href="{{$User->DashLink('edit')}}"><i class="fas fa-user-edit"></i>account</a></li>
                         <li><a href="{{$User->DashLink('edit')}}"><i class="fas fa-cog"></i>Setting</a></li>
                         <li><a href="{{route('logout')}}"><i class="fas fa-sign-in-alt"></i>logout</a></li>
-                </ul>
-               </div>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -93,7 +104,7 @@
                     <li class="gc_main_navigation"><a href="{{route('home')}}" class="gc_main_navigation">home</a></li>
                     <li class="has-mega gc_main_navigation"><a href="{{route('jobs')}}" class="gc_main_navigation">jobs</a></li>
                     <li class="has-mega gc_main_navigation kv_sub_menu">
-                        <a href="#" class="gc_main_navigation">  candidates</a>
+                        <a href="#" class="gc_main_navigation"> candidates</a>
                         <!-- mega menu start -->
                         <ul class="kv_mega_menu">
                             <li class="kv_mega_menu_width">
@@ -101,25 +112,16 @@
                                     <div class="jn_menu_partion_div">
                                         <div class="candidate_width">
                                             <div class="jen_tabs_conent_list jb_cover">
-                                                <h1>job skills</h1>
+                                                <h1>job type</h1>
                                                 <ul>
                                                     <li>
-                                                        <a href="#"><i class="fas fa-square"></i>HTML5 & CSS3</a>
+                                                        <a href="{{route('search' , ['type','full'])}}"><i class="fas fa-square"></i>Full Time</a>
                                                     </li>
                                                     <li>
-                                                        <a href="#"><i class="fas fa-square"></i>wordpress</a>
+                                                        <a href="{{route('search' , ['type','part'])}}"><i class="fas fa-square"></i>Part Time</a>
                                                     </li>
                                                     <li>
-                                                        <a href="#"><i class="fas fa-square"></i>javascript</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="fas fa-square"></i>photoshop</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="fas fa-square"></i>designer</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="fas fa-square"></i>construction</a>
+                                                        <a href="{{route('search' , ['type','rotation'])}}"><i class="fas fa-square"></i>Rotation</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -128,24 +130,14 @@
                                             <div class="jen_tabs_conent_list jb_cover">
                                                 <h1>categories</h1>
                                                 <ul>
+                                                    @forelse($NavCategories as $Category)
                                                     <li>
-                                                        <a href="#"><i class="fas fa-square"></i>graphic design</a>
+                                                        <a href="{{route('search' , ['category' , $Category->id])}}"><i class="fas fa-square"></i>{{$Category->title}}</a>
                                                     </li>
-                                                    <li>
-                                                        <a href="#"><i class="fas fa-square"></i>engineering jobs</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="fas fa-square"></i>mainframe jobs</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="fas fa-square"></i>PSU jobs</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="fas fa-square"></i>goverment jobs</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="fas fa-square"></i>IT company</a>
-                                                    </li>
+                                                    @empty
+                                                    <li>All Catse</li>
+                                                    @endforelse
+
                                                 </ul>
                                             </div>
                                         </div>
@@ -153,24 +145,13 @@
                                             <div class="jen_tabs_conent_list   jb_cover">
                                                 <h1>job location</h1>
                                                 <ul>
+                                                    @forelse($NavCities as $City)
                                                     <li>
-                                                        <a href="#"><i class="fas fa-square"></i>india</a>
+                                                        <a href="{{route('search' , ['city' , $City->id])}}"><i class="fas fa-square"></i>{{$City->name}}</a>
                                                     </li>
-                                                    <li>
-                                                        <a href="#"><i class="fas fa-square"></i>united state</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="fas fa-square"></i>japan</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="fas fa-square"></i>dubai</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="fas fa-square"></i>south africa</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="fas fa-square"></i>china</a>
-                                                    </li>
+                                                    @empty
+                                                    <li>No Cites</li>
+                                                    @endforelse
                                                 </ul>
                                             </div>
                                         </div>
@@ -178,23 +159,17 @@
                                             <div class="jen_tabs_conent_list   jb_cover">
                                                 <h1>open jobs</h1>
                                                 <div class="open_jobs_wrapper">
+                                                    @forelse($NavJobs as $Job)
                                                     <div class="open_jobs_wrapper_1 jb_cover">
-                                                        <img src="{{url('public/dash/images')}}/job1.jpg" alt="img">
+                                                        <img src="{{$Job->Company->profile_image}}" alt="{{$Job->Company->name}}">
                                                         <div class="open_job_text">
-                                                            <h3><a href="#">Some designers
-inelevated the..</a></h3>
-                                                            <p>5 hour ago</p>
-
+                                                            <h3><a href="{{route('job' , $Job->id)}}">{{$Job->title}}</a></h3>
                                                         </div>
                                                     </div>
-                                                    <div class="open_jobs_wrapper_1 jb_cover">
-                                                        <img src="{{url('public/dash/images')}}/job1.jpg" alt="img">
-                                                        <div class="open_job_text">
-                                                            <h3><a href="#">Some designers inelevated the..</a></h3>
-                                                            <p>12 hour ago</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="view_all_job jb_cover"><a href="#">view all jobs</a></div>
+                                                    @empty
+                                                    empty
+                                                    @endforelse
+                                                    <div class="view_all_job jb_cover"><a href="{{route('jobs')}}">view all jobs</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -223,8 +198,8 @@ inelevated the..</a></h3>
                 </div>
                 <!-- Quik search -->
                 <div class="dez-quik-search bg-primary-dark">
-                    <form action="#">
-                        <input name="search" value="" type="text" class="form-control" placeholder="Type to search...">
+                    <form action="{{route('search')}}" method="get">
+                        <input name="search" value="" type="text" name="query" class="form-control" placeholder="Type to search...">
                         <span id="quik-search-remove"><i class="fas fa-times"></i></span>
                     </form>
                 </div>
@@ -232,18 +207,23 @@ inelevated the..</a></h3>
         </div>
     </div>
 </div>
+
+@if ($errors->any())
 <div class="container-fluid">
     <div class="row my-5 text-center" width="100%">
-            @if ($errors->any())
-            <div class="col-md-12 col-xs-12 col-sm-12">
-                @foreach ($errors->all() as $error)
-                <div class="notofication-message error-message text-center">{{ $error }}</div>
-                <br>
-                @endforeach
-            </div>
-            @endif
-            @if(session()->has('success'))
-                <div class="notofication-message success-message text-center">{{ session()->get('success') }}</div>
-            @endif
+        <div class="col-md-12 col-xs-12 col-sm-12">
+            @foreach ($errors->all() as $error)
+            <div class="notofication-message error-message text-center">{{ $error }}</div>
+            <br>
+            @endforeach
+        </div>
     </div>
 </div>
+@endif
+@if(session()->has('success'))
+    <div class="container-fluid">
+        <div class="row my-5 text-center" width="100%">
+            <div class="notofication-message success-message text-center">{{ session()->get('success') }}</div>
+        </div>
+    </div>
+    @endif

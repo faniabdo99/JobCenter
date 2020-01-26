@@ -8,6 +8,7 @@ use App\Job;
 use App\Application;
 use App\Like;
 use App\Category;
+use App\City;
 class JobsController extends Controller{
     private function getUser(){
         if(auth()->check()){
@@ -55,7 +56,6 @@ class JobsController extends Controller{
                 $JobData = $r->except('_token');
                 $JobData['company_id'] = auth()->user()->id;
                 $Job = Job::create($JobData);
-                //Redirect to the job page (TODO)
                 return back()->withSuccess('Job Has Been Created!');
             }
         }
@@ -72,6 +72,53 @@ class JobsController extends Controller{
         return back()->withSuccess('Job Deleted Successfully');
       }else{
         return back()->withErrors('You Can\'t Delete This Job !');
+      }
+    }
+    public function getEdit($job_id){
+      $User = $this->getUser();
+      if(auth()->user()->id == $User->id){
+        $Job = Job::findOrFail($job_id);
+        $Categories = Category::all();
+        $Cities = City::all();
+        return view('dash.company.edit-job' , compact('User' , 'Job' , 'Categories' , 'Cities'));
+      }else{
+        return back()->withErrors('You Can\'t Edit This Job !');
+      }
+    }
+    public function postEdit(Request $r , $job_id){
+      //Get Validation Ready
+      $Rules = [
+          'category_id' => 'required',
+          'title' => 'required',
+          'type' => 'required',
+          'salary' => 'nullable|regex:/^(?=.*[0-9])[- +()0-9]+$/',
+          'description' => 'required|min:40',
+          'position' => 'required',
+          'city_id' => 'required'
+      ];
+      $ErrorMessages = [
+          'category_id.required' => 'You must choose a category',
+          'title.required' => 'You must provide a job title',
+          'type.required' => 'You must choose a type',
+          'salary.regex' => 'The salary must be in form of number and dashes only',
+          'description.min' => 'The job description must be 40 charachters at least',
+          'city_id.required' => 'You must choose a job location',
+          'position.required' => 'You Must Add Job Position'
+      ];
+      $Validator = Validator::make($r->all() , $Rules , $ErrorMessages);
+      if($Validator->fails()){
+          return back()->withErrors($Validator->errors()->all())->withInput();
+      }else{
+          //Make The Job
+          if(auth()->user()->active !== '1'){
+              return back()->withErrors('Your Account is not yet activated');
+          }else{
+              $JobData = $r->except('_token');
+              $JobData['company_id'] = auth()->user()->id;
+              $Job = Job::findOrFail($job_id);
+              $Job->update($JobData);
+              return back()->withSuccess('Job Has Been Updated!');
+          }
       }
     }
     //Get All Jobs Page

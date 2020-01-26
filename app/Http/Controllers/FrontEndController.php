@@ -19,7 +19,7 @@ class FrontEndController extends Controller{
     public function getAllJobs(){
         $Categories = Category::orderBy('id' , 'desc')->limit(6)->get();
         $Cites = City::orderBy('id' , 'desc')->limit(6)->get();
-        $Jobs = Job::orderBy('id' , 'desc')->paginate(12);
+        $Jobs = Job::orderBy('id' , 'desc')->paginate(8);
         return view('main.jobs' , compact('Categories' , 'Jobs' , 'Cites'));
     }
     public function getCompanies(){

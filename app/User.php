@@ -69,4 +69,11 @@ class User extends Authenticatable{
         return null;
       }
     }
+    public function LatestApplications(){
+      if($this->type == 'company'){
+        return Application::where('company_id' , $this->id)->orderBy('id' , 'desc')->limit(3)->get();
+      }else{
+        return null;
+      }
+    }
 }

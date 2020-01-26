@@ -192,7 +192,7 @@
                                                     @if($User->facebook)<li><a target="_blank" href="{{$User->facebook}}"><i class="fab fa-facebook-f"></i></a></li>@endif
                                                     @if($User->twitter)<li><a target="_blank" href="{{$User->twitter}}"><i class="fab fa-twitter"></i></a></li>@endif
                                                     @if($User->linkedin)<li><a target="_blank" href="{{$User->linkedin}}"><i class="fab fa-linkedin-in"></i></a></li>@endif
-                                                    @if($User->google)<li><a target="_blank" href="{{$User->google}}"><i class="fab fa-google-plus-g"></i></a></li>@endif
+                                                    @if($User->google)<li><a target="_blank" href="{{$User->google}}"><i class="fab fa-instagram"></i></a></li>@endif
                                                 </ul>
                                             </div>
                                         </div>
@@ -205,115 +205,33 @@
                                 <div class="job_filter_sidebar_heading jb_cover">
                                     <h1> recent applicants</h1>
                                 </div>
+                                @forelse($User->LatestApplications() as $Application)
                                 <div class="job_overview_header apps_wrapper jb_cover">
                                     <div class="row">
                                         <div class="col-lg-8 col-md-7 col-sm-8 col-12">
                                             <div class="jp_job_post_side_img">
-                                                <img src="images/rc1.png" alt="post_img">
-
+                                                <img width="60" height="60" src="{{$Application->User->profile_image}}" alt="{{$Application->User->name}}">
                                             </div>
                                             <div class="jp_job_post_right_cont">
-                                                <h4>aradhya s.</h4>
-
+                                                <h4>{{$Application->Job->title}}</h4>
                                                 <ul>
-                                                    <li>app designer</li>
-
+                                                    <li>{{$Application->name}}</li>
+                                                    <li>{{$Application->User->Category->title}}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-5 col-sm-4 col-12">
                                             <div class="jp_job_post_right_btn_wrapper jb_cover">
                                                 <div class="header_btn search_btn appbtn jb_cover">
-
-                                                    <a href="#">send</a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="job_overview_header apps_wrapper jb_cover">
-                                    <div class="row">
-                                        <div class="col-lg-8 col-md-7 col-sm-8 col-12">
-                                            <div class="jp_job_post_side_img">
-                                                <img src="images/rc2.png" alt="post_img">
-
-                                            </div>
-                                            <div class="jp_job_post_right_cont">
-                                                <h4>akshay s.</h4>
-
-                                                <ul>
-                                                    <li>app designer</li>
-
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-5 col-sm-4 col-12">
-                                            <div class="jp_job_post_right_btn_wrapper jb_cover">
-                                                <div class="header_btn search_btn appbtn jb_cover">
-
-                                                    <a href="#">send</a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="job_overview_header apps_wrapper jb_cover">
-                                    <div class="row">
-                                        <div class="col-lg-8 col-md-7 col-sm-8 col-12">
-                                            <div class="jp_job_post_side_img">
-                                                <img src="images/rc3.png" alt="post_img">
-
-                                            </div>
-                                            <div class="jp_job_post_right_cont">
-                                                <h4>shruti s.</h4>
-
-                                                <ul>
-                                                    <li>app designer</li>
-
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-5 col-sm-4 col-12">
-                                            <div class="jp_job_post_right_btn_wrapper jb_cover">
-                                                <div class="header_btn search_btn appbtn jb_cover">
-
-                                                    <a href="#">send</a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="job_overview_header apps_wrapper jb_cover">
-                                    <div class="row">
-                                        <div class="col-lg-8 col-md-7 col-sm-8 col-12">
-                                            <div class="jp_job_post_side_img">
-                                                <img src="images/rc4.png" alt="post_img">
-
-                                            </div>
-                                            <div class="jp_job_post_right_cont">
-                                                <h4>simona A.</h4>
-
-                                                <ul>
-                                                    <li>UI designer</li>
-
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-5 col-sm-4 col-12">
-                                            <div class="jp_job_post_right_btn_wrapper jb_cover">
-                                                <div class="header_btn search_btn appbtn jb_cover">
-                                                    <a href="#">send</a>
+                                                    <a href="mailto:{{$Application->email}}">send</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                              @empty
+                                <p>No Applications Yet</p>
+                              @endforelse
                             </div>
                         </div>
                     </div>

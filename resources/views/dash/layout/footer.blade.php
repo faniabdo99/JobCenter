@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-3 col-sm-6 col-12">
                 <div class="footerNav jb_cover">
-                    <a href="#"><img src="images/logo2.png" alt="img"></a>
+                    <a href="#"><img src="{{url('public/dash/images/')}}/logo2.png" alt="img"></a>
                     <ul class="footer_first_contact">
                         <li><i class="flaticon-location-pointer"></i>
                             <p>123 City Avenue, Floor 10,
@@ -29,7 +29,7 @@
                                 </a>
                         </li>
                         <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
 
                     </ul>
                 </div>
@@ -44,7 +44,7 @@
                         <li><a href="#"><i class="fa fa-square"></i>Time & Materials Tracking
 </a></li>
 
-                        <li><a href="#"><i class="fa fa-square"></i>Standards Compliance 
+                        <li><a href="#"><i class="fa fa-square"></i>Standards Compliance
 </a></li>
 
                         <li><a href="#"><i class="fa fa-square"></i>Real Time GPS Tracking
@@ -80,28 +80,28 @@
                     <h5>app & integration</h5>
                     <ul class="nav-widget">
                         <li>
-                            <a href="#"><img src="images/ft1.png" alt="img">Xero
+                            <a href="#"><img src="{{url('public/dash/images/')}}/ft1.png" alt="img">Xero
                             </a>
                         </li>
 
                         <li>
-                            <a href="#"><img src="images/ft2.png" alt="img">Reckon
+                            <a href="#"><img src="{{url('public/dash/images/')}}/ft2.png" alt="img">Reckon
                             </a>
                         </li>
 
                         <li>
-                            <a href="#"><img src="images/ft3.png" alt="img">Flexidocs
+                            <a href="#"><img src="{{url('public/dash/images/')}}/ft3.png" alt="img">Flexidocs
                             </a>
                         </li>
                         <li>
-                            <a href="#"><img src="images/ft4.png" alt="img">Microsoft Exchange</a>
+                            <a href="#"><img src="{{url('public/dash/images/')}}/ft4.png" alt="img">Microsoft Exchange</a>
                         </li>
                         <li>
-                            <a href="#"><img src="images/ft5.png" alt="img"> Mailchimp
+                            <a href="#"><img src="{{url('public/dash/images/')}}/ft5.png" alt="img"> Mailchimp
                             </a>
                         </li>
                         <li>
-                            <a href="#"><img src="images/ft6.png" alt="img"> MYOB
+                            <a href="#"><img src="{{url('public/dash/images/')}}/ft6.png" alt="img"> MYOB
                             </a>
                         </li>
 

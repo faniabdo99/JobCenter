@@ -55,7 +55,7 @@
                                         <div class="job_list_next">
                                             <ul>
                                                 <li><a href="{{route('job' , $Job->id)}}"><i class="fas fa-eye"></i></a></li>
-                                                <li><a href="#"><i class="fas fa-edit"></i></a></li>
+                                                <li><a href="{{route('dash.company.job.edit' , $Job->id)}}"><i class="fas fa-edit"></i></a></li>
                                                 <li><a href="{{route('dash.company.job.delete' , $Job->id)}}"><i class="fas fa-trash-alt"></i></a></li>
                                             </ul>
                                         </div>

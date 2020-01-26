@@ -1,7 +1,7 @@
 <div class="col-lg-3 col-md-12 col-sm-12 col-12">
     <div class="emp_dashboard_sidebar jb_cover">
         <div class="emp_web_profile jb_cover">
-            <img class="img-responsive" width="100" height="150" src="{{$User->profile_image}}" alt="{{$User->name}}" />
+            <img class="img-responsive" width="150" height="150" src="{{$User->profile_image}}" alt="{{$User->name}}" />
             <h4>{{$User->name}}</h4>
             <p>{{'@'.$User->username}}</p>
         </div>

@@ -71,7 +71,7 @@ class UserDashController extends Controller{
             }
             if($r->n_password !== null){ //If the user want to change the password
                 if(Hash::check($r->c_password, $TheUser->password)){
-                    $UpdateData = Hash::make($r->n_password);
+                    $UpdateData['password'] = Hash::make($r->n_password);
                 }else{
                     $CurrentPasswordIsWrong = true;
                     $UpdateData['password'] = $TheUser->password;
@@ -81,7 +81,6 @@ class UserDashController extends Controller{
                 $TheUser->update($UpdateData);
                 return back()->withErrors('Your Current Password is Wrong! Every Thing Else Updated');
             }else{
-                dd($UpdateData);
                 $TheUser->update($UpdateData);
                 return back()->withSuccess('Your Profile is Updated !');
             }

@@ -134,7 +134,7 @@
                                                     @if($User->facebook)<li><a target="_blank" href="{{$User->facebook}}"><i class="fab fa-facebook-f"></i></a></li>@endif
                                                     @if($User->twitter)<li><a target="_blank" href="{{$User->twitter}}"><i class="fab fa-twitter"></i></a></li>@endif
                                                     @if($User->linkedin)<li><a target="_blank" href="{{$User->linkedin}}"><i class="fab fa-linkedin-in"></i></a></li>@endif
-                                                    @if($User->google)<li><a target="_blank" href="{{$User->google}}"><i class="fab fa-google-plus-g"></i></a></li>@endif
+                                                    @if($User->google)<li><a target="_blank" href="{{$User->google}}"><i class="fab fa-instagram"></i></a></li>@endif
                                                 </ul>
                                             </div>
                                         </div>

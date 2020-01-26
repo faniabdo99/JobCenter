@@ -1,16 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Application;
 use Illuminate\Http\Request;
 use Validator;
 
 //Models
 use App\User;
+use App\Category;
+use App\City;
 class CompanyDashController extends Controller{
     private function getUser(){
         if(auth()->check()){
-            $User = User::where('id' , auth()->user()->id)->where('type' , 'company')->first();
-            return $User;
+            return User::where('id' , auth()->user()->id)->where('type' , 'company')->first();
         }else{
             return null;
         }
@@ -21,7 +23,9 @@ class CompanyDashController extends Controller{
     }
     public function getEdit(){
         $User = $this->getUser();
-        return view('dash.company.edit' , compact('User'));
+        $Categories = Category::all();
+        $Cities = City::all();
+        return view('dash.company.edit' , compact('User' , 'Categories' , 'Cities'));
     }
     public function postEdit(Request $r){
         $TheUser = $this->getUser();
@@ -55,7 +59,7 @@ class CompanyDashController extends Controller{
             $UpdateData = $r->except(['_token' , 'c_password' , 'n_password']);
             $UpdateData['username'] = strtolower(str_replace(' ' , '_' , $r->name));
             if($r->has('image')){ //Dose The Request Has Image ?
-                //Update Image
+                //Update Image (Yes)
                 $image = $TheUser->id.'.'.$r->image->getClientOriginalExtension();
                 $r->image->storeAs('public/users', $image); //Image Uploaded !
                 $UpdateData['image'] = $image;

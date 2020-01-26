@@ -1,6 +1,7 @@
 @include('main.layout.header' , ['PageTitle' => 'Jobs'])
+
 <body>
-   @include('main.layout.navbar')
+    @include('main.layout.navbar')
     <!-- navi wrapper End -->
     <!-- top header wrapper start -->
     <div class="page_title_section">
@@ -8,16 +9,8 @@
             <div class="container">
                 <div class="row">
                     <!-- section_heading start -->
-                    <div class="col-lg-9 col-md-9 col-12 col-sm-8">
+                    <div class="col-lg-12 col-md-12 col-12 col-sm-12">
                         <h1>job listing</h1>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-12 col-sm-4">
-                        <div class="sub_title_section">
-                            <ul class="sub_title">
-                                <li> <a href="#"> Home </a>&nbsp; / &nbsp; </li>
-                                <li>job listing</li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -31,19 +24,13 @@
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12 d-none d-sm-none d-md-none d-lg-block d-xl-block">
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
-                            <h1>jobs by  category</h1>
+                            <h1>jobs by category</h1>
                         </div>
                         <div class="category_jobbox jb_cover">
                             @forelse($Categories as $Category)
-                            <p class="job_field">
-                                <input type="checkbox" value="{{$Category->id}}" id="{{$Category->id}}" name="cb">
-                                <label for="{{$Category->id}}">{{$Category->title}}<span> ({{count($Category->Jobs)}})</span></label>
-                            </p>
+                            <p class="job_field"><a href="{{route('search' , ['category' , $Category->id])}}">{{$Category->title}}<span> ({{count($Category->Jobs)}})</span></a></p>
                             @empty
-                            <p class="job_field">
-                                <input type="checkbox" id="all" name="1">
-                                <label for="all">All<span> ({{count($Jobs)}})</span></label>
-                            </p>
+                            <p>No Categories Here</p>
                             @endforelse
                             <div class="seeMore"><a href="#">view all categories</a></div>
                         </div>
@@ -51,30 +38,15 @@
                     </div>
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
-                            <h1>jobs by  location</h1>
+                            <h1>jobs by location</h1>
                         </div>
-                        <div class="category_jobbox jb_cover">
-                          @forelse($Cites as $City)
-                            <p class="job_field"><input type="checkbox" id="{{$City->id}}" name="cb"><label for="c011">Jobs in {{$City->name}}<span> ({{count($City->Job)}})</span></label></p>
-                          @empty
-                            <p class="job_field">No Cites Yet</p>
-                          @endforelse
-                        </div>
-                    </div>
 
-                    <div class="job_filter_category_sidebar jb_cover">
-                        <div class="job_filter_sidebar_heading jb_cover">
-                            <h1>salary (IQD)</h1>
-                        </div>
                         <div class="category_jobbox jb_cover">
-                            <div class="widget price-range">
-                                <ul>
-                                    <li class="range">
-                                        <div id="range-price" class="range-box"></div>
-                                        <input type="text" id="price" class="price-box" readonly/>
-                                    </li>
-                                </ul>
-                            </div>
+                            @forelse($Cites as $City)
+                            <p class="job_field"><a href="{{route('search' , ['city' , $City->id])}}">{{$City->name}}<span> ({{count($City->Job)}})</span></a></p>
+                            @empty
+                            <p>No Cities Here</p>
+                            @endforelse
                         </div>
                     </div>
                 </div>
@@ -111,25 +83,29 @@
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                                     <div class="jp_job_post_right_btn_wrapper jb_cover">
                                                         <ul>
-                                                          @auth
+                                                            @auth
                                                             @php
-                                                              $isLikedByUser = \App\Like::where([
-                                                                ['item_type' , 'job'],
-                                                                ['item_id' , $Job->id],
-                                                                ['user_id' , auth()->user()->id],
-                                                              ])->count();
+                                                            $isLikedByUser = \App\Like::where([
+                                                            ['item_type' , 'job'],
+                                                            ['item_id' , $Job->id],
+                                                            ['user_id' , auth()->user()->id],
+                                                            ])->count();
                                                             @endphp
                                                             <li>
-                                                              <div class="job_adds_right @if($isLikedByUser > 0) change change22 @endif">
-                                                                    <a class="likeButton" href="javascript:;" item-type="job" item-owner={{$Job->Company->id}} action-route="{{route('like.post')}}" item-id="{{$Job->id}}"><i class="far fa-heart"></i></a>
+                                                                <div class="job_adds_right @if($isLikedByUser > 0) change change22 @endif">
+                                                                    <a class="likeButton" href="javascript:;" item-type="job" item-owner={{$Job->Company->id}} action-route="{{route('like.post')}}" item-id="{{$Job->id}}"><i
+                                                                          class="far fa-heart"></i></a>
                                                                 </div>
                                                             </li>
-                                                          @endauth
+                                                            @endauth
                                                             <li><a href="#">{{$Job->type}}</a></li>
-                                                            <li> <a href="#" data-toggle="modal" data-target="#myModal01">apply</a></li>
+                                                            @auth
+                                                            <li> <a href="#" data-toggle="modal" data-target="#myModal-g-{{$Job->id}}">apply</a></li>
+                                                          @endauth
                                                         </ul>
                                                     </div>
-                                                    <div class="modal fade apply_job_popup" id="myModal01" role="dialog">
+                                                    @auth
+                                                    <div class="modal fade apply_job_popup" id="myModal-g-{{$Job->id}}" role="dialog">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -138,39 +114,38 @@
 
                                                                         <div class="apply_job jb_cover">
                                                                             <h1>apply for this job :</h1>
+                                                                            <form action="{{route('apply.do' , [$Job->id , auth()->user()->id])}}" method="post" enctype="multipart/form-data">
+                                                                            @csrf
                                                                             <div class="search_alert_box jb_cover">
-
                                                                                 <div class="apply_job_form">
-
-                                                                                    <input type="text" name="name" placeholder="full name">
+                                                                                    <input type="text" name="name" value="{{auth()->user()->name}}" placeholder="full name">
                                                                                 </div>
                                                                                 <div class="apply_job_form">
-                                                                                    <input type="text" name="Email" placeholder="Enter Your Email">
+                                                                                    <input type="text" name="email" value="{{auth()->user()->email}}" placeholder="Enter Your Email">
                                                                                 </div>
                                                                                 <div class="apply_job_form">
-                                                                                    <textarea class="form-control" name="message" placeholder="Message"></textarea>
+                                                                                    <textarea class="form-control" name="message" placeholder="Message">{{old('message')}}</textarea>
                                                                                 </div>
-
                                                                                 <div class="resume_optional jb_cover">
                                                                                     <p>resume (optional)</p>
                                                                                     <div class="width_50">
-                                                                                        <input type="file" id="input-file-now-custom-01" class="dropify" data-height="90" /><span class="post_photo">upload resume</span>
+                                                                                        <input type="file" name="resume" id="input-file-now-custom-27" class="dropify" data-height="90" /><span class="post_photo">upload resume</span>
                                                                                     </div>
                                                                                     <p class="word_file"> microsoft word or pdf file only (5mb)</p>
                                                                                 </div>
 
                                                                             </div>
                                                                             <div class="header_btn search_btn applt_pop_btn jb_cover">
-
-                                                                                <a href="#">apply now</a>
-
+                                                                               <button type="submit">Apply</button>
                                                                             </div>
+                                                                           </form>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                  @endauth
                                                 </div>
 
                                             </div>
@@ -204,27 +179,31 @@
                                                 <div class="col-lg-3 col-md-3 col-sm-12 col-12">
                                                     <div class="jp_job_post_right_btn_wrapper">
                                                         <ul>
-                                                          @auth
+                                                            @auth
                                                             @php
-                                                              $isLikedByUser = \App\Like::where([
-                                                                ['item_type' , 'job'],
-                                                                ['item_id' , $Job->id],
-                                                                ['user_id' , auth()->user()->id],
-                                                              ])->count();
+                                                            $isLikedByUser = \App\Like::where([
+                                                            ['item_type' , 'job'],
+                                                            ['item_id' , $Job->id],
+                                                            ['user_id' , auth()->user()->id],
+                                                            ])->count();
 
                                                             @endphp
 
                                                             <li>
                                                                 <div class="job_adds_right @if($isLikedByUser > 0) change change22 @endif">
-                                                                    <a class="likeButton" href="javascript:;" item-type="job" item-owner={{$Job->Company->id}} action-route="{{route('like.post')}}" item-id="{{$Job->id}}"><i class="far fa-heart"></i></a>
+                                                                    <a class="likeButton" href="javascript:;" item-type="job" item-owner={{$Job->Company->id}} action-route="{{route('like.post')}}" item-id="{{$Job->id}}"><i
+                                                                          class="far fa-heart"></i></a>
                                                                 </div>
                                                             </li>
-                                                          @endauth
+                                                            @endauth
                                                             <li><a href="job_single.html">{{$Job->type}}</a></li>
-                                                            <li> <a href="#" data-toggle="modal" data-target="#myModal1">apply</a></li>
+                                                            @auth
+                                                            <li> <a href="#" data-toggle="modal" data-target="#myModal{{$Job->id}}">apply</a></li>
+                                                            @endauth
                                                         </ul>
                                                     </div>
-                                                    <div class="modal fade apply_job_popup" id="myModal1" role="dialog">
+                                                    @auth
+                                                    <div class="modal fade apply_job_popup" id="myModal{{$Job->id}}" role="dialog">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -233,37 +212,38 @@
 
                                                                         <div class="apply_job jb_cover">
                                                                             <h1>apply for this job :</h1>
-                                                                            <div class="search_alert_box jb_cover">
-
-                                                                                <div class="apply_job_form">
-
-                                                                                    <input type="text" name="name" placeholder="full name">
-                                                                                </div>
-                                                                                <div class="apply_job_form">
-
-                                                                                    <input type="text" name="Email" placeholder="Enter Your Email">
-                                                                                </div>
-                                                                                <div class="apply_job_form">
-                                                                                    <textarea class="form-control" name="message" placeholder="Message"></textarea>
-                                                                                </div>
-
-                                                                                <div class="resume_optional jb_cover">
-                                                                                    <p>resume (optional)</p>
-                                                                                    <div class="width_50">
-                                                                                        <input type="file" id="input-file-now-custom-1" class="dropify" data-height="90" /><span class="post_photo">upload resume</span>
+                                                                            <form action="{{route('apply.do' , [$Job->id , auth()->user()->id])}}" method="post" enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                <div class="search_alert_box jb_cover">
+                                                                                    <div class="apply_job_form">
+                                                                                        <input type="text" name="name" value="{{auth()->user()->name}}" placeholder="full name">
                                                                                     </div>
-                                                                                    <p class="word_file"> microsoft word or pdf file only (5mb)</p>
+                                                                                    <div class="apply_job_form">
+                                                                                        <input type="text" name="email" value="{{auth()->user()->email}}" placeholder="Enter Your Email">
+                                                                                    </div>
+                                                                                    <div class="apply_job_form">
+                                                                                        <textarea class="form-control" name="message" placeholder="Message">{{old('message')}}</textarea>
+                                                                                    </div>
+                                                                                    <div class="resume_optional jb_cover">
+                                                                                        <p>resume (optional)</p>
+                                                                                        <div class="width_50">
+                                                                                            <input type="file" name="resume" id="input-file-now-custom-27" class="dropify" data-height="90" /><span class="post_photo">upload resume</span>
+                                                                                        </div>
+                                                                                        <p class="word_file"> microsoft word or pdf file only (5mb)</p>
+                                                                                    </div>
+
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="header_btn search_btn applt_pop_btn jb_cover">
-                                                                                <a href="#">apply now</a>
-                                                                            </div>
+                                                                                <div class="header_btn search_btn applt_pop_btn jb_cover">
+                                                                                    <button type="submit">Apply</button>
+                                                                                </div>
+                                                                            </form>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    @endauth
                                                 </div>
                                             </div>
                                         </div>
@@ -273,34 +253,15 @@
                                     @endforelse
                                 </div>
                             </div>
-                            <div class="blog_pagination_section jb_cover">
-                                <ul>
-                                    <li>
-                                        <a href="#" class="prev"> <i class="flaticon-left-arrow"></i> </a>
-                                    </li>
-                                    <li><a href="#">1</a>
-                                    </li>
-                                    <li class="third_pagger"><a href="#">2</a>
-                                    </li>
-                                    <li class="d-block d-sm-block d-md-block d-lg-block"><a href="#">3</a>
-                                    </li>
-                                    <li class="d-none d-sm-block d-md-block d-lg-block"><a href="#">...</a>
-                                    </li>
-                                    <li class="d-none d-sm-block d-md-block d-lg-block"><a href="#">6</a>
-                                    </li>
+                            {{$Jobs->links('main.layout.pagenation')}}
 
-                                    <li>
-                                        <a href="#" class="next"> <i class="flaticon-right-arrow"></i> </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
-				<div class="col-lg-3 col-md-12 col-sm-12 col-12 d-block d-sm-block d-md-block d-lg-none d-xl-none">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-12 d-block d-sm-block d-md-block d-lg-none d-xl-none">
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
-                            <h1>jobs by  category</h1>
+                            <h1>jobs by category</h1>
                         </div>
 
                         <div class="category_jobbox jb_cover">
@@ -342,15 +303,15 @@
                     </div>
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
-                            <h1>jobs by  location</h1>
+                            <h1>jobs by location</h1>
                         </div>
 
                         <div class="category_jobbox jb_cover">
-                          @forelse($Cites as $City)
+                            @forelse($Cites as $City)
                             <p class="job_field"><input type="checkbox" id="{{$City->id}}" name="cb"><label for="c011">Jobs in {{$City->name}}<span> ({{count($City->Job)}})</span></label></p>
-                          @empty
+                            @empty
                             <p class="job_field">No Cites Yet</p>
-                          @endforelse
+                            @endforelse
                         </div>
                     </div>
                     <div class="job_filter_category_sidebar jb_cover">
@@ -410,7 +371,7 @@
                                     <li class="range">
                                         <div id="responsive_range_price" class="range-box"></div>
 
-                                        <input type="text" id="responsive_price" class="price-box" readonly/>
+                                        <input type="text" id="responsive_price" class="price-box" readonly />
                                     </li>
 
                                 </ul>

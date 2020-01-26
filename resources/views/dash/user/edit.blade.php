@@ -8,16 +8,8 @@
             <div class="container">
                 <div class="row">
                     <!-- section_heading start -->
-                    <div class="col-xl-9 col-lg-7 col-md-7 col-12 col-sm-12">
-                        <h1>Edit Candidate Profile</h1>
-                    </div>
-                    <div class="col-xl-3 col-lg-5 col-md-5 col-12 col-sm-12">
-                        <div class="sub_title_section">
-                            <ul class="sub_title">
-                                <li> <a href="#"> Home </a>&nbsp; / &nbsp; </li>
-                                <li>Candidate profile</li>
-                            </ul>
-                        </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 col-sm-12">
+                        <h1>Edit Profile</h1>
                     </div>
                 </div>
             </div>
@@ -35,7 +27,7 @@
                             <div class="job_listing_left_fullwidth jb_cover">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                    
+
                                         <form action="{{route('dash.user.edit.do')}}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="jp_job_post_side_img">
@@ -125,7 +117,7 @@
                                             <input type="text" name="zip_code" value="{{old('zip_code') ?? $User->zip_code}}" >
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="contect_form3">
                                             <label>Description</label>
                                             <textarea name="description" row="5">{{old('description') ?? $User->description}}</textarea>
@@ -144,7 +136,7 @@
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                     <div class="contect_form3">
-                                                        <label>google</label>
+                                                        <label>Instagram</label>
                                                         <input type="url" name="google" value="{{old('google') ?? $User->google}}">
                                                     </div>
                                                 </div>

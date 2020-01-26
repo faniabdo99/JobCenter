@@ -3,6 +3,7 @@ Route::get('/' , 'FrontEndController@getIndex')->name('home');
 Route::get('/about' , 'FrontEndController@getAbout')->name('about');
 Route::get('/contact' , 'ContactController@getContactView')->name('contact');
 Route::post('/contact' , 'ContactController@ProccessContact')->name('contact.do');
+Route::get('/search/{type?}/{type_id?}' , 'SearchController@getSearchPage')->name('search');
 //Jobs
 Route::get('/jobs' , 'FrontEndController@getAllJobs')->name('jobs');
 Route::get('/job/{id}/{slug?}' , 'JobsController@getSingle')->name('job');
@@ -37,6 +38,8 @@ Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
         Route::post('/new-job' , 'JobsController@postNew')->name('job.new.do');
         Route::get('/jobs' , 'JobsController@getAll')->name('dash.company.jobs');
         Route::get('/delete-job/{id}' , 'JobsController@DeleteJob')->name('dash.company.job.delete');
+        Route::get('/edit/{id}' , 'JobsController@getEdit')->name('dash.company.job.edit');
+        Route::post('/edit/{id}' , 'JobsController@postEdit')->name('job.edit.do');
         Route::get('/applications' , 'CompanyDashController@getApplications')->name('dash.company.applications');
 });
 
