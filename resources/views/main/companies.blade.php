@@ -38,7 +38,8 @@
                                 </div>
                             </div>
                             <div class="opening_job">
-                            <h1><a href="{{route('company' , $Company->id)}}">{{count($Company->Jobs)}} job open</a></h1></div>
+                              <h1><a href="{{route('company' , $Company->id)}}">{{count($Company->Jobs)}} job open</a></h1>
+                            </div>
                             <div class="company_img_cont_wrapper">
                                 <h4>{{$Company->name}}</h4>
                             </div>

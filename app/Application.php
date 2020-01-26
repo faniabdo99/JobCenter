@@ -12,4 +12,7 @@ class Application extends Model{
     public function Job(){
         return $this->belongsTo(Job::class , 'job_id');
     }
+    public function getResumeLinkAttribute(){
+      return url('storage/app/public/applications/resumes').'/'.$this->resume;
+    }
 }

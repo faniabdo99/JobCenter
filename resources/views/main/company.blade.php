@@ -41,7 +41,7 @@
                                     <h4>{{$Company->name}}</h4>
                                     <ul>
                                         <li><i class="flaticon-location-pointer"></i>&nbsp; {{$Company->City->name}}</li>
-                                        <li><i class="fa fa-th-large"></i>&nbsp; {{$Company->job_description}}</li>
+                                        <li><i class="fa fa-th-large"></i>&nbsp; {{$Company->Category->title}}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -106,7 +106,6 @@
                         <div class="related_product_job cmpny_related_jobs jb_cover">
                             <div class="owl-carousel owl-theme">
                                 <div class="item">
-
                                     @forelse($Jobs1 as $Job)
                                     <div class="job_listing_left_fullwidth cmpny_single_slidr jb_cover">
                                         <div class="row">
@@ -135,9 +134,7 @@
                                                         <li> <a href="{{route('job' , $Job->id)}}">apply</a></li>
                                                     </ul>
                                                 </div>
-
                                             </div>
-
                                         </div>
                                     </div>
                                     @empty
@@ -172,9 +169,7 @@
                                                     <li> <a href="{{route('job' , $Job->id)}}">apply</a></li>
                                                 </ul>
                                             </div>
-
                                         </div>
-
                                     </div>
                                 </div>
                                 @empty
@@ -227,6 +222,7 @@
                                 </div>
                             </div>
                             @endif
+                            @auth
                             @if($Company->contact_email)
                             <div class="jp_listing_overview_list_main_wrapper jb_cover">
                                 <div class="jp_listing_list_icon">
@@ -240,6 +236,7 @@
                                 </div>
                             </div>
                             @endif
+                          @endauth
                             @if($Company->company_size)
                             <div class="jp_listing_overview_list_main_wrapper jb_cover">
                                 <div class="jp_listing_list_icon">
@@ -266,9 +263,11 @@
                                 </div>
                             </div>
                             @endif
+                            @auth
                             <div class="header_btn search_btn news_btn overview_btn  jb_cover">
                                 <a href="mailto:{{$Company->contact_email}}">contact us</a>
                             </div>
+                          @endauth
                         </div>
                     </div>
                     <div class="job_filter_category_sidebar jb_cover">

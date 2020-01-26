@@ -62,4 +62,11 @@ class User extends Authenticatable{
         ['user_id' , $this->id]
       ])->get();
     }
+    public function LikesCount(){
+      if($this->type == 'company'){
+        return Like::where('item_type' , 'company')->where('item_id' , $this->id)->count();
+      }else {
+        return null;
+      }
+    }
 }

@@ -31,7 +31,7 @@
                 @include('dash.user.parts.sidebar')
                 <div class="col-lg-9 col-md-12 col-sm-12 col-12">
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">      
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="manage_jobs_wrapper jb_cover">
                                         <div class="job_list mange_list applications_recent">
                                             <h6>{{count($Applications)}} applied jobs</h6>
@@ -64,17 +64,17 @@
                                                     </div>
                                                 </li>
                                                 <li><a href="#">{{$Application->Job->type}}</a></li>
-                                                <li> <a href="#" class="applied_btn">applied</a></li>
+                                                <li> <a href="#" class="applied_btn">Delete</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                            @empty 
+                            @empty
                             <p>No Applications</p>
                             @endforelse
-                        </div>    
+                        </div>
                     </div>
                 </div>
             </div>

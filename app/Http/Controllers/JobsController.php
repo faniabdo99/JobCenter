@@ -5,6 +5,8 @@ use Validator;
 use Illuminate\Http\Request;
 use App\User;
 use App\Job;
+use App\Application;
+use App\Like;
 use App\Category;
 class JobsController extends Controller{
     private function getUser(){
@@ -29,6 +31,7 @@ class JobsController extends Controller{
             'salary' => 'nullable|integer',
             'experience' => 'nullable|integer',
             'description' => 'required|min:40',
+            'position' => 'required',
             'city_id' => 'required'
         ];
         $ErrorMessages = [
@@ -38,7 +41,8 @@ class JobsController extends Controller{
             'salary.integer' => 'The salary must be in form of number',
             'experience.integer' => 'The experience must be in years number form',
             'description.min' => 'The job description must be 40 charachters at least',
-            'city_id.required' => 'You must choose a job location'
+            'city_id.required' => 'You must choose a job location',
+            'position.required' => 'You Must Add Job Position'
         ];
         $Validator = Validator::make($r->all() , $Rules , $ErrorMessages);
         if($Validator->fails()){
@@ -55,6 +59,20 @@ class JobsController extends Controller{
                 return back()->withSuccess('Job Has Been Created!');
             }
         }
+    }
+    public function DeleteJob($job_id){
+      $User = $this->getUser();
+      if(auth()->user()->id == $User->id){
+        //Grab the Job
+        $Job = Job::findOrFail($job_id);
+        //Get All The Job Applications
+        Application::where('job_id' , $Job->id)->delete();
+        Like::where('item_type' , 'job')->where('item_id' , $Job->id)->delete();
+        $Job->delete();
+        return back()->withSuccess('Job Deleted Successfully');
+      }else{
+        return back()->withErrors('You Can\'t Delete This Job !');
+      }
     }
     //Get All Jobs Page
     public function getAll(){

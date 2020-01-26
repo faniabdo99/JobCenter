@@ -50,7 +50,7 @@ class CompanyDashController extends Controller{
         if($Validator->fails()){
             return back()->withErrors($Validator->errors()->all())->withInput();
         }else{
-            //Prepare Data 
+            //Prepare Data
             $CurrentPasswordIsWrong = false;
             $UpdateData = $r->except(['_token' , 'c_password' , 'n_password']);
             $UpdateData['username'] = strtolower(str_replace(' ' , '_' , $r->name));
@@ -94,5 +94,9 @@ class CompanyDashController extends Controller{
                 return back()->withSuccess('Your Profile is Updated !');
             }
         }
+    }
+    public function getApplications(){
+      $User = $this->getUser();
+      return view('dash.company.applications' , compact('User'));
     }
 }

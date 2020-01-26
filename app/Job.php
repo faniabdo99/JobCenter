@@ -28,4 +28,7 @@ class Job extends Model{
     public function City(){
         return $this->belongsTo(City::class);
     }
+    public function Applications(){
+      return $this->hasMany(Application::class , 'job_id');
+    }
 }

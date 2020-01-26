@@ -67,7 +67,7 @@
                                     <i class="fas fa-heart"></i>
                                 </div>
                                 <div class="emp_job_side_text">
-                                    <h1>590</h1>
+                                    <h1>{{$User->LikesCount()}}</h1>
                                     <p>Company Likes</p>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
                                     <i class="fas fa-envelope-open-text"></i>
                                 </div>
                                 <div class="emp_job_side_text">
-                                    <h1>1,608</h1>
+                                    <h1>{{count($User->Application)}}</h1>
                                     <p>total applications</p>
                                 </div>
                             </div>

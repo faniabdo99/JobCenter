@@ -101,7 +101,7 @@
                                                         <br> <span>{{$Job->Company->name}}</span>
                                                     </div>
                                                     <div class="jp_job_post_right_cont">
-                                                        <h4><a href="{{route('job' , [$Job->id])}}">{{$Job->title}}, ({{$Job->experience}})</a></h4>
+                                                        <h4><a href="{{route('job' , [$Job->id])}}">{{$Job->title}}, ({{$Job->experience}}) Years</a></h4>
                                                         <ul>
                                                             <li><i class="flaticon-cash"></i>&nbsp; {{$Job->salary}} IQ / Month</li>
                                                             <li><i class="flaticon-location-pointer"></i>&nbsp; {{$Job->address}}</li>

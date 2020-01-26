@@ -8,16 +8,8 @@
             <div class="container">
                 <div class="row">
                     <!-- section_heading start -->
-                    <div class="col-xl-9 col-lg-7 col-md-7 col-12 col-sm-12">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 col-sm-12">
                         <h1> Manage Jobs ({{count($Jobs)}})</h1>
-                    </div>
-                    <div class="col-xl-3 col-lg-5 col-md-5 col-12 col-sm-12">
-                        <div class="sub_title_section">
-                            <ul class="sub_title">
-                                <li> <a href="#"> Home </a>&nbsp; / &nbsp; </li>
-                                <li>Manage Jobs</li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -51,24 +43,24 @@
                                     @forelse($Jobs as $Job)
                                     <div class="latest_job_box jb_cover">
                                         <div class="job_list">
-                                            <h6><a href="#">{{$Job->title}}</a></h6>
+                                            <h6><a href="{{route('job' , $Job->id)}}">{{$Job->title}}</a></h6>
                                             <p> <i class="far fa-calendar"></i> Date Posted : {{$Job->created_at->format('d M Y')}}</p>
                                         </div>
                                         <div class="job_list_next">
-                                            <p><a href="#">06 Applications</a></p>
+                                            <p><a href="{{route('dash.company.applications')}}">{{count($Job->Applications)}} Applications</a></p>
                                         </div>
                                         <div class="job_list_next">
                                             <p class="gn">{{$Job->Category->title}}</p>
                                         </div>
                                         <div class="job_list_next">
                                             <ul>
-                                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
+                                                <li><a href="{{route('job' , $Job->id)}}"><i class="fas fa-eye"></i></a></li>
                                                 <li><a href="#"><i class="fas fa-edit"></i></a></li>
-                                                <li><a href="#"><i class="fas fa-trash-alt"></i></a></li>
+                                                <li><a href="{{route('dash.company.job.delete' , $Job->id)}}"><i class="fas fa-trash-alt"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
-                                    @empty 
+                                    @empty
                                     <p>There is No Jobs Yet!</p>
                                     @endforelse
                                 </div>

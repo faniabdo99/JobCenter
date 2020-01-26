@@ -216,10 +216,6 @@
                             <h2 class="job_description_heading">Cretieria</h2>
                             {!! $Job->criteria !!}
                         </div>
-                        <div class="jp_job_res jb_cover">
-                            <h2 class="job_description_heading">how to apply</h2>
-                            <p>What Should We Put Here ?</p>
-                        </div>
                         <div class="jp_job_res jp_listing_left_wrapper jb_cover">
                             <div class="jp_listing_left_bottom_sidebar_social_wrapper">
                                 <ul>

@@ -48,12 +48,12 @@
                                                 <select name="category_id" required>
                                                     @if(old('category_id'))
                                                         <option selected value="{{old('category_id')}}">Same Category You Choose</option>
-                                                    @else 
+                                                    @else
                                                     <option selected value="">select category</option>
                                                     @endif
                                                     @forelse($Categories as $Category)
                                                     <option value="{{$Category->id}}">{{$Category->title}}</option>
-                                                    @empty 
+                                                    @empty
                                                     <option value="0">No Category</option>
                                                     @endforelse
                                                 </select>
@@ -133,7 +133,7 @@
                                 </div>
                                 <div class="job_overview_header jb_cover">
                                     <div class="contect_form3">
-                                        <input type="text" value="{{old('position')}}" name="position" placeholder="Job Position">
+                                        <input type="text" required value="{{old('position')}}" name="position" placeholder="Job Position">
                                     </div>
                                 </div>
                             </div>

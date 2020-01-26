@@ -22,7 +22,6 @@
                     <option>los velas</option>
                     <option>noida</option>
                     <option>chicago</option>
-
                 </select>
 
             </div>
@@ -140,7 +139,7 @@
                         </a>
                     </div>
                 </div>
-                @empty 
+                @empty
                 <p>Nothing Here Yet !</p>
                 @endforelse
                     </div>
@@ -225,7 +224,7 @@
                                             <p>{{$Job->Salary}} IQ / Month</p>
                                         </div>
                                     </div>
-                                    @empty 
+                                    @empty
 
                                     @endforelse
                                     <p class="showing">Showing 1-5 of 23 Latest Jobs</p>
@@ -2365,81 +2364,52 @@
                         <div class="owl-carousel owl-theme">
                             <div class="item">
                                 <div class="row">
+                                  @forelse ($LatestCompanies1 as $LCompany)
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                         <div class="company_main_wrapper">
                                             <div class="company_img_wrapper">
-                                                <img src="{{url('public/main/images/')}}/cmp1.png" alt="team_img1">
+                                                <img width="92" height="92" src="{{$LCompany->profile_image}}" alt="{{$LCompany->name}}">
                                                 <div class="btc_team_social_wrapper">
-                                                    <h1>(usa)</h1>
+                                                    <h1>({{$LCompany->City->name}})</h1>
                                                 </div>
                                             </div>
                                             <div class="opening_job">
-                                                <h1><a href="#">04 job open</a></h1>
+                                                <h1><a href="{{route('company' , $LCompany->id)}}">{{count($LCompany->Jobs)}} job open</a></h1>
                                             </div>
                                             <div class="company_img_cont_wrapper">
-                                                <h4>Akshay INC.</h4>
-
+                                                <h4>{{$LCompany->name}}</h4>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <div class="company_main_wrapper">
-                                            <div class="company_img_wrapper">
-                                                <img src="{{url('public/main/images/')}}/cmp2.png" alt="team_img1">
-                                                <div class="btc_team_social_wrapper">
-                                                    <h1>(usa)</h1>
-                                                </div>
-                                            </div>
-                                            <div class="opening_job">
-                                                <h1><a href="#">25 job open</a></h1>
-                                            </div>
-                                            <div class="company_img_cont_wrapper">
-                                                <h4>burger patty</h4>
-
-                                            </div>
-                                        </div>
-                                    </div>
+                                @empty
+                                  <p>Nothing Here</p>
+                                @endforelse
                                 </div>
 
                             </div>
                             <div class="item">
                                 <div class="row">
+                                  @forelse ($LatestCompanies2 as $L2Company)
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                         <div class="company_main_wrapper">
                                             <div class="company_img_wrapper">
-                                                <img src="{{url('public/main/images/')}}/cmp3.png" alt="team_img1">
+                                                <img width="92" height="92" src="{{$L2Company->profile_image}}" alt="{{$L2Company->name}}">
                                                 <div class="btc_team_social_wrapper">
-                                                    <h1>(usa)</h1>
+                                                    <h1>({{$L2Company->City->name}})</h1>
                                                 </div>
                                             </div>
                                             <div class="opening_job">
-                                                <h1><a href="#">04 job open</a></h1>
+                                                <h1><a href="{{route('company' , $L2Company->id)}}">{{count($L2Company->Jobs)}} job open</a></h1>
                                             </div>
                                             <div class="company_img_cont_wrapper">
-                                                <h4>Akshay INC.</h4>
-
+                                                <h4>{{$L2Company->name}}</h4>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <div class="company_main_wrapper">
-                                            <div class="company_img_wrapper">
-                                                <img src="{{url('public/main/images/')}}/cmp4.png" alt="team_img1">
-                                                <div class="btc_team_social_wrapper">
-                                                    <h1>(usa)</h1>
-                                                </div>
-                                            </div>
-                                            <div class="opening_job">
-                                                <h1><a href="#">25 job open</a></h1>
-                                            </div>
-                                            <div class="company_img_cont_wrapper">
-                                                <h4>burger patty</h4>
-
-                                            </div>
-                                        </div>
-                                    </div>
+                                @empty
+                                  <p>Nothing Here</p>
+                                @endforelse
                                 </div>
-
                             </div>
                         </div>
                     </div>

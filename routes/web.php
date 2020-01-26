@@ -36,6 +36,8 @@ Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
         Route::get('/new-job' , 'JobsController@getNew')->name('job.new');
         Route::post('/new-job' , 'JobsController@postNew')->name('job.new.do');
         Route::get('/jobs' , 'JobsController@getAll')->name('dash.company.jobs');
+        Route::get('/delete-job/{id}' , 'JobsController@DeleteJob')->name('dash.company.job.delete');
+        Route::get('/applications' , 'CompanyDashController@getApplications')->name('dash.company.applications');
 });
 
 });

@@ -5,7 +5,8 @@
     </div>
 </div>
 <div class="cursor"></div>
-<!-- Top Scroll Start --><a href="javascript:" id="return-to-top"><i class="fas fa-angle-double-up"></i></a>
+<!-- Top Scroll Start -->
+<a href="javascript:" id="return-to-top"><i class="fas fa-angle-double-up"></i></a>
 <!-- Top Scroll End -->
 <!-- cp navi wrapper Start -->
 <nav class="cd-dropdown  d-block d-sm-block d-md-block d-lg-none d-xl-none">
@@ -95,12 +96,9 @@
                         <a href="#" class="gc_main_navigation">  candidates</a>
                         <!-- mega menu start -->
                         <ul class="kv_mega_menu">
-
                             <li class="kv_mega_menu_width">
                                 <div class="container">
-
                                     <div class="jn_menu_partion_div">
-
                                         <div class="candidate_width">
                                             <div class="jen_tabs_conent_list jb_cover">
                                                 <h1>job skills</h1>
@@ -192,22 +190,17 @@ inelevated the..</a></h3>
                                                     <div class="open_jobs_wrapper_1 jb_cover">
                                                         <img src="{{url('public/dash/images')}}/job1.jpg" alt="img">
                                                         <div class="open_job_text">
-                                                            <h3><a href="#">Some designers
-inelevated the..</a></h3>
+                                                            <h3><a href="#">Some designers inelevated the..</a></h3>
                                                             <p>12 hour ago</p>
-
                                                         </div>
                                                     </div>
                                                     <div class="view_all_job jb_cover"><a href="#">view all jobs</a></div>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
-
                                 </div>
                             </li>
-
                         </ul>
                     </li>
                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">pages</a>
