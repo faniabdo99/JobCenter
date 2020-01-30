@@ -9,16 +9,8 @@
             <div class="container">
                 <div class="row">
                     <!-- section_heading start -->
-                    <div class="col-xl-9 col-lg-7 col-md-7 col-12 col-sm-12">
-                        <h1>Employer Dashboard</h1>
-                    </div>
-                    <div class="col-xl-3 col-lg-5 col-md-5 col-12 col-sm-12">
-                        <div class="sub_title_section">
-                            <ul class="sub_title">
-                                <li> <a href="#"> Home </a>&nbsp; / &nbsp; </li>
-                                <li>company Dashboard</li>
-                            </ul>
-                        </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 col-sm-12">
+                        <h1>Dashboard</h1>
                     </div>
                 </div>
             </div>
@@ -78,7 +70,7 @@
                                     <i class="fas fa-eye"></i>
                                 </div>
                                 <div class="emp_job_side_text">
-                                    <h1>11,200</h1>
+                                    <h1>{{visits($User)->count()}}</h1>
                                     <p>total page view</p>
                                 </div>
                             </div>

@@ -37,7 +37,7 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
                 @endguest
             </ul>
         </li>
-        <li><a href="#">blog</a></li>
+        <li><a href="{{route('blog')}}">blog</a></li>
         <li><a href="{{route('contact')}}">contact</a></li>
         @guest
         <li><a href="{{route('login')}}">login</a></li>
@@ -201,7 +201,7 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
                             </li>
                         </ul>
                     </li>
-                    <li class="gc_main_navigation"><a href="#" class="gc_main_navigation">blog</a>
+                    <li class="gc_main_navigation"><a href="{{route('blog')}}" class="gc_main_navigation">blog</a>
                     <li><a href="{{route('contact')}}" class="gc_main_navigation">contact</a></li>
                 </ul>
             </div>

@@ -1,9 +1,35 @@
 <?php
+//Admin Routes
+Route::group(['prefix' => 'admin','middleware' => ['isAdmin']], function () {
+    Route::get('/' , 'AdminController@getHome')->name('admin.home');
+    //Admin Blog
+    Route::get('blog/new' , 'BlogController@getNew')->name('admin.blog.new');
+    Route::post('blog/new' , 'BlogController@postNew')->name('admin.blog.new.post');
+    Route::get('blog/new-section' , 'BlogController@getNewSection')->name('admin.blog.section.new');
+    Route::post('blog/new-section' , 'BlogController@postNewSection')->name('admin.blog.section.new.post');
+    //Admin Users
+    Route::get('users' , 'AdminController@getUsers')->name('admin.users');
+    Route::get('users/delete/{id}' , 'AdminController@deleteUser')->name('admin.user.delete');
+    //Admin Companies
+    Route::get('companies' , 'AdminController@getCompanies')->name('admin.companies');
+    Route::get('inactive-companies' , 'AdminController@getInActiveCompanies')->name('admin.inactiveCompanies');
+    Route::get('company/delete/{id}' , 'AdminController@deleteCompany')->name('admin.company.delete');
+    Route::get('company/deactivate/{id}' , 'AdminController@deactivateCompany')->name('admin.company.deactivate');
+    Route::get('company/activate/{id}' , 'AdminController@activateCompany')->name('admin.company.activate');
+});
+// End Admin Routes
 Route::get('/' , 'FrontEndController@getIndex')->name('home');
 Route::get('/about' , 'FrontEndController@getAbout')->name('about');
 Route::get('/contact' , 'ContactController@getContactView')->name('contact');
 Route::post('/contact' , 'ContactController@ProccessContact')->name('contact.do');
+Route::get('/categories' , 'SearchController@getCategories')->name('categories');
 Route::get('/search/{type?}/{type_id?}' , 'SearchController@getSearchPage')->name('search');
+//Blog
+Route::prefix('blog')->group(function(){
+  Route::get('/' , 'BlogController@getIndex')->name('blog');
+  Route::get('{slug}' , 'BlogController@getSingle')->name('blog.post');
+  Route::post('comment' , 'CommentsController@postNew')->name('comment.do');
+});
 //Jobs
 Route::get('/jobs' , 'FrontEndController@getAllJobs')->name('jobs');
 Route::get('/job/{id}/{slug?}' , 'JobsController@getSingle')->name('job');

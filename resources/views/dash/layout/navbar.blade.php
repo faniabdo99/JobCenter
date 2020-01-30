@@ -26,7 +26,7 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
         <li><a href="{{route('home')}}">home</a></li>
         <li><a href="{{route('jobs')}}">jobs</a></li>
         <li class="has-children"><a href="{{route('about')}}">about</a></li>
-        <li class="has-children"><a href="#">blog</a></li>
+        <li class="has-children"><a href="{{route('blog')}}">blog</a></li>
         <li><a href="{{route('contact')}}">contact us</a></li>
         @auth
         <li><a href="{{route('logout')}}">logout</a></li>
@@ -184,7 +184,7 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
                             <li class="parent"><a href="{{route('companies')}}"> <i class="fas fa-square"></i>companies</a></li>
                         </ul>
                     </li>
-                    <li class="gc_main_navigation"><a href="#" class="gc_main_navigation">blog</a></li>
+                    <li class="gc_main_navigation"><a href="{{route('blog')}}" class="gc_main_navigation">blog</a></li>
                     <li><a href="{{route('contact')}}" class="gc_main_navigation">contact</a></li>
                 </ul>
             </div>
@@ -221,9 +221,9 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
 </div>
 @endif
 @if(session()->has('success'))
-    <div class="container-fluid">
-        <div class="row my-5 text-center" width="100%">
-            <div class="notofication-message success-message text-center">{{ session()->get('success') }}</div>
-        </div>
-    </div>
-    @endif
+  <div class="container-fluid">
+      <div class="row my-5 text-center" width="100%">
+          <div class="notofication-message success-message text-center">{{ session()->get('success') }}</div>
+      </div>
+  </div>
+@endif

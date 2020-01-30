@@ -29,14 +29,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    @if ($errors->any())
-                    <div class="col-md-12 col-xs-12 col-sm-12">
-                        @foreach ($errors->all() as $error)
-                        <div class="notofication-message error-message">{{ $error }}</div>
-                        <br>
-                        @endforeach
-                    </div>
-                    @endif
                     <div class="login_top_box jb_cover">
                         <div class="login_banner_wrapper">
                             <img src="{{url('public/main/images')}}/logo.png" alt="logo">

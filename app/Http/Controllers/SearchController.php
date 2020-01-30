@@ -10,7 +10,27 @@ class SearchController extends Controller{
     public function getSearchPage(Request $r , $Type = null , $Type_id = null){
       if($Type == null){
         $Query = $r['query'];
-        $Resultes = Job::orderBy('id' , 'desc')->where('title' , 'like', '%' . $r['query'] . '%')->paginate(8);
+        if(isset($r['city'])){
+          $WhereCity = ['city_id' , $r['city']];
+        }else {
+          $WhereCity = ['city_id' , '!=' , null];
+        }
+        if(isset($r['category'])){
+          $WhereCategory = ['category_id' , $r['category']];
+        }else {
+          $WhereCategory = ['category_id' , '!=' , null];
+        }
+        if(isset($r['type'])){
+          $WhereType = ['type' , 'like' , '%' . $r['type'] . '%'];
+        }else {
+          $WhereType = ['type' , '!=' , null];
+        }
+        $Resultes = Job::orderBy('id' , 'desc')->where([
+          ['title' , 'like', '%' . $r['query'] . '%'],
+          $WhereCity,
+          $WhereCategory,
+          $WhereType
+          ])->paginate(8);
       }else{
           if($Type == 'category'){
             $QueryGet = Category::find($Type_id);
@@ -29,5 +49,10 @@ class SearchController extends Controller{
       $Categories = Category::all();
       $Cities = City::all();
       return view('main.search' , compact('Resultes' , 'Query' , 'Type' ,  'Categories' , 'Cities'));
+    }
+    public function getCategories(){
+      $Categories = Category::all();
+      $Resultes = Category::latest()->get();
+      return view('main.categories' , compact('Resultes' , 'Categories'));
     }
 }

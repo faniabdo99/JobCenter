@@ -42,7 +42,7 @@
                                             <h4>{{$User->name}}</h4>
                                             <ul>
                                                 @if($User->job_description)<li><i class="fas fa-suitcase"></i>&nbsp; {{$User->job_description}}</li>@endif
-                                                @if($User->City->name)<li><i class="flaticon-location-pointer"></i>&nbsp; {{$User->City->name}}</li>@endif
+                                                @if($User->city_id)<li><i class="flaticon-location-pointer"></i>&nbsp; {{$User->City->name}}</li>@endif
                                             </ul>
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@
                                         </div>
                                     </div>
                                     @endif
-                                    @if($User->City->name)
+                                    @if($User->city_id)
                                     <div class="jp_listing_overview_list_main_wrapper jb_cover">
                                         <div class="jp_listing_list_icon">
                                             <i class="fas fa-map-marker-alt"></i>

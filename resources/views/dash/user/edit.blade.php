@@ -87,34 +87,10 @@
                                             <input type="text"  value="{{old('address') ?? $User->address}}" name="address">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                        <div class="contect_form3">
-                                            <label>country</label>
-                                            <input type="text" name="country" value="{{old('country') ?? $User->country}}" >
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                        <div class="select_box">
-                                            <label>state</label>
-                                            <select name="state">
-                                                <option value="{{$User->state}}">{{$User->state}}</option>
-                                                <option>Madhya pradesh</option>
-                                                <option>uttar pradesh</option>
-                                                <option>himachal pradesh</option>
-                                                <option>punjab</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="contect_form3">
                                             <label>city</label>
-                                            <input type="text" name="city" value="{{old('city') ?? $User->City->name}}" >
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                        <div class="contect_form3">
-                                            <label>zip code</label>
-                                            <input type="text" name="zip_code" value="{{old('zip_code') ?? $User->zip_code}}" >
+                                            <input type="text" name="city" value="{{old('city') ?? $User->City->name ?? ''}}" >
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">

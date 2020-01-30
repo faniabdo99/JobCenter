@@ -9,53 +9,49 @@
                 Your New Job</h1>
             <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor . sollicitudin, lorem
                 quis bibendum auctor, sem nibh id elit. </p>
+          @php
+          $SearchCategories = App\Category::orderBy('id' , 'desc')->get();
+          $SearchCites = App\City::orderBy('id' , 'desc')->get();
+          @endphp
+          <form action="{{route('search')}}" method="get">
             <div class="contect_form3">
-
-                <input type="text" name="name" placeholder="Keyword e.g. (Job Title, Description, Tags)">
+                <input type="text" name="query" placeholder="Keyword e.g. (Job Title, Description, Tags)">
             </div>
             <div class="select_box">
-
                 <i class="flaticon-map"></i>
-                <select>
+                <select name="city">
                     <option>select location</option>
-                    <option>california</option>
-                    <option>los velas</option>
-                    <option>noida</option>
-                    <option>chicago</option>
+                    @forelse ($SearchCites as $SearchCity)
+                      <option value="{{$SearchCity->id}}">{{$SearchCity->name}}</option>
+                    @empty
+                      <option value="">null</option>
+                    @endforelse
                 </select>
-
             </div>
             <div class="select_box select_box_2">
-
                 <i class="flaticon-squares-gallery-grid-layout-interface-symbol"></i>
-                <select>
+                <select name="category">
                     <option>category</option>
-                    <option>real estate</option>
-                    <option>electronics</option>
-                    <option>marketing</option>
-                    <option>education</option>
-
+                    @forelse ($SearchCategories as $SearchCategory)
+                      <option value="{{$SearchCategory->id}}">{{$SearchCategory->title}}</option>
+                    @empty
+                      <option value="">null</option>
+                    @endforelse
                 </select>
-
             </div>
             <div class="select_box">
-
                 <i class="flaticon-statistics"></i>
-                <select>
-                    <option>experience</option>
-                    <option>5 years</option>
-                    <option>3 years</option>
-                    <option>2 years</option>
-                    <option>fresher</option>
-
+                <select name="type">
+                    <option>type</option>
+                    <option value="full">full time</option>
+                    <option value="part">part time</option>
+                    <option value="rotation">rotation</option>
                 </select>
-
             </div>
             <div class="header_btn search_btn jb_cover">
-
-                <a href="#"><i class="fas fa-search"></i> search</a>
-
+                <button type="submit"><i class="fas fa-search"></i> Search</button>
             </div>
+          </form>
         </div>
         <div class="jb_banner_right d-none d-sm-none d-md-none d-lg-none d-xl-block">
         </div>
@@ -68,10 +64,8 @@
             <div class="row">
                 <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12">
                     <div class="jb_top_jobs_category jb_cover">
-
                         <h3><a href="#">laravel</a></h3>
                         <img src="{{url('public/main/images/')}}/jb1.png" alt="img">
-
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12">
@@ -131,7 +125,7 @@
                 @forelse($Categories as $Category)
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="jb_browse_category jb_cover">
-                        <a href="job_listing_list_left_filter.html">
+                        <a href="{{route('search' , ['category' , $Category->id])}}">
                             <div class="hover-block"></div>
                             <i class="{{$Category->icon}}"></i>
                             <h3>{{$Category->title}}</h3>
@@ -145,7 +139,7 @@
                     </div>
                 </div>
                 <div class="header_btn search_btn load_btn jb_cover">
-                    <a href="#">load more</a>
+                    <a href="{{route('categories')}}">load more</a>
                 </div>
             </div>
         </div>
