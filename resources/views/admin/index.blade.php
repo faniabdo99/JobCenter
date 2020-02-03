@@ -41,25 +41,25 @@
                 <div class="col-md-3 col-xs-6 col-sm-6">
                     <div class="single-state-card">
                         <i class="fas fa-users"></i>
-                        <h4>Posted Jobs <br><span>{{$Jobs}}</span></h4>
+                        <h4><a href="{{route('admin.jobs')}}" >Posted Jobs</a> <br><span>{{$Jobs}}</span></h4>
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-6 col-sm-6">
                     <div class="single-state-card">
                         <i class="fas fa-reply"></i>
-                        <h4>Jobs Applications <br><span>{{$Applications}}</span></h4>
+                        <h4><a href="{{route('admin.applications')}}">Jobs Applications</a> <br><span>{{$Applications}}</span></h4>
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-6 col-sm-6">
                     <div class="single-state-card">
                         <i class="fas fa-home"></i>
-                        <h4>Cites <br><span>{{$Cites}}</span></h4>
+                        <h4><a href="{{route('admin.cities')}}">Cites</a> <br><span>{{$Cites}}</span></h4>
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-6 col-sm-6">
                     <div class="single-state-card">
                         <i class="fas fa-car"></i>
-                        <h4>Categories <br><span>{{$Categories}}</span></h4>
+                        <h4><a href="{{route('admin.categories')}}">Categories</a> <br><span>{{$Categories}}</span></h4>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 <div class="col-md-4 col-xs-6 col-sm-6">
                     <div class="single-state-card">
                         <i class="fas fa-edit"></i>
-                        <h4>Articles <br><span>{{$BlogPosts}}</span></h4>
+                        <h4><a href="{{route('admin.blog')}}">Articles</a> <br><span>{{$BlogPosts}}</span></h4>
                     </div>
                 </div>
                 <div class="col-md-4 col-xs-6 col-sm-6">
@@ -87,7 +87,7 @@
                 <div class="col-md-4 col-xs-6 col-sm-6">
                     <div class="single-state-card">
                         <i class="fas fa-comment"></i>
-                        <h4>Comments <br><span>{{$Comments}}</span></h4>
+                        <h4><a href="{{route('admin.comments')}}">Comments</a> <br><span>{{$Comments}}</span></h4>
                     </div>
                 </div>
             </div>

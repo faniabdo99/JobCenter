@@ -11,6 +11,7 @@ use Mail;
 use App\User;
 //Mails
 use App\Mail\WelcomeNewUser;
+use App\Mail\ResetPasswordMail;
 class AuthController extends Controller{
     public function getSignup(){
         return view('main.auth.signup');
@@ -41,7 +42,7 @@ class AuthController extends Controller{
             $User = User::create($UserData);
             //Send Welcome (Activate Account Basically) Email
             Mail::to($User->email)->send(new WelcomeNewUser($UserData));
-            //Login Using id Here 
+            //Login Using id Here
             Auth::loginUsingId($User->id);
             //Redirect to Dashboard.
             if($User->type == 'user'){
@@ -86,7 +87,7 @@ class AuthController extends Controller{
         ];
         $Validator = Validator::make($r->all() , $Rules , $ErrorsMessages);
         if($Validator->fails()){
-            return back()->withErrors()->withInput();
+            return back()->withErrors($Validator->errors()->all())->withInput();
         }else{
             $Try = Auth::attempt(['email' => $r->email , 'password' => $r->password] , true);
             if($Try){
@@ -102,6 +103,34 @@ class AuthController extends Controller{
                 return back()->withErrors('Your Login Details are Wrong')->withInput();
             }
         }
+    }
+    public function getForgetPassword(){
+      return view('main.auth.forget');
+    }
+    public function postForgetPassword(Request $r){
+      $Validator = Validator::make($r->all() , ['email' => 'required|email'] , ['email.required' => 'Your Email is Required!' , 'email.email' => 'This Email is Invalid']);
+      if($Validator->fails()){
+        return back()->withErrors($Validator->errors()->all());
+      }else{
+        $User = User::where('email' , $r->email)->first();
+        if($User !== null){
+          Mail::to($User->email)->send(new ResetPasswordMail($User));
+        }else{
+          //Do Nothing ...
+        }
+        return back()->withSuccess('If ' . $r->eamil . ' is Registered will recive an email with further instrctions.');
+      }
+    }
+    public function passwordResetConfirm($user_id , $user_code){
+      $User = User::find($user_id);
+      if($User !== null){
+        if($User->code == $user_code){
+          Auth::loginUsingId($user_id);
+          //redirect()->route('');
+        }
+      }else{
+        return redirect()->route('home');
+      }
     }
     public function logout(){
         Auth::logout();

@@ -14,7 +14,7 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
 <!-- Top Scroll End -->
 <!-- cp navi wrapper Start -->
 <nav class="cd-dropdown  d-block d-sm-block d-md-block d-lg-none d-xl-none">
-    <h2><a href="{{route('home')}}"> <span><img src="{{url('public/main/images')}}/logo.png" alt="img"></span></a></h2>
+    <h2><a href="{{route('home')}}"> <span><img src="{{url('public/main/images')}}/logo.png" width="60" height="60" alt="img"></span></a></h2>
     <a href="#0" class="cd-close">Close</a>
     <ul class="cd-dropdown-content">
         <li>
@@ -49,7 +49,7 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
     <div class="container-fluid">
         <div class="cp_logo_wrapper">
             <a href="{{route('home')}}">
-                <img src="{{url('public/main/images')}}/logo.png" alt="logo">
+                <img width="80" height="80" src="{{url('public/main/images')}}/logo.png" alt="logo">
             </a>
         </div>
         <!-- mobile menu area start -->

@@ -82,9 +82,23 @@ class BlogController extends Controller{
     return view('main.blog.index' , compact('Posts' , 'JobsSpotlight'));
   }
   public function getSingle($slug){
-    $JobsSpotlight = Job::orderBy('id' , 'desc')->limit(3)->get();
     $Post = Post::where('slug' , $slug)->first();
-    visits($Post)->increment();
-    return view('main.blog.single' , compact('Post' , 'JobsSpotlight'));
+    if($Post == null){
+      abort(404);
+    }else{
+      visits($Post)->increment();
+      $JobsSpotlight = Job::orderBy('id' , 'desc')->limit(3)->get();
+      return view('main.blog.single' , compact('Post' , 'JobsSpotlight'));
+    }
+  }
+  public function getSearch(Request $r , $type = null , $section = null){
+    $JobsSpotlight = Job::orderBy('id' , 'desc')->limit(3)->get();
+    if($type == null){
+      $Posts = Post::where('title' , 'like', '%' . $r['query'] . '%')->paginate(8);
+    }else{
+      $Posts = Post::where('section_id' , $section)->paginate(8);
+    }
+
+    return view('main.blog.search' , compact('Posts' , 'JobsSpotlight'));
   }
 }

@@ -21,6 +21,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-md-12 col-sm-12 col-12">
+                  <div class="row">
                     @forelse($Posts as $Post)
                     <div class="jp_first_blog_post_main_wrapper jb_cover">
                         <div class="jp_first_blog_post_slider">
@@ -36,11 +37,6 @@
                             <p>{{$Post->description}}</p>
                         </div>
                         <div class="jp_first_blog_bottom_cont_wrapper jb_cover">
-                            <div class="jp_blog_bottom_left_cont">
-                                <ul>
-                                    <li><img src="{{$Post->User->profile_image}}" width="40" height="40" alt="small_img" />&nbsp;&nbsp; {{$Post->User->name}}</li>
-                                </ul>
-                            </div>
                             <div class="jp_blog_bottom_right_cont">
                                 <p><a href="#"><i class="far fa-comment-dots"></i><span>{{count($Post->Comments)}}</span></a></p>
                                 <ul>
@@ -48,8 +44,6 @@
                                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                     <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -58,9 +52,23 @@
                     <p>No Posts Yet</p>
                   @endforelse
                     {{$Posts->links('main.layout.pagenation')}}
-
+                  </div>
                 </div>
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+                  <div class="job_filter_category_sidebar jb_cover">
+                      <div class="job_filter_sidebar_heading jb_cover">
+                          <h1>search</h1>
+                      </div>
+
+                      <div class="category_jobbox jb_cover">
+                          <div class="jp_blog_right_search_wrapper jb_cover">
+                            <form action="{{route('blog.search')}}" method="get">
+                              <input type="text" required name="query" placeholder="Search">
+                              <button type="submit"><i class="fas fa-search"></i></button>
+                            </form>
+                          </div>
+                      </div>
+                  </div>
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
                             <h1>blog category</h1>
@@ -71,7 +79,7 @@
                               $Sections = App\Section::orderBy('id' , 'desc')->get();
                               @endphp
                               @forelse($Sections as $Section)
-                                <li><i class="fa fa-caret-right"></i> <a href="#">{{$Section->title}} <span>({{count($Section->Posts)}})</span></a></li>
+                                <li><i class="fa fa-caret-right"></i> <a href="{{route('blog.search' , ['section' , $Section->id])}}">{{$Section->title}} <span>({{count($Section->Posts)}})</span></a></li>
                               @empty
                               @endforelse
                             </ul>
@@ -105,13 +113,10 @@
                                     </div>
                                   @empty
                                   @endforelse
-
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -126,5 +131,4 @@
     @include('main.layout.scripts')
     <!-- custom js-->
 </body>
-
 </html>

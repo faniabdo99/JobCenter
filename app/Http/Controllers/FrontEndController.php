@@ -5,13 +5,15 @@ use App\User;
 use App\Job;
 use App\Category;
 use App\City;
+use App\Post;
 class FrontEndController extends Controller{
     public function getIndex(){
         $Categories = Category::orderBy('id' , 'desc')->limit(6)->get();
         $TopSixJobs = Job::orderBy('id' , 'desc')->limit(6)->get();
         $LatestCompanies1 = User::where([['type' , 'company'],['active' , '1']])->orderBy('id' , 'desc')->skip(0)->take(2)->get();
         $LatestCompanies2 = User::where([['type' , 'company'],['active' , '1']])->orderBy('id' , 'desc')->skip(2)->take(2)->get();
-        return view('main.index' , compact('Categories' , 'TopSixJobs' , 'LatestCompanies1', 'LatestCompanies2'));
+        $TopBlogPosts = Post::orderBy('id' , 'desc')->limit(2)->get();
+        return view('main.index' , compact('Categories' , 'TopSixJobs' , 'LatestCompanies1', 'LatestCompanies2','TopBlogPosts'));
     }
     public function getAbout(){
         return view('main.about');
