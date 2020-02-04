@@ -30,7 +30,8 @@
 /*--------------
 1.Theme default CSS
 --------------------------*/
-/* Backend developer custome stylies -_- */
+
+/* Backend developer custom stylies -_- */
 .notofication-message{
 	text-align:center;
 	font-weight:bold;
@@ -42,6 +43,8 @@
 .success-message{
 	color:#27b155;
 }
+/* End Backend dev stylies*/
+
 body, html {
 	font-family: 'Lato';
 	font-size: 16px;
