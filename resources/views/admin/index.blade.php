@@ -1,7 +1,6 @@
 @include('admin.layout.header' , ['PageTitle' => 'Home'])
 
 <body>
-    <p>Index Home</p>
     @include('admin.layout.admin-header' , ['PageTitle' => 'Home'])
     <div class="container-fluid">
         <div class="admin-card">
