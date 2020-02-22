@@ -9,4 +9,7 @@ class City extends Model{
     public function Job(){
       return $this->hasMany(Job::class , 'city_id');
     }
+    public function getNameAttribute(){
+      return $this->name_en;
+    }
 }

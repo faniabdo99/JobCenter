@@ -9,4 +9,7 @@ class Category extends Model{
     public function Jobs(){
         return $this->hasMany(Job::class , 'category_id');
     }
+    public function getTitleAttribute(){
+      return $this->title_en;
+    }
 }
