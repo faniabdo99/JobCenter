@@ -4,7 +4,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="job_newsletter_wrapper pd00 jb_cover">
                         <div class="jb_newslwtteter_left">
-                            <h2> Looking For A Job</h2>
+                            <h2>Looking For A Job</h2>
                             <p>Your next level Product developemnt company assetsYour next level Product </p>
                         </div>
                         <div class="jb_newslwtteter_button">

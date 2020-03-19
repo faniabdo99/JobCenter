@@ -3,13 +3,6 @@ $NavCategories = \App\Category::orderBy('id' , 'desc')->limit(6)->get();
 $NavCities = \App\City::orderBy('id' , 'desc')->limit(6)->get();
 $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
 @endphp
-<!-- preloader Start -->
-<div class="jb_preloader">
-    <div class="spinner_wrap">
-        <div class="spinner"></div>
-    </div>
-</div>
-<div class="cursor"></div>
 <!-- Top Scroll Start -->
 <a href="javascript:" id="return-to-top"><i class="fas fa-angle-double-up"></i></a>
 <!-- Top Scroll End -->

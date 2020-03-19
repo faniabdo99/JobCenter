@@ -73,6 +73,8 @@ Route::middleware('guest')->group(function(){
     Route::post('/signup' , 'AuthController@postSignup')->name('signup.do');
     Route::get('/login' , 'AuthController@getLogin')->name('login');
     Route::post('/login' , 'AuthController@postLogin')->name('login.do');
+    Route::get('login/do/{provider}', 'AuthController@redirectToProvider')->name('login.social.go');
+    Route::get('login/{provider}', 'AuthController@handleProviderCallback')->name('login.social.callback');
     Route::get('/forget-password' , 'AuthController@getForgetPassword')->name('forget.password');
     Route::post('/forget-password' , 'AuthController@postForgetPassword')->name('forget.password.do');
     Route::get('change-pass/{id}/{code}' , 'AuthController@passwordResetConfirm')->name('forget.password.confirm');

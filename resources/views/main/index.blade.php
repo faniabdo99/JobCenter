@@ -5,10 +5,8 @@
     <!-- job banner wrapper start-->
     <div class="jb_banner_wrapper jb_cover">
         <div class="jb_banner_left">
-            <h1>The Easy Way To Get
-                Your New Job</h1>
-            <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor . sollicitudin, lorem
-                quis bibendum auctor, sem nibh id elit. </p>
+            <h1>The Easy Way To GetYour New Job</h1>
+            <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor . sollicitudin, loremquis bibendum auctor, sem nibh id elit. </p>
           @php
           $SearchCategories = App\Category::orderBy('id' , 'desc')->get();
           $SearchCites = App\City::orderBy('id' , 'desc')->get();
@@ -230,53 +228,38 @@
                                             <a href="#"><img src="{{url('public/main/images/')}}/lt4.png" alt="img">
                                                 <h6>Trainee Web Designer, (Fresher)</h6>
                                             </a>
-
                                         </div>
                                         <div class="job_list_next">
                                             <p>google</p>
-
                                         </div>
                                         <div class="job_list_next">
                                             <p>Remotely</p>
-
                                         </div>
                                         <div class="job_list_next">
                                             <p>new york</p>
-
                                         </div>
                                         <div class="job_list_next">
                                             <p>$9,000</p>
-
                                         </div>
                                         <div class="job_list_next">
                                             <div class="header_btn search_btn apply_btn jb_cover">
-
                                                 <a href="#" data-toggle="modal" data-target="#myModa7">apply</a>
-
                                             </div>
-
                                         </div>
                                         <div class="modal fade apply_job_popup" id="myModal7" role="dialog">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
-                                                    <button type="button" class="close"
-                                                        data-dismiss="modal">&times;</button>
+                                                    <button type="button" class="close"data-dismiss="modal">&times;</button>
                                                     <div class="row">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-
                                                             <div class="apply_job jb_cover">
                                                                 <h1>apply for this job :</h1>
                                                                 <div class="search_alert_box jb_cover">
-
                                                                     <div class="apply_job_form">
-
-                                                                        <input type="text" name="name"
-                                                                            placeholder="full name">
+                                                                        <input type="text" name="name" placeholder="full name">
                                                                     </div>
                                                                     <div class="apply_job_form">
-
-                                                                        <input type="text" name="Email"
-                                                                            placeholder="Enter Your Email">
+                                                                        <input type="text" name="Email" placeholder="Enter Your Email">
                                                                     </div>
                                                                     <div class="apply_job_form">
                                                                         <textarea class="form-control" name="message"
@@ -344,11 +327,9 @@
                                         <div class="modal fade apply_job_popup" id="myModal8" role="dialog">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
-                                                    <button type="button" class="close"
-                                                        data-dismiss="modal">&times;</button>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                     <div class="row">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-
                                                             <div class="apply_job jb_cover">
                                                                 <h1>apply for this job :</h1>
                                                                 <div class="search_alert_box jb_cover">

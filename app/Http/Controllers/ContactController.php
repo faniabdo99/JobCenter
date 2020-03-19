@@ -25,7 +25,7 @@ class ContactController extends Controller{
         if($Validator->fails()){
             return back()->withErrors($Validator->errors()->all())->withInput();
         }else{
-            Mail::to('admin@jobcenter.com')->send(new ContactMail($r->except('_token')));
+            Mail::to('jobwomen0@gmail.com')->send(new ContactMail($r->except('_token')));
             return back()->withSuccess('Thanke Your For Your Time.');
         }
     }
@@ -45,7 +45,7 @@ class ContactController extends Controller{
       if($Validator->fails()){
           return back()->withErrors($Validator->errors()->all())->withInput();
       }else{
-          Mail::to('admin@jobcenter.com')->send(new QuickContact($r->except('_token')));
+          Mail::to('jobwomen0@gmail.com')->send(new QuickContact($r->except('_token')));
           return back()->withSuccess('Thanke Your For Your Time.');
       }
     }

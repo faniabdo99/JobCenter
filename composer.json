@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "laravel/jobcenter",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "JobCenter Project",
     "keywords": [
         "framework",
         "laravel"
@@ -12,6 +12,7 @@
         "awssat/laravel-visits": "^2.2",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
+        "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0"
     },
     "require-dev": {

@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="contact_main jb_cover">
-					 <h4>contact us</h4>
+                       <h4>contact us</h4>
                         <div class="contact_rotate">
                           <i class="fas fa-phone"></i>
                         </div>

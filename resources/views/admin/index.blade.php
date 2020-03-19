@@ -1,5 +1,4 @@
 @include('admin.layout.header' , ['PageTitle' => 'Home'])
-
 <body>
     @include('admin.layout.admin-header' , ['PageTitle' => 'Home'])
     <div class="container-fluid">
@@ -92,7 +91,6 @@
                 </div>
             </div>
         </div>
-
         <div class="admin-card">
             <div class="row">
                 <div class="col-md-12">
@@ -127,5 +125,4 @@
             });
         </script>
 </body>
-
 </html>

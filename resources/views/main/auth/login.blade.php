@@ -25,10 +25,10 @@
                         <div class="login_banner_wrapper">
                             <img width="100" height="100" src="{{url('public/main/images')}}/logo.png" alt="logo">
                             <div class="header_btn search_btn facebook_wrap jb_cover">
-                                <a href="#">login with facebook <i class="fab fa-facebook-f"></i></a>
+                                <a href="{{route('login.social.go' , 'facebook')}}">login with facebook <i class="fab fa-facebook-f"></i></a>
                             </div>
                             <div class="header_btn search_btn google_wrap jb_cover">
-                                <a href="#">login with pinterest <i class="fab fa-pinterest-p"></i></a>
+                                <a href="{{route('login.social.go' , 'google')}}">login with google <i class="fab fa-google"></i></a>
                             </div>
                             <div class="jp_regis_center_tag_wrapper jb_register_red_or">
                                 <h1>OR</h1>

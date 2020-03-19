@@ -7,9 +7,7 @@
         <div class="page_header">
             <div class="container">
                 <div class="row">
-                    <!-- section_heading start -->
                     <div class="col-lg-9 col-md-9 col-12 col-sm-8">
-
                         <h1>About us </h1>
                     </div>
                     <div class="col-lg-3 col-md-3 col-12 col-sm-4">
@@ -117,8 +115,8 @@
                 <div class="col-lg-6 col-md-12 col-12 col-sm-12">
                     <div class="jb_heading_wraper left_jb_jeading">
 
-                        <h3>We Iusto Creative Digital 
-Agency, We Provide 
+                        <h3>We Iusto Creative Digital
+Agency, We Provide
 Professional Web Page.</h3>
 
                     </div>

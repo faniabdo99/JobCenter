@@ -7,12 +7,52 @@ use Validator;
 use Hash;
 use Auth;
 use Mail;
+use Socialite;
 //Models
 use App\User;
 //Mails
 use App\Mail\WelcomeNewUser;
 use App\Mail\ResetPasswordMail;
 class AuthController extends Controller{
+  //Social Login Shit
+    public function redirectToProvider($driver){
+      return Socialite::driver($driver)->redirect();
+    }
+
+    public function handleProviderCallback($driver){
+        $user = Socialite::driver($driver)->user();
+        //Check if this a new user
+        $isThereIsUser = User::where('email' , $user->email)->first();
+        if($isThereIsUser == null){
+          //This is a New User
+          $MadeUpPassword = 'womenJobCenterDefaultPasswordHere' . mt_rand(100000, 999999);
+          $UserData['signup_method'] = $driver;
+          $UserData['code'] =  mt_rand(100000, 999999);
+          $UserData['email'] = $user->email;
+          $UserData['name'] = $user->name;
+          $UserData['image'] = $user->avatar;
+          $UserData['type'] = 'user';
+          $UserData['password'] = Hash::make($MadeUpPassword);
+          $UserData['username'] = strtolower(str_replace(' ' , '_' , $user->name));
+          $NewUser = User::create($UserData);
+          Auth::loginUsingId($NewUser->id);
+          Mail::to($NewUser->email)->send(new WelcomeNewUser($UserData));
+          return redirect()->route('dash.user.home');
+        }else{
+          //This is an Existing User
+          if($isThereIsUser->signup_method == 'signup'){
+            return back()->withErrors('This Email is Registered to a Social Media');
+          }else{
+            Auth::loginUsingId($isThereIsUser->id);
+            //Redirect to Dashboard.
+            return redirect()->route('dash.user.home');
+          }
+
+        }
+    }
+
+
+
     public function getSignup(){
         return view('main.auth.signup');
     }
