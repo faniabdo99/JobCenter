@@ -240,7 +240,6 @@
                     <div class="job_newsletter_wrapper jb_cover">
                         <div class="jb_newslwtteter_left">
                             <h2> Looking For Employees?</h2>
-                            <p>Your next level Product developemnt company assetsYour next level Product </p>
                         </div>
                         <div class="jb_newslwtteter_button">
                             <div class="header_btn search_btn news_btn jb_cover">

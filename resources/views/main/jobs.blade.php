@@ -34,13 +34,11 @@
                             @endforelse
                             <div class="seeMore"><a href="#">view all categories</a></div>
                         </div>
-
                     </div>
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
                             <h1>jobs by location</h1>
                         </div>
-
                         <div class="category_jobbox jb_cover">
                             @forelse($Cites as $City)
                             <p class="job_field"><a href="{{route('search' , ['city' , $City->id])}}">{{$City->name}}<span> ({{count($City->Job)}})</span></a></p>
@@ -254,155 +252,14 @@
                                 </div>
                             </div>
                             {{$Jobs->links('main.layout.pagenation')}}
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-12 col-sm-12 col-12 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-                    <div class="job_filter_category_sidebar jb_cover">
-                        <div class="job_filter_sidebar_heading jb_cover">
-                            <h1>jobs by category</h1>
-                        </div>
-
-                        <div class="category_jobbox jb_cover">
-                            <p class="job_field">
-                                <input type="checkbox" id="c1111" name="cb">
-                                <label for="c1111">graphic designer<span> (155)</span></label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c22" name="cb">
-                                <label for="c22">
-                                    Engineering Jobs <span> (514)</span>
-                                </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c33" name="cb">
-                                <label for="c33">Mainframe Jobs <span> (554)</span>
-                                </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c44" name="cb">
-                                <label for="c44">Legal Jobs <span> (457)</span>
-                                </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c55" name="cb">
-                                <label for="c55">IT Jobs <span> (254)</span> </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c66" name="cb">
-                                <label for="c66">PSU Jobs <span> (1054)</span> </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c77" name="cb">
-                                <label for="c77">government Jobs <span> (1284)</span> </label>
-                            </p>
-                            <div class="seeMore"><a href="#">view all categories</a></div>
-                        </div>
-
-                    </div>
-                    <div class="job_filter_category_sidebar jb_cover">
-                        <div class="job_filter_sidebar_heading jb_cover">
-                            <h1>jobs by location</h1>
-                        </div>
-
-                        <div class="category_jobbox jb_cover">
-                            @forelse($Cites as $City)
-                            <p class="job_field"><input type="checkbox" id="{{$City->id}}" name="cb"><label for="c011">Jobs in {{$City->name}}<span> ({{count($City->Job)}})</span></label></p>
-                            @empty
-                            <p class="job_field">No Cites Yet</p>
-                            @endforelse
-                        </div>
-                    </div>
-                    <div class="job_filter_category_sidebar jb_cover">
-                        <div class="job_filter_sidebar_heading jb_cover">
-                            <h1>your skill's</h1>
-                        </div>
-
-                        <div class="category_jobbox jb_cover">
-                            <p class="job_field">
-                                <input type="checkbox" id="c111" name="cb">
-                                <label for="c111">javascript
-                                    <span> (124)</span></label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c121" name="cb">
-                                <label for="c121">
-                                    HTML5
-                                    <span> (42)</span>
-                                </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c131" name="cb">
-                                <label for="c131">CSS
-                                    <span>(158)</span>
-                                </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c141" name="cb">
-                                <label for="c141">marketing
-                                    <span> (47)</span>
-                                </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c151" name="cb">
-                                <label for="c151">web design <span> (124)</span> </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c161" name="cb">
-                                <label for="c161">PHP<span> (124)</span> </label>
-                            </p>
-                            <p class="job_field">
-                                <input type="checkbox" id="c171" name="cb">
-                                <label for="c171">social media<span> (124)</span> </label>
-                            </p>
-
-                            <div class="seeMore"><a href="#">view all categories</a></div>
-                        </div>
-                    </div>
-                    <div class="job_filter_category_sidebar jb_cover">
-                        <div class="job_filter_sidebar_heading jb_cover">
-                            <h1>salary</h1>
-                        </div>
-
-                        <div class="category_jobbox jb_cover">
-                            <div class="widget price-range">
-                                <ul>
-                                    <li class="range">
-                                        <div id="responsive_range_price" class="range-box"></div>
-
-                                        <input type="text" id="responsive_price" class="price-box" readonly />
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="jp_add_resume_wrapper jb_cover">
-                        <div class="jp_add_resume_img_overlay"></div>
-                        <div class="jp_add_resume_cont">
-                            <img src="images/logo2.png" alt="logo" />
-                            <h4>Get Best Matched Jobs On your Email. Add Resume NOW!</h4>
-                            <div class="width_50">
-                                <input type="file" id="input-file-now-custom-203" class="dropify" data-height="90" /><span class="post_photo">add resume</span>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!--job listing filter  wrapper end-->
-    <!-- news app wrapper start-->
     @include('main.layout.cta')
-    <!-- news app wrapper end-->
-    <!-- footer Wrapper Start -->
     @include('main.layout.footer')
-    <!-- footer Wrapper End -->
-    <!--custom js files-->
     @include('main.layout.scripts')
-    <!-- custom js-->
 </body>
-
 </html>

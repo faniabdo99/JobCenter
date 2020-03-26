@@ -1,118 +1,58 @@
     <!-- footer Wrapper Start -->
     <div class="footer jb_cover">
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="footerNav jb_cover">
-                        <a href="#"><img src="{{url('public/main/images/')}}/logo2.png" alt="img"></a>
+                        <h5>Women Job Center</h5>
                         <ul class="footer_first_contact">
-                            <li><i class="flaticon-location-pointer"></i>
-                                <p>123 City Avenue, Floor 10,
-                                    <br> malbourne, Australia.
-                                </p>
-                            </li>
+                            <li><i class="flaticon-location-pointer"></i><p>Iraq, Basra, Aljubaila Quarter, Dinar St, Opposite to Alasad Station, on the top of Blateen fashon shop</p></li>
                             <li><i class="flaticon-telephone"></i>
-                                <p>1 -234 -456 -7890
-                                    <br> 1 -234 -456 -7890</p>
-                            </li>
-                            <li><i class="flaticon-envelope"></i><a href="#">info@Jbdesks.com </a>
-                                <br>
-                                <a href="#">support@Jbdesks.com</a>
-                            </li>
-
+                                <p>+964 783 3225 58<br>+964 773 0075 710</p></li>
+                            <li><i class="flaticon-envelope"></i><a href="#">womenjobcenter@gmail.com</a></li>
                         </ul>
-
                         <ul class="icon_list_news jb_cover">
                             <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li>
-                                <a href="#"><i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                             <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="footerNav jb_cover footer_border_displ">
-                        <h5>features</h5>
+                        <h5>Pages</h5>
                         <ul class="nav-widget">
-                            <li><a href="#"><i class="fa fa-square"></i>Job Management & Billing
-                                </a></li>
-
-                            <li><a href="#"><i class="fa fa-square"></i>Time & Materials Tracking
-                                </a></li>
-
-                            <li><a href="#"><i class="fa fa-square"></i>Standards Compliance
-                                </a></li>
-
-                            <li><a href="#"><i class="fa fa-square"></i>Real Time GPS Tracking
-                                </a></li>
-
-                            <li><a href="#"><i class="fa fa-square"></i>Client Portal
-                                </a></li>
-
-                            <li><a href="#"><i class="fa fa-square"></i> Powerful Workflow</a></li>
-
+                            <li><a href="https://womenjobcenter.com/"><i class="fa fa-square"></i>Home</a></li>
+                            <li><a href="https://womenjobcenter.com/jobs"><i class="fa fa-square"></i>Jobs</a></li>
+                            <li><a href="https://womenjobcenter.com/about"><i class="fa fa-square"></i>About Us</a></li>
+                            <li><a href="https://womenjobcenter.com/blog"><i class="fa fa-square"></i>Blog</a></li>
+                            <li><a href="https://womenjobcenter.com/contact"><i class="fa fa-square"></i>Contact Us</a></li>
+                            <li><a href="https://womenjobcenter.com/companies"><i class="fa fa-square"></i> Companies</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="footerNav jb_cover footer_border_displ">
-                        <h5>browse</h5>
+                        <h5>Register</h5>
                         <ul class="nav-widget">
-
-                            <li><a href="#"><i class="fa fa-square"></i>Freelancers by Category</a></li>
-
-                            <li><a href="#"><i class="fa fa-square"></i> Freelancers in USA </a></li>
-
-                            <li><a href="#"><i class="fa fa-square"></i> Freelancers in UK</a></li>
-
-                            <li><a href="#"><i class="fa fa-square"></i> Freelancers in Canada</a></li>
-                            <li><a href="#"><i class="fa fa-square"></i> Freelancers in india</a></li>
-                            <li><a href="#"><i class="fa fa-square"></i> find jobs</a></li>
+                            <li><a href="{{route('signup')}}"><i class="fa fa-square"></i>Sign Up</a></li>
+                            <li><a href="{{route('login')}}"><i class="fa fa-square"></i>Sign In</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="footerNav jb_cover footer_border_displ">
-                        <h5>app & integration</h5>
-                        <ul class="nav-widget">
-                            <li>
-                                <a href="#"><img src="{{url('public/main/images/')}}/ft1.png" alt="img">Xero
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#"><img src="{{url('public/main/images/')}}/ft2.png" alt="img">Reckon
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#"><img src="{{url('public/main/images/')}}/ft3.png" alt="img">Flexidocs
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="{{url('public/main/images/')}}/ft4.png" alt="img">Microsoft Exchange</a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="{{url('public/main/images/')}}/ft5.png" alt="img"> Mailchimp
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="{{url('public/main/images/')}}/ft6.png" alt="img"> MYOB
-                                </a>
-                            </li>
-
+                        <h5>Implemented By</h5>
+                        <ul class="nav-widget implement">
+                            <li><img src="{{url('public/main/images')}}/giz.png" width="100%"></li>
+                            <li><img src="{{url('public/main/images')}}/giz2.png" width="100%"></li>
                         </ul>
+                        <a href="{{route('changeLang' , 'ar')}}">العربية</a> <br>
+                        <a href="{{route('changeLang' , 'en')}}">English</a>
                     </div>
                 </div>
-                <div class="copyright_left"><i class="fa fa-copyright"></i> 2019 <a href="#"> JB desks. </a> All Rights
-                    Reserved.
-                </div>
-
+                <div class="copyright_left"><i class="fa fa-copyright"></i> 2020 <a href="https://www.facebook.com/alkarnakp"> Alkarnak. </a> All Rights Reserved.</div>
                 <div class="clearfix"></div>
             </div>
             <!--/.row-->
@@ -129,7 +69,5 @@
                 <div class="wave waveBottom"></div>
             </div>
         </div>
-
     </div>
-
     <!-- footer Wrapper End -->

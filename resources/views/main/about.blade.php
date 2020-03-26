@@ -32,32 +32,21 @@
                         <div class="owl-carousel owl-theme">
                             <div class="item">
                                 <div class="about_image">
-                                    <img src="{{url('public/main/images')}}/about1.jpg" class="img-responsive" alt="">
+                                    <img src="{{url('public/main/images')}}/Picture1.png" class="img-responsive" alt="">
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="about_image">
-                                    <img src="{{url('public/main/images')}}/about2.jpg" class="img-responsive" alt="">
+                                    <img src="{{url('public/main/images')}}/Picture2.png" class="img-responsive" alt="">
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="about_image">
-                                    <img src="{{url('public/main/images')}}/about3.jpg" class="img-responsive" alt="">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="about_image">
-                                    <img src="{{url('public/main/images')}}/about2.jpg" class="img-responsive" alt="">
-                                </div>
-                            </div>
+
+
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-10 col-md-12 col-12 col-sm-12 offset-lg-1">
                     <div class="about_text_wrapper">
-                        <p>“Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis ndum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit et nibh vulputate cursus a sit amet mauris. This is Photoshop's version of Lorem um. Proin gravida nibh vel velit auctor aliquet.”</p>
-                        <h5> - by <span> sarika fenny</span> (Director) </h5>
-                        <img src="{{url('public/main/images')}}/sign.png" alt="img">
                     </div>
                 </div>
             </div>
@@ -65,48 +54,7 @@
     </div>
     <!-- work Wrapper end -->
     <!-- counter wrapper start-->
-    <div class="counter_wrapper jb_cover">
-        <div class="counter_overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                    <div class="counter_mockup_design jb_cover">
-                        <div class="animation-circle-inverse"><i></i><i></i><i></i></div>
-                        <img src="{{url('public/main/images')}}/mockup2.png" class="img-responsive" alt="img">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                    <div class="counter_right_wrapper jb_cover">
-                        <h1>Some Statistical Facts</h1>
-                        <div class="counter_width">
-                            <div class="counter_cntnt_box">
-
-                                <div class="count-description"><span class="timer">2500</span>
-                                    <p class="con2">happy customers </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="counter_width">
-                            <div class="counter_cntnt_box">
-
-                                <div class="count-description"> <span class="timer">9425</span>
-                                    <p class="con2">ticket solved</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="counter_width">
-                            <div class="counter_cntnt_box">
-
-                                <div class="count-description"> <span class="timer">9</span><span>+</span>
-                                    <p class="con2">average rating</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('main.layout.counter')
     <!-- counter wrapper end-->
     <!-- job agency Wrapper Start -->
     <div class="job_agency_wrapper jb_cover">
@@ -115,81 +63,22 @@
                 <div class="col-lg-6 col-md-12 col-12 col-sm-12">
                     <div class="jb_heading_wraper left_jb_jeading">
 
-                        <h3>We Iusto Creative Digital
-Agency, We Provide
-Professional Web Page.</h3>
+                        <h3>About Us</h3>
 
                     </div>
                     <div class="grow_next_text agency_main_wrapper jb_cover">
-                        <p>What do all consultants need? In short, trust. This is achprofessional presentation and the ability to communicateclearly with existing and potential clients. Whether you are an accountant,What do all consultants need? In short, trust. This is achieved with professional presentation and the ability to communicate.
-                            <br>
-                            <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ed minim veniam, quis nostrud dipisicing elit, sed do eiusmod tempor incididunt exercitationlaborum. </p>
-                        <div class="header_btn search_btn jb_cover">
+                        <p>Over the past 30 years, armed conflicts and sectarian violence have ravaged Iraq. Hundreds of thousands of casualties left the widowed women to be the breadwinner for the family. In this context, especially in the southern area of Iraq, many young females and children dropped out of school. Illiterate women are estimated to be 26.4% comparing with men which reached up to 11.6%. The illiteracy is a main factor for pushing women to early marriage or following negative coping strategies like begging.<br>
+On another level, the females which have academic degree or proper education are lacking the experience and the knowledge to pursue decent jobs.<br>
+In Basra, where “the unemployment rate for youths was at 25.5 percent in 2016, which is higher than the national average of 20.4 percent” required an approach to support and increase job placement for women. As a logical solution is to establish a job centre that dedicate it effort to train females and guide them to proper job opportunities.<br>
+Bringing women into the employment market through the establishment of female oriented job centres in Basra: The aim of the job centre is to establish networks between the local economy and female jobseekers, which may also include international businesses and organisations. Additionally, the job centres will offer support and guidance to women who intend to open their own business.
+</p>
 
-                            <a href="#">learn more</a>
-
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-12 col-sm-12">
                     <div class="row">
 
-                        <div class="col-lg-6 col-md-6 col-12 col-sm-12">
-                            <div class="company_main_wrapper">
-                                <div class="company_img_wrapper">
-                                    <img src="{{url('public/main/images')}}/cmp3.png" alt="team_img1">
-                                    <div class="btc_team_social_wrapper">
-                                        <h1>(usa)</h1>
-                                    </div>
-                                </div>
-                                <div class="opening_job">
-                                    <h1><a href="#">25 job open</a></h1></div>
-                                <div class="company_img_cont_wrapper">
-                                    <h4>burger patty</h4>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 col-sm-12">
-                            <div class="company_main_wrapper">
-                                <div class="company_img_wrapper">
-                                    <img src="{{url('public/main/images')}}/cmp4.png" alt="team_img1">
-                                    <div class="btc_team_social_wrapper">
-                                        <h1>(usa)</h1>
-                                    </div>
-                                </div>
-                                <div class="opening_job">
-                                    <h1><a href="#">04 job open</a></h1></div>
-                                <div class="company_img_cont_wrapper">
-                                    <h4>Akshay INC.</h4>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="jb_top_jobs_category job_agency_box jb_cover">
-
-                                <h3><a href="#">laravel</a></h3>
-                                <img src="{{url('public/main/images')}}/jb1.png" alt="img">
-
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="jb_top_jobs_category job_agency_box jb_cover">
-
-                                <h3><a href="#">Wordpress</a></h3>
-                                <img src="{{url('public/main/images')}}/jb2.png" alt="img">
-
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="jb_top_jobs_category job_agency_box jb_cover">
-
-                                <h3><a href="#">AngularJS</a></h3>
-                                <img src="{{url('public/main/images')}}/jb3.png" alt="img">
-
-                            </div>
-                        </div>
+                       <img src="{{url('public/main/images')}}/logo.png" class="img-responsive" alt="img" width="100%">
                     </div>
                 </div>
             </div>
@@ -204,65 +93,34 @@ Professional Web Page.</h3>
                 <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
                     <div class="jb_heading_wraper">
 
-                        <h3>Meet Our Expert Team Member</h3>
-
-                        <p>Your next level Product developemnt company assets</p>
+                        <h3>Our Goals</h3>
                     </div>
                 </div>
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="team_slider_wrapper jb_cover">
-                        <div class="owl-carousel owl-theme">
-                            <div class="item">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="grow_next_text agency_main_wrapper jb_cover">
+                        <p>
 
-                                <div class="team_slider_content jb_cover">
-                                    <div class="team_slider_img_box jb_cover">
-                                        <img src="{{url('public/main/images')}}/team.png" alt="img" class="img-responsive">
-                                    </div>
-                                    <div class="team_slider_content_btm jb_cover">
-                                        <p>(Sr. Advisor)</p>
-                                        <h2><a href="#">Reen Scot</a></h2>
-                                    </div>
-                                </div>
-                            </div>
+                            <ul class="goalsmenu">
+                        <li>Decrease the unemployment rate.
+</li>
+<li>Promote gender equality / equity.
+</li>
+<li>Enhance the capacity of the females to get better job opportunities.
+</li>
+<li>Contribute to improve the image of women / female jobseekers
+</li>
+<li>Contribute to female networking and exchange.
+</li>
+<li>Increasing female participation in the local job market.
+</li>
+<li>Boost female self-confidence and raise awareness for the opportunities provided on the local labour market.
+</li>
+                        </ul>
+</p>
 
-                            <div class="item">
-
-                                <div class="team_slider_content jb_cover">
-                                    <div class="team_slider_img_box jb_cover">
-                                        <img src="{{url('public/main/images')}}/team1.png" alt="img" class="img-responsive">
-                                    </div>
-                                    <div class="team_slider_content_btm jb_cover">
-                                        <p>(director)</p>
-                                        <h2><a href="#">jonny doe</a></h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="team_slider_content jb_cover">
-                                    <div class="team_slider_img_box jb_cover">
-                                        <img src="{{url('public/main/images')}}/team2.png" alt="img" class="img-responsive">
-                                    </div>
-                                    <div class="team_slider_content_btm jb_cover">
-                                        <p>(Sr. Advisor)</p>
-                                        <h2><a href="#">jenny kim</a></h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-
-                                <div class="team_slider_content jb_cover">
-                                    <div class="team_slider_img_box jb_cover">
-                                        <img src="{{url('public/main/images')}}/team4.png" alt="img" class="img-responsive">
-                                    </div>
-                                    <div class="team_slider_content_btm jb_cover">
-                                        <p>(Sr. Advisor)</p>
-                                        <h2><a href="#">sunita A.</a></h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
+    <div class="col-lg-6 col-md-6 our_goals_img"><img src="https://womenjobcenter.com/public/main/images/mockup4.png" alt="img"></div>
             </div>
         </div>
     </div>
@@ -272,79 +130,33 @@ Professional Web Page.</h3>
         <div class="job_rivew_img">
             <img src="{{url('public/main/images')}}/mockup3.png" alt="img">
         </div>
-        <div class="job_rivew_testimonial">
-            <div class="jb_heading_wraper left_rivew_heading">
+        <div class="col-md-6 job_rivew_testimonial">
+            <div class="jb_heading_wraper left_rivew_heading left_rivew_heading_mission_vision">
 
-                <h3>our job rivew</h3>
+                <h3>Vision</h3>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    <br> sed do eiusmod tempor incididunt </p>
+
             </div>
-            <div class="rivew_testimonial_slider jb_cover">
-                <div class="owl-carousel owl-theme">
-                    <div class="item">
+            <div class="grow_next_text agency_main_wrapper jb_cover">
+                        <p>We work on supporting the hiring opportunities for the trainees to match their skills with the required job skills.
 
-                        <div class="jb_saying_content_wrapper jb_cover">
-                            <div class="saying_img">
-                                <img src="{{url('public/main/images')}}/testi.png" alt="img">
-                            </div>
-                            <div class="rating_star"><i class="flaticon-star-1"></i><i class="flaticon-star-1"></i><i class="flaticon-star-1"></i><i class="flaticon-star"></i><i class="flaticon-star"></i></div>
+</p>
+<div class="jb_heading_wraper left_rivew_heading left_rivew_heading_mission_vision">
 
-                            <p>“ I don't always clap, but when I do, it'sbecause of Sella. We can't understandhow we've been Sella. ”</p>
-                            <div class="jb_saying_img_name">
-                                <h1><a href="#">Marita Irene</a></h1>
-                                <p>Support Manager @ Echo</p>
-                            </div>
-                        </div>
-                    </div>
+                <h3>Mission</h3>
 
-                    <div class="item">
-                        <div class="jb_saying_content_wrapper jb_cover">
-                            <div class="saying_img">
-                                <img src="{{url('public/main/images')}}/testi1.png" alt="img">
-                            </div>
-                            <div class="rating_star"><i class="flaticon-star-1"></i><i class="flaticon-star-1"></i><i class="flaticon-star-1"></i><i class="flaticon-star"></i><i class="flaticon-star"></i></div>
-                            <p>“ I don't always clap, but when I do, it'sbecause of Sella. We can't understandhow we've been Sella. ”</p>
-                            <div class="jb_saying_img_name">
-                                <h1><a href="#">Marita Irene</a></h1>
-                                <p>Support Manager @ Echo</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
+<p>We build up females capacities and skills to acquire more job opportunities and then we do job matching between the available jobs at the jobs’ market and the female candidates in our databases.
+</p>
+<p>Today, we were able to train a big number of females in job readiness topics, and we have built up a data base of female candidates with different professions and backgrounds. We are a free of charge job center and happy to offer our services to the different employment sectors in Basra and Iraq.
+</p>
+
+                    </div>
         </div>
     </div>
 
     <!-- job rivew wrapper end-->
-    <!-- download app wrapper start-->
-    <div class="download_wrapper jb_cover">
-        <div class="counter_overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                    <div class="download_mockup_design jb_cover">
-                        <div class="animation-circle-inverse2"><i></i><i></i><i></i></div>
-                        <img src="{{url('public/main/images')}}/mockup5.png" class="img-responsive" alt="img">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                    <div class="download_app_store jb_cover">
-                        <h1>Download</h1>
-                        <h2>Job Portal App Now!</h2>
-                        <p>All it takes is 30 seconds to Download. Your Mobile App for Job
-                            <br> Fast, Simple & Delightful.</p>
-                        <div class="app_btn jb_cover">
-                            <a href="#" class="ss_playstore"><span><i class="flaticon-android-logo"></i></span> Play Store</a>
-                            <a href="#" class="ss_appstore"><span><i class="flaticon-apple"></i></span> App Store</a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- download app wrapper end-->
     @include('main.layout.cta')
     <!-- footer Wrapper Start -->
     @include('main.layout.footer')

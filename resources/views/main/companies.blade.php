@@ -34,7 +34,7 @@
                             <div class="company_img_wrapper">
                                 <img width="92" height="92" src="{{$Company->profile_image}}" alt="{{$Company->name}}">
                                 <div class="btc_team_social_wrapper">
-                                    <h1>({{$Company->City->name}})</h1>
+                                    <h1>{!!$Company->City->name ?? '<i class="fas fa-star"></i>'!!}</h1>
                                 </div>
                             </div>
                             <div class="opening_job">
@@ -48,34 +48,11 @@
                 @empty
                 <p>No Companies</p>
                 @endforelse
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="blog_pagination_section jb_cover">
-                        <ul>
-                            <li>
-                                <a href="#" class="prev"> <i class="flaticon-left-arrow"></i> </a>
-                            </li>
-                            <li><a href="#">1</a>
-                            </li>
-                            <li class="third_pagger"><a href="#">2</a>
-                            </li>
-                            <li class="d-block d-sm-block d-md-block d-lg-block"><a href="#">3</a>
-                            </li>
-                            <li class="d-none d-sm-block d-md-block d-lg-block"><a href="#">...</a>
-                            </li>
-                            <li class="d-none d-sm-block d-md-block d-lg-block"><a href="#">6</a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="next"> <i class="flaticon-right-arrow"></i> </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
     <!-- companies wrapper end -->
-
+    {{$Companies->links('main.layout.pagenation')}}
     <!-- news app wrapper start-->
     @include('main.layout.cta')
     <!-- news app wrapper end-->

@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Validator;
 //Models
@@ -51,7 +49,8 @@ class AdminController extends Controller{
     }
     public function deleteCompany($id){
       $User = User::find($id);
-      $User->delete();
+      $UserJob = Job::where('company_id' , $id)->delete(); //Delete The Company Jobs
+      $User->delete(); // Delete The Company
       return back()->withSuccess('The Company ' .$User->name.' Deleted !');
     }
     public function deactivateCompany($id){

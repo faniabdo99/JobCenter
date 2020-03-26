@@ -7,6 +7,12 @@ use App\Category;
 use App\City;
 use App\Post;
 class FrontEndController extends Controller{
+    public function ChangeLanguage($locale){
+        if (in_array($locale, \Config::get('app.locales'))) {
+          session(['locale' => $locale]);
+        }
+        return redirect()->back();
+    }
     public function getIndex(){
         $Categories = Category::orderBy('id' , 'desc')->limit(6)->get();
         $TopSixJobs = Job::orderBy('id' , 'desc')->limit(6)->get();
@@ -25,7 +31,7 @@ class FrontEndController extends Controller{
         return view('main.jobs' , compact('Categories' , 'Jobs' , 'Cites'));
     }
     public function getCompanies(){
-        $Companies = User::where('type' , 'company')->where('active' , '1')->get();
+        $Companies = User::where('type' , 'company')->where('active' , '1')->paginate(9);
         return view('main.companies' , compact('Companies'));
     }
     public function getCompany($id){

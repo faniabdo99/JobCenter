@@ -124,6 +124,9 @@ ul{
 a:hover {
   	text-decoration: none;
 }
+button {
+    cursor:pointer;
+}
 /*-- Preloader css start --*/
 .jb_preloader{
   position: fixed;
@@ -343,26 +346,27 @@ a:hover {
 .header_btn ul{
 	display:inline-block;
 	padding-top:5px;
-}
+} 
 .header_btn li:last-child a{
-  width:140px;
-  height:50px;
-  background:#ff3366;
-  float:left;
-  text-align:center;
-  cursor:pointer;
-  position:relative;
-  overflow:hidden;
-  font-size:16px;
-  color:#fff;
-  border:1px solid transparent;
-  line-height:50px;
-  text-transform:capitalize;
-	z-index: 1;
-	-webkit-backface-visibility: hidden;
-	-moz-osx-font-smoothing: grayscale;
-	transition: background-color 0.6s, color 0.6s;
-	   -webkit-transition: all 0.6s;
+    padding: 10px;
+    width: 120px;
+    height: 50px;
+    background:#ff3366;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-size: 16px;
+    color:#fff;
+    border: 1px solid #e2e2e2;
+    line-height: 30px;
+    text-transform: capitalize;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.6s, color 0.6s;
+    -webkit-transition: all 0.6s;
     -o-transition: all 0.6s;
     -ms-transition: all 0.6s;
     -moz-transition: all 0.6s;
@@ -409,24 +413,25 @@ a:hover {
 	margin-right:5px;
 }
 .header_btn li:first-child a{
-  width:140px;
-  height:50px;
-  background:#fff;
-  float:left;
-  text-align:center;
-  cursor:pointer;
-  position:relative;
-  overflow:hidden;
-  font-size:16px;
-  color:#222;
-  border:1px solid #e2e2e2;
-  line-height:50px;
-  text-transform:capitalize;
-	z-index: 1;
-	-webkit-backface-visibility: hidden;
-	-moz-osx-font-smoothing: grayscale;
-	transition: background-color 0.6s, color 0.6s;
-	   -webkit-transition: all 0.6s;
+  padding: 10px;
+    width: 120px;
+    height: 50px;
+    background: #fff;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-size: 16px;
+    color: #222;
+    border: 1px solid #e2e2e2;
+    line-height: 30px;
+    text-transform: capitalize;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.6s, color 0.6s;
+    -webkit-transition: all 0.6s;
     -o-transition: all 0.6s;
     -ms-transition: all 0.6s;
     -moz-transition: all 0.6s;
@@ -1209,7 +1214,7 @@ a:hover {
     width: 100%;
     height: 50px;
     padding-left: 24px;
-    background: transparent;
+    background: #fff;
     color: #555;
 		-webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -1283,6 +1288,9 @@ a:hover {
     top: 50%;
     width: 8px;
 }
+.search_btn a i{
+	margin-right:5px;
+}
 .search_btn  a , .search_btn button{
   width:180px;
   height:50px;
@@ -1305,6 +1313,7 @@ a:hover {
     -ms-transition: all 0.6s;
     -moz-transition: all 0.6s;
     transition: all 0.6s;
+    
 }
 .search_btn a::before {
 	content: '';
@@ -1332,6 +1341,7 @@ a:hover {
     -moz-transition: all 0.6s;
     transition: all 0.6s;
 }
+
 .search_btn a:hover::before {
 	-webkit-transform: scale3d(1, 1, 1);
 	transform: scale3d(1, 1, 1);
@@ -1342,9 +1352,13 @@ a:hover {
     -moz-transition: all 0.6s;
     transition: all 0.6s;
 }
+.search_btn_two button, .search_btn_two a{
+    float:right;
+}
 .search_btn a i{
 	margin-right:5px;
 }
+
 .jb_btm_keyword {
     margin-top: 30px;
 }
@@ -1408,7 +1422,7 @@ a:hover {
 }
 .jb_heading_wraper {
     text-align: center;
-    padding-bottom: 55px;
+    padding-bottom: 25px;
 }
 .jb_heading_wraper h3{
 	font-size: 36px;
@@ -1571,6 +1585,17 @@ a:hover {
 }
 .grow_next_text p{
 	margin-bottom:30px;
+}
+.grow_next_text ul {
+    list-style-type:circle;
+}
+.goalsmenu li{
+    margin-bottom:10px;
+    font-size:18px
+}
+.our_goals_img img{
+    padding-left: 92px;
+    width: 86%;
 }
 /****----latest jobs wrapper css-----****/
 .latest_job_wrapper{
@@ -1824,7 +1849,6 @@ a:hover {
 .counter_wrapper{
 	width: 100%;
     float: left;
-    background-image: url(../images/counter_bg.jpg);
     height: 100%;
     background-position: center 0;
     background-size: cover;
@@ -2277,6 +2301,9 @@ a:hover {
 	text-align:left;
 	padding-bottom:30px;
 }
+.left_rivew_heading_mission_vision {
+    	padding-bottom:3px;
+}
 .rivew_testimonial_slider  .owl-theme .owl-dots{
 	display:none;
 }
@@ -2701,6 +2728,11 @@ a:hover {
 	float:right;
 	width:260px;
 }
+.implement li {
+    padding:10px;
+    border-radius:5px;
+    background-color:#fff;
+}
 /***-----footer wrapper css------*****/
 .footer {
     background: #303d59;
@@ -2815,7 +2847,8 @@ a:hover {
 	float:left;
 	padding-bottom:0;
 	margin-right:14px;
-}.waveWrapper {
+}
+.waveWrapper {
     overflow: hidden;
     position: absolute;
     left: 0;
@@ -3034,7 +3067,7 @@ a:hover {
 /***-----team wrapper css----****/
 .team_wrapper{
 	padding:100px 0;
-	padding-bottom:200px;
+	padding-bottom:120px;
 	background:#f6f6f6;
 }
 .team_slider_wrapper  .owl-theme .owl-dots{
@@ -4559,6 +4592,7 @@ a:hover {
 }
 .comments_form .form-control {
 	height: 50px;
+	width:100%;
     padding: 15px 23px;
     font-size: 16px;
     border: 1px solid #e2e2e2;
@@ -4571,6 +4605,14 @@ a:hover {
    -o-transition: all 0.3s ease 0s;
    transition: all 0.3s ease 0s;
    background-color: #fff;
+}
+.form_list {
+    margin-bottom: 30px;
+    display:block;
+    width:100%;
+}
+.form_list ul {
+    width:100%;
 }
 .comments_form textarea.form-control{
 	height:auto;
@@ -4742,8 +4784,9 @@ a:hover {
     position: relative;
 	min-height:600px;
 	text-align:center;
-	padding-top:60px;
+	padding-top:150px;
 }
+
 .facebook_wrap {
 	margin:20px 0;
 	text-align:center;
@@ -4791,6 +4834,9 @@ a:hover {
 	padding:110px 100px 100px 100px;
 	text-align:center;
 }
+.login_form_wrapper_forget {
+    width:100%;
+}
 .login_form_wrapper h2{
 	font-size:26px;
 	text-transform:capitalize;
@@ -4799,6 +4845,7 @@ a:hover {
 .login_remember_box{
 	margin:30px 0;
 	color:#999;
+	margin-bottom:2px;
 }
 .jp_regis_center_tag_wrapper {
     width: 70px;
@@ -5045,6 +5092,11 @@ a:hover {
     background-size: cover;
     padding: 80px 100px;
 	min-height:900px;
+}
+.map_wrapper_top .map_wrapper iframe {
+    width:100%;
+    height:606px;
+    border:none;
 }
 .jb_map_indx_wrapper .gm-style .gm-style-iw-c{
 	text-transform:capitalize;

@@ -1,4 +1,5 @@
 <?php
+Route::get('change-lang/{lang}' , 'FrontEndController@ChangeLanguage')->name('changeLang');
 //Admin Routes
 Route::group(['prefix' => 'admin','middleware' => ['isAdmin']], function () {
     Route::get('/' , 'AdminController@getHome')->name('admin.home');
@@ -80,6 +81,7 @@ Route::middleware('guest')->group(function(){
     Route::get('change-pass/{id}/{code}' , 'AuthController@passwordResetConfirm')->name('forget.password.confirm');
 });
 Route::get('user/activate/{code}' , 'AuthController@ActivateAccount')->name('account.activate');
+Route::get('user/re-send/{id}' , 'AuthController@ResendActivationEmail')->name('account.activate.resend');
 //Dashboard
 Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
     Route::group(['prefix' => 'user','middleware' => ['isNormalUser']], function () {
@@ -105,3 +107,26 @@ Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
 
 });
 Route::get('/logout' , 'AuthController@logout')->middleware('auth')->name('logout');
+
+
+
+
+
+
+//Clear configurations:
+			Route::get('/config-clear', function() {
+				$status = Artisan::call('config:clear');
+				return '<h1>Configurations cleared</h1>';
+			});
+
+//Clear cache:
+			Route::get('/cache-clear', function() {
+				$status = Artisan::call('cache:clear');
+				return '<h1>Cache cleared</h1>';
+			});
+
+//Clear configuration cache:
+			Route::get('/config-cache', function() {
+				$status = Artisan::call('config:cache');
+				return '<h1>Configurations cache cleared</h1>';
+			});

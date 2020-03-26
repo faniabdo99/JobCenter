@@ -18,24 +18,20 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
         </li>
         <li><a href="{{route('home')}}">home</a></li>
         <li><a href="{{route('jobs')}}">jobs</a></li>
-        <!-- .has-children -->
-        <li class="has-children">
-            <a href="#">pages</a>
-            <ul class="cd-secondary-dropdown icon_menu is-hidden">
-                <li class="go-back"><a href="#0">Menu</a></li>
-                <li><a href="{{route('about')}}">about us</a></li>
-                <li><a href="{{route('companies')}}">companies</a></li>
-                @guest
-                  <li><a href="{{route('login')}}">login</a></li>
-                  <li><a href="{{route('signup')}}">sign up</a></li>
-                @endguest
-            </ul>
-        </li>
+        <li><a href="{{route('about')}}">about us</a></li>
+        <li><a href="{{route('companies')}}">companies</a></li>
         <li><a href="{{route('blog')}}">blog</a></li>
         <li><a href="{{route('contact')}}">contact</a></li>
         @guest
         <li><a href="{{route('login')}}">login</a></li>
         @endguest
+        @auth
+                <li>
+                    <a href="{{auth()->user()->DashLink()}}"><i class="flaticon-man-user"></i> {{auth()->user()->name}}</a>
+                </li>
+
+        <li><a href="{{route('logout')}}">logout</a></li>
+        @endauth
     </ul>
     <!-- .cd-dropdown-content -->
 </nav>
@@ -43,7 +39,7 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
     <div class="container-fluid">
         <div class="cp_logo_wrapper">
             <a href="{{route('home')}}">
-                <img width="80" height="80" src="{{url('public/main/images')}}/logo.png" alt="logo">
+                <img width="100" height="80" src="{{url('public/main/images')}}/logo.png" alt="logo">
             </a>
         </div>
         <!-- mobile menu area start -->
@@ -184,16 +180,8 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
                             </li>
                         </ul>
                     </li>
-                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">pages</a>
-                        <ul class="navi_2_dropdown">
-                            <li class="parent">
-                                <a href="{{route('about')}}"> <i class="fas fa-square"></i>about us</a>
-                            </li>
-                            <li class="parent">
-                                <a href="{{route('companies')}}"> <i class="fas fa-square"></i>companies</a>
-                            </li>
-                        </ul>
-                    </li>
+                    <li class="gc_main_navigation"><a href="{{route('about')}}" class="gc_main_navigation">about us</a></li>
+                    <li class="gc_main_navigation"><a href="{{route('companies')}}" class="gc_main_navigation">companies</a></li>
                     <li class="gc_main_navigation"><a href="{{route('blog')}}" class="gc_main_navigation">blog</a>
                     <li><a href="{{route('contact')}}" class="gc_main_navigation">contact</a></li>
                 </ul>

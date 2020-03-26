@@ -30,8 +30,8 @@
             <div class="row">
 			   <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
                     <div class="jb_heading_wraper">
-                        <h3>contact with us</h3>
-                        <p>Your next level Product developemnt company assets</p>
+                        <h3>contact us</h3>
+                        <p>We are here to Help you!</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
@@ -40,7 +40,7 @@
                         <div class="contact_rotate">
                           <i class="fas fa-phone"></i>
                         </div>
-                        <p>+1800-148-423<br> +9175-148-124</p>
+                        <p>+964 7833225958<br>+964 7730075710</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
@@ -49,7 +49,7 @@
                         <div class="contact_rotate">
                            <i class="fas fa-envelope"></i>
                         </div>
-                        <p><a href="#">jbdesks@example.com </a><br><a href="#">support@example.com</a></p>
+                        <p><a href="#">womenjobcenter@gmail.com </a></p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
@@ -58,7 +58,7 @@
                         <div class="contact_rotate">
 						     <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <p>Somewhere in Iraq<br> 52B-melbourne,UK</p>
+                        <p>Iraq, Basra, Aljubaila Quarter, Dinar St<br> Opposite to Alasas Station, on the top of Blateen fashon shop</p>
                     </div>
                 </div>
             </div>
@@ -68,8 +68,7 @@
 	  <!-- map wrapper  start-->
     <div class="map_wrapper_top jb_cover">
 		  <div class="map_wrapper map2_wrapper">
-				<div id='map'>
-				</div>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3436.3766016502022!2d47.80566171538516!3d30.53866220201037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fc49900d6b421ad%3A0xbed3feca9299a4a0!2sMuftiyah%2C%20Basrah%2C%20Iraq!5e0!3m2!1sen!2sus!4v1584981157636!5m2!1sen!2sus" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 		</div>
 	 <div class="contact_field_wrapper comments_form">
 			<div class="jb_heading_wraper left_rivew_heading">
@@ -85,8 +84,7 @@
                     <div class="notofication-message success-message">{{ session()->get('success') }}</div>
                 @endif
                 <h3>get in touch</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    <br> sed do eiusmod tempor incididunt </p>
+                <p>We would love to hear your thoughts, concerns, or problems with anything so we can improve.</p>
             </div>
                 <form action="{{route('contact.do')}}" method="post">
                     @csrf
@@ -139,23 +137,6 @@
     <!--custom js files-->
     @include('main.layout.scripts')
     <!-- custom js-->
-	   <script>
-        function initMap() {
-            var uluru = {
-                lat: -36.742775,
-                lng: 174.731559
-            };
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
-                scrollwheel: false,
-                center: uluru
-            });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
-        }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi2zbxXa0ObGqaSBo5NJMdwLs_xtQ03nI&callback=initMap"></script>
+
 </body>
 </html>

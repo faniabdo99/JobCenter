@@ -122,7 +122,7 @@
 
                                 </div>
                             </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                               
                                     <div class="job_filter_category_sidebar jb_cover">
                                         <div class="job_filter_sidebar_heading jb_cover">
                                             <h1> social profile</h1>
@@ -138,10 +138,10 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                    </div>
+            
                                 </div>
                         </div>
-                        <div class="col-lg-7 col-md-12 col-sm-12 col-12">
+                        <div class="col-lg-7 col-md-12 col-sm-12 col-12" style="margin-top:11px">
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="emp_job_post jb_cover">
@@ -167,6 +167,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -184,7 +185,7 @@
                     <div class="job_newsletter_wrapper jb_cover">
                         <div class="jb_newslwtteter_left">
                             <h2> Looking For A Job</h2>
-                            <p>Your next level Product developemnt company assetsYour next level Product </p>
+                           
                         </div>
                         <div class="jb_newslwtteter_button">
                             <div class="header_btn search_btn news_btn jb_cover">

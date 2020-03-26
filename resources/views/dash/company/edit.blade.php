@@ -1,5 +1,4 @@
 @include('dash.layout.header' , ['PageTitle' => 'Edit Profile'])
-
 <body>
     @include('dash.layout.navbar')
     <!-- navi wrapper End -->
@@ -28,7 +27,6 @@
                             <div class="job_listing_left_fullwidth jb_cover">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-
                                         <form action="{{route('dash.company.edit.do')}}" method="post" enctype="multipart/form-data">
                                             @csrf
                                             <div class="jp_job_post_side_img">
@@ -50,7 +48,6 @@
                                                         <input name="cover" type="file" id="input-file-now-custom-2" class="dropify" data-height="90" /><span class="post_photo">browse image</span>
                                                     </div>
                                                 </div>
-
                                             </div>
                                     </div>
                                 </div>
@@ -65,7 +62,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="contect_form3">
-                                            <label>Contact Email</label>
+                                            <label>Contact Email (Anyone can see it)</label>
                                             <input type="email" value="{{old('contact_email') ?? $User->contact_email}}" name="contact_email">
                                         </div>
                                     </div>
@@ -73,7 +70,7 @@
                                         <div class="select_box">
                                             <label>company size</label>
                                             <select name="company_size">
-                                                <option value="{{$User->company_size}}">{{$User->company_size}}</option>
+                                                <option value="{{$User->company_size ?? ''}}">{{$User->company_size ?? 'Choose Company Size'}}</option>
                                                 <option value="1-50">1-50</option>
                                                 <option value="1-100">1-100</option>
                                                 <option value="1-200">1-300</option>
@@ -162,6 +159,12 @@
                                                             <input type="url" name="linkedin" value="{{old('linkedin') ?? $User->linkedin}}">
                                                         </div>
                                                     </div>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                        <div class="contect_form3">
+                                                            <label>intro video <b>(embed link)</b></label>
+                                                            <input type="url" name="video" placeholder="Youtube or Vimeo Embed Link" value="{{old('video') ?? $User->video}}">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -195,9 +198,10 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="login_remember_box jb_cover">
-                                            <div class="header_btn search_btn login_btn jb_cover">
-                                                <button type="submit" href="#">save changes</button>
+                                            <div class="header_btn search_btn">
+                                                <button type="submit">Save Changes</button>
                                             </div>
+
                                         </div>
                                         </form>
                                     </div>

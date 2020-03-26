@@ -20,8 +20,13 @@ class JobsController extends Controller{
     }
     public function getNew(){
         $User = $this->getUser();
-        $Categories = Category::orderBy('id' , 'desc')->get();
-        return view('dash.company.new-job' , compact('User','Categories'));
+        if($User->active == 0){
+          abort(403);
+        }else{
+          $Categories = Category::orderBy('id' , 'desc')->get();
+          $Cities = City::orderBy('id' , 'desc')->get();
+          return view('dash.company.new-job' , compact('User','Categories','Cities'));
+        }
     }
     public function postNew(Request $r){
         //Get Validation Ready
@@ -30,7 +35,7 @@ class JobsController extends Controller{
             'title' => 'required',
             'type' => 'required',
             'salary' => 'nullable|integer',
-            'experience' => 'nullable|integer',
+            'experience' => 'required',
             'description' => 'required|min:40',
             'position' => 'required',
             'city_id' => 'required'
@@ -40,7 +45,7 @@ class JobsController extends Controller{
             'title.required' => 'You must provide a job title',
             'type.required' => 'You must choose a type',
             'salary.integer' => 'The salary must be in form of number',
-            'experience.integer' => 'The experience must be in years number form',
+            'experience.required' => 'The experience can not be blank',
             'description.min' => 'The job description must be 40 charachters at least',
             'city_id.required' => 'You must choose a job location',
             'position.required' => 'You Must Add Job Position'

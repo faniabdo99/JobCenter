@@ -7,7 +7,6 @@
         <div class="page_header">
             <div class="container">
                 <div class="row">
-                    <!-- section_heading start -->
                     <div class="col-lg-9 col-md-8 col-12 col-sm-7">
                         <h1>{{$Company->name}}</h1>
                     </div>
@@ -25,8 +24,7 @@
     </div>
     <!-- top header wrapper end -->
     <!-- company details wrapper start-->
-    <div class="company_details_wrapper jb_cover" style="background-image:url('{{$Company->cover_image}}');">
-    </div>
+    <div class="company_details_wrapper jb_cover" style="background-image:url('{{$Company->cover_image}}');"></div>
     <div class="webstrot_tech_detail jb_cover">
         <div class="container">
             <div class="row">
@@ -40,8 +38,8 @@
                                 <div class="jp_job_post_right_cont web_text">
                                     <h4>{{$Company->name}}</h4>
                                     <ul>
-                                        <li><i class="flaticon-location-pointer"></i>&nbsp; {{$Company->City->name}}</li>
-                                        <li><i class="fa fa-th-large"></i>&nbsp; {{$Company->Category->title}}</li>
+                                        @if($Company->city_id)<li><i class="flaticon-location-pointer"></i>&nbsp; {{$Company->City->name}}</li>@endif
+                                        @if($Company->category_id)<li><i class="fa fa-th-large"></i>&nbsp; {{$Company->Category->title}}</li>@endif
                                     </ul>
                                 </div>
                             </div>
@@ -78,6 +76,7 @@
                             <h2 class="job_description_heading">about us</h2>
                             <p>{{$Company->description}}</p>
                         </div>
+                        @if($Company->video)
                         <div class="jp_job_res jb_cover">
                             <h2 class="job_description_heading">intro video</h2>
                             <div class="prs_video_sec_icon_wrapper jb_cover">
@@ -89,6 +88,7 @@
                                 </ul>
                             </div>
                         </div>
+                        @endif
                         <div class="jp_job_res jp_listing_left_wrapper jb_cover">
                             <div class="jp_listing_left_bottom_sidebar_social_wrapper">
                                 <ul>
@@ -185,7 +185,7 @@
                             <h1> overview company</h1>
                         </div>
                         <div class="job_overview_header jb_cover">
-
+                          @if($Company->category_id)
                             <div class="jp_listing_overview_list_main_wrapper jb_cover">
                                 <div class="jp_listing_list_icon">
                                     <i class="far fa-calendar"></i>
@@ -197,7 +197,8 @@
                                     </ul>
                                 </div>
                             </div>
-
+                          @endif
+                          @if($Company->city_id || $Company->address)
                             <div class="jp_listing_overview_list_main_wrapper jb_cover">
                                 <div class="jp_listing_list_icon">
                                     <i class="fas fa-map-marker-alt"></i>
@@ -205,10 +206,17 @@
                                 <div class="jp_listing_list_icon_cont_wrapper">
                                     <ul>
                                         <li>Location:</li>
-                                        <li>@if($Company->address){{$Company->address}}@else{{$Company->City->name}}@endif</li>
+                                        @if($Company->address)
+                                        <li>{{$Company->address}}<li>
+                                        @elseif($Company->city_id)
+                                        <li>{{$Company->City->name}}</li>
+                                        @else
+
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
+                          @endif
                             @if($Company->phone)
                             <div class="jp_listing_overview_list_main_wrapper jb_cover">
                                 <div class="jp_listing_list_icon">
@@ -264,12 +272,15 @@
                             </div>
                             @endif
                             @auth
+                            @if($Company->contact_email)
                             <div class="header_btn search_btn news_btn overview_btn  jb_cover">
                                 <a href="mailto:{{$Company->contact_email}}">contact us</a>
                             </div>
+                            @endif
                           @endauth
                         </div>
                     </div>
+                    @if($Company->facebook || $Company->twitter || $Company->linkedin || $Company->google)
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
                             <h1> social profile</h1>
@@ -286,20 +297,13 @@
                             </div>
                         </div>
                     </div>
+                  @endif
                 </div>
             </div>
         </div>
     </div>
-    <!-- company details wrapper end-->
-    <!-- news app wrapper start-->
     @include('main.layout.cta')
-    <!-- news app wrapper end-->
-    <!-- footer Wrapper Start -->
     @include('main.layout.footer')
-    <!-- footer Wrapper End -->
-    <!--custom js files-->
     @include('main.layout.scripts')
-    <!-- custom js-->
 </body>
-
 </html>

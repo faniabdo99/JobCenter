@@ -13,6 +13,7 @@
                 <li><a href="{{route('dash.company.jobs')}}"><i class="fas fa-suitcase"></i>manage jobs</a></li>
                 <li><a href="{{route('dash.company.applications')}}"><i class="fas fa-mobile"></i>applications</a></li>
                 <li><a href="{{route('job.new')}}"><i class="fas fa-user-plus"></i>post new job</a></li>
+                <li><a href="https://womenjobcenter.com/logout"><i class="fas fa-sign-out-alt"></i>log out</a></li>
             </ul>
         </div>
     </div>

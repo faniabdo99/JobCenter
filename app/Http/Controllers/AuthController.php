@@ -20,7 +20,7 @@ class AuthController extends Controller{
     }
 
     public function handleProviderCallback($driver){
-        $user = Socialite::driver($driver)->user();
+        $user = Socialite::with($driver)->stateless()->user();
         //Check if this a new user
         $isThereIsUser = User::where('email' , $user->email)->first();
         if($isThereIsUser == null){
@@ -32,10 +32,12 @@ class AuthController extends Controller{
           $UserData['name'] = $user->name;
           $UserData['image'] = $user->avatar;
           $UserData['type'] = 'user';
+          $UserData['active'] = 1;
           $UserData['password'] = Hash::make($MadeUpPassword);
           $UserData['username'] = strtolower(str_replace(' ' , '_' , $user->name));
           $NewUser = User::create($UserData);
           Auth::loginUsingId($NewUser->id);
+          $UserData['password'] = $MadeUpPassword;
           Mail::to($NewUser->email)->send(new WelcomeNewUser($UserData));
           return redirect()->route('dash.user.home');
         }else{
@@ -47,12 +49,8 @@ class AuthController extends Controller{
             //Redirect to Dashboard.
             return redirect()->route('dash.user.home');
           }
-
         }
     }
-
-
-
     public function getSignup(){
         return view('main.auth.signup');
     }
@@ -60,14 +58,17 @@ class AuthController extends Controller{
         $Rules = [
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required'
+            'password' => 'required',
+            'password_conf' => 'required|same:password',
         ];
         $ErrorsMessages = [
             'name.required' => 'Your Name is Required',
             'email.required' => 'Your Email is Required',
             'email.email' => 'Your Email is Invalid',
             'email.unique' => 'This Email is Already Taken',
-            'password.required' => 'Your Password is Required'
+            'password.required' => 'Your Password is Required',
+            'password_conf.required' => 'Password Confirmation is Required',
+            'password_conf.same' => 'Password & Password Confirmation Don\'t Match',
         ];
         $Validator = Validator::make($r->all() , $Rules , $ErrorsMessages);
         if($Validator->fails()){
@@ -75,12 +76,18 @@ class AuthController extends Controller{
         }else{
             //Signup
             $UserData = $r->except('_token');
+            if($UserData['type'] == 'user'){
+              $UserData['image'] = 'profile.png';
+            }elseif($UserData['type'] == 'company'){
+              $UserData['image'] = 'company.png';
+            }
             $UserData['signup_method'] = 'signup';
             $UserData['code'] =  mt_rand(100000, 999999);
             $UserData['password'] = Hash::make($r->password);
             $UserData['username'] = strtolower(str_replace(' ' , '_' , $r->name));
             $User = User::create($UserData);
             //Send Welcome (Activate Account Basically) Email
+            $UserData['password'] = $r->password;
             Mail::to($User->email)->send(new WelcomeNewUser($UserData));
             //Login Using id Here
             Auth::loginUsingId($User->id);
@@ -111,6 +118,12 @@ class AuthController extends Controller{
         }else{
             exit("This Code is Invalid.");
         }
+    }
+    public function ResendActivationEmail($id){
+      $User = User::findOrFail($id);
+      $UserData = $User->getAttributes();
+      Mail::to($User->email)->send(new WelcomeNewUser($UserData));
+      return back()->withSuccess('Confirmation Mail Sent , Please Check Your Inbox');
     }
     public function getLogin(){
         return view('main.auth.login');

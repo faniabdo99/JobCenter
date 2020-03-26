@@ -94,8 +94,8 @@
 		width:25%;
 	}
 	.job_rivew_img img{
-		padding-left:0;
-		width:100%;
+		padding-left: 27px;
+        width: 94%;
 	}
 	.contact_field_wrapper{
 		padding-right:150px;
@@ -819,7 +819,7 @@
 	}
 	.contct_form_new3{width:80%;}
 	.contect_form3 input{
-		background:transparent;
+		background:#fff;
 	}
 	.index3_listing_jobs, .client_wrapper_cntnt, .jp_register_section_main_wrapper{
 		border-radius:30px;

@@ -58,7 +58,9 @@
                                     <div class="contect_form3">
                                         <input type="text" value="{{$Query}}" name="query" placeholder="Enter Search Query Here">
                                     </div>
-                                    <input type="submit" value="Search">
+                                    <div class="header_btn search_btn">
+                <button type="submit" style="float:right"><i class="fas fa-search"></i> Search</button>
+            </div>
                                 </div>
                             </form>
                         </div>

@@ -1,6 +1,7 @@
 @include('dash.layout.header' , ['PageTitle' => 'Edit Profile'])
+
 <body>
-   @include('dash.layout.navbar')
+    @include('dash.layout.navbar')
     <!-- navi wrapper End -->
     <!-- top header wrapper start -->
     <div class="page_title_section">
@@ -29,16 +30,16 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
 
                                         <form action="{{route('dash.user.edit.do')}}" method="post" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="jp_job_post_side_img">
-                                            <img src="{{$User->profile_image}}" width="92" height="92" alt="post_img">
-                                        </div>
-                                        <div class="jp_job_post_right_cont edit_profile_wrapper">
-                                            <h4>Profile Image JPEG or PNG</h4>
-                                            <div class="width_50">
-                                                <input name="image" type="file" id="input-file-now-custom-233" class="dropify" data-height="90" /><span class="post_photo">browse image</span>
+                                            @csrf
+                                            <div class="jp_job_post_side_img">
+                                                <img src="{{$User->profile_image}}" width="92" height="92" alt="post_img">
                                             </div>
-                                        </div>
+                                            <div class="jp_job_post_right_cont edit_profile_wrapper">
+                                                <h4>Profile Image JPEG or PNG</h4>
+                                                <div class="width_50">
+                                                    <input name="image" type="file" id="input-file-now-custom-233" class="dropify" data-height="90" /><span class="post_photo">browse image</span>
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +69,6 @@
                                             <input type="url" name="website" value="{{old('website') ?? $User->website}}">
                                         </div>
                                     </div>
-
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="select_box">
                                             <label>job description</label>
@@ -84,13 +84,13 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="contect_form3">
                                             <label>address</label>
-                                            <input type="text"  value="{{old('address') ?? $User->address}}" name="address">
+                                            <input type="text" value="{{old('address') ?? $User->address}}" name="address">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="contect_form3">
                                             <label>city</label>
-                                            <input type="text" name="city" value="{{old('city') ?? $User->City->name ?? ''}}" >
+                                            <input type="text" name="city" value="{{old('city') ?? $User->City->name ?? ''}}">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -101,79 +101,79 @@
                                     </div>
                                 </div>
                             </div>
-							<div class="browse jb_cover">
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <div class="job_filter_category_sidebar jb_cover">
-                                        <div class="job_filter_sidebar_heading jb_cover">
-                                            <h1> social networks</h1>
-                                        </div>
-                                        <div class="job_overview_header jb_cover">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                                    <div class="contect_form3">
-                                                        <label>Instagram</label>
-                                                        <input type="url" name="google" value="{{old('google') ?? $User->google}}">
+                            <div class="browse jb_cover">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div class="job_filter_category_sidebar jb_cover">
+                                            <div class="job_filter_sidebar_heading jb_cover">
+                                                <h1> social networks</h1>
+                                            </div>
+                                            <div class="job_overview_header jb_cover">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                                        <div class="contect_form3">
+                                                            <label>Instagram</label>
+                                                            <input type="url" name="google" value="{{old('google') ?? $User->google}}">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                                    <div class="contect_form3">
-                                                        <label>facebook</label>
-                                                        <input type="url" name="facebook" value="{{old('facebook') ?? $User->facebook}}">
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                                        <div class="contect_form3">
+                                                            <label>facebook</label>
+                                                            <input type="url" name="facebook" value="{{old('facebook') ?? $User->facebook}}">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                                    <div class="contect_form3">
-                                                        <label>twitter</label>
-                                                        <input type="url" name="twitter" value="{{old('twitter') ?? $User->twitter}}">
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                                        <div class="contect_form3">
+                                                            <label>twitter</label>
+                                                            <input type="url" name="twitter" value="{{old('twitter') ?? $User->twitter}}">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                                    <div class="contect_form3">
-                                                        <label>linkedin</label>
-                                                        <input type="url" name="linkedin" value="{{old('linkedin') ?? $User->linkedin}}">
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                                        <div class="contect_form3">
+                                                            <label>linkedin</label>
+                                                            <input type="url" name="linkedin" value="{{old('linkedin') ?? $User->linkedin}}">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <div class="job_filter_category_sidebar jb_cover">
-                                        <div class="job_filter_sidebar_heading jb_cover">
-                                            <h1>update password</h1>
-                                        </div>
-                                        <div class="job_overview_header jb_cover">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                                    <div class="contect_form3">
-                                                        <label>current pasword</label>
-                                                        <input type="password" name="c_password">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div class="job_filter_category_sidebar jb_cover">
+                                            <div class="job_filter_sidebar_heading jb_cover">
+                                                <h1>update password</h1>
+                                            </div>
+                                            <div class="job_overview_header jb_cover">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                                        <div class="contect_form3">
+                                                            <label>current pasword</label>
+                                                            <input type="password" name="c_password">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                                    <div class="contect_form3">
-                                                        <label>new pasword</label>
-                                                        <input type="password" name="n_password">
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                                        <div class="contect_form3">
+                                                            <label>new pasword</label>
+                                                            <input type="password" name="n_password">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <div class="login_remember_box jb_cover">
-                                        <div class="header_btn search_btn login_btn jb_cover">
-                                            <button type="submit" href="#">save changes</button>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div class="login_remember_box jb_cover">
+                                            <div class="header_btn search_btn login_btn jb_cover">
+                                                <button type="submit">save changes</button>
+                                            </div>
                                         </div>
+                                        </form>
                                     </div>
-                                </form>
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>

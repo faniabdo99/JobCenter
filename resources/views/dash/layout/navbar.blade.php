@@ -8,7 +8,7 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
 <!-- Top Scroll End -->
 <!-- cp navi wrapper Start -->
 <nav class="cd-dropdown  d-block d-sm-block d-md-block d-lg-none d-xl-none">
-    <h2><a href="index.html"> <span><img src="{{url('public/dash/images')}}/logo.png" alt="img"></span></a></h2>
+    <h2><a href="index.html"> <span><img width="100" height="80" src="{{url('public/main/images')}}/logo.png"></span></a></h2>
     <a href="#0" class="cd-close">Close</a>
     <ul class="cd-dropdown-content">
         <li>
@@ -18,8 +18,9 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
         </li>
         <li><a href="{{route('home')}}">home</a></li>
         <li><a href="{{route('jobs')}}">jobs</a></li>
-        <li class="has-children"><a href="{{route('about')}}">about</a></li>
-        <li class="has-children"><a href="{{route('blog')}}">blog</a></li>
+        <li><a href="{{route('about')}}">about us</a></li>
+        <li><a href="{{route('companies')}}">companies</a></li>
+        <li><a href="{{route('blog')}}">blog</a></li>
         <li><a href="{{route('contact')}}">contact us</a></li>
         @auth
         <li><a href="{{route('logout')}}">logout</a></li>
@@ -31,7 +32,7 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
     <div class="container-fluid">
         <div class="cp_logo_wrapper">
             <a href="{{route('home')}}">
-                <img src="{{url('public/dash/images')}}/logo.png" alt="logo">
+                <img src="{{url('public/dash/images')}}/logo.png" alt="logo" width="100" height="80">
             </a>
         </div>
         <!-- mobile menu area start -->
@@ -171,12 +172,8 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
                             </li>
                         </ul>
                     </li>
-                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">pages</a>
-                        <ul class="navi_2_dropdown">
-                            <li class="parent"><a href="{{route('about')}}"> <i class="fas fa-square"></i>about us</a></li>
-                            <li class="parent"><a href="{{route('companies')}}"> <i class="fas fa-square"></i>companies</a></li>
-                        </ul>
-                    </li>
+ <li class="gc_main_navigation"><a href="{{route('about')}}" class="gc_main_navigation">about us</a></li>
+                    <li class="gc_main_navigation"><a href="{{route('companies')}}" class="gc_main_navigation">companies</a></li>
                     <li class="gc_main_navigation"><a href="{{route('blog')}}" class="gc_main_navigation">blog</a></li>
                     <li><a href="{{route('contact')}}" class="gc_main_navigation">contact</a></li>
                 </ul>

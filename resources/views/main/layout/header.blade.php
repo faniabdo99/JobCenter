@@ -8,9 +8,9 @@
     <meta charset="utf-8" />
     <title>Women Job Center - {{$PageTitle ?? ''}}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta name="description" content="JB desks,job portal,job" />
-    <meta name="keywords" content="JB desks,job portal,job" />
-    <meta name="author" content="Semicolon Group" />
+    <meta name="description" content="Women Job Center" />
+    <meta name="keywords" content="Women Job Center" />
+    <meta name="author" content="Alkarnak" />
     <meta name="MobileOptimized" content="320" />
     @auth
     <meta name="user_id" content="{{auth()->user()->id}}">

@@ -21,15 +21,10 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="login_top_box jb_cover">
-                        <div class="login_form_wrapper">
+                        <div class="login_form_wrapper login_form_wrapper_forget col-lg-12 col-md-12 col-sm-12">
                             <h2>password reset</h2>
                             <form action="{{route('forget.password.do')}}" method="post">
                              @csrf
-                            <div class="form-group icon_form comments_form">
-                                <input type="email" required value="{{old('email')}}" class="form-control" name="email" placeholder="Email Address*">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-
                             <div class="form-group icon_form comments_form">
                                 <input type="email" required value="{{old('email')}}" class="form-control" name="email" placeholder="Email Address*">
                                 <i class="fas fa-envelope"></i>
