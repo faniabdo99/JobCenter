@@ -1,6 +1,6 @@
 @component('mail::message')
-# New Mail From Job Center
+# @lang('mails.NewMailFromJobCenter')
 {{$data['message']}}
-### From
+### @lang('mails.From')
 {{$data['full_name']}} | {{$data['email']}}
 @endcomponent

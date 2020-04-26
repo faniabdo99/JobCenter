@@ -13,8 +13,18 @@ class User extends Authenticatable{
         if($this->signup_method == 'signup'){
             return url('storage/app/public/users/')."/".$this->image;
         }else{
+          if(strlen($this->image) > 25 ){
             return $this->image;
+          }else{
+            return url('storage/app/public/users/')."/".$this->image;
+          }
         }
+    }
+    public function getSlugAttribute(){
+      return strtolower(str_replace(' ' , '-' , $this->name));
+    }
+    public function getProfileAttribute(){
+      return url('storage/app/public/profile_pdf/')."/".$this->profile_pdf;
     }
     public function getCoverImageAttribute(){
         if($this->type == 'company'){
@@ -35,7 +45,10 @@ class User extends Authenticatable{
     }
     //Only For Companies
     public function Category(){
-        return $this->belongsTo(Category::class , 'category_id');
+        return $this->belongsTo(Category::class , 'category_id')->withDefault([
+          'title_ar' => 'لا يوجد قسم',
+          'title_en' => 'No Category Selected'
+        ]);
     }
     public function Jobs(){
         if($this->type == 'company'){
@@ -45,7 +58,10 @@ class User extends Authenticatable{
         }
     }
     public function City(){
-        return $this->belongsTo(City::class , 'city_id');
+        return $this->belongsTo(City::class , 'city_id')->withDefault([
+          'name_ar' => 'لا يوجد مدينة',
+          'name_en' => 'No City Selected'
+        ]);
     }
     public function Application(){
       if($this->type == 'user'){

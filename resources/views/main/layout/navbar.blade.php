@@ -3,34 +3,32 @@ $NavCategories = \App\Category::orderBy('id' , 'desc')->limit(6)->get();
 $NavCities = \App\City::orderBy('id' , 'desc')->limit(6)->get();
 $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
 @endphp
-<!-- Top Scroll Start -->
 <a href="javascript:" id="return-to-top"><i class="fas fa-angle-double-up"></i></a>
-<!-- Top Scroll End -->
-<!-- cp navi wrapper Start -->
 <nav class="cd-dropdown  d-block d-sm-block d-md-block d-lg-none d-xl-none">
     <h2><a href="{{route('home')}}"> <span><img src="{{url('public/main/images')}}/logo.png" width="60" height="60" alt="img"></span></a></h2>
-    <a href="#0" class="cd-close">Close</a>
+    <a href="#0" class="cd-close">@lang('layout/parts.Close')</a>
     <ul class="cd-dropdown-content">
-        <li>
-            <form class="cd-search" action="{{route('search')}}" method="get">
-                <input type="search" name="query" placeholder="Search...">
-            </form>
-        </li>
-        <li><a href="{{route('home')}}">home</a></li>
-        <li><a href="{{route('jobs')}}">jobs</a></li>
-        <li><a href="{{route('about')}}">about us</a></li>
-        <li><a href="{{route('companies')}}">companies</a></li>
-        <li><a href="{{route('blog')}}">blog</a></li>
-        <li><a href="{{route('contact')}}">contact</a></li>
+        <li><form class="cd-search" action="{{route('search')}}" method="get"><input type="search" name="query" placeholder="@lang('layout/parts.SearchPH')"></form></li>
+        <li><a href="{{route('home')}}">@lang('layout/parts.Home')</a></li>
+        <li><a href="{{route('jobs')}}">@lang('layout/parts.Jobs')</a></li>
+        <li><a href="{{route('about')}}">@lang('layout/parts.About')</a></li>
+        <li><a href="{{route('companies')}}">@lang('layout/parts.Companies')</a></li>
+        <li><a href="{{route('blog')}}">@lang('layout/parts.Blog')</a></li>
+        <li><a href="{{route('contact')}}">@lang('layout/parts.Contact')</a></li>
         @guest
-        <li><a href="{{route('login')}}">login</a></li>
+        <li><a href="{{route('login')}}">@lang('layout/parts.Login')</a></li>
         @endguest
         @auth
                 <li>
-                    <a href="{{auth()->user()->DashLink()}}"><i class="flaticon-man-user"></i> {{auth()->user()->name}}</a>
+                    <a href="{{auth()->user()->DashLink()}}">
+                      @if(auth()->user()->type == 'user')
+                        <i class="fas fa-user"></i>
+                      @else
+                        <i class="fas fa-building"></i>
+                      @endif
+                       {{auth()->user()->name}}</a>
                 </li>
-
-        <li><a href="{{route('logout')}}">logout</a></li>
+        <li><a href="{{route('logout')}}">@lang('layout/parts.Logout')</a></li>
         @endauth
     </ul>
     <!-- .cd-dropdown-content -->
@@ -84,29 +82,35 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
             @guest
             <ul>
                 <li>
-                    <a href="{{route('signup')}}"><i class="flaticon-man-user"></i> sign up</a>
+                    <a href="{{route('signup')}}"><i class="flaticon-man-user"></i> @lang('layout/parts.Signup')</a>
                 </li>
                 <li>
-                    <a href="{{route('login')}}"> <i class="flaticon-login"></i> login</a>
+                    <a href="{{route('login')}}"> <i class="flaticon-login"></i> @lang('layout/parts.Login')</a>
                 </li>
             </ul>
             @endguest
             @auth
             <ul>
                 <li>
-                    <a href="{{auth()->user()->DashLink()}}"><i class="flaticon-man-user"></i> {{auth()->user()->name}}</a>
+                    <a href="{{auth()->user()->DashLink()}}">
+                      @if(auth()->user()->type == 'user')
+                        <i class="fas fa-user"></i>
+                      @else
+                        <i class="fas fa-building"></i>
+                      @endif
+                      {{auth()->user()->name}}
+                    </a>
                 </li>
             </ul>
             @endauth
         </div>
-
         <div class="jb_navigation_wrapper">
             <div class="mainmenu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul">
-                    <li class="gc_main_navigation"><a href="{{route('home')}}" class="gc_main_navigation active_class">home</a></li>
-                    <li class="gc_main_navigation"><a href="{{route('jobs')}}" class="gc_main_navigation">jobs</a></li>
+                    <li class="gc_main_navigation"><a href="{{route('home')}}" class="gc_main_navigation active_class">@lang('layout/parts.Home')</a></li>
+                    <li class="gc_main_navigation"><a href="{{route('jobs')}}" class="gc_main_navigation">@lang('layout/parts.Jobs')</a></li>
                     <li class="has-mega gc_main_navigation kv_sub_menu">
-                        <a href="#" class="gc_main_navigation"> candidates</a>
+                        <a href="#" class="gc_main_navigation"> @lang('layout/parts.Candidates')</a>
                         <!-- mega menu start -->
                         <ul class="kv_mega_menu">
                             <li class="kv_mega_menu_width">
@@ -114,52 +118,46 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
                                     <div class="jn_menu_partion_div">
                                         <div class="candidate_width">
                                             <div class="jen_tabs_conent_list jb_cover">
-                                                <h1>job type</h1>
+                                                <h1>@lang('layout/parts.JobType')</h1>
                                                 <ul>
-                                                    <li>
-                                                        <a href="{{route('search' , ['type','full'])}}"><i class="fas fa-square"></i>Full Time</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{route('search' , ['type','part'])}}"><i class="fas fa-square"></i>Part Time</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{route('search' , ['type','rotation'])}}"><i class="fas fa-square"></i>Rotation</a>
-                                                    </li>
+                                                    <li><a href="{{route('search' , ['type','full'])}}"><i class="fas fa-square"></i>@lang('layout/parts.FullTime')</a></li>
+                                                    <li><a href="{{route('search' , ['type','part'])}}"><i class="fas fa-square"></i>@lang('layout/parts.PartTime')</a></li>
+                                                    <li><a href="{{route('search' , ['type','rotation'])}}"><i class="fas fa-square"></i>@lang('layout/parts.Rotation')</a></li>
+                                                    <li><a href="{{route('search' , ['type','temporary'])}}"><i class="fas fa-square"></i>@lang('layout/parts.Temporary')</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="candidate_width">
                                             <div class="jen_tabs_conent_list jb_cover">
-                                                <h1>categories</h1>
+                                                <h1>@lang('layout/parts.Categories')</h1>
                                                 <ul>
                                                     @forelse($NavCategories as $Category)
                                                     <li>
                                                         <a href="{{route('search' , ['category' , $Category->id])}}"><i class="fas fa-square"></i>{{$Category->title}}</a>
                                                     </li>
                                                     @empty
-                                                    <li>All Catse</li>
+                                                    <li>@lang('layout/parts.NoData')</li>
                                                     @endforelse
-
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="candidate_width">
                                             <div class="jen_tabs_conent_list   jb_cover">
-                                                <h1>job location</h1>
+                                                <h1>@lang('layout/parts.JobLocation')</h1>
                                                 <ul>
                                                     @forelse($NavCities as $City)
                                                     <li>
                                                         <a href="{{route('search' , ['city' , $City->id])}}"><i class="fas fa-square"></i>{{$City->name}}</a>
                                                     </li>
                                                     @empty
-                                                    <li>No Cites</li>
+                                                    <li>@lang('layout/parts.NoData')</li>
                                                     @endforelse
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="candidate_width">
                                             <div class="jen_tabs_conent_list   jb_cover">
-                                                <h1>open jobs</h1>
+                                                <h1>@lang('layout/parts.OpenJobs')</h1>
                                                 <div class="open_jobs_wrapper">
                                                     @forelse($NavJobs as $Job)
                                                     <div class="open_jobs_wrapper_1 jb_cover">
@@ -169,9 +167,9 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
                                                         </div>
                                                     </div>
                                                     @empty
-                                                    empty
+                                                    @lang('layout/parts.NoData')
                                                     @endforelse
-                                                    <div class="view_all_job jb_cover"><a href="{{route('jobs')}}">view all jobs</a></div>
+                                                    <div class="view_all_job jb_cover"><a href="{{route('jobs')}}">@lang('layout/parts.ViewAllJobs')</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -180,10 +178,10 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
                             </li>
                         </ul>
                     </li>
-                    <li class="gc_main_navigation"><a href="{{route('about')}}" class="gc_main_navigation">about us</a></li>
-                    <li class="gc_main_navigation"><a href="{{route('companies')}}" class="gc_main_navigation">companies</a></li>
-                    <li class="gc_main_navigation"><a href="{{route('blog')}}" class="gc_main_navigation">blog</a>
-                    <li><a href="{{route('contact')}}" class="gc_main_navigation">contact</a></li>
+                    <li class="gc_main_navigation"><a href="{{route('about')}}" class="gc_main_navigation">@lang('layout/parts.About')</a></li>
+                    <li class="gc_main_navigation"><a href="{{route('companies')}}" class="gc_main_navigation">@lang('layout/parts.Companies')</a></li>
+                    <li class="gc_main_navigation"><a href="{{route('blog')}}" class="gc_main_navigation">@lang('layout/parts.Blog')</a>
+                    <li><a href="{{route('contact')}}" class="gc_main_navigation">@lang('layout/parts.Contact')</a></li>
                 </ul>
             </div>
             <!-- mainmenu end -->
@@ -197,7 +195,7 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
                 <!-- Quik search -->
                 <div class="dez-quik-search bg-primary-dark">
                     <form action="{{route('search')}}" method="get">
-                        <input name="search" value="" name="query" type="text" class="form-control" placeholder="Type to search...">
+                        <input name="search" value="" name="query" type="text" class="form-control" placeholder="@lang('layout/parts.SearchPH')">
                         <span id="quik-search-remove"><i class="fas fa-times"></i></span>
                     </form>
                 </div>
@@ -219,9 +217,14 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
 </div>
 @endif
 @if(session()->has('success'))
-    <div class="container-fluid">
-        <div class="row my-5 text-center" width="100%">
-            <div class="notofication-message success-message text-center">{{ session()->get('success') }}</div>
-        </div>
+<div class="container-fluid">
+    <div class="row my-5 text-center" width="100%">
+        <div class="notofication-message success-message text-center">{{ session()->get('success') }}</div>
     </div>
-    @endif
+</div>
+@endif
+@auth
+  @if(auth()->user()->active == 0 && auth()->user()->type == 'user')
+    <div>@lang('layout/parts.AccountConfirmP') <a href="{{route('account.activate.resend' , auth()->user()->id)}}">@lang('layout/parts.AccountConfirmAction')</a></div>
+  @endif
+@endauth

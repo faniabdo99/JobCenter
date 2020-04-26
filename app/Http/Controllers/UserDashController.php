@@ -7,6 +7,8 @@ use Hash;
 use App\User;
 use App\Application;
 use App\Like;
+use App\Category;
+use App\City;
 class UserDashController extends Controller{
     private function getUser(){
         if(auth()->check()){
@@ -22,7 +24,9 @@ class UserDashController extends Controller{
     }
     public function getEdit(){
         $User = $this->getUser();
-        return view('dash.user.edit' , compact('User'));
+        $Categories = Category::latest()->get();
+        $Cities = City::latest()->get();
+        return view('dash.user.edit' , compact('User','Categories','Cities'));
     }
     public function postEdit(Request $r){
         $TheUser = $this->getUser();

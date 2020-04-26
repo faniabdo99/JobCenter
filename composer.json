@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2",
         "awssat/laravel-visits": "^2.2",
+        "fania/scammer": "dev-master",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
         "laravel/socialite": "^4.3",
@@ -60,5 +61,14 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
+    },
+    "repositories" : {
+      "dev-package" : {
+        "type" : "path",
+        "url" : "C:/xampp/htdocs/Scammer",
+        "options" : {
+          "symlink" : true
+        }
+      }
     }
 }

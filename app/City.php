@@ -10,6 +10,10 @@ class City extends Model{
       return $this->hasMany(Job::class , 'city_id');
     }
     public function getNameAttribute(){
-      return $this->name_en;
+      if(app()->getLocale() == 'en'){
+        return $this->name_en;
+      }else{
+        return $this->name_ar;
+      }
     }
 }

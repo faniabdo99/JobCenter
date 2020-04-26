@@ -85,10 +85,13 @@ class AuthController extends Controller{
             $UserData['code'] =  mt_rand(100000, 999999);
             $UserData['password'] = Hash::make($r->password);
             $UserData['username'] = strtolower(str_replace(' ' , '_' , $r->name));
+            unset($UserData['password_conf']);
             $User = User::create($UserData);
             //Send Welcome (Activate Account Basically) Email
             $UserData['password'] = $r->password;
-            Mail::to($User->email)->send(new WelcomeNewUser($UserData));
+            if($UserData['type'] == 'user'){
+              Mail::to($User->email)->send(new WelcomeNewUser($UserData));
+            }
             //Login Using id Here
             Auth::loginUsingId($User->id);
             //Redirect to Dashboard.

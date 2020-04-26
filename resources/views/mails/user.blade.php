@@ -1,13 +1,22 @@
 @component('mail::message')
-# Welcome
-Hello There , {{$data['name']}} , Welcome to Job Center Portal.
+<h1 style="text-align:center;">@lang ('mails.Welcome')</h1>
+<p direction="rtl" style="text-align: right;">
+    @lang('mails.HelloThere') , {{$data['name']}} ,
+    @lang('mails.WelcomeToJobCenterPortal')
+    <br><br>
+    @if($data['signup_method'] == 'signup')
+      @lang ('mails.YouHaveCreatedNewAccountWithThisEmailAndWeNeedYouToVerfiyItPleaseClickTheLinkBelowToVerifyYourAccount')
+    @else
+      @lang ('mails.WelcomeToTheSite')
+    @endif
+</p>
+<br><br>
+<p direction="rtl" style="text-align: right;">
+    <a href="{{route('account.activate' , $data['code'])}}" style="text-decoration: none;width: 180px;height: 50px;padding: 10px 25px;text-align: center;cursor: pointer;position: relative;font-size: 16px;color: rgb(255, 255, 255);line-height: 48px;text-transform: capitalize;backface-visibility: hidden;background: rgb(255, 51, 102);overflow: hidden;border-width: 1px;border-style: solid;
+border-color:transparent;border-image: initial;transition: all 0.6s ease 0s;">
+        @lang ('mails.ActivateAccount')</a>
+</p>
 <br>
-You have created new account with this email , and we need you to verfiy it, please click the link below 
-to verify your account.
-@component('mail::button', ['url' => route('account.activate' , $data['code'])])
-Activate Account
-@endcomponent
-
-Thanks,<br>
-{{ config('app.name') }}
+<p direction="rtl" style="text-align: right;">
+    @lang ('mails.Thanks')<br>{{ config('app.name') }}</p>
 @endcomponent

@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Category;
 use App\City;
@@ -10,17 +8,17 @@ class SearchController extends Controller{
     public function getSearchPage(Request $r , $Type = null , $Type_id = null){
       if($Type == null){
         $Query = $r['query'];
-        if(isset($r['city'])){
-          $WhereCity = ['city_id' , $r['city']];
+        if(isset($r['city']) && $r['city'] != null){
+          $WhereCity = ['city_id' , intval($r['city'])];
         }else {
           $WhereCity = ['city_id' , '!=' , null];
         }
-        if(isset($r['category'])){
+        if(isset($r['category']) && $r['category'] != null){
           $WhereCategory = ['category_id' , $r['category']];
         }else {
           $WhereCategory = ['category_id' , '!=' , null];
         }
-        if(isset($r['type'])){
+        if(isset($r['type']) && $r['type'] != null){
           $WhereType = ['type' , 'like' , '%' . $r['type'] . '%'];
         }else {
           $WhereType = ['type' , '!=' , null];

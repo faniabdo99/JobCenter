@@ -38,7 +38,8 @@ class CompanyDashController extends Controller{
             'google' => 'nullable|url',
             'facebook' => 'nullable|url',
             'twitter' => 'nullable|url',
-            'linkedin' => 'nullable|url'
+            'linkedin' => 'nullable|url',
+            'profile_pdf' => 'nullable|mimes:pdf'
         ];
         $ErrorMessages = [
             'name.required' => 'Your Name is Required',
@@ -49,6 +50,7 @@ class CompanyDashController extends Controller{
             'facebook.url' => 'This Facebook URL is Invalid',
             'twitter.url' => 'This Twitter URL is Invalid',
             'linkedin.url' => 'This LinkedIn URL is Invalid',
+            'profile_pdf.mimes' => 'The Company Profile Should Be PDF File'
         ];
         $Validator = Validator::make($r->all() , $Rules , $ErrorMessages);
         if($Validator->fails()){
@@ -66,7 +68,7 @@ class CompanyDashController extends Controller{
             }else{
                 $UpdateData['image'] = $TheUser->image;
             }
-            if($r->has('cover')){ //Dose The Request Has Image ?
+            if($r->has('cover')){ //Dose The Request Has Cover ?
                 //Update Image
                 $cover = $TheUser->id.'.'.$r->cover->getClientOriginalExtension();
                 $r->cover->storeAs('public/covers', $cover); //Image Uploaded !
@@ -74,13 +76,13 @@ class CompanyDashController extends Controller{
             }else{
                 $UpdateData['cover'] = $TheUser->cover;
             }
-            if($r->has('resume')){ //Dose The Request Has resumes ?
+            if($r->has('profile_pdf')){ //Dose The Request Has resumes ?
                 //Update resumes
-                $resume = $TheUser->id.'.'.$r->resume->getClientOriginalExtension();
-                $r->resume->storeAs('public/resumes', $resume); //resumes Uploaded !
-                $UpdateData['resume'] = $resume;
+                $ProfilPDF = $TheUser->id.'.'.$r->profile_pdf->getClientOriginalExtension();
+                $r->profile_pdf->storeAs('public/profile_pdf', $ProfilPDF); //resumes Uploaded !
+                $UpdateData['profile_pdf'] = $ProfilPDF;
             }else{
-                $UpdateData['resume'] = $TheUser->resume;
+                $UpdateData['profile_pdf'] = $TheUser->profile_pdf;
             }
             if($r->n_password !== null){ //If the user want to change the password
                 if(Hash::check($r->c_password, $TheUser->password)){

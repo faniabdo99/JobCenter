@@ -8,16 +8,8 @@
             <div class="container">
                 <div class="row">
                     <!-- section_heading start -->
-                    <div class="col-xl-9 col-lg-7 col-md-7 col-12 col-sm-12">
-                        <h1>Candidate Applied Jobs ({{count($Applications)}})</h1>
-                    </div>
-                    <div class="col-xl-3 col-lg-5 col-md-5 col-12 col-sm-12">
-                        <div class="sub_title_section">
-                            <ul class="sub_title">
-                                <li> <a href="#"> Home </a>&nbsp; / &nbsp; </li>
-                                <li>Applied Jobs</li>
-                            </ul>
-                        </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 col-sm-12">
+                        <h1>@lang('dash/user.CandidateAppliedJobs') ({{count($Applications)}})</h1>
                     </div>
                 </div>
             </div>
@@ -34,7 +26,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="manage_jobs_wrapper jb_cover">
                                         <div class="job_list mange_list applications_recent">
-                                            <h6>{{count($Applications)}} applied jobs</h6>
+                                            <h6>{{count($Applications)}} @lang('dash/user.AppliedJobS')</h6>
                                         </div>
                                     </div>
                         </div>
@@ -58,13 +50,9 @@
                                     <div class="col-lg-3 col-md-3 col-sm-12 col-12">
                                         <div class="jb_job_post_right_btn_wrapper">
                                             <ul>
-                                                <li>
-                                                    <div class="job_adds_right">
-                                                        <a href="#!"><i class="far fa-heart"></i></a>
-                                                    </div>
-                                                </li>
-                                                <li><a href="#">{{$Application->Job->type}}</a></li>
-                                                <li> <a href="#" class="applied_btn">Delete</a></li>
+                                                <li></li>
+                                                <li><a href="#">{{$Application->Job->JobType}}</a></li>
+                                                <li> <a href="{{route('dash.user.application.delete' , $Application->id)}}" class="applied_btn">@lang('dash/user.Delete')</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -72,7 +60,7 @@
                             </div>
                         </div>
                             @empty
-                            <p>No Applications</p>
+                            <p>@lang('layout/parts.NoData')</p>
                             @endforelse
                         </div>
                     </div>
@@ -83,26 +71,7 @@
 
     <!--employee dashboard wrapper end-->
     <!-- newsletter wrapper start -->
-    <div class="jb_cover">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="job_newsletter_wrapper jb_cover">
-                        <div class="jb_newslwtteter_left">
-                            <h2> Looking For A Job</h2>
-                            <p>Your next level Product developemnt company assetsYour next level Product </p>
-                        </div>
-                        <div class="jb_newslwtteter_button">
-                            <div class="header_btn search_btn news_btn jb_cover">
-
-                                <a href="#">submit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('main.layout.cta')
     <!-- newsletter wrapper end -->
     <!-- footer Wrapper Start -->
     @include('dash.layout.footer')

@@ -41,4 +41,9 @@ class FrontEndController extends Controller{
         $Jobs2 = Job::where('company_id' , $Company->id)->orderBy('id','desc')->skip(3)->take(3)->get();
         return view('main.company' , compact('Company' , 'Jobs1' , 'Jobs2'));
     }
+    public function getUser($id){
+      $User = User::findOrFail($id);
+      return view('dash.user.profile' , compact('User'));
+
+    }
 }

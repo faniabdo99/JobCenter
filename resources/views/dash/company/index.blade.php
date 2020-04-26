@@ -10,7 +10,7 @@
                 <div class="row">
                     <!-- section_heading start -->
                     <div class="col-xl-12 col-lg-12 col-md-12 col-12 col-sm-12">
-                        <h1>Dashboard</h1>
+                        <h1>@lang('dash/company.Dashboard')</h1>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                                         <div class="jp_job_post_right_cont">
                                             <h4>{{$User->name}}</h4>
                                             <ul>
-                                                @if($User->job_description)<li><i class="fas fa-suitcase"></i>&nbsp; {{$User->job_description}}</li>@endif
+                                                @if($User->category_id)<li><i class="fas fa-suitcase"></i>&nbsp; {{$User->Category->title}}</li>@endif
                                                 @if($User->city)<li><i class="flaticon-location-pointer"></i>&nbsp; {{$User->city}}</li>@endif
                                             </ul>
                                         </div>
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="emp_job_side_text">
                                     <h1>{{count($User->Jobs)}}</h1>
-                                    <p>job posted</p>
+                                    <p>@lang('dash/company.JobPosted')</p>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="emp_job_side_text">
                                     <h1>{{$User->LikesCount()}}</h1>
-                                    <p>Company Likes</p>
+                                    <p>@lang('dash/company.CompanyLikes:')</p>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="emp_job_side_text">
                                     <h1>{{visits($User)->count()}}</h1>
-                                    <p>total page view</p>
+                                    <p>@lang('dash/company.TotalPageView')</p>
                                 </div>
                             </div>
                         </div>
@@ -82,37 +82,38 @@
                                 </div>
                                 <div class="emp_job_side_text">
                                     <h1>{{count($User->Application)}}</h1>
-                                    <p>total applications</p>
+                                    <p>@lang('dash/company.TotalApplications')</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-12 col-sm-12 col-12">
                             <div class="job_filter_category_sidebar jb_cover">
                                 <div class="job_filter_sidebar_heading jb_cover">
-                                    <h1> company overview</h1>
+                                    <h1> @lang('dash/company.CompanyOverview')</h1>
                                 </div>
                                 <div class="job_overview_header jb_cover">
-
+                                  @if($User->category_id)
                                     <div class="jp_listing_overview_list_main_wrapper jb_cover">
                                         <div class="jp_listing_list_icon">
                                             <i class="far fa-calendar"></i>
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>categories:</li>
-                                                <li>Design & Creative</li>
+                                                <li>@lang('dash/company.Categories:')</li>
+                                                <li>{{$User->Category->title}}</li>
                                             </ul>
                                         </div>
                                     </div>
-                                    @if($User->city)
+                                    @endif
+                                    @if($User->city_id)
                                     <div class="jp_listing_overview_list_main_wrapper jb_cover">
                                         <div class="jp_listing_list_icon">
                                             <i class="fas fa-map-marker-alt"></i>
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>Location:</li>
-                                                <li>{{$User->city}}</li>
+                                                <li>@lang('dash/company.Location:')</li>
+                                                <li>{{$User->City->Name}}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -124,7 +125,7 @@
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>Hotline::</li>
+                                                <li>@lang('dash/company.Hotline:')</li>
                                                 <li>{{$User->phone}}</li>
                                             </ul>
                                         </div>
@@ -136,7 +137,7 @@
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>email:</li>
+                                                <li>@lang('dash/company.Email:')</li>
                                                 <li><a href="mailto:{{$User->email}}">{{$User->email}}</a></li>
                                             </ul>
                                         </div>
@@ -148,7 +149,7 @@
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>compant size:</li>
+                                                <li>@lang('dash/company.CompanySize:')</li>
                                                 <li>{{$User->company_size}}</li>
                                             </ul>
                                         </div>
@@ -161,7 +162,7 @@
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>website:</li>
+                                                <li>@lang('dash/company.Website:')</li>
                                                 <li><a target="_blank" href="{{$User->website}}">{{$User->website}}</a></li>
                                             </ul>
                                         </div>
@@ -171,11 +172,12 @@
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-12 col-sm-12 col-12">
+                          @if($User->facebook != null || $User->twitter != null || $User->google != null || $User->linkedin != null)
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="job_filter_category_sidebar jb_cover">
                                         <div class="job_filter_sidebar_heading jb_cover">
-                                            <h1> social profile</h1>
+                                            <h1> @lang('dash/company.SocialProfile')</h1>
                                         </div>
                                         <div class="job_overview_header jb_cover">
                                             <div class="jp_listing_left_bottom_sidebar_social_wrapper">
@@ -191,16 +193,17 @@
                                     </div>
                                 </div>
                             </div>
+                          @endif
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="job_filter_category_sidebar jb_cover">
                                 <div class="job_filter_sidebar_heading jb_cover">
-                                    <h1> recent applicants</h1>
+                                    <h1> @lang('dash/company.RecentApplicants')</h1>
                                 </div>
                                 @forelse($User->LatestApplications() as $Application)
                                 <div class="job_overview_header apps_wrapper jb_cover">
                                     <div class="row">
-                                        <div class="col-lg-8 col-md-7 col-sm-8 col-12">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="jp_job_post_side_img">
                                                 <img width="60" height="60" src="{{$Application->User->profile_image}}" alt="{{$Application->User->name}}">
                                             </div>
@@ -208,21 +211,13 @@
                                                 <h4>{{$Application->Job->title}}</h4>
                                                 <ul>
                                                     <li>{{$Application->name}}</li>
-                                                    <li>{{$Application->User->Category->title}}</li>
                                                 </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-5 col-sm-4 col-12">
-                                            <div class="jp_job_post_right_btn_wrapper jb_cover">
-                                                <div class="header_btn search_btn appbtn jb_cover">
-                                                    <a href="mailto:{{$Application->email}}">send</a>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                               @empty
-                                <p>No Applications Yet</p>
+                                <p>@lang('dash/company.NoData')</p>
                               @endforelse
                             </div>
                         </div>
@@ -231,33 +226,8 @@
             </div>
         </div>
     </div>
-    <!--employee dashboard wrapper end-->
-    <!-- newsletter wrapper start -->
-    <div class="jb_cover">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="job_newsletter_wrapper jb_cover">
-                        <div class="jb_newslwtteter_left">
-                            <h2> Looking For Employees?</h2>
-                        </div>
-                        <div class="jb_newslwtteter_button">
-                            <div class="header_btn search_btn news_btn jb_cover">
-                                <a href="#">Post New Job</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- newsletter wrapper end -->
-    <!-- footer Wrapper Start -->
+    @include('main.layout.cta')
     @include('dash.layout.footer')
-    <!-- footer Wrapper End -->
-    <!--custom js files-->
     @include('dash.layout.scripts')
-    <!-- custom js-->
 </body>
-
 </html>

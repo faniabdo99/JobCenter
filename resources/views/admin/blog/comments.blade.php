@@ -10,6 +10,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Blog Post</th>
+                            <th scope="col">Comment</th>
                             <th scope="col">Username</th>
                             <th scope="col">Post Date</th>
                             <th scope="col">Actions</th>
@@ -20,6 +21,7 @@
                         <tr>
                             <td><b>{{$Res->id}}</b></td>
                             <td><a target="_blank" href="{{route('blog.post' , $Res->Post->slug)}}">{{$Res->Post->title}}</a></td>
+                            <td>{{$Res->snippet}}</td>
                             <td>{{$Res->User->name}}</td>
                             <td>{{$Res->created_at->format('d-m-Y')}}</td>
                             <td><a href="{{route('admin.comment.delete' , $Res->id)}}">Delete</a></td>

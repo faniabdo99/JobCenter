@@ -1,29 +1,17 @@
 @include('main.layout.header' , ['PageTitle' => $Company->name])
 <body>
     @include('main.layout.navbar')
-    <!-- navi wrapper End -->
-    <!-- top header wrapper start -->
     <div class="page_title_section">
         <div class="page_header">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-9 col-md-8 col-12 col-sm-7">
+                    <div class="col-lg-12 col-md-12 col-12 col-sm-7">
                         <h1>{{$Company->name}}</h1>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-12 col-sm-5">
-                        <div class="sub_title_section">
-                            <ul class="sub_title">
-                                <li> <a href="#"> Home </a>&nbsp; / &nbsp; </li>
-                                <li>{{$Company->name}}</li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- top header wrapper end -->
-    <!-- company details wrapper start-->
     <div class="company_details_wrapper jb_cover" style="background-image:url('{{$Company->cover_image}}');"></div>
     <div class="webstrot_tech_detail jb_cover">
         <div class="container">
@@ -63,7 +51,7 @@
                                               </div>
                                           </li>
                                         @endauth
-                                        <li><a href="job_single.html">{{count($Company->Jobs)}} open positions</a></li>
+                                        <li><a href="#open_jobs">{{count($Company->Jobs)}} @lang('layout/parts.JobOpen')</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -73,36 +61,24 @@
                 <div class="col-lg-8 col-md-12 col-sm-12 col-12">
                     <div class="jb_listing_single_overview jb_cover">
                         <div class="jp_job_des jb_cover">
-                            <h2 class="job_description_heading">about us</h2>
+                            <h2 class="job_description_heading">@lang('layout/parts.About')</h2>
                             <p>{{$Company->description}}</p>
                         </div>
-                        @if($Company->video)
+                        @if($Company->profile_pdf)
                         <div class="jp_job_res jb_cover">
-                            <h2 class="job_description_heading">intro video</h2>
-                            <div class="prs_video_sec_icon_wrapper jb_cover">
-                                <div class="video_img_overlay"></div>
-                                <ul>
-                                    <li>
-                                        <a class="test-popup-link button" rel='external' href='https://www.youtube.com/embed/ryzOXAO0Ss0' title='title'><i class="flaticon-play-button"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <h2 class="job_description_heading"> @lang('main/company.ComanyProfile')</h2>
+                            <embed src="{{$Company->Profile}}" style="height:85vh;width:100%">
                         </div>
                         @endif
                         <div class="jp_job_res jp_listing_left_wrapper jb_cover">
                             <div class="jp_listing_left_bottom_sidebar_social_wrapper">
-                                <ul>
-                                    <li>share :</li>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                </ul>
+                              <b class="mb-1">@lang('layout/parts.Share')</b>
+                              <div class="addthis_inline_share_toolbox"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="related_job_wrapper jb_cover">
-                        <h1 class="related_job"> job open </h1>
+                    <div id="open_jobs" class="related_job_wrapper jb_cover">
+                        <h1 class="related_job">@lang('layout/parts.JobOpen')</h1>
                         <div class="related_product_job cmpny_related_jobs jb_cover">
                             <div class="owl-carousel owl-theme">
                                 <div class="item">
@@ -117,7 +93,7 @@
                                                 <div class="jp_job_post_right_cont">
                                                     <h4><a href="{{route('job' , $Job->id)}}">{{$Job->title}}</a></h4>
                                                     <ul>
-                                                        @if($Job->salary)<li><i class="flaticon-cash"></i>&nbsp; {{$Job->salary}} IQD / Month</li>@endif
+                                                        @if($Job->salary)<li><i class="flaticon-cash"></i>&nbsp; {{$Job->salary}} @lang('layout/parts.IQD') / @lang('layout/parts.Month')</li>@endif
                                                         <li><i class="flaticon-location-pointer"></i>&nbsp; {{$Job->City->name}}</li>
                                                     </ul>
                                                 </div>
@@ -125,13 +101,9 @@
                                             <div class="col-lg-3 col-md-3 col-sm-12 col-12">
                                                 <div class="jp_job_post_right_btn_wrapper">
                                                     <ul>
-                                                        <li>
-                                                            <div class="job_adds_right">
-                                                                <a href="#!"><i class="far fa-heart"></i></a>
-                                                            </div>
-                                                        </li>
-                                                        <li><a href="javascript:;">{{$Job->type}}</a></li>
-                                                        <li> <a href="{{route('job' , $Job->id)}}">apply</a></li>
+                                                        <li></li>
+                                                        <li><a href="javascript:;">{{$Job->JobType}}</a></li>
+                                                        <li></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -152,7 +124,7 @@
                                             <div class="jp_job_post_right_cont">
                                                 <h4><a href="{{route('job' , $Job->id)}}">{{$Job->title}}</a></h4>
                                                 <ul>
-                                                    @if($Job->salary)<li><i class="flaticon-cash"></i>&nbsp; {{$Job->salary}} IQD / Month</li>@endif
+                                                    @if($Job->salary)<li><i class="flaticon-cash"></i>&nbsp; {{$Job->salary}} @lang('layout/parts.IQD') / @lang('layout/parts.Month')</li>@endif
                                                     <li><i class="flaticon-location-pointer"></i>&nbsp; {{$Job->City->name}}</li>
                                                 </ul>
                                             </div>
@@ -160,13 +132,9 @@
                                         <div class="col-lg-3 col-md-3 col-sm-12 col-12">
                                             <div class="jp_job_post_right_btn_wrapper">
                                                 <ul>
-                                                    <li>
-                                                        <div class="job_adds_right">
-                                                            <a href="#!"><i class="far fa-heart"></i></a>
-                                                        </div>
-                                                    </li>
-                                                    <li><a href="javascript:;">{{$Job->type}}</a></li>
-                                                    <li> <a href="{{route('job' , $Job->id)}}">apply</a></li>
+                                                    <li></li>
+                                                    <li><a href="javascript:;">{{$Job->JobType}}</a></li>
+                                                    <li></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -182,7 +150,7 @@
                 <div class="col-lg-4 col-md-12 col-sm-12 col-12">
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
-                            <h1> overview company</h1>
+                            <h1>@lang('main/company.CompanyOverview')</h1>
                         </div>
                         <div class="job_overview_header jb_cover">
                           @if($Company->category_id)
@@ -192,7 +160,7 @@
                                 </div>
                                 <div class="jp_listing_list_icon_cont_wrapper">
                                     <ul>
-                                        <li>categories:</li>
+                                        <li>@lang('layout/parts.Category'):</li>
                                         <li>{{$Company->Category->title}}</li>
                                     </ul>
                                 </div>
@@ -205,7 +173,7 @@
                                 </div>
                                 <div class="jp_listing_list_icon_cont_wrapper">
                                     <ul>
-                                        <li>Location:</li>
+                                      <li>@lang('layout/parts.Location'):</li>
                                         @if($Company->address)
                                         <li>{{$Company->address}}<li>
                                         @elseif($Company->city_id)
@@ -224,7 +192,7 @@
                                 </div>
                                 <div class="jp_listing_list_icon_cont_wrapper">
                                     <ul>
-                                        <li>Hotline:</li>
+                                        <li>@lang('layout/parts.PhoneNumber'):</li>
                                         <li>{{$Company->phone}}</li>
                                     </ul>
                                 </div>
@@ -238,7 +206,7 @@
                                 </div>
                                 <div class="jp_listing_list_icon_cont_wrapper">
                                     <ul>
-                                        <li>email:</li>
+                                        <li>@lang('layout/parts.Email'):</li>
                                         <li><a href="mailto:{{$Company->contact_email}}">{{$Company->contact_email}}</a></li>
                                     </ul>
                                 </div>
@@ -252,7 +220,7 @@
                                 </div>
                                 <div class="jp_listing_list_icon_cont_wrapper">
                                     <ul>
-                                        <li>company size:</li>
+                                        <li>@lang('layout/parts.CompanySize'):</li>
                                         <li>{{$Company->company_size}}</li>
                                     </ul>
                                 </div>
@@ -265,16 +233,16 @@
                                 </div>
                                 <div class="jp_listing_list_icon_cont_wrapper">
                                     <ul>
-                                        <li>website:</li>
+                                        <li>@lang('layout/parts.Website'):</li>
                                         <li><a target="_blank" href="{{$Company->website}}">{{$Company->website}}</a></li>
                                     </ul>
                                 </div>
                             </div>
                             @endif
                             @auth
-                            @if($Company->contact_email)
+                            @if($Company->profile_pdf)
                             <div class="header_btn search_btn news_btn overview_btn  jb_cover">
-                                <a href="mailto:{{$Company->contact_email}}">contact us</a>
+                                <a target="_blank" href="{{$Company->Profile}}">@lang('main/company.DownloadProfile')</a>
                             </div>
                             @endif
                           @endauth
@@ -283,7 +251,7 @@
                     @if($Company->facebook || $Company->twitter || $Company->linkedin || $Company->google)
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
-                            <h1> social profile</h1>
+                            <h1>@lang('layout/parts.SocialProfile')</h1>
                         </div>
                         <div class="job_overview_header jb_cover">
                             <div class="jp_listing_left_bottom_sidebar_social_wrapper">

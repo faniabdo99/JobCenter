@@ -1,12 +1,12 @@
 @component('mail::message')
-# Reset Password
+# @lang('mails.ResetPassword')
 
-Hello , {{$User->name}} <br>
-You have requsted a password reset to your job center account , please click th button below to reset your password.
+@lang('mails.Hello') {{$User->name}} <br>
+@lang('mails.YouHaveRequstedAPasswordResetToYourJobCenterAccount')
 @component('mail::button', ['url' => route('forget.password.confirm' , [$User->id , $User->code])])
-Reset Password
+@lang('mails.,PleaseClickTheButtonBelowToResetYourPassword')
 @endcomponent
-if you didn't made this requste don't worry , just ignore this email and your password won't be changed.<br>
-Thanks,<br>
+@lang('mails.ResetPassword')<br>
+@lang('mails.IfYouDidntMadeThisRequsteDontWorryJustIgnoreThisEmailAndYourPasswordWontBeChanged')@lang('mails.Thanks')<br>
 {{ config('app.name') }}
 @endcomponent

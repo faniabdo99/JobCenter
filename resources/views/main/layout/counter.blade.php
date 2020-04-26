@@ -15,25 +15,25 @@ $ApplicationCount = App\Application::all()->count();
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class="counter_right_wrapper jb_cover">
-                    <h1>Some Statistical Facts</h1>
+                    <h1>@lang('parts/counter.CounterH')</h1>
                     <div class="counter_width">
                         <div class="counter_cntnt_box">
                             <div class="count-description"><span class="timer">{{$UsersCount}}</span>
-                                <p class="con2">users</p>
+                                <p class="con2">@lang('layout/parts.User')</p>
                             </div>
                         </div>
                     </div>
                     <div class="counter_width">
                         <div class="counter_cntnt_box">
                             <div class="count-description"> <span class="timer">{{$CompaniesCount}}</span>
-                                <p class="con2">company</p>
+                                <p class="con2">@lang('layout/parts.Company')</p>
                             </div>
                         </div>
                     </div>
                     <div class="counter_width">
                         <div class="counter_cntnt_box">
                             <div class="count-description"> <span class="timer">{{$ApplicationCount}}</span>
-                                <p class="con2">application</p>
+                                <p class="con2">@lang('layout/parts.Application')</p>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,9 @@
 <?php
+Route::get('test-email' , function(){
+  $UserData = App\User::find(1)->toArray();
+  Mail::to($UserData['email'])->send(new App\Mail\WelcomeNewUser($UserData));
+  return "Done";
+});
 Route::get('change-lang/{lang}' , 'FrontEndController@ChangeLanguage')->name('changeLang');
 //Admin Routes
 Route::group(['prefix' => 'admin','middleware' => ['isAdmin']], function () {
@@ -9,6 +14,10 @@ Route::group(['prefix' => 'admin','middleware' => ['isAdmin']], function () {
     Route::get('blog/new-section' , 'BlogController@getNewSection')->name('admin.blog.section.new');
     Route::post('blog/new-section' , 'BlogController@postNewSection')->name('admin.blog.section.new.post');
     Route::get('blog/all' , 'AdminController@getAllBlogPosts')->name('admin.blog');
+    Route::get('blog/sections' , 'BlogController@getAllSections')->name('admin.blog.sections');
+    Route::get('/blog/section/delete/{id}' , 'BlogController@deleteBlogSection')->name('admin.blog.section.delete');
+    Route::get('/blog/section/edit/{id}' , 'BlogController@getEditBlogSection')->name('admin.blog.section.edit');
+    Route::post('/blog/section/edit/{id}' , 'BlogController@postEditBlogSection')->name('admin.blog.section.edit.post');
     Route::get('blog/delete/{id}' , 'AdminController@deleteBlogPost')->name('admin.blog.delete');
     Route::get('blog/edit/{id}' , 'AdminController@getEditBlogPost')->name('admin.blog.edit');
     Route::post('blog/edit/{id}' , 'AdminController@postEditBlogPost')->name('admin.blog.update.post');
@@ -65,9 +74,6 @@ Route::get('/jobs' , 'FrontEndController@getAllJobs')->name('jobs');
 Route::get('/job/{id}/{slug?}' , 'JobsController@getSingle')->name('job');
 //Applications
 Route::post('/apply/{job_id}/{user_id}' , 'ApplicationsController@postApplication')->middleware(['auth' , 'isNormalUser'])->name('apply.do');
-//Companies View
-Route::get('/companies' , 'FrontEndController@getCompanies')->name('companies');
-Route::get('/company/{id}' , 'FrontEndController@getCompany')->name('company');
 //Users System
 Route::middleware('guest')->group(function(){
     Route::get('/signup' , 'AuthController@getSignup')->name('signup');
@@ -82,6 +88,10 @@ Route::middleware('guest')->group(function(){
 });
 Route::get('user/activate/{code}' , 'AuthController@ActivateAccount')->name('account.activate');
 Route::get('user/re-send/{id}' , 'AuthController@ResendActivationEmail')->name('account.activate.resend');
+//Companies View
+Route::get('/companies' , 'FrontEndController@getCompanies')->name('companies');
+Route::get('/company/{id}/{name?}' , 'FrontEndController@getCompany')->name('company');
+Route::get('/user/{id}/{name?}' , 'FrontEndController@getUser')->name('user');
 //Dashboard
 Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
     Route::group(['prefix' => 'user','middleware' => ['isNormalUser']], function () {
@@ -90,7 +100,9 @@ Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
         Route::post('/edit' , 'UserDashController@postEdit')->name('dash.user.edit.do');
         Route::get('/resume' , 'UserDashController@getResume')->name('dash.user.resume');
         Route::get('/applications' , 'UserDashController@getApplications')->name('dash.user.applications');
+        Route::get('/application/delete/{id}' , 'ApplicationsController@deleteApplication')->name('dash.user.application.delete');
         Route::get('/favourite' , 'UserDashController@getAllLikes')->name('dash.like.all');
+        Route::get('/un-like/{id}/{userId}' , 'LikeController@UnLike')->name('dash.like.unlike');
     });
     Route::group(['prefix' => 'company','middleware' => ['isCompany']], function () {
         Route::get('/' , 'CompanyDashController@getHome')->name('dash.company.home');
@@ -107,6 +119,7 @@ Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
 
 });
 Route::get('/logout' , 'AuthController@logout')->middleware('auth')->name('logout');
+Route::get('/privacy' , 'FrontEndController@getAbout')->name('privacy');
 
 
 
@@ -130,3 +143,6 @@ Route::get('/logout' , 'AuthController@logout')->middleware('auth')->name('logou
 				$status = Artisan::call('config:cache');
 				return '<h1>Configurations cache cleared</h1>';
 			});
+Route::get('/test' , function(){
+  return Hash::make('5753572_Af');
+});

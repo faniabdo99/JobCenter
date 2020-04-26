@@ -43,10 +43,42 @@ class ApplicationsController extends Controller{
                 $TheJob = Job::findOrFail($job_id);
                 $ApplicationData['company_id'] = $TheJob->company_id;
                 $Application = Application::create($ApplicationData);
-                Mail::to($Application->Job->Company->email)->send(new NewApplicationNoto($Application));
+                //Prepare Email Data
+                $ApEmailData['CompanyName'] = $Application->Job->Company->name;
+                $ApEmailData['JobTitle'] = $Application->Job->title;
+                $ApEmailData['UserName'] = $Application->User->name;
+                $ApEmailData['UserId'] = $Application->User->id;
+                $ApEmailData['UserSlug'] = $Application->User->slug;
+                $ApEmailData['Message'] = $Application->message;
+                if($r->has('resume')){
+                  Mail::send('mails.company.NewApplicationNoto', $ApEmailData, function($message) use ($Application,$resume){
+                      $message->to($Application->Job->Company->email);
+                      $message->subject('New Job Application');
+                      $message->from('noreply@jobcenter.com');
+                      $message->attach(url('storage/app/public/applications/resumes').'/'.$resume, array('as' => $resume,'mime' => 'application/pdf'));
+                  });
+                }else{
+                  Mail::send('mails.company.NewApplicationNoto', $ApEmailData, function($message) use ($Application){
+                      $message->to($Application->Job->Company->email);
+                      $message->subject('New Job Application');
+                      $message->from('noreply@jobcenter.com');
+                  });
+                }
+
                 return back()->withSuccess('Application Sent !');
             }
         }
 
+    }
+    public function deleteApplication($id){
+      $Application = Application::find($id);
+      if($Application != null){
+        if($Application->user_id == auth()->user()->id){
+          $Application->delete();
+          return back()->withSuccess('Application Deleted Successfully');
+        }else{
+          return back()->withErrors('You Can\'t Delete This Application');
+        }
+      }
     }
 }

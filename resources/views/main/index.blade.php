@@ -1,4 +1,4 @@
-@include('main.layout.header')
+@include('main.layout.header' , ['PageTitle' => 'Find Jobs Online'])
 <body>
     @include('main.layout.navbar')
     <div class="jb_banner_wrapper jb_cover">
@@ -11,41 +11,42 @@
             @endphp
             <form action="{{route('search')}}" method="get">
                 <div class="contect_form3">
-                    <input type="text" name="query" placeholder="Keyword e.g. (Job Title, Description, Tags)">
+                    <input type="text" name="query" placeholder="@lang('layout/forms.IndexSearchQuery')">
                 </div>
                 <div class="select_box">
                     <i class="flaticon-map"></i>
                     <select name="city">
-                        <option>select location</option>
+                        <option value="">@lang('layout/parts.Location')</option>
                         @forelse ($SearchCites as $SearchCity)
                         <option value="{{$SearchCity->id}}">{{$SearchCity->name}}</option>
                         @empty
-                        <option value="">null</option>
+                        <option value="">@lang('layout/parts.NoData')</option>
                         @endforelse
                     </select>
                 </div>
                 <div class="select_box select_box_2">
                     <i class="flaticon-squares-gallery-grid-layout-interface-symbol"></i>
                     <select name="category">
-                        <option>category</option>
+                        <option value="">@lang('layout/parts.Category')</option>
                         @forelse ($SearchCategories as $SearchCategory)
                         <option value="{{$SearchCategory->id}}">{{$SearchCategory->title}}</option>
                         @empty
-                        <option value="">null</option>
+                        <option value="">@lang('layout/parts.NoData')</option>
                         @endforelse
                     </select>
                 </div>
                 <div class="select_box">
                     <i class="flaticon-statistics"></i>
                     <select name="type">
-                        <option>type</option>
-                        <option value="full">full time</option>
-                        <option value="part">part time</option>
-                        <option value="rotation">rotation</option>
+                        <option value="">@lang('layout/parts.JobType')</option>
+                        <option value="full">@lang('layout/parts.FullTime')</option>
+                        <option value="part">@lang('layout/parts.PartTime')</option>
+                        <option value="rotation">@lang('layout/parts.Rotation')</option>
+                        <option value="temporary">@lang('layout/parts.Temporary')</option>
                     </select>
                 </div>
                 <div class="header_btn search_btn jb_cover">
-                    <button type="submit"><i class="fas fa-search"></i> Search</button>
+                    <button type="submit"><i class="fas fa-search"></i>@lang('layout/parts.Search')</button>
                 </div>
             </form>
         </div>
@@ -57,7 +58,7 @@
     <div class="jb_category_wrapper jb_cover">
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
+                <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="jb_heading_wraper">
                         <h3>@lang('main/index.IndexBrowseByCategoryH')</h3>
                         <p>@lang('main/index.IndexBrowseByCategoryP')</p>
@@ -70,17 +71,17 @@
                             <div class="hover-block"></div>
                             <i class="{{$Category->icon}}"></i>
                             <h3>{{$Category->title}}</h3>
-                            <p>({{count($Category->Jobs)}} jobs)</p>
+                            <p>({{count($Category->Jobs)}} @lang('layout/parts.Jobs'))</p>
                         </a>
                     </div>
                 </div>
                 @empty
-                <p>Nothing Here Yet !</p>
+                <p>@lang('layout/parts.NoData')</p>
                 @endforelse
             </div>
         </div>
         <div class="header_btn search_btn load_btn jb_cover">
-            <a href="{{route('categories')}}">load more</a>
+            <a href="{{route('categories')}}">@lang('layout/parts.Categories')</a>
         </div>
     </div>
     </div>
@@ -92,17 +93,14 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-12 col-sm-12">
                     <div class="jb_heading_wraper left_jb_jeading">
-                        <h3>About Us</h3>
+                        <h3>@lang('layout/parts.About')</h3>
                     </div>
                     <div class="grow_next_text jb_cover">
                         <p>
-                          Over the past 30 years, armed conflicts and sectarian violence have ravaged Iraq. Hundreds of thousands of casualties left the widowed women to be the breadwinner for the family. In this context, especially in the southern
-                            area of Iraq, many young females and children dropped out of school.<br>
-                             Illiterate women are estimated to be 26.4% comparing with men which reached up to 11.6%. The illiteracy is a main factor for pushing women to early
-                            marriage or following negative coping strategies like begging.
+                          @lang('main/about.AboutDesc')
                         </p>
                         <div class="header_btn search_btn jb_cover">
-                            <a href="{{route('about')}}">discover more</a>
+                            <a href="{{route('about')}}">@lang('layout/parts.DiscoverMore')</a>
                         </div>
                     </div>
                 </div>
@@ -123,7 +121,7 @@
                     <div class="latest_job_overlow jb_cover">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="latest_job_toper jb_cover">
-                                <h1>latest jobs</h1>
+                                <h1>@lang('layout/parts.LatestJobs')</h1>
                             </div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-md-12">
@@ -132,27 +130,29 @@
                                     @forelse($TopSixJobs as $Job)
                                     <div class="latest_job_box jb_cover">
                                         <div class="job_list">
-                                            <a href="{{route('job' , [$Job->id , $Job->title])}}"><img src="{{$Job->Company->profile_image}}" alt="{{$Job->Company->name}}">
-                                                <h6>{{$Job->title}} ({{$Job->experience}} + Years)</h6>
+                                            <a href="{{route('job' , [$Job->id , $Job->slug])}}"><img src="{{$Job->Company->profile_image}}" alt="{{$Job->Company->name}}">
+                                                <h6>{{$Job->title}}</h6>
                                             </a>
                                         </div>
                                         <div class="job_list_next">
                                             <p>{{$Job->Company->name}}</p>
                                         </div>
                                         <div class="job_list_next">
-                                            <p>{{$Job->type}}</p>
+                                            <p>{{$Job->JobType}}</p>
                                         </div>
                                         <div class="job_list_next">
                                             <p>{{$Job->City->name}}</p>
                                         </div>
+                                        @if($Job->Salary)
                                         <div class="job_list_next">
-                                            <p>{{$Job->Salary}} IQ / Month</p>
+                                            <p>{{$Job->Salary}} @lang('layout/parts.IQD') / @lang('layout/parts.Month')</p>
                                         </div>
+                                        @endif
                                     </div>
                                     @empty
-
+                                      <p>@lang('layout/parts.NoData')</p>
                                     @endforelse
-                                    <span class="se_all_job"><a href="{{route('jobs')}}">See All Jobs <i class="fas fa-long-arrow-alt-right"></i></a></span>
+                                    <span class="se_all_job"><a href="{{route('jobs')}}">@lang('layout/parts.ViewAllJobs') <i class="fas fa-long-arrow-alt-right"></i></a></span>
                                 </div>
                             </div>
                         </div>
@@ -161,15 +161,11 @@
             </div>
         </div>
     </div>
-    <!-- latest job wrapper end-->
-    <!-- counter wrapper start-->
     @include('main.layout.counter')
-    <!-- counter wrapper end-->
-    <!-- blog wrapper start-->
     <div class="blog_wrapper jb_cover">
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
+                <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="jb_heading_wraper">
                         <h3>@lang('main/index.IndexFromBlogH')</h3>
                         <p>@lang('main/index.IndexFromBlogP')</p>
@@ -182,16 +178,16 @@
                         <form action="{{route('contact.quick')}}" method="post">
                             @csrf
                             <div class="contect_form3 blog_letter">
-                                <input type="text" required name="title" placeholder="Your Message ?">
+                                <input type="text" required name="title" placeholder="@lang('layout/forms.MessagePH')">
                             </div>
                             <div class="contect_form3 blog_letter">
-                                <input type="text" required name="name" placeholder="your name">
+                                <input type="text" required name="name" placeholder="@lang('layout/forms.NamePH')">
                             </div>
                             <div class="contect_form3 blog_letter">
-                                <input type="email" required name="email" placeholder="your email">
+                                <input type="email" required name="email" placeholder="@lang('layout/forms.EmailPH')">
                             </div>
                             <div class="header_btn search_btn submit_btn jb_cover">
-                                <button type="submit">submit</button>
+                                <button type="submit">@lang('layout/forms.Submit')</button>
                             </div>
                         </form>
                     </div>
@@ -201,9 +197,7 @@
                         @forelse($TopBlogPosts as $BlogPost)
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="our_blog_content jb_cover">
-                                <div class="jb_cover">
-                                    <img src="{{$BlogPost->post_image}}" width="350" height="200" class="img-responsive" alt="{{$BlogPost->title}}">
-                                </div>
+                                <div class="jb_cover jb_background_img" style="background-image:url(https://womenjobcenter.com/storage/app/public/blog/event-one.png)"></div>
                                 <div class="blog_content jb_cover">
                                     <p>{{$BlogPost->created_at->format('M d Y')}}</p>
                                     <h4> <a href="{{route('blog.post' , $BlogPost->slug)}}">{{$BlogPost->title}}</a></h4>
@@ -211,7 +205,7 @@
                             </div>
                         </div>
                         @empty
-                        <p>Stay Tuned For Our Blog Posts !</p>
+                        <p>@lang('layout/parts.NoData')</p>
                         @endforelse
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div id="accordion" role="tablist">

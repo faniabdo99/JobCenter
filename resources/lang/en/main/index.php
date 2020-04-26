@@ -9,5 +9,4 @@ return [
   'IndexFeedbackH' => 'feed back',
   'IndexFeedbackP' => 'we would love to hear your thoughts, concerns, or problems with anything so we can improve.',
   'IndexFAQ' => 'Frequently Asked Question?'
-
 ];

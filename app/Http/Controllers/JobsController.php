@@ -35,7 +35,6 @@ class JobsController extends Controller{
             'title' => 'required',
             'type' => 'required',
             'salary' => 'nullable|integer',
-            'experience' => 'required',
             'description' => 'required|min:40',
             'position' => 'required',
             'city_id' => 'required'
@@ -45,7 +44,6 @@ class JobsController extends Controller{
             'title.required' => 'You must provide a job title',
             'type.required' => 'You must choose a type',
             'salary.integer' => 'The salary must be in form of number',
-            'experience.required' => 'The experience can not be blank',
             'description.min' => 'The job description must be 40 charachters at least',
             'city_id.required' => 'You must choose a job location',
             'position.required' => 'You Must Add Job Position'
@@ -122,7 +120,7 @@ class JobsController extends Controller{
               $JobData['company_id'] = auth()->user()->id;
               $Job = Job::findOrFail($job_id);
               $Job->update($JobData);
-              return back()->withSuccess('Job Has Been Updated!');
+              return redirect()->route('dash.company.jobs')->withSuccess('Job Has Been Updated!');
           }
       }
     }

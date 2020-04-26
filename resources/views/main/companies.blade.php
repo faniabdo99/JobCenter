@@ -1,4 +1,4 @@
-@include('main.layout.header', ['PageTitle' => 'Companies'])
+@include('main.layout.header', ['PageTitle' => __('layout/titles.Companies')])
 <body>
     @include('main.layout.navbar')
     <!-- navi wrapper End -->
@@ -7,17 +7,8 @@
         <div class="page_header">
             <div class="container">
                 <div class="row">
-                    <!-- section_heading start -->
-                    <div class="col-lg-9 col-md-9 col-12 col-sm-8">
-                        <h1>companies</h1>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-12 col-sm-4">
-                        <div class="sub_title_section">
-                            <ul class="sub_title">
-                                <li> <a href="#"> Home </a>&nbsp; / &nbsp; </li>
-                                <li>companies</li>
-                            </ul>
-                        </div>
+                    <div class="col-lg-12 col-md-12 col-12 col-sm-8">
+                        <h1>@lang('layout/titles.Companies')</h1>
                     </div>
                 </div>
             </div>
@@ -38,7 +29,7 @@
                                 </div>
                             </div>
                             <div class="opening_job">
-                              <h1><a href="{{route('company' , $Company->id)}}">{{count($Company->Jobs)}} job open</a></h1>
+                              <h1><a href="{{route('company' , [$Company->id , $Company->slug])}}">{{count($Company->Jobs)}} @lang('layout/parts.JobOpen')</a></h1>
                             </div>
                             <div class="company_img_cont_wrapper">
                                 <h4>{{$Company->name}}</h4>
@@ -46,7 +37,7 @@
                         </div>
                     </div>
                 @empty
-                <p>No Companies</p>
+                <p>@lang('layout/parts.NoData')</p>
                 @endforelse
             </div>
         </div>

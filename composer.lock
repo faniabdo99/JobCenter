@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0265993e6a419ef7b627ab066af5c252",
+    "content-hash": "3995d00d6336f0205bc2daee9f280e9a",
     "packages": [
         {
             "name": "awssat/laravel-visits",
@@ -365,6 +365,54 @@
             "time": "2020-01-20T21:40:59+00:00"
         },
         {
+            "name": "fania/scammer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/faniabdo99/scammer.git",
+                "reference": "1253627a488d290f207e780a823338335fe4eb8c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/faniabdo99/scammer/zipball/1253627a488d290f207e780a823338335fe4eb8c",
+                "reference": "1253627a488d290f207e780a823338335fe4eb8c",
+                "shasum": ""
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "fania\\Scammer\\ScammerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "fania\\Scammer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Abd Alrahman Fani",
+                    "email": "faniabdo99@gmail.com"
+                }
+            ],
+            "description": "a Laravel Package to Kill a Website ! This Package Will Help You to Save Your Life if You Lost Access to The Code or The Server.",
+            "keywords": [
+                "developers",
+                "framework",
+                "laravel",
+                "money",
+                "scammer",
+                "stealing"
+            ],
+            "time": "2020-04-14T14:33:31+00:00"
+        },
+        {
             "name": "fideloper/proxy",
             "version": "4.2.2",
             "source": {
@@ -647,6 +695,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -693,6 +742,7 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
@@ -1152,6 +1202,7 @@
                 "markdown",
                 "table"
             ],
+            "abandoned": "league/commonmark",
             "time": "2019-09-26T13:28:33+00:00"
         },
         {
@@ -5844,7 +5895,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "fania/scammer": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

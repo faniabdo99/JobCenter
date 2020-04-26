@@ -28,6 +28,23 @@ class Job extends Model{
     public function City(){
         return $this->belongsTo(City::class);
     }
+    public function getSlugAttribute(){
+      return strtolower(str_replace(' ' , '-' , $this->title));
+    }
+    public function getJobTypeAttribute(){
+      if($this->type == 'Full Time'){$JobType = __('layout/parts.FullTime');}
+      if($this->type == 'Part Time'){$JobType = __('layout/parts.PartTime');}
+      if($this->type == 'Rotation'){$JobType = __('layout/parts.Rotation');}
+      if($this->type == 'Temporary'){$JobType = __('layout/parts.Temporary');}
+      return $JobType;
+    }
+    public function getExpAttribute(){
+      if($this->experience == 'Fresher'){$Exp = __('dash/company.Fresher');}
+      if($this->experience == 'Junior'){$Exp = __('dash/company.Junior');}
+      if($this->experience == 'Pre Senior'){$Exp = __('dash/company.PreSenior');}
+      if($this->experience == 'Seniory'){$Exp = __('dash/company.Senior');}
+      return $Exp;
+    }
     public function Applications(){
       return $this->hasMany(Application::class , 'job_id');
     }

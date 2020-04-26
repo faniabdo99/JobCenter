@@ -10,6 +10,10 @@ class Category extends Model{
         return $this->hasMany(Job::class , 'category_id');
     }
     public function getTitleAttribute(){
-      return $this->title_en;
+      if(app()->getLocale() == 'en'){
+        return $this->title_en;
+      }else{
+        return $this->title_ar;
+      }
     }
 }

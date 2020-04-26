@@ -22,8 +22,16 @@
     <link rel="stylesheet" type="text/css" href="{{url('public/dash/css')}}/nice-select.css" />
     <link rel="stylesheet" type="text/css" href="{{url('public/dash/css')}}/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="{{url('public/dash/css')}}/reset.css" />
-    <link rel="stylesheet" type="text/css" href="{{url('public/dash/css')}}/style.css" />
     <link rel="stylesheet" type="text/css" href="{{url('public/dash/css')}}/responsive.css" />
+    <link href="https://fonts.googleapis.com/css?family=Almarai&display=swap" rel="stylesheet">
+    @if(App::getLocale() == 'ar')
+    <link rel="stylesheet" type="text/css" href="{{url('public/dash/css/')}}/style-ar.css" />
+    @else
+    <link rel="stylesheet" type="text/css" href="{{url('public/dash/css/')}}/style.css" />
+    @endif
+    <link rel="stylesheet" type="text/css" href="{{url('public/main/css/')}}/responsive.css" />
+    <!--favicon-->
+    <link rel="shortcut icon" type="image/png" href="{{url('public/main/images/')}}/favicon.png" />
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="{{url('public/dash/images')}}/favicon.png" />
 </head>

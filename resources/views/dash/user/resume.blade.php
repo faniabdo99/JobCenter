@@ -8,8 +8,17 @@
             <div class="container">
                 <div class="row">
                     <!-- section_heading start -->
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 col-sm-12">
-                        <h1>Candidates resume</h1>
+                    <div class="col-xl-9 col-lg-7 col-md-7 col-12 col-sm-12">
+                        <h1>@lang('dash/user.CandidatesResume')</h1>
+                    </div>
+                    <div class="col-xl-3 col-lg-5 col-md-5 col-12 col-sm-12">
+                        <div class="sub_title_section">
+                            <ul class="sub_title">
+                                <li><a href="{{route('home')}}"> @lang('dash/user.Home') </a>&nbsp; / &nbsp; </li>
+                                <li><a href="{{route('dash.user.home')}}"> @lang('dash/user.Dashboard') </a>&nbsp; / &nbsp; </li>
+                                <li>@lang('dash/user.Resume')</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -26,7 +35,7 @@
                       @if($User->resume)
                         <embed src="{{$User->cv}}" style="height:100vh;width:100%">
                       @else
-                        <p>Please Upload You CV to See it Here </p>
+                        <p>@lang('dash/user.PleaseUploadYouCVToSeeItHere') </p>
                       @endif
                     </div>
                 </div>
@@ -41,11 +50,11 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="job_newsletter_wrapper jb_cover">
                         <div class="jb_newslwtteter_left">
-                            <h2> Looking For A Job</h2>
+                            <h2> @lang('dash/user.LookingForAJob')</h2>
                         </div>
                         <div class="jb_newslwtteter_button">
                             <div class="header_btn search_btn news_btn jb_cover">
-                                <a href="#">submit</a>
+                                <a href="#">@lang('dash/user.Submit')</a>
                             </div>
                         </div>
                     </div>

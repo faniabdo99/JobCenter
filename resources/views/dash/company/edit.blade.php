@@ -9,7 +9,7 @@
                 <div class="row">
                     <!-- section_heading start -->
                     <div class="col-xl-12 col-lg-12 col-md-12 col-12 col-sm-12">
-                        <h1>Edit Profile</h1>
+                        <h1>@lang('dash/company.EdiProfile')</h1>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                                                 <img src="{{$User->profile_image}}" width="92" height="92" alt="post_img">
                                             </div>
                                             <div class="jp_job_post_right_cont edit_profile_wrapper">
-                                                <h4>Profile Image JPEG or PNG</h4>
+                                                <h4>@lang('dash/company.ProfileImageJPEGOrPNG')</h4>
                                                 <div class="width_50">
                                                     <input name="image" type="file" id="input-file-now-custom-233" class="dropify" data-height="90" /><span class="post_photo">browse image</span>
                                                 </div>
@@ -43,7 +43,7 @@
                                                     <img src="{{$User->cover_image}}" alt="{{$User->name}}">
                                                 </div>
                                                 <div class="jp_job_post_right_cont edit_profile_wrapper">
-                                                    <h4>JPEG or PNG 1920x300px Cover Image</h4>
+                                                    <h4>@lang('dash/company.JPEGOrPNG1920x300pxCoverImage')</h4>
                                                     <div class="width_50">
                                                         <input name="cover" type="file" id="input-file-now-custom-2" class="dropify" data-height="90" /><span class="post_photo">browse image</span>
                                                     </div>
@@ -56,71 +56,71 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="contect_form3">
-                                            <label>name</label>
+                                            <label>@lang('dash/company.Name')</label>
                                             <input required type="text" value="{{old('name') ?? $User->name}}" name="name">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="contect_form3">
-                                            <label>Contact Email (Anyone can see it)</label>
+                                            <label>@lang('dash/company.ContactEmail(AnyoneCanSeeIt)')</label>
                                             <input type="email" value="{{old('contact_email') ?? $User->contact_email}}" name="contact_email">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="select_box">
-                                            <label>company size</label>
+                                            <label>@lang('dash/company.CompanySize')</label>
                                             <select name="company_size">
                                                 <option value="{{$User->company_size ?? ''}}">{{$User->company_size ?? 'Choose Company Size'}}</option>
-                                                <option value="1-50">1-50</option>
-                                                <option value="1-100">1-100</option>
-                                                <option value="1-200">1-300</option>
-                                                <option value="1-500">1-500</option>
-                                                <option value="1-500">500+</option>
+                                                <option value="1-50">@lang('dash/company.1-50')</option>
+                                                <option value="1-100">@lang('dash/company.1-100')</option>
+                                                <option value="1-200">@lang('dash/company.1')</option>
+                                                <option value="1-500">@lang('dash/company.-300')</option>
+                                                <option value="1-500">@lang('dash/company.1-500')</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="contect_form3">
-                                            <label>Website</label>
+                                            <label>@lang('dash/company.500+')</label>
                                             <input type="url" name="website" value="{{old('website') ?? $User->website}}">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="select_box">
-                                            <label>Category</label>
+                                            <label>@lang('dash/company.Website')</label>
                                             <select name="category_id">
                                                 <option value="{{$User->category_id}}">Update Category</option>
                                                 @forelse($Categories as $Category)
                                                 <option value="{{$Category->id}}">{{$Category->title}}</option>
                                                 @empty
-                                                <p>Nothig here</p>
+                                                <p>@lang('dash/company.Category')</p>
                                                 @endforelse
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="contect_form3">
-                                            <label>address</label>
+                                            <label>@lang('dash/company.NoData')</label>
                                             <input type="text" value="{{old('address') ?? $User->address}}" name="address">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="select_box">
-                                            <label>city</label>
+                                            <label>@lang('dash/company.Address')</label>
                                             <select name="city_id">
                                                 <option value="{{$User->city_id}}">Update City</option>
                                                 @forelse($Cities as $City)
                                                 <option value="{{$City->id}}">{{$City->name}}</option>
                                                 @empty
-                                                <p>Nothig here</p>
+                                                <p>@lang('dash/company.City')</p>
                                                 @endforelse
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="contect_form3">
-                                            <label>Description</label>
+                                            <label>@lang('dash/company.NoData')</label>
                                             <textarea name="description" row="5">{{old('description') ?? $User->description}}</textarea>
                                         </div>
                                     </div>
@@ -131,38 +131,38 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="job_filter_category_sidebar jb_cover">
                                             <div class="job_filter_sidebar_heading jb_cover">
-                                                <h1> social networks</h1>
+                                                <h1> @lang('dash/company.Description')</h1>
                                             </div>
                                             <div class="job_overview_header jb_cover">
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
-                                                            <label>Instagram</label>
+                                                            <label>@lang('dash/company.SocialNetworks')</label>
                                                             <input type="url" name="google" value="{{old('google') ?? $User->google}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
-                                                            <label>facebook</label>
+                                                            <label>@lang('dash/company.Instagram')</label>
                                                             <input type="url" name="facebook" value="{{old('facebook') ?? $User->facebook}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
-                                                            <label>twitter</label>
+                                                            <label>@lang('dash/company.Facebook')</label>
                                                             <input type="url" name="twitter" value="{{old('twitter') ?? $User->twitter}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
-                                                            <label>linkedin</label>
+                                                            <label>@lang('dash/company.Twitter')</label>
                                                             <input type="url" name="linkedin" value="{{old('linkedin') ?? $User->linkedin}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                                         <div class="contect_form3">
-                                                            <label>intro video <b>(embed link)</b></label>
-                                                            <input type="url" name="video" placeholder="Youtube or Vimeo Embed Link" value="{{old('video') ?? $User->video}}">
+                                                            <label>@lang('dash/company.Linkedin') <b>@lang('dash/company.PDFOnly')</b></label>
+                                                            <input type="file" name="profile_pdf">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -174,19 +174,19 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="job_filter_category_sidebar jb_cover">
                                             <div class="job_filter_sidebar_heading jb_cover">
-                                                <h1>update password</h1>
+                                                <h1>@lang('dash/company.CompanyProfile')</h1>
                                             </div>
                                             <div class="job_overview_header jb_cover">
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
-                                                            <label>current pasword</label>
+                                                            <label>@lang('dash/company.UpdatePassword')</label>
                                                             <input type="password" name="c_password">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
-                                                            <label>new pasword</label>
+                                                            <label>@lang('dash/company.CurrentPasword')</label>
                                                             <input type="password" name="n_password">
                                                         </div>
                                                     </div>
@@ -199,7 +199,7 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="login_remember_box jb_cover">
                                             <div class="header_btn search_btn">
-                                                <button type="submit">Save Changes</button>
+                                                <button type="submit">@lang('dash/company.NewPasword')@lang('dash/company.SaveChanges')</button>
                                             </div>
 
                                         </div>
@@ -221,12 +221,12 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="job_newsletter_wrapper jb_cover">
                         <div class="jb_newslwtteter_left">
-                            <h2> Looking For A Job</h2>
-                            <p>Your next level Product developemnt company assetsYour next level Product </p>
+                            <h2> @lang('dash/company.LookingForAJob')</h2>
+                            <p>@lang('dash/company.YourNextLevelProductDevelopemntCompanyAssetsYourNextLevelProduct') </p>
                         </div>
                         <div class="jb_newslwtteter_button">
                             <div class="header_btn search_btn news_btn jb_cover">
-                                <a href="#">submit</a>
+                                <a href="#">@lang('dash/company.Submit')</a>
                             </div>
                         </div>
                     </div>

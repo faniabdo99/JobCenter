@@ -24,7 +24,7 @@ class BlogController extends Controller{
     $ErrorMessages = [
       'title.required' => 'The Post Title is Required',
       'slug.required' => 'The Post Slug is Required',
-      'slug.alpha_dash' => 'The Post Slug Soulde Container Only Dashes (-) & Letters',
+      'slug.alpha_dash' => 'The Post Slug Soulde Container Only Dashes (-) & Letters & Numbers',
       'slug.unique' => 'This Post Slug is Already Taken',
       'section_id.required' => 'The Post Section is Required',
       'description.required' => 'The Post Description is Required',
@@ -59,7 +59,6 @@ class BlogController extends Controller{
       'title_en' => 'required',
       'title_ar' => 'required',
     ];
-
     $ErrorMessages = [
       'title_en.required' => 'The English Title is Required',
       'title_en.required' => 'The Arabic Title is Required',
@@ -72,8 +71,40 @@ class BlogController extends Controller{
       return back()->withSuccess("Section Created Succefully!");
     }
   }
+public function getAllSections(){
+  $Resultes = Section::latest()->get();
+  return view('admin.blog.all-sections' , compact('Resultes'));
+}
+public function deleteBlogSection($id){
+  Section::findOrFail($id)->delete();
+  return back()->withSuccess('Blog Section Deleted');
+}
+public function getEditBlogSection($id){
+  $res = Section::findOrFail($id);
+  return view('admin.blog.edit-section' , compact('res'));
+}
+public function postEditBlogSection(Request $r ,$id){
+  //Validation
+  $ValidationRules = [
+    'title_en' => 'required',
+    'title_ar' => 'required',
+  ];
+  $ErrorMessages = [
+    'title_en.required' => 'The English Title is Required',
+    'title_en.required' => 'The Arabic Title is Required',
+  ];
+  $Validator = Validator::make($r->all() , $ValidationRules,$ErrorMessages);
+  if($Validator->fails()){
+    return back()->withErrors($Validator->errors()->all());
+  }else{
+    $Section = Section::findOrFail($id)->update([
+      'title_en' => $r->title_en,
+      'title_ar' => $r->title_ar
+    ]);
+    return redirect()->route('admin.blog.sections')->withSuccess('Blog Section Updated Succefully');
+  }
 
-
+}
 
   //Front End Blog
   public function getIndex(){

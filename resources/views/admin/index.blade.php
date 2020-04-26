@@ -98,13 +98,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-xs-6 col-sm-6">
+                <div class="col-md-4 col-xs-4 col-sm-4">
                     <div class="single-state-card">
                         <i class="fas fa-plus"></i>
                         <h4><a href="{{route('admin.blog.new')}}">Post New Article</a> <br></h4>
                     </div>
                 </div>
-                <div class="col-md-6 col-xs-6 col-sm-6">
+                <div class="col-md-4 col-xs-4 col-sm-4">
+                    <div class="single-state-card">
+                        <i class="fas fa-edit"></i>
+                        <h4><a href="{{route('admin.blog.sections')}}">Edit Blog Sections</a> <br></h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-4 col-sm-4">
                     <div class="single-state-card">
                         <i class="fas fa-plus"></i>
                         <h4><a href="{{route('admin.blog.section.new')}}">Add Blog Section</a> <br></h4>

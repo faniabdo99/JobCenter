@@ -15,8 +15,9 @@ class Post extends Model{
       return $this->hasMany(Comment::class);
     }
     public function Category(){
-      return $this->belongsTo(Category::class , 'section_id')->withDefault([
-        'title_en' => 'Deleted Section'
+      return $this->belongsTo(Section::class , 'section_id')->withDefault([
+        'title_en' => 'Deleted Section',
+        'title_en' => 'قسم محذوف',
       ]);
     }
 }

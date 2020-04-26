@@ -8,16 +8,8 @@
             <div class="container">
                 <div class="row">
                     <!-- section_heading start -->
-                    <div class="col-xl-9 col-lg-7 col-md-7 col-12 col-sm-12">
-                        <h1>Dashboard</h1>
-                    </div>
-                    <div class="col-xl-3 col-lg-5 col-md-5 col-12 col-sm-12">
-                        <div class="sub_title_section">
-                            <ul class="sub_title">
-                                <li> <a href="#"> Home </a>&nbsp; / &nbsp; </li>
-                                <li>Dashboard</li>
-                            </ul>
-                        </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 col-sm-12">
+                        <h1>@lang('dash/user.Dashboard')</h1>
                     </div>
                 </div>
             </div>
@@ -41,7 +33,7 @@
                                         <div class="jp_job_post_right_cont">
                                             <h4>{{$User->name}}</h4>
                                             <ul>
-                                                @if($User->job_description)<li><i class="fas fa-suitcase"></i>&nbsp; {{$User->job_description}}</li>@endif
+                                                @if($User->category_id)<li><i class="fas fa-suitcase"></i>&nbsp; {{$User->Category->title}}</li>@endif
                                                 @if($User->city_id)<li><i class="flaticon-location-pointer"></i>&nbsp; {{$User->City->name}}</li>@endif
                                             </ul>
                                         </div>
@@ -52,18 +44,18 @@
                         <div class="col-lg-5 col-md-12 col-sm-12 col-12">
                             <div class="job_filter_category_sidebar jb_cover">
                                 <div class="job_filter_sidebar_heading jb_cover">
-                                    <h1> basic information</h1>
+                                    <h1> @lang('dash/user.BasicInformation')</h1>
                                 </div>
                                 <div class="job_overview_header jb_cover">
-                                    @if($User->job_description)
+                                    @if($User->category_id)
                                     <div class="jp_listing_overview_list_main_wrapper jb_cover">
                                         <div class="jp_listing_list_icon">
                                             <i class="far fa-calendar"></i>
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>job description:</li>
-                                                <li>{{$User->job_description}}</li>
+                                                <li>@lang('dash/user.JobDescription')</li>
+                                                <li>{{$User->Category->title}}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -75,7 +67,7 @@
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>Location:</li>
+                                                <li>@lang('dash/user.Location')</li>
                                                 <li>{{$User->City->name}}</li>
                                             </ul>
                                         </div>
@@ -88,7 +80,7 @@
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>phone:</li>
+                                                <li>@lang('dash/user.Phone')</li>
                                                 <li>{{$User->phone}}</li>
                                             </ul>
                                         </div>
@@ -101,7 +93,7 @@
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>email:</li>
+                                                <li>@lang('dash/user.Email')</li>
                                                 <li><a mailto="{{$User->email}}">{{$User->email}}</a></li>
                                             </ul>
                                         </div>
@@ -113,7 +105,7 @@
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>website:</li>
+                                                <li>@lang('dash/user.Website')</li>
                                                 <li><a target="_blank" href="{{$User->website}}">{{$User->website}}</a></li>
                                             </ul>
                                         </div>
@@ -122,10 +114,10 @@
 
                                 </div>
                             </div>
-                               
+
                                     <div class="job_filter_category_sidebar jb_cover">
                                         <div class="job_filter_sidebar_heading jb_cover">
-                                            <h1> social profile</h1>
+                                            <h1> @lang('dash/user.SocialProfile')</h1>
                                         </div>
                                         <div class="job_overview_header jb_cover">
                                             <div class="jp_listing_left_bottom_sidebar_social_wrapper">
@@ -138,7 +130,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-            
+
                                 </div>
                         </div>
                         <div class="col-lg-7 col-md-12 col-sm-12 col-12" style="margin-top:11px">
@@ -151,7 +143,7 @@
                                         </div>
                                         <div class="emp_job_side_text">
                                             <h1>{{count($User->Application)}}</h1>
-                                            <p>applied jobs</p>
+                                            <p>@lang('dash/user.AppliedJobs')</p>
                                         </div>
                                     </div>
                                 </div>
@@ -163,11 +155,11 @@
                                         <div class="emp_job_side_text">
 
                                             <h1>{{count($User->FavJobs())}}</h1>
-                                            <p>favourite jobs</p>
+                                            <p>@lang('dash/user.FavouriteJobs')</p>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -184,8 +176,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="job_newsletter_wrapper jb_cover">
                         <div class="jb_newslwtteter_left">
-                            <h2> Looking For A Job</h2>
-                           
+                            <h2> @lang('dash/user.LookingForAJob')</h2>
+
                         </div>
                         <div class="jb_newslwtteter_button">
                             <div class="header_btn search_btn news_btn jb_cover">

@@ -1,3 +1,5 @@
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e7f581596bdb665"></script>
     <!--custom js files-->
     <script src="{{url('public/main/js')}}/jquery-3.3.1.min.js"></script>
     <script src="{{url('public/main/js')}}/bootstrap.min.js"></script>

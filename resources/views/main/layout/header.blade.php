@@ -28,8 +28,14 @@
     <link rel="stylesheet" type="text/css" href="{{url('public/main/css/')}}/magnific-popup.css" />
     <link rel="stylesheet" type="text/css" href="{{url('public/main/css/')}}/nice-select.css" />
     <link rel="stylesheet" type="text/css" href="{{url('public/main/css/')}}/reset.css" />
+    <link href="https://fonts.googleapis.com/css?family=Almarai&display=swap" rel="stylesheet">
+
+    @if(App::getLocale() == 'ar')
+    <link rel="stylesheet" type="text/css" href="{{url('public/main/css/')}}/style-ar.css" />
+    @else
     <link rel="stylesheet" type="text/css" href="{{url('public/main/css/')}}/style.css" />
+    @endif
     <link rel="stylesheet" type="text/css" href="{{url('public/main/css/')}}/responsive.css" />
     <!--favicon-->
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="{{url('public/main/images/')}}/favicon.png" />
 </head>
