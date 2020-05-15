@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Application;
+use App\CompanyAttachment;
 use Illuminate\Http\Request;
 use Validator;
-
+use Storage;
 //Models
 use App\User;
 use App\Category;
@@ -105,4 +106,27 @@ class CompanyDashController extends Controller{
       $User = $this->getUser();
       return view('dash.company.applications' , compact('User'));
     }
+      public function StoreAttachments(Request $r , $id){
+          //Update Image (Yes)
+          $FileName = $r->file->getClientOriginalName();
+          Storage::makeDirectory($id,0711, true, true);
+          $r->file->storeAs('public/companies/files/'.$id, $FileName); //File Uploaded !
+          //Update the database
+          CompanyAttachment::create([
+            'source' => $FileName,
+            'company_id' => $id
+          ]);
+          return "Saved";
+      }
+      public function DeleteAttachments($id){
+        if(auth()->check()){
+          if(auth()->user()->id == $id){
+            Storage::disk('local')->deleteDirectory('/public/companies/files/'.$id);
+            CompanyAttachment::where('company_id' , $id)->delete();
+            return back()->with('success' , __('BackEnd.AttachmentsDeleted'));
+          }else{
+            dd("Fuck Off");
+          }
+        }
+      }
 }

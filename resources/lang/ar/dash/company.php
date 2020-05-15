@@ -69,6 +69,8 @@ return [
       'Facebook' => 'facebook',
       'Twitter' => 'twitter',
       'Linkedin' => 'linkedin',
+      'Attachments' => 'الملحقات',
+      'DeleteAttachments' => 'حذف الملفات المرفوعة',
       'CompanyProfile' => 'الملف التعريفي للشركة',
       'OnlyPDF' => '(PDF فقط)',
       'UpdatePassword' => 'تحديث كلمة المرور',

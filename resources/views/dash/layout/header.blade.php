@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{{url('public/dash/css')}}/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="{{url('public/dash/css')}}/reset.css" />
     <link rel="stylesheet" type="text/css" href="{{url('public/dash/css')}}/responsive.css" />
+    <link rel="stylesheet" href="{{url('public/admin/css')}}/dropzone.css">
     <link href="https://fonts.googleapis.com/css?family=Almarai&display=swap" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165798209-1"></script>
@@ -30,7 +31,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
+
       gtag('config', 'UA-165798209-1');
     </script>
     @if(App::getLocale() == 'ar')

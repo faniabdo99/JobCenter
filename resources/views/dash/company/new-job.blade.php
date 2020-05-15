@@ -1,5 +1,4 @@
 @include('dash.layout.header' , ['PageTitle' => __('dash/company.PostNewJob')])
-
 <body>
     @include('dash.layout.navbar')
     <!--employee dashboard wrapper start-->

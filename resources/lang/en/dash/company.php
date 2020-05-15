@@ -79,6 +79,8 @@ return [
       'LookingForAJob' => 'Looking For A Job',
       'YourNextLevelProductDevelopemntCompanyAssetsYourNextLevelProduct' => 'Your next level Product developemnt company assetsYour next level Product',
       'Submit' => 'submit',
+      'Attachments' => 'Attachments',
+      'DeleteAttachments' => 'Delete Current Attachments',
 
       //company indexblade
       'Dashboard' => 'Dashboard',

@@ -103,7 +103,7 @@ Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
         Route::get('/un-like/{id}/{userId}' , 'LikeController@UnLike')->name('dash.like.unlike');
     });
     Route::group(['prefix' => 'company','middleware' => ['isCompany']], function () {
-        Route::get('/' , 'CompanyDashController@getHome')->name('dash.company.home');
+        Route::get('/home' , 'CompanyDashController@getHome')->name('dash.company.home');
         Route::get('/edit' , 'CompanyDashController@getEdit')->name('dash.company.edit');
         Route::post('/edit' , 'CompanyDashController@postEdit')->name('dash.company.edit.do');
         Route::get('/new-job' , 'JobsController@getNew')->name('job.new');
@@ -113,6 +113,7 @@ Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
         Route::get('/edit/{id}' , 'JobsController@getEdit')->name('dash.company.job.edit');
         Route::post('/edit/{id}' , 'JobsController@postEdit')->name('job.edit.do');
         Route::get('/applications' , 'CompanyDashController@getApplications')->name('dash.company.applications');
+        Route::get('/delete-attachments/{id}' , 'CompanyDashController@DeleteAttachments')->name('dash.company.deleteAttachments');
 });
 
 });

@@ -63,6 +63,9 @@ class User extends Authenticatable{
           'name_en' => 'No City Selected'
         ]);
     }
+    public function Attachments(){
+      return $this->hasMany(CompanyAttachment::class , 'company_id');
+    }
     public function Application(){
       if($this->type == 'user'){
         return $this->hasMany(Application::class , 'user_id');

@@ -1,0 +1,2 @@
+<?php echo $__env->make('main.layout.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\xampp\htdocs\jobcenter\resources\views/dash/layout/footer.blade.php ENDPATH**/ ?>

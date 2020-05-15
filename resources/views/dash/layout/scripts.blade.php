@@ -15,4 +15,5 @@
 <script src="{{url('public/dash/js')}}/jquery.nice-select.min.js"></script>
 <script src="{{url('public/dash/js')}}/imagesloaded.pkgd.min.js"></script>
 <script src="{{url('public/dash/js')}}/isotope.pkgd.min.js"></script>
+<script src="{{url('public/admin/js')}}/dropzone.js"></script>
 <script src="{{url('public/dash/js')}}/custom.js"></script>

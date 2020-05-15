@@ -32,6 +32,7 @@ return [
   'ProfilePDFfile' => 'The Company Profile Should Be PDF File',
   'CurrentPassError' => 'Your Current Password is Wrong! Every Thing Else Updated',
   'ProfileUpdated' => 'Your Profile is Updated !',
+  'AttachmentsDeleted' => 'Previous Attachments Deleted!',
   //ContactController
   'MessageRequired' => 'The Message Filed is Required',
   'MessageSent' => 'Thanke You For Your Time.',
@@ -53,7 +54,4 @@ return [
   'JobUpdated' => 'Job Has Been Updated!',
   //LikeController
   'RemovedFromFav' => 'Removed From Favourite !',
-  //UserDashController
-  
-
 ];

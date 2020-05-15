@@ -70,6 +70,15 @@
                             <embed src="{{$Company->Profile}}" style="height:85vh;width:100%">
                         </div>
                         @endif
+                        @if($Company->Attachments)
+                          <ul class="p-3">
+                            @forelse ($Company->Attachments as $file)
+                              <li><a target="_blank" href="{{url('storage/app/public/companies/files/'.$file->company_id.'/'.$file->source)}}">{{$file->source}}</a></li>
+                            @empty
+
+                            @endforelse
+                          </ul>
+                        @endif
                     </div>
                     <div id="open_jobs" class="related_job_wrapper jb_cover">
                         <h1 class="related_job">@lang('layout/parts.JobOpen')</h1>
@@ -173,7 +182,6 @@
                                         @elseif($Company->city_id)
                                         <li>{{$Company->City->name}}</li>
                                         @else
-
                                         @endif
                                     </ul>
                                 </div>
