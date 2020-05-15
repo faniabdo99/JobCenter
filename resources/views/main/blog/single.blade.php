@@ -20,7 +20,7 @@
     <div class="blog_single_wrapper jb_cover">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 col-md-12 col-sm-12 col-12">
+                <div class="col-lg-9 col-md-12 col-sm-12 col-12 @if($Post->lang == 'ar') text-right @endif" @if($Post->lang == 'ar') dir="rtl" @endif>
                     <div class="jp_first_blog_post_main_wrapper jb_cover">
                         <div class="jp_first_blog_post_img">
                             <img src="{{$Post->post_image}}" class="img-responsive" alt="{{$Post->title}}" />
@@ -34,25 +34,18 @@
                             {!! $Post->body !!}
                         </div>
                         <div class="jp_first_blog_bottom_cont_wrapper jb_cover">
-                            <div class="jp_blog_bottom_left_cont">
-                                <ul>
-                                    {{-- <li><img src="{{$Post->User->profile_image}}" width="40" height="40" alt="{{$Post->User->name}}" />&nbsp;&nbsp; {{$Post->User->name}}</li> --}}
-                                </ul>
-                            </div>
-                            <div class="jp_blog_bottom_right_cont">
-                                <p><a href="#"><i class="far fa-comment-dots"></i><span>{{count($Post->Comments)}}</span></a></p>
-                                <ul>
-                                    <li></li>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
+                          <p class="font-weight-bold">@lang('main/blog.Attachments')</p>
+                          <ul>
+                            @forelse($Attachments as $File)
+                            <li><a target="_blank" href="{{$File->link}}">{{$File->source}}</a></li>
+                            @empty
+                            @endforelse
+                          </ul>
                         </div>
                     </div>
                     <div class="comments_wrapper jb_cover">
                         <div class="widget_heading">
-                            <h2>comments ({{count($Post->Comments)}})</h2>
+                            <h2>@lang('main/blog.Comments') ({{count($Post->Comments)}})</h2>
                         </div>
                         @forelse($Post->Comments as $Comment)
                         <div class="comments_Box">
@@ -70,16 +63,16 @@
                             </div>
                         </div>
                       @empty
-                        <p>Be The First One to Comment!</p>
+                        <p>@lang('layout/parts.NoData')</p>
                       @endforelse
                     </div>
                     @guest
-                      <p>Please <a href="{{route('login')}}">Login</a> to Add a Comment</p>
+                      <p><a href="{{route('login')}}">@lang('layout/parts.Login')</a> @lang('main/blog.ToAddComment')</p>
                     @endguest
                     @auth
                     <div class="comments_form jb_cover">
                         <div class="widget_heading">
-                            <h2>leave a comment</h2>
+                            <h2>@lang('main/blog.LeaveComment')</h2>
                         </div>
                         <form action="{{route('comment.do')}}" method="post">
                           @csrf
@@ -88,7 +81,7 @@
                                 <div class="formsix-m">
                                     <div class="form-group i-message">
                                         <input hidden name="post_id" value="{{$Post->id}}">
-                                        <textarea class="form-control" required rows="4" name="description" placeholder="comment"></textarea>
+                                        <textarea class="form-control" required rows="4" name="description" placeholder="@lang('main/blog.Comment')"></textarea>
                                         <i class="fas fa-comment"></i>
                                     </div>
                                 </div>
@@ -97,7 +90,7 @@
                         </div>
                         <!-- /.row-->
                         <div class="header_btn search_btn jb_cover">
-                            <button type="submit">submit</button>
+                            <button type="submit">@lang('layout/parts.Submit')</button>
                         </div>
                       </form>
                     </div>
@@ -106,7 +99,7 @@
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12">
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
-                            <h1>blog category</h1>
+                            <h1>@lang('main/blog.BlogCategories')</h1>
                         </div>
                         <div class="category_jobbox jb_cover">
                             <ul class="blog_category_link jb_cover">
@@ -123,7 +116,7 @@
 
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
-                            <h1>job spotlight</h1>
+                            <h1>@lang('layout/parts.JobsSpotlight')</h1>
                         </div>
                         <div class="category_jobbox jb_cover">
                             <div class="jp_spotlight_slider_wrapper">
@@ -142,12 +135,11 @@
                                             </ul>
                                         </div>
                                         <div class="header_btn search_btn news_btn overview_btn  jb_cover">
-                                            <a href="{{route('job' , $Job->id)}}">apply now !</a>
+                                            <a href="{{route('job' , $Job->id)}}">@lang('layout/parts.Apply')</a>
                                         </div>
                                     </div>
                                   @empty
                                   @endforelse
-
                                 </div>
                             </div>
                         </div>

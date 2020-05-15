@@ -26,7 +26,11 @@ class Job extends Model{
         ]);
     }
     public function City(){
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(City::class)->withDefault([
+          'id' => 0,
+          'name_ar' => 'مدينة محذوفة',
+          'name_en' => 'Deleted City'
+        ]);
     }
     public function getSlugAttribute(){
       return strtolower(str_replace(' ' , '-' , $this->title));
@@ -36,9 +40,11 @@ class Job extends Model{
       if($this->type == 'Part Time'){$JobType = __('layout/parts.PartTime');}
       if($this->type == 'Rotation'){$JobType = __('layout/parts.Rotation');}
       if($this->type == 'Temporary'){$JobType = __('layout/parts.Temporary');}
+      if($this->type == 'Remotely'){$JobType = __('layout/parts.Remotely');}
       return $JobType;
     }
     public function getExpAttribute(){
+      $Exp = __('layout/parts.NoData');
       if($this->experience == 'Fresher'){$Exp = __('dash/company.Fresher');}
       if($this->experience == 'Junior'){$Exp = __('dash/company.Junior');}
       if($this->experience == 'Pre Senior'){$Exp = __('dash/company.PreSenior');}

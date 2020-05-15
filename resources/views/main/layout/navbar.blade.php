@@ -124,6 +124,8 @@ $NavJobs = \App\Job::orderBy('id' , 'desc')->limit(2)->get();
                                                     <li><a href="{{route('search' , ['type','part'])}}"><i class="fas fa-square"></i>@lang('layout/parts.PartTime')</a></li>
                                                     <li><a href="{{route('search' , ['type','rotation'])}}"><i class="fas fa-square"></i>@lang('layout/parts.Rotation')</a></li>
                                                     <li><a href="{{route('search' , ['type','temporary'])}}"><i class="fas fa-square"></i>@lang('layout/parts.Temporary')</a></li>
+                                                    <li><a href="{{route('search' , ['type','remotely'])}}"><i class="fas fa-square"></i>@lang('layout/parts.Remotely')</a></li>
+
                                                 </ul>
                                             </div>
                                         </div>

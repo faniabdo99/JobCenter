@@ -18,12 +18,14 @@ class ApplicationsController extends Controller{
                 'name' => 'required',
                 'email' => 'required',
                 'message' => 'required',
-                'resume' => 'nullable|mimes:doc,pdf,docx,zip|max:5200'
+                'phone' => 'required',
+                'resume' => 'nullable|mimes:pdf|max:5200'
             ];
             $ErrorMessages = [
                 'name.required' => 'Your Name is Required',
                 'email.required' => 'Your Email is Required',
-                'resume.mimies' => 'Only PDF and Word Documents are Allowed as Resume!',
+                'phone.required' => 'Your Number is Required',
+                'resume.mimes' => 'Only PDF Allowed as Resume!',
                 'resume.max' => 'Max Resume Size is 5MB'
             ];
             $Validator = Validator::make($r->all() , $Rules , $ErrorMessages);
@@ -64,20 +66,19 @@ class ApplicationsController extends Controller{
                       $message->from('noreply@jobcenter.com');
                   });
                 }
-
-                return back()->withSuccess('Application Sent !');
+                return back()->withSuccess(__('BackEnd.AppSent'));
             }
         }
-
     }
     public function deleteApplication($id){
       $Application = Application::find($id);
       if($Application != null){
         if($Application->user_id == auth()->user()->id){
-          $Application->delete();
-          return back()->withSuccess('Application Deleted Successfully');
+          $Application->is_active = 0;
+          $Application->save();
+          return back()->withSuccess(__('BackEnd.AppDeleted'));
         }else{
-          return back()->withErrors('You Can\'t Delete This Application');
+          return back()->withErrors(__('BackEnd.CantDelete'));
         }
       }
     }

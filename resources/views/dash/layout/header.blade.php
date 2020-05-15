@@ -24,6 +24,15 @@
     <link rel="stylesheet" type="text/css" href="{{url('public/dash/css')}}/reset.css" />
     <link rel="stylesheet" type="text/css" href="{{url('public/dash/css')}}/responsive.css" />
     <link href="https://fonts.googleapis.com/css?family=Almarai&display=swap" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165798209-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-165798209-1');
+    </script>
     @if(App::getLocale() == 'ar')
     <link rel="stylesheet" type="text/css" href="{{url('public/dash/css/')}}/style-ar.css" />
     @else

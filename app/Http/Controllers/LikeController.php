@@ -23,6 +23,6 @@ class LikeController extends Controller{
     }
     public function UnLike($id , $userId){
       Like::where('item_id' , $id)->where('user_id' , $userId)->where('item_type' , 'job')->delete();
-      return back()->withSuccess('Removed From Favourite !');
+      return back()->withSuccess(__('BackEnd.RemovedFromFav'));
     }
 }

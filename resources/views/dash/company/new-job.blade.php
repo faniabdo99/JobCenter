@@ -82,6 +82,7 @@
                                                     <option value="Part Time">@lang('dash/company.PartTime')</option>
                                                     <option value="Temporary">@lang('dash/company.Temperory')</option>
                                                     <option value="Rotation">@lang('dash/company.Rotation')</option>
+                                                    <option value="Remotely">@lang('dash/company.Remotely')</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -126,7 +127,7 @@
                                     <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
                                         <div class="contect_form3">
                                             <label>@lang('dash/company.JobDescription')</label>
-                                            <textarea class="editor" name="description" placeholder="Job Description Here">{!! old('description') !!}</textarea>
+                                            <textarea class="editor" name="description" id="description" placeholder="Job Description Here">{!! old('description') !!}</textarea>
                                         </div>
                                         <br><br>
                                         <div class="contect_form3">
@@ -171,7 +172,7 @@
                                             </div>
                                         </div>
                                          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
-                                            <input type="submit" value="Post Job">
+                                            <input type="submit" value="Post Job" onclick="submitForm()">
                                         </div>
                                     </form>
                                     </div>
@@ -191,15 +192,32 @@
     @include('dash.layout.scripts')
     <!-- custom js-->
     <script>
-        tinymce.init({
-            selector: '.editor',
-            plugins: "anchor autoresize link autolink advlist lists textpattern directionality",
-            toolbar: "formatselect | anchor link | bold italic | numlist bullist | ltr rtl |alignleft aligncenter alignright",
-            block_formats: 'Paragraph=p;Heading 2=h2;Heading 3=h3;',
-            menubar: false,
-            default_link_target: "_blank"
-            });
-        </script>
+    tinymce.init({
+        selector: '.editor',
+        plugins: "anchor autoresize link autolink advlist lists textpattern directionality",
+        toolbar: "formatselect | anchor link | bold italic | numlist bullist | ltr rtl |alignleft aligncenter alignright",
+        block_formats: 'Paragraph=p;Heading 2=h2;Heading 3=h3;',
+        menubar: false,
+        default_link_target: "_blank"
+        });
+        // Returns text statistics for the specified editor by id
+        // function getStats('description') {
+        //     var body = tinymce.get(id).getBody(), text = tinymce.trim(body.innerText || body.textContent);
+        //     return {
+        //         chars: text.length,
+        //         words: text.split(/[\w\u2019\'-]+/).length
+        //     };
+        // }
+        // function submitForm() {
+        //     // Check if the user has entered less than 1000 characters
+        //     if (getStats('content').chars < 50) {
+        //         alert("You need to enter 50 characters or more.");
+        //         return;
+        //     }
+        //     // Submit the form
+        //     document.forms[0].submit();
+        // }
+    </script>
 </body>
 
 </html>

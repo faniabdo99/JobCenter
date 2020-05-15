@@ -73,22 +73,22 @@
                                                 <option value="{{$User->company_size ?? ''}}">{{$User->company_size ?? 'Choose Company Size'}}</option>
                                                 <option value="1-50">@lang('dash/company.1-50')</option>
                                                 <option value="1-100">@lang('dash/company.1-100')</option>
-                                                <option value="1-200">@lang('dash/company.1')</option>
-                                                <option value="1-500">@lang('dash/company.-300')</option>
+                                                <option value="1-200">@lang('dash/company.1-300')</option>
                                                 <option value="1-500">@lang('dash/company.1-500')</option>
+                                                <option value="1-500">@lang('dash/company.500+')</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="contect_form3">
-                                            <label>@lang('dash/company.500+')</label>
+                                            <label>@lang('dash/company.Website')</label>
                                             <input type="url" name="website" value="{{old('website') ?? $User->website}}">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="select_box">
-                                            <label>@lang('dash/company.Website')</label>
+                                            <label>@lang('dash/company.Category')</label>
                                             <select name="category_id">
                                                 <option value="{{$User->category_id}}">Update Category</option>
                                                 @forelse($Categories as $Category)
@@ -101,13 +101,13 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="contect_form3">
-                                            <label>@lang('dash/company.NoData')</label>
+                                            <label>@lang('dash/company.Address')</label>
                                             <input type="text" value="{{old('address') ?? $User->address}}" name="address">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="select_box">
-                                            <label>@lang('dash/company.Address')</label>
+                                            <label>@lang('dash/company.City')</label>
                                             <select name="city_id">
                                                 <option value="{{$User->city_id}}">Update City</option>
                                                 @forelse($Cities as $City)
@@ -120,7 +120,7 @@
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="contect_form3">
-                                            <label>@lang('dash/company.NoData')</label>
+                                            <label>@lang('dash/company.Description')</label>
                                             <textarea name="description" row="5">{{old('description') ?? $User->description}}</textarea>
                                         </div>
                                     </div>
@@ -131,37 +131,37 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="job_filter_category_sidebar jb_cover">
                                             <div class="job_filter_sidebar_heading jb_cover">
-                                                <h1> @lang('dash/company.Description')</h1>
+                                                <h1> @lang('dash/company.SocialNetworks')</h1>
                                             </div>
                                             <div class="job_overview_header jb_cover">
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
-                                                            <label>@lang('dash/company.SocialNetworks')</label>
-                                                            <input type="url" name="google" value="{{old('google') ?? $User->google}}">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                                        <div class="contect_form3">
                                                             <label>@lang('dash/company.Instagram')</label>
-                                                            <input type="url" name="facebook" value="{{old('facebook') ?? $User->facebook}}">
+                                                            <input type="url" name="google" value="{{old('google') ?? $User->google}}" placeholder="https://www.instagram.com">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
                                                             <label>@lang('dash/company.Facebook')</label>
-                                                            <input type="url" name="twitter" value="{{old('twitter') ?? $User->twitter}}">
+                                                            <input type="url" name="facebook" value="{{old('facebook') ?? $User->facebook}}" placeholder="https://www.facebook.com">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
                                                             <label>@lang('dash/company.Twitter')</label>
-                                                            <input type="url" name="linkedin" value="{{old('linkedin') ?? $User->linkedin}}">
+                                                            <input type="url" name="twitter" value="{{old('twitter') ?? $User->twitter}}" placeholder="https://www.twitter.com">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                                        <div class="contect_form3">
+                                                            <label>@lang('dash/company.Linkedin')</label>
+                                                            <input type="url" name="linkedin" value="{{old('linkedin') ?? $User->linkedin}}" placeholder="https://www.linkedin.com">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                                         <div class="contect_form3">
-                                                            <label>@lang('dash/company.Linkedin') <b>@lang('dash/company.PDFOnly')</b></label>
+                                                            <label>@lang('dash/company.CompanyProfile') <b>@lang('dash/company.OnlyPDF')</b></label>
                                                             <input type="file" name="profile_pdf">
                                                         </div>
                                                     </div>
@@ -174,19 +174,19 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="job_filter_category_sidebar jb_cover">
                                             <div class="job_filter_sidebar_heading jb_cover">
-                                                <h1>@lang('dash/company.CompanyProfile')</h1>
+                                                <h1>@lang('dash/company.UpdatePassword')</h1>
                                             </div>
                                             <div class="job_overview_header jb_cover">
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
-                                                            <label>@lang('dash/company.UpdatePassword')</label>
+                                                            <label>@lang('dash/company.CurrentPasword')</label>
                                                             <input type="password" name="c_password">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
-                                                            <label>@lang('dash/company.CurrentPasword')</label>
+                                                            <label>@lang('dash/company.NewPasword')</label>
                                                             <input type="password" name="n_password">
                                                         </div>
                                                     </div>
@@ -199,7 +199,7 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="login_remember_box jb_cover">
                                             <div class="header_btn search_btn">
-                                                <button type="submit">@lang('dash/company.NewPasword')@lang('dash/company.SaveChanges')</button>
+                                                <button type="submit">@lang('dash/company.SaveChanges')</button>
                                             </div>
 
                                         </div>

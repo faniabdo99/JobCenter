@@ -81,7 +81,7 @@
                                     <i class="fas fa-envelope-open-text"></i>
                                 </div>
                                 <div class="emp_job_side_text">
-                                    <h1>{{count($User->Application)}}</h1>
+                                    <h1>{{count($User->Application())}}</h1>
                                     <p>@lang('dash/company.TotalApplications')</p>
                                 </div>
                             </div>

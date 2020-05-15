@@ -1,4 +1,4 @@
-@include('main.layout.header' , ['PageTitle' => 'Blog'])
+@include('main.layout.header' , ['PageTitle' => __('main/blog.PageTitle')])
 
 <body>
   @include('main.layout.navbar')
@@ -9,7 +9,7 @@
                 <div class="row">
                     <!-- section_heading start -->
                     <div class="col-lg-12 col-md-12 col-12 col-sm-12">
-                        <h1>blog</h1>
+                        <h1>@lang('main/blog.PageTitle')</h1>
                     </div>
                 </div>
             </div>
@@ -25,11 +25,7 @@
                     @forelse($Posts as $Post)
                     <div class="jp_first_blog_post_main_wrapper jb_cover">
                         <div class="jp_first_blog_post_slider">
-                            <div class="owl-carousel owl-theme">
-                                <div class="item">
-                                    <img src="{{$Post->post_image}}" class="img-responsive" alt="{{$Post->title}}" />
-                                </div>
-                            </div>
+                           <img src="{{$Post->post_image}}" class="img-responsive w-100" height="400"  alt="{{$Post->title}}" />
                         </div>
                         <div class="jp_first_blog_post_cont_wrapper">
                             <p><span>{{$Post->created_at->format('Y M d')}}</span></p>
@@ -38,18 +34,12 @@
                         </div>
                         <div class="jp_first_blog_bottom_cont_wrapper jb_cover">
                             <div class="jp_blog_bottom_right_cont">
-                                <p><a href="#"><i class="far fa-comment-dots"></i><span>{{count($Post->Comments)}}</span></a></p>
-                                <ul>
-                                    <li></li>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                </ul>
+                                <p class="mr-auto"><a href="#"><i class="far fa-comment-dots"></i><span>{{count($Post->Comments)}}</span></a></p>
                             </div>
                         </div>
                     </div>
                   @empty
-                    <p>No Posts Yet</p>
+                    <p>@lang('layout/parts.NoData')</p>
                   @endforelse
                     {{$Posts->links('main.layout.pagenation')}}
                   </div>
@@ -57,13 +47,12 @@
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12">
                   <div class="job_filter_category_sidebar jb_cover">
                       <div class="job_filter_sidebar_heading jb_cover">
-                          <h1>search</h1>
+                          <h1>@lang('layout/parts.Search')</h1>
                       </div>
-
                       <div class="category_jobbox jb_cover">
                           <div class="jp_blog_right_search_wrapper jb_cover">
                             <form action="{{route('blog.search')}}" method="get">
-                              <input type="text" required name="query" placeholder="Search">
+                              <input type="text" required name="query" placeholder="@lang('layout/parts.SearchPH')">
                               <button type="submit"><i class="fas fa-search"></i></button>
                             </form>
                           </div>
@@ -71,7 +60,7 @@
                   </div>
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
-                            <h1>blog category</h1>
+                            <h1>@lang('main/blog.BlogCategories')</h1>
                         </div>
                         <div class="category_jobbox jb_cover">
                             <ul class="blog_category_link jb_cover">
@@ -88,7 +77,7 @@
 
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
-                            <h1>job spotlight</h1>
+                            <h1>@lang('layout/parts.JobsSpotlight')</h1>
                         </div>
 
                         <div class="category_jobbox jb_cover">
@@ -108,7 +97,7 @@
                                             </ul>
                                         </div>
                                         <div class="header_btn search_btn news_btn overview_btn  jb_cover">
-                                            <a href="{{route('job' , $Job->id)}}">apply now !</a>
+                                            <a href="{{route('job' , $Job->id)}}">@lang('layout/parts.Apply')</a>
                                         </div>
                                     </div>
                                   @empty

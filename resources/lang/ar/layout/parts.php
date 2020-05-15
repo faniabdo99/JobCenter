@@ -14,12 +14,13 @@ return [
   'Contact' => 'تواصل معنا',
   'Login' => 'دخول',
   'Logout' => 'تسجيل الخروج',
-  'Signup' => 'تسجيل',
+  'Signup' => 'حساب جديد',
   'Candidates' => 'فئات',
   'JobType' => 'نوع العمل',
   'FullTime' => 'دوام كلي',
   'PartTime' => 'دوام جزئي',
   'Rotation' => 'مناوب',
+  'Remotely' => 'عن بعد',
   'Temporary' => 'مؤقت',
   'Categories' => 'الفئات',
   'Category' => 'الفئة',
@@ -51,5 +52,9 @@ return [
   'Experience' => 'الخبرة',
   'Optional' => 'اختياري',
   'ResumeI' => 'السيرة الذاتية',
-  'ResumeLimits' => '5MB PDF|DOCX',
+  'ResumeLimits' => '5MB PDF',
+  'JobsSpotlight' => 'أهم الوظائف',
+  'Submit' => 'ارسال'
+
+
 ];

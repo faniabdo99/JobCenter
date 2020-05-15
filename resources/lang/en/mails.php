@@ -7,7 +7,7 @@ return [
   'JobTitle' => 'Job Title',
   'Candidate' => 'Candidate',
   'ApplicationMessage' => 'Application Message',
-  'GetTheFullApplicationDetailsFromYourApplicationsPage!' => 'Get the full application details from your applications page!',
+  'GetTheFullApplicationDetailsFromYourApplicationsPage' => 'Get the full application details from your applications page!',
   'ViewProfile' => 'View Profile',
   'ApplicationsList' => 'Applications List',
   'Thanks' => 'Thanks',
@@ -27,7 +27,7 @@ return [
    //reset Password
    'ResetPassword' => 'Reset Password',
    'Hello' => 'Hello ,',
-   'YouHaveRequstedAPasswordResetToYourJobCenterAccountPleaseClickTheButtonBelowToResetYourPassword' => 'You have requsted a password reset to your job center account , please click thr button below to reset your password.',
+   'YouHaveRequstedAPasswordResetToYourJobCenterAccount' => 'You have requsted a password reset to your job center account , please click thr button below to reset your password.',
    'ResetPassword' => 'Reset Password',
    'IfYouDidntMadeThisRequsteDontWorryJustIgnoreThisEmailAndYourPasswordWontBeChanged' => 'if you didnt made this requste dont worry , just ignore this email and your password wont be changed.',
    'Thanks' => 'Thanks',

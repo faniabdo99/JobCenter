@@ -601,6 +601,7 @@ a:hover {
     -ms-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
+    margin-left: 10px;
 }
 .gc_main_navigation .gc_main_navigation,
 .mainmenu ul li.active > .gc_main_navigation {
@@ -743,6 +744,7 @@ a:hover {
     display: block;
 	position:relative;
 	float:left; width:100%;
+	text-align:right;
 }
 .mainmenu ul ul li a,
 .mainmenu ul li.has-mega .mega-menu span a {
@@ -1348,6 +1350,7 @@ a:hover {
 }
 .emp_follow_link{
 	padding-bottom:25px;
+	margin-top: 20px;
 }
 .feedlist li {
     list-style: none;
@@ -1444,6 +1447,8 @@ a:hover {
 	padding-top:13px;
 	min-height:80px;
 	text-transform:capitalize;
+	text-align:right;
+	padding-right:15px;
 }
 .emp_job_side_text h1{
 	font-size:20px;
@@ -1463,12 +1468,16 @@ a:hover {
 	border:1px solid #e2e2e2;
 	margin-top:30px;
 }
+.job_filter_category_sidebar:last-child{
+    margin-bottom:30px;
+}
 .job_filter_sidebar_heading{
 	padding:18px 25px;
 	background:#ff3366;
 }
 .job_overview_header{
 	padding:25px;
+	text-align:right;
 }
 .job_filter_sidebar_heading h1{
 	color:#fff;
@@ -1761,7 +1770,6 @@ a:hover {
 	position:relative;
 	z-index:1000;
 }
-.footerNav  a img{padding-bottom:30px;}
 .copyright_left a{
 	text-transform:capitalize;
 	 color: rgba(255, 255, 255, 0.45);
@@ -1859,6 +1867,7 @@ a:hover {
     background: -moz-linear-gradient(45deg, rgba(209,72,127,1) 10%, rgba(248,54,106,1) 100%);
     background: -webkit-linear-gradient(45deg, rgba(209,72,127,1) 10%, rgba(248,54,106,1) 100%);
     background: linear-gradient(45deg, rgba(209,72,127,1) 10%, rgba(248,54,106,1) 100%);
+    text-align:right;
 }
 .page_header {
 	padding-bottom: 0;
@@ -1964,6 +1973,7 @@ a:hover {
     width: 100%;
 	float:left;
 	position:relative;
+	text-align:right;
 }
 .contect_form3 input {
     width: 100%;
@@ -2027,6 +2037,8 @@ a:hover {
 }
 .select_box .nice-select.open .list{
 	width:100%;
+	height: 300px;
+    overflow: scroll;
 }
 .select_box .nice-select .current {
     position: absolute;
@@ -2049,8 +2061,8 @@ a:hover {
 .contect_form3 label, .select_box label{
 	text-transform:capitalize;
 	font-size:16px;
-	padding-bottom:4px;
 	color:#222;
+	margin-top:12px;
 }
 .login_remember_box .control {
     position: relative;
@@ -2274,8 +2286,9 @@ a:hover {
 }
 .job_list_next{
 	float:left;
-	width:150px;
+	width:220px;
 	text-align:center;
+	
 }
 .job_list_next p{
 	text-transform:capitalize;
@@ -2288,6 +2301,7 @@ a:hover {
 	background:#ff3366;
 	padding:25px;
 	margin-bottom:20px;
+	text-align:right;
 }
 .job_list p i{margin-right:5px;}
 .mange_list h6{
@@ -2408,6 +2422,7 @@ a:hover {
 	text-transform:capitalize;
 	font-size:20px;
 	margin-bottom:20px;
+	text-align:right;
 }
 .job_descriptin_wrapper {
 	padding-bottom:30px;
@@ -2594,6 +2609,7 @@ a:hover {
 	width:calc(100% - 80px);
 	padding-left:10px;
 	padding-top:10px;
+	text-align:right;
 }
 .jb_job_post_right_cont h4 a{
 	font-size:16px;
@@ -2617,8 +2633,9 @@ a:hover {
 }
 .jb_job_post_right_cont li i{
 	color:#ff3366;
-	float:left;
+	float:right;
 	line-height:30px;
+	
 }
 .job_listing_grid_wrapper .jb_job_post_right_btn_wrapper ul{
 	float:left;
@@ -2640,6 +2657,7 @@ a:hover {
 .jb_job_post_right_cont li:last-child{
 	color:#797979;
 	font-size:16px;
+	float:right;
 }
 .jp_job_post_heading_wrapper{
 	float:left;

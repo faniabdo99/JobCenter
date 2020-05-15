@@ -10,11 +10,11 @@ Hello {{$CompanyName}} , @lang('mails.YouHaveNewJobApplication').
 <p>@lang('mails.GetTheFullApplicationDetailsFromYourApplicationsPage')</p>
 <p>
 <p><a href="{{route('user' , [$UserId , $UserSlug])}}" style="text-decoration: none;width: 180px;height: 50px;float: left;text-align: center;cursor: pointer;position: relative;font-size: 16px;color: rgb(255, 255, 255);line-height: 48px;text-transform: capitalize;backface-visibility: hidden;background: rgb(255, 51, 102);overflow: hidden;border-width: 1px;border-style: solid;
-border-color:transparent;border-image: initial;transition: all 0.6s ease 0s;">@lang('mails.ViewProfile')</a><p>
-<br>
+border-color:transparent;border-image: initial;transition: all 0.6s ease 0s;">@lang('mails.ViewProfile')</a><p><br>
+
 <p><a href="{{route('dash.company.home')}}" style="text-decoration: none;width: 180px;height: 50px;float: left;text-align: center;cursor: pointer;position: relative;font-size: 16px;color: rgb(255, 255, 255);line-height: 48px;text-transform: capitalize;backface-visibility: hidden;background: rgb(255, 51, 102);overflow: hidden;border-width: 1px;border-style: solid;
-border-color:transparent;border-image: initial;transition: all 0.6s ease 0s;">@lang('mails.ApplicationsList')</a><p>
+border-color:transparent;border-image: initial;transition: all 0.6s ease 0s;">@lang('mails.ApplicationsList')</a><p><br>
 </p>
-<br>
+<br><br>
 <p>@lang('mails.Thanks'),<br>
 {{ config('app.name') }}</p>

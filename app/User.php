@@ -67,7 +67,8 @@ class User extends Authenticatable{
       if($this->type == 'user'){
         return $this->hasMany(Application::class , 'user_id');
       }elseif($this->type == 'company'){
-        return $this->hasMany(Application::class , 'company_id');
+        $Applications = Application::where('company_id' , $this->id)->where('is_active' , 1)->get();
+        return $Applications;
       }else {
         return null;
       }
@@ -87,7 +88,7 @@ class User extends Authenticatable{
     }
     public function LatestApplications(){
       if($this->type == 'company'){
-        return Application::where('company_id' , $this->id)->orderBy('id' , 'desc')->limit(3)->get();
+        return Application::where('company_id' , $this->id)->where('is_active' , 1)->orderBy('id' , 'desc')->limit(3)->get();
       }else{
         return null;
       }

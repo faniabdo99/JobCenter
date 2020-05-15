@@ -1,4 +1,4 @@
-<?php
+r<?php
 return [
     //company Sidebar
     'Dashboard' => 'dashboard',
@@ -28,6 +28,7 @@ return [
     'FullTime' => 'full time',
     'PartTime' => 'part time',
     'Rotation' => 'rotation',
+     'Remotely' => 'Remotely',
     'Salary(iraqi dinar per month)' => 'salary (iraqi dinar per month)',
     'Experience' => 'experience',
     'Fresher' => ' Fresher',
@@ -70,7 +71,7 @@ return [
       'Twitter' => 'twitter',
       'Linkedin' => 'linkedin',
       'CompanyProfile' => 'Company Profile',
-      '(PDFOnly)' => '(PDF Only)',
+      'OnlyPDF' => '(PDF Only)',
       'UpdatePassword' => 'update password',
       'CurrentPasword' => 'current pasword',
       'NewPasword' => 'new pasword',

@@ -14,7 +14,7 @@ return [
     'ProfileImageJPEGorPNG' => 'صورة الملف الشخصي JPEG أو PNG',
     'BrowseImage' => 'تصفح',
     'Name' => 'الاسم',
-    'Resume(PDF,DOCorDOCX)' => 'السيرة الذاتية (PDF أو DOC أو DOCX)',
+    'Resume' => 'السيرة الذاتية (PDF)',
     'Phone' => 'رقم الهاتف',
     'Website' => 'الموقع الالكتروني',
     'Category' => 'الفئة',
@@ -65,7 +65,6 @@ return [
        'CandidatesResume' => 'السيرة الذاتية للمرشح للوظيفة',
        'Home' => 'الصفحة الرئيسية',
        'Dashboard' => 'لوحة التحكم',
-       'Resume' => 'السيرة الذاتية',
        'PleaseUploadYouCVToSeeItHere' => 'رجاءاً قم برفع سيرتك الذاتية لكي تراها هنا',
        'LookingForAJob' => 'هل تبحث عن وظيفة',
        'Submit' => 'ارسال'

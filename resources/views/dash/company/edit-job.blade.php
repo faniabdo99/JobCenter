@@ -64,34 +64,37 @@
                                             <div class="select_box">
                                                 <label>@lang('dash/company.JobType')</label>
                                                 <select name="type" required>
-                                                    <option value="{{$Job->type}}">{{$Job->JobType}} (Old)</option>
-                                                    <option value="Full Time">@lang('dash/company.FullTime')</option>
-                                                    <option value="Part Time">@lang('dash/company.PartTime')@lang('dash/company.Rotation')</option>
-                                                    <option value="Rotation">@lang('dash/company.Salary(iraqi dinar per month)')</option>
+                                                    <option value="{{$Job->type}}">{{$Job->JobType}}</option>
+                                                    <option value="Full Time">@lang('layout/parts.FullTime')</option>
+                                                    <option value="Part Time">@lang('layout/parts.PartTime')</option>
+                                                    <option value="Temporary">@lang('layout/parts.Temporary')</option>
+                                                    <option value="Rotation">@lang('layout/parts.Rotation')</option>
+                                                    <option value="Remotely">@lang('layout/parts.Remotely')</option>
+
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                             <div class="contect_form3">
-                                                <label>@lang('dash/company.Experience')</label>
+                                                <label>@lang('dash/company.Salary(iraqi dinar per month)')</label>
                                                 <input type="text" value="{{$Job->salary}}" name="salary" placeholder="E.g 12000 - 15000">
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                             <div class="select_box">
-                                               <label>@lang('dash/company.Fresher')</label>
+                                               <label>@lang('dash/company.Experience')</label>
                                                <select name="experience">
                                                   <option value="{{$Job->experience}}">{{$Job->Exp}}</option>
-                                                  <option value="Fresher">@lang('dash/company.Junior')</option>
-                                                  <option value="Junior">@lang('dash/company.PreSenior')</option>
-                                                  <option value="Pre Senior">@lang('dash/company.Senior')</option>
-                                                  <option value="Senior">@lang('dash/company.CandidateAge')</option>
+                                                  <option value="Fresher">@lang('dash/company.Fresher')</option>
+                                                  <option value="Junior">@lang('dash/company.Junior')</option>
+                                                  <option value="Pre Senior">@lang('dash/company.PreSenior')</option>
+                                                  <option value="Senior">@lang('dash/company.Senior')</option>
                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                             <div class="contect_form3">
-                                                <label>@lang('dash/company.(Years)')@lang('dash/company.AboutThisJob')</label>
+                                                <label>@lang('dash/company.CandidateAge(Years)')</label>
                                                <input type="number" value="{{$Job->age}}" name="age" placeholder="Enter Candidate Age in Years">
                                             </div>
                                         </div>
@@ -107,17 +110,17 @@
                                 <div class="job_overview_header jb_cover">
                                     <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
                                         <div class="contect_form3">
-                                            <label>@lang('dash/company.JobResposibaleties')</label>
+                                            <label>@lang('dash/company.JobDescription')</label>
                                             <textarea class="editor" name="description" placeholder="Job Description Here">{!! $Job->description !!}</textarea>
                                         </div>
                                         <br><br>
                                         <div class="contect_form3">
-                                            <label>@lang('dash/company.JobCrteria')</label>
+                                            <label>@lang('dash/company.JobResposibaleties')</label>
                                             <textarea class="editor" name="responses" placeholder="Job Responses Here">{!! $Job->responses !!}</textarea>
                                         </div>
                                         <br><br>
                                         <div class="contect_form3">
-                                            <label>@lang('dash/company.Address')</label>
+                                            <label>@lang('dash/company.JobCrteria')</label>
                                             <textarea class="editor" name="criteria" placeholder="Job criteria Here">{!! $Job->criteria!!}</textarea>
                                         </div>
                                     </div>
@@ -127,7 +130,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="job_filter_category_sidebar jb_cover">
                                 <div class="job_filter_sidebar_heading jb_cover">
-                                    <h1>@lang('dash/company./Location') </h1>
+                                    <h1>@lang('dash/company.Address') </h1>
                                 </div>
                                 <div class="job_overview_header jb_cover">
                                     <div class="row">

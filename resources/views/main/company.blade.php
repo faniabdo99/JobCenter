@@ -66,16 +66,10 @@
                         </div>
                         @if($Company->profile_pdf)
                         <div class="jp_job_res jb_cover">
-                            <h2 class="job_description_heading"> @lang('main/company.ComanyProfile')</h2>
+                            <h2 class="job_description_heading"> @lang('main/company.CompanyProfile')</h2>
                             <embed src="{{$Company->Profile}}" style="height:85vh;width:100%">
                         </div>
                         @endif
-                        <div class="jp_job_res jp_listing_left_wrapper jb_cover">
-                            <div class="jp_listing_left_bottom_sidebar_social_wrapper">
-                              <b class="mb-1">@lang('layout/parts.Share')</b>
-                              <div class="addthis_inline_share_toolbox"></div>
-                            </div>
-                        </div>
                     </div>
                     <div id="open_jobs" class="related_job_wrapper jb_cover">
                         <h1 class="related_job">@lang('layout/parts.JobOpen')</h1>

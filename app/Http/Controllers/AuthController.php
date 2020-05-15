@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Validator;
 use Hash;
@@ -18,7 +16,6 @@ class AuthController extends Controller{
     public function redirectToProvider($driver){
       return Socialite::driver($driver)->redirect();
     }
-
     public function handleProviderCallback($driver){
         $user = Socialite::with($driver)->stateless()->user();
         //Check if this a new user
@@ -43,7 +40,7 @@ class AuthController extends Controller{
         }else{
           //This is an Existing User
           if($isThereIsUser->signup_method == 'signup'){
-            return back()->withErrors('This Email is Registered to a Social Media');
+            return back()->withErrors(__('BackEnd.RegisteredSocial'));
           }else{
             Auth::loginUsingId($isThereIsUser->id);
             //Redirect to Dashboard.
@@ -62,13 +59,13 @@ class AuthController extends Controller{
             'password_conf' => 'required|same:password',
         ];
         $ErrorsMessages = [
-            'name.required' => 'Your Name is Required',
-            'email.required' => 'Your Email is Required',
-            'email.email' => 'Your Email is Invalid',
-            'email.unique' => 'This Email is Already Taken',
-            'password.required' => 'Your Password is Required',
-            'password_conf.required' => 'Password Confirmation is Required',
-            'password_conf.same' => 'Password & Password Confirmation Don\'t Match',
+            'name.required' => __('BackEnd.NameRequired'),
+            'email.required' => __('BackEnd.EmailRequired'),
+            'email.email' => __('BackEnd.EmailInvalid'),
+            'email.unique' => __('BackEnd.EmailAlreadyTaken'),
+            'password.required' => __('BackEnd.PassRequired'),
+            'password_conf.required' => __('BackEnd.PassConfRequired'),
+            'password_conf.same' => __('BackEnd.PassDontMatch'),
         ];
         $Validator = Validator::make($r->all() , $Rules , $ErrorsMessages);
         if($Validator->fails()){
@@ -111,22 +108,22 @@ class AuthController extends Controller{
             $User->active = 1;
             $User->save();
             if($User->type == 'user'){
-                return redirect()->route('dash.user.home')->withSuccess('Your Account Has Been Activated');
+                return redirect()->route('dash.user.home')->withSuccess(__('BackEnd.AccountActivated'));
             }elseif($User->type == 'company'){
-                return redirect()->route('dash.company.home')->withSuccess('Your Account Has Been Activated');
+                return redirect()->route('dash.company.home')->withSuccess(__('BackEnd.AccountActivated'));
             }else{
                 return redirect()->route('home');
             }
             //Send to Dasboard With Success Message
         }else{
-            exit("This Code is Invalid.");
+            exit(__('BackEnd.InvalidCode'));
         }
     }
     public function ResendActivationEmail($id){
       $User = User::findOrFail($id);
       $UserData = $User->getAttributes();
       Mail::to($User->email)->send(new WelcomeNewUser($UserData));
-      return back()->withSuccess('Confirmation Mail Sent , Please Check Your Inbox');
+      return back()->withSuccess(__('BackEnd.MailSent'));
     }
     public function getLogin(){
         return view('main.auth.login');
@@ -137,9 +134,9 @@ class AuthController extends Controller{
             'password' => 'required'
         ];
         $ErrorsMessages = [
-            'email.required' => 'Your Email is Required',
-            'email.email' => 'Your Email is Invalid',
-            'password.required' => 'Your Password is Required'
+            'email.required' => __('BackEnd.EmailRequired'),
+            'email.email' => __('BackEnd.EmailInvalid'),
+            'password.required' => __('BackEnd.PassRequired')
         ];
         $Validator = Validator::make($r->all() , $Rules , $ErrorsMessages);
         if($Validator->fails()){
@@ -156,7 +153,7 @@ class AuthController extends Controller{
                     return redirect()->route('home');
                 }
             }else{
-                return back()->withErrors('Your Login Details are Wrong')->withInput();
+                return back()->withErrors(__('BackEnd.LoginDetailsWrong'))->withInput();
             }
         }
     }
@@ -174,7 +171,7 @@ class AuthController extends Controller{
         }else{
           //Do Nothing ...
         }
-        return back()->withSuccess('If ' . $r->eamil . ' is Registered will recive an email with further instrctions.');
+        return back()->withSuccess(__('BackEnd.ResetLinkSent'));
       }
     }
     public function passwordResetConfirm($user_id , $user_code){

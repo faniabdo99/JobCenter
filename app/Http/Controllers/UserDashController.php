@@ -34,20 +34,20 @@ class UserDashController extends Controller{
         $Rules = [
             'name' => 'required',
             'image' => 'nullable|image',
-            'resume' => 'nullable|mimes:doc,pdf,docx,zip',
+            'resume' => 'nullable|mimes:pdf',
             'google' => 'nullable|url',
             'facebook' => 'nullable|url',
             'twitter' => 'nullable|url',
             'linkedin' => 'nullable|url'
         ];
         $ErrorMessages = [
-            'name.required' => 'Your Name is Required',
-            'image.image' => 'This Image File is Invalid',
-            'resume.mimes' => 'Only PDF , DOC And DOCX Are Allowed as Your Resume',
-            'google.url' => 'This Google URL is Invalid',
-            'facebook.url' => 'This Facebook URL is Invalid',
-            'twitter.url' => 'This Twitter URL is Invalid',
-            'linkedin.url' => 'This LinkedIn URL is Invalid',
+            'name.required' =>  __('BackEnd.NameRequired'),
+            'image.image' =>__('BackEnd.ProfileImageFileError'),
+            'resume.mimes' => __('BackEnd.ResumeFileTypeError'),
+            'google.url' =>__('BackEnd.InstagramLinkInvalid'),
+            'facebook.url' => __('BackEnd.FacebookLinkInvalid'),
+            'twitter.url' =>  __('BackEnd.TwitterLinkInvalid'),
+            'linkedin.url' => __('BackEnd.LinkedInLinkInvalid')
         ];
         $Validator = Validator::make($r->all() , $Rules , $ErrorMessages);
         if($Validator->fails()){
@@ -83,10 +83,10 @@ class UserDashController extends Controller{
             }
             if($CurrentPasswordIsWrong){
                 $TheUser->update($UpdateData);
-                return back()->withErrors('Your Current Password is Wrong! Every Thing Else Updated');
+                return back()->withErrors(__('BackEnd.CurrentPassError'));
             }else{
                 $TheUser->update($UpdateData);
-                return back()->withSuccess('Your Profile is Updated !');
+                return back()->withSuccess(__('BackEnd.ProfileUpdated'));
             }
         }
     }
@@ -96,7 +96,7 @@ class UserDashController extends Controller{
     }
     public function getApplications(){
         $User = $this->getUser();
-        $Applications = Application::where('user_id' , $User->id)->get();
+        $Applications = Application::where('user_id' , $User->id)->where('is_active' , 1)->get();
         return view('dash.user.applications' , compact('User' , 'Applications'));
     }
     public function getAllLikes(){

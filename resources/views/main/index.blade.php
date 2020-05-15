@@ -197,7 +197,7 @@
                         @forelse($TopBlogPosts as $BlogPost)
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="our_blog_content jb_cover">
-                                <div class="jb_cover jb_background_img" style="background-image:url(https://womenjobcenter.com/storage/app/public/blog/event-one.png)"></div>
+                                <div class="jb_cover jb_background_img" style="background-image:url({{$BlogPost->post_image}})"></div>
                                 <div class="blog_content jb_cover">
                                     <p>{{$BlogPost->created_at->format('M d Y')}}</p>
                                     <h4> <a href="{{route('blog.post' , $BlogPost->slug)}}">{{$BlogPost->title}}</a></h4>
@@ -214,15 +214,14 @@
                                     <div class="card_pagee" role="tab" id="heading1">
                                         <h5 class="h5-md">
                                             <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
-                                                How can I Register as a User?
-                                            </a>
+
+ماهي خطوات انشاء حساب للموظف؟                                            </a>
                                         </h5>
                                     </div>
                                     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion" style="">
                                         <div class="card-body">
                                             <div class="card_cntnt">
-                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velitauctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
-                                            </div>
+<p>يمكن اتباع الخطوات في هذا <a href="https://womenjobcenter.com/storage/app/public/inst/حساب_للموظف.pdf/"> الرابط</a></p>                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -230,15 +229,44 @@
                                     <div class="card_pagee" role="tab" id="heading2">
                                         <h5 class="h5-md">
                                             <a class="collapsed" data-toggle="collapse" href="#collapsethree" role="button" aria-expanded="false" aria-controls="collapsethree">
-                                                How can I Apply For A Job?
-                                            </a>
+كيف يمكنني التقديم على وظيفة؟                                            </a>
                                         </h5>
                                     </div>
                                     <div id="collapsethree" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion" style="">
                                         <div class="card-body">
                                             <div class="card_cntnt">
-                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                               <p>يمكنك اتباع الخطوات في هذا <a href="https://womenjobcenter.com/storage/app/public/inst/تقدم_موظف.pdf/"> الرابط</a></p>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card_pagee" role="tab" id="heading3">
+                                        <h5 class="h5-md">
+                                            <a class="collapsed" data-toggle="collapse" href="#collapsefour" role="button" aria-expanded="false" aria-controls="collapsethree">
+ماهي خطوات انشاء حساب للشركات؟
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div id="collapsefour" class="collapse" role="tabpanel" aria-labelledby="heading3" data-parent="#accordion" style="">
+                                        <div class="card-body">
+                                            <div class="card_cntnt">
+<p>يمكن اتباع الخطوات في هذا <a href="https://womenjobcenter.com/storage/app/public/inst/حساب_للشركة.pdf/"> الرابط</a></p>                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card_pagee" role="tab" id="heading4">
+                                        <h5 class="h5-md">
+                                            <a class="collapsed" data-toggle="collapse" href="#collapsefive" role="button" aria-expanded="false" aria-controls="collapsethree">
+كيف يمكن للشركة نشر وظيفة جديدة؟
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div id="collapsefive" class="collapse" role="tabpanel" aria-labelledby="heading4" data-parent="#accordion" style="">
+                                        <div class="card-body">
+                                            <div class="card_cntnt">
+<p>يمكن اتباع الخطوات في هذا <a href="https://womenjobcenter.com/storage/app/public/inst/نشر_وظيفة.pdf/"> الرابط</a></p>                                            </div>
                                         </div>
                                     </div>
                                 </div>

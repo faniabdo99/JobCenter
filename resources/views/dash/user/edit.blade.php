@@ -51,8 +51,8 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="contect_form3">
-                                            <label>@lang('dash/user.Resume(PDF,DOCorDOCX')</label>
-                                            <input name="resume" type="file">
+                                            <label>@lang('dash/user.Resume')</label>
+                                            <input name="resume" type="file" accept="application/pdf">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
@@ -118,26 +118,26 @@
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
-                                                            <label>@lang(dash/user.Instagram'</label>
-                                                            <input type="url" name="google" value="{{old('google') ?? $User->google}}">
+                                                            <label>@lang('dash/user.Instagram')</label>
+                                                            <input type="url" name="google" value="{{old('google') ?? $User->google}}" autocomplete="off" placeholder="https://www.instagram.com">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
                                                             <label>@lang('dash/user.Facebook')</label>
-                                                            <input type="url" name="facebook" value="{{old('facebook') ?? $User->facebook}}">
+                                                            <input type="url" name="facebook" value="{{old('facebook') ?? $User->facebook}}" autocomplete="off" placeholder="https://www.facebook.com">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
                                                             <label>@lang('dash/user.Twitter')</label>
-                                                            <input type="url" name="twitter" value="{{old('twitter') ?? $User->twitter}}">
+                                                            <input type="url" name="twitter" value="{{old('twitter') ?? $User->twitter}}" autocomplete="off" placeholder="https://www.twitter.com">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
                                                             <label>@lang('dash/user.Linkedin')</label>
-                                                            <input type="url" name="linkedin" value="{{old('linkedin') ?? $User->linkedin}}">
+                                                            <input type="url" name="linkedin" value="{{old('linkedin') ?? $User->linkedin}}" autocomplete="false" placeholder="https://www.linkedin.com">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -149,19 +149,19 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="job_filter_category_sidebar jb_cover">
                                             <div class="job_filter_sidebar_heading jb_cover">
-                                                <h1>@lang('dahs/user.UpdatePassword')</h1>
+                                                <h1>@lang('dash/user.UpdatePassword')</h1>
                                             </div>
                                             <div class="job_overview_header jb_cover">
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
-                                                            <label>@lang('dahs/user.CurrentPassword')</label>
+                                                            <label>@lang('dash/user.CurrentPassword')</label>
                                                             <input type="password" name="c_password">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                         <div class="contect_form3">
-                                                            <label>@lang('dahs/user.NewPassword')</label>
+                                                            <label>@lang('dash/user.NewPassword')</label>
                                                             <input type="password" name="n_password">
                                                         </div>
                                                     </div>
@@ -174,7 +174,7 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="login_remember_box jb_cover">
                                             <div class="header_btn search_btn login_btn jb_cover">
-                                                <button type="submit">@lang('dahs/user.SaveChanges')</button>
+                                                <button type="submit">@lang('dash/user.SaveChanges')</button>
                                             </div>
                                         </div>
                                         </form>

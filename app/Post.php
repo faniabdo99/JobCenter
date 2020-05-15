@@ -5,7 +5,14 @@ class Post extends Model{
     protected $guarded = [];
     public function User(){
       return $this->belongsTo(User::class)->withDefault([
-        'name' => 'Deleted User'
+          'id' => 0,
+          'name' => 'Deleted User',
+          'email' => 'no@email.com',
+          'contact_email' => 'no@email.com',
+          'image' => 'profile.png',
+          'username' => 'no_one_here',
+          'cover' => 'cover.png',
+          'phone' => '0000-000-00'
       ]);
     }
     public function getPostImageAttribute(){

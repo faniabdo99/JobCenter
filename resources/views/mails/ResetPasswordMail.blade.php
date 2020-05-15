@@ -4,9 +4,9 @@
 @lang('mails.Hello') {{$User->name}} <br>
 @lang('mails.YouHaveRequstedAPasswordResetToYourJobCenterAccount')
 @component('mail::button', ['url' => route('forget.password.confirm' , [$User->id , $User->code])])
-@lang('mails.,PleaseClickTheButtonBelowToResetYourPassword')
+@lang('mails.ResetPassword')
 @endcomponent
-@lang('mails.ResetPassword')<br>
+<br>
 @lang('mails.IfYouDidntMadeThisRequsteDontWorryJustIgnoreThisEmailAndYourPasswordWontBeChanged')@lang('mails.Thanks')<br>
 {{ config('app.name') }}
 @endcomponent

@@ -10,7 +10,7 @@
                 <div class="row">
                     <!-- section_heading start -->
                     <div class="col-lg-12 col-md-12 col-12 col-sm-12">
-                        <h1>contact us</h1>
+                        <h1>@lang('layout/titles.ContactUs')</h1>
                     </div>
                 </div>
             </div>

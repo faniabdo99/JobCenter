@@ -21,6 +21,7 @@ return [
   'PartTime' => 'Part Time',
   'Rotation' => 'Rotation',
   'Temporary' => 'Temporary',
+  'Remotely' => 'Remotely',
   'Categories' => 'Categories',
   'Category' => 'Category',
   'NoData' => 'No Data Yet',
@@ -51,6 +52,7 @@ return [
   'Experience' => 'Experience',
   'Optional' => 'Optional',
   'ResumeI' => 'Resume',
-  'ResumeLimits' => '5MB PDF|DOCX',
-
+  'ResumeLimits' => '5MB PDF',
+  'JobsSpotlight' => 'Jobs Spotlight',
+  'Submit' => 'Submit'
 ];

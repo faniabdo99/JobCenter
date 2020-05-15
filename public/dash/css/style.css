@@ -2015,6 +2015,8 @@ a:hover {
 }
 .select_box .nice-select.open .list{
 	width:100%;
+	height: 300px;
+    overflow: scroll;
 }
 .select_box .nice-select .current {
     position: absolute;

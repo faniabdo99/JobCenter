@@ -16,17 +16,17 @@ class ContactController extends Controller{
             'message' => 'required'
         ];
         $ErrorsMessages = [
-            'full_name.required' => 'Your Name is Required',
-            'email.required' => 'Your Email is Required',
-            'email.email' => 'Your Email is Invalid',
-            'message.required' => 'The Message Filed is Required'
+            'full_name.required' => __('BackEnd.NameRequired'),
+            'email.required' => __('BackEnd.EmailRequired'),
+            'email.email' => __('BackEnd.EmailInvalid'),
+            'message.required' => __('BackEnd.MessageRequired')
         ];
         $Validator = Validator::make($r->all() , $Rules , $ErrorsMessages);
         if($Validator->fails()){
             return back()->withErrors($Validator->errors()->all())->withInput();
         }else{
-            Mail::to('jobwomen0@gmail.com')->send(new ContactMail($r->except('_token')));
-            return back()->withSuccess('Thanke Your For Your Time.');
+            Mail::to('womenjobcenter@gmail.com')->send(new ContactMail($r->except('_token')));
+            return back()->withSuccess(__('BackEnd.MessageSent'));
         }
     }
     public function quickContact(Request $r){
@@ -36,17 +36,17 @@ class ContactController extends Controller{
           'email' => 'required|email',
       ];
       $ErrorsMessages = [
-          'title.required' => 'The Message Title is Required',
-          'name.required' => 'Your Name is Required',
-          'email.required' => 'Your Email is Required',
-          'email.email' => 'Your Email is Invalid',
+          'title.required' => __('BackEnd.MessageTitleRequired'),
+          'name.required' =>  __('BackEnd.NameRequired'),
+          'email.required' => __('BackEnd.EmailRequired'),
+          'email.email' => __('BackEnd.EmailInvalid'),
       ];
       $Validator = Validator::make($r->all() , $Rules , $ErrorsMessages);
       if($Validator->fails()){
           return back()->withErrors($Validator->errors()->all())->withInput();
       }else{
-          Mail::to('jobwomen0@gmail.com')->send(new QuickContact($r->except('_token')));
-          return back()->withSuccess('Thanke Your For Your Time.');
+          Mail::to('womenjobcenter@gmail.com')->send(new QuickContact($r->except('_token')));
+          return back()->withSuccess(__('BackEnd.MessageSent'));
       }
     }
 }

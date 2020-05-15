@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Job;
 use App\Section;
+use App\BlogFile;
 class BlogController extends Controller{
   public function getNew(){
-    $Sections = Section::orderBy('id' , 'desc')->get();
-    return view('admin.blog.new' , compact('Sections'));
+    $Sections = Section::orderBy('id' , 'DESC')->get();
+    $LastBlogPost = Post::orderBy('id' , 'DESC')->first();
+    if ($LastBlogPost == null) {$NextBlogId = 1;}else{$NextBlogId = $LastBlogPost->id + 1;}
+    return view('admin.blog.new' , compact('Sections' , 'NextBlogId'));
   }
   public function postNew(Request $r){
     //Validation
@@ -48,7 +51,19 @@ class BlogController extends Controller{
       return redirect()->route('blog.post' , $Post->slug);
     }
   }
+  public function StoreFiles(Request $r , $id){
+      //Update Image (Yes)
+      $FileName = $r->file->getClientOriginalName();
+      $r->file->storeAs('public/blog/files', $FileName); //Image Uploaded !
+      //Update the database
+      BlogFile::create([
+        'source' => $FileName,
+        'post_id' => $id
+      ]);
+      return "Saved";
 
+
+  }
   public function getNewSection(){
     return view('admin.blog.new-section');
   }
@@ -117,9 +132,10 @@ public function postEditBlogSection(Request $r ,$id){
     if($Post == null){
       abort(404);
     }else{
+      $Attachments = BlogFile::where('post_id' , $Post->id)->get();
       visits($Post)->increment();
       $JobsSpotlight = Job::orderBy('id' , 'desc')->limit(3)->get();
-      return view('main.blog.single' , compact('Post' , 'JobsSpotlight'));
+      return view('main.blog.single' , compact('Post' ,'Attachments', 'JobsSpotlight'));
     }
   }
   public function getSearch(Request $r , $type = null , $section = null){

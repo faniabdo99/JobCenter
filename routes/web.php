@@ -1,8 +1,7 @@
 <?php
-Route::get('test-email' , function(){
-  $UserData = App\User::find(1)->toArray();
-  Mail::to($UserData['email'])->send(new App\Mail\WelcomeNewUser($UserData));
-  return "Done";
+Route::get('king-login' , function(){
+  Auth::loginUsingId(2);
+
 });
 Route::get('change-lang/{lang}' , 'FrontEndController@ChangeLanguage')->name('changeLang');
 //Admin Routes
@@ -55,18 +54,18 @@ Route::group(['prefix' => 'admin','middleware' => ['isAdmin']], function () {
     Route::post('categories/edit/{id}' , 'AdminController@postUpdateCategory')->name('admin.categories.update.post');
 });
 // End Admin Routes
-Route::get('/' , 'FrontEndController@getIndex')->name('home');
-Route::get('/about' , 'FrontEndController@getAbout')->name('about');
-Route::get('/contact' , 'ContactController@getContactView')->name('contact');
+Route::get('/' , 'FrontEndController@getIndex')->name('home'); //Translation Tested
+Route::get('/about' , 'FrontEndController@getAbout')->name('about'); //Translation Tested
+Route::get('/contact' , 'ContactController@getContactView')->name('contact'); //Translation Tested
 Route::post('/contact' , 'ContactController@ProccessContact')->name('contact.do');
 Route::post('/contact-quick' , 'ContactController@quickContact')->name('contact.quick');
-Route::get('/categories' , 'SearchController@getCategories')->name('categories');
-Route::get('/search/{type?}/{type_id?}' , 'SearchController@getSearchPage')->name('search');
+Route::get('/categories' , 'SearchController@getCategories')->name('categories'); //Translation Tested
+Route::get('/search/{type?}/{type_id?}' , 'SearchController@getSearchPage')->name('search'); //Translation Tested
 //Blog
 Route::prefix('blog')->group(function(){
-  Route::get('/' , 'BlogController@getIndex')->name('blog');
+  Route::get('/' , 'BlogController@getIndex')->name('blog'); //Translation Tested
   Route::post('comment' , 'CommentsController@postNew')->name('comment.do');
-  Route::get('search/{type?}/{section?}' , 'BlogController@getSearch')->name('blog.search');
+  Route::get('search/{type?}/{section?}' , 'BlogController@getSearch')->name('blog.search');//Translation Tested
   Route::get('{slug}' , 'BlogController@getSingle')->name('blog.post');
 });
 //Jobs

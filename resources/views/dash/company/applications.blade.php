@@ -27,10 +27,10 @@
                                 <div class="latest_job_overlow jb_cover">
                                     <div class="manage_jobs_wrapper jb_cover">
                                         <div class="job_list mange_list applications_recent">
-                                            <h6>@lang('dash/company.RecentApplications') ({{count($User->Application)}})</h6>
+                                            <h6>@lang('dash/company.RecentApplications') ({{count($User->Application())}})</h6>
                                         </div>
                                     </div>
-                                    @forelse ($User->Application as $Application)
+                                    @forelse ($User->Application() as $Application)
                                       <div class="latest_job_box jb_cover">
                                           <div class="job_list recent_app_1">
                                               <div class="recent_img">

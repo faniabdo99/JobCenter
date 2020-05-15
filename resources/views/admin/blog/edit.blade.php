@@ -42,12 +42,12 @@
     <script>
         tinymce.init({
             selector: '.editor',
-            plugins: "anchor autoresize link autolink advlist lists textpattern directionality",
-            toolbar: "formatselect | anchor link | bold italic | numlist bullist | ltr rtl |alignleft aligncenter alignright",
+            plugins: "anchor autoresize link autolink advlist lists textpattern directionality image imagetools",
+            toolbar: "formatselect | anchor link | bold italic | numlist bullist | ltr rtl |alignleft aligncenter alignright | image",
             block_formats: 'Paragraph=p;Heading 2=h2;Heading 3=h3;',
-            menubar: false,
+            menubar: "insert",
             default_link_target: "_blank"
-            });
+        });
         </script>
 </body>
 </html>

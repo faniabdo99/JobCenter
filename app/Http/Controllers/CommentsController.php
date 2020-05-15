@@ -7,7 +7,7 @@ use Validator;
 use App\Comment;
 class CommentsController extends Controller{
     public function postNew(Request $r){
-      $Validator = Validator::make($r->all() , ['description' => 'required'] ,['description.required' => 'Comment Text is Required'] );
+      $Validator = Validator::make($r->all() , ['description' => 'required'] ,['description.required' => __('BackEnd.CommentRequired')] );
       if($Validator->fails()){
         return back()->withErrors($Validator->errors()->all());
       }else {

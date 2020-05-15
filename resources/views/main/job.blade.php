@@ -165,16 +165,24 @@
                                                             <input type="text" name="email" value="{{auth()->user()->email}}" placeholder="@lang('layout/forms.EmailPH')">
                                                         </div>
                                                         <div class="apply_job_form">
-                                                            <input type="text" name="phone" value="{{auth()->user()->phone}}" placeholder="@lang('layout/forms.PhonePH')">
+                                                            <input type="number" name="phone" value="{{auth()->user()->phone}}" placeholder="@lang('layout/forms.PhonePH')">
                                                         </div>
                                                         <div class="apply_job_form">
                                                             <textarea class="form-control" name="message" placeholder="@lang('layout/forms.MessagePH')">{{old('message')}}</textarea>
                                                         </div>
                                                         <div class="resume_optional jb_cover">
-                                                            <p>@lang('layout/forms.ResumeL') (@lang('layout/parts.Optional'))</p>
-                                                            <div class="width_50">
+                                                            @if(auth()->user()->resume != null)
+                                                            <p>لديك سيرة ذاتية بالفعل في حسابك , يمكنك ارسال سيرة ذاتية مختلفة</p>
+                                                             <div class="width_50">
                                                                 <input type="file" name="resume" id="input-file-now-custom-27" class="dropify" data-height="90" /><span class="post_photo">@lang('layout/parts.ResumeI')</span>
                                                             </div>
+                                                            @else
+                                                            <p>@lang('layout/forms.ResumeL') (@lang('layout/parts.Optional'))</p>
+                                                            <div class="width_50">
+                                                                <input type="file" name="resume" id="input-file-now-custom-27" class="dropify" required data-height="90" /><span class="post_photo">@lang('layout/parts.ResumeI')</span>
+                                                            </div>
+                                                            @endif
+                                                          
                                                             <p class="word_file">@lang('layout/parts.ResumeLimits')</p>
                                                         </div>
                                                     </div>

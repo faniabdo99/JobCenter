@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="{{url('public/main/css/')}}/font-awesome.css" />
     <link rel="stylesheet" href="{{url('public/admin/css/')}}/datatables.min.css">
     <link rel="stylesheet" type="text/css" href="{{url('public/admin/css/')}}/admin.css" />
+    <link rel="stylesheet" href="{{url('public/admin/css')}}/dropzone.css">
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
 </head>

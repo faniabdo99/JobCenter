@@ -42,15 +42,15 @@ class CompanyDashController extends Controller{
             'profile_pdf' => 'nullable|mimes:pdf'
         ];
         $ErrorMessages = [
-            'name.required' => 'Your Name is Required',
-            'image.image' => 'This Profile Image File is Invalid',
-            'cover.image' => 'This Cover Image File is Invalid',
-            'resume.mimes' => 'Only PDF , DOC And DOCX Are Allowed as Your Resume',
-            'google.url' => 'This Google URL is Invalid',
-            'facebook.url' => 'This Facebook URL is Invalid',
-            'twitter.url' => 'This Twitter URL is Invalid',
-            'linkedin.url' => 'This LinkedIn URL is Invalid',
-            'profile_pdf.mimes' => 'The Company Profile Should Be PDF File'
+            'name.required' => __('BackEnd.NameRequired'),
+            'image.image' => __('BackEnd.ProfileImageFileError'),
+            'cover.image' => __('BackEnd.CoverImageFileError') ,
+            'resume.mimes' => __('BackEnd.ResumeFileTypeError'),
+            'google.url' => __('BackEnd.InstagramLinkInvalid'),
+            'facebook.url' =>  __('BackEnd.FacebookLinkInvalid'),
+            'twitter.url' =>  __('BackEnd.TwitterLinkInvalid'),
+            'linkedin.url' =>  __('BackEnd.LinkedInLinkInvalid'),
+            'profile_pdf.mimes' => __('BackEnd.ProfilePDFfile')
         ];
         $Validator = Validator::make($r->all() , $Rules , $ErrorMessages);
         if($Validator->fails()){
@@ -94,10 +94,10 @@ class CompanyDashController extends Controller{
             }
             if($CurrentPasswordIsWrong){
                 $TheUser->update($UpdateData);
-                return back()->withErrors('Your Current Password is Wrong! Every Thing Else Updated');
+                return back()->withErrors(__('BackEnd.CurrentPassError'));
             }else{
                 $TheUser->update($UpdateData);
-                return back()->withSuccess('Your Profile is Updated !');
+                return back()->withSuccess(__('BackEnd.ProfileUpdated'));
             }
         }
     }
