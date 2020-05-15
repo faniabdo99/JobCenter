@@ -1,21 +1,7 @@
-@include('dash.layout.header' , ['PageTitle' => 'Edit Profile'])
+@include('dash.layout.header' , ['PageTitle' => __('dash/company.EdiProfile')])
 <body>
     @include('dash.layout.navbar')
     <!-- navi wrapper End -->
-    <!-- top header wrapper start -->
-    <div class="page_title_section">
-        <div class="page_header">
-            <div class="container">
-                <div class="row">
-                    <!-- section_heading start -->
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 col-sm-12">
-                        <h1>@lang('dash/company.EdiProfile')</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- top header wrapper end -->
     <!--employee dashboard wrapper start-->
     <div class="candidate_dashboard_wrapper jb_cover">
         <div class="container">

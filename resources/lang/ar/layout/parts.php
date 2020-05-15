@@ -54,7 +54,8 @@ return [
   'ResumeI' => 'السيرة الذاتية',
   'ResumeLimits' => '5MB PDF',
   'JobsSpotlight' => 'أهم الوظائف',
-  'Submit' => 'ارسال'
+  'Submit' => 'ارسال',
+  'Study' => 'الشهادة الدراسية'
 
 
 ];

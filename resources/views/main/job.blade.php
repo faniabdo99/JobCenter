@@ -137,6 +137,19 @@
                                 </div>
                             </div>
                             @endif
+                            @if($Job->study)
+                            <div class="jp_listing_overview_list_main_wrapper jb_cover">
+                                <div class="jp_listing_list_icon">
+                                    <i class="fa fa-school"></i>
+                                </div>
+                                <div class="jp_listing_list_icon_cont_wrapper">
+                                    <ul>
+                                        <li>@lang('layout/parts.Study'):</li>
+                                        <li>{{$Job->study}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            @endif
                             @guest
                             <div class="header_btn search_btn news_btn overview_btn  jb_cover">
                                 <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal41">@lang('main/job.JobLoginToApply')</a>
@@ -182,7 +195,7 @@
                                                                 <input type="file" name="resume" id="input-file-now-custom-27" class="dropify" required data-height="90" /><span class="post_photo">@lang('layout/parts.ResumeI')</span>
                                                             </div>
                                                             @endif
-                                                          
+
                                                             <p class="word_file">@lang('layout/parts.ResumeLimits')</p>
                                                         </div>
                                                     </div>

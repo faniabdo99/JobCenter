@@ -1,20 +1,6 @@
 @include('dash.layout.header' , ['PageTitle' => 'Edit ' . $Job->title])
 <body>
    @include('dash.layout.navbar')
-    <!-- top header wrapper start -->
-    <div class="page_title_section">
-        <div class="page_header">
-            <div class="container">
-                <div class="row">
-                    <!-- section_heading start -->
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 col-sm-12">
-                        <h1>@lang('dash/company.EditJob')</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- top header wrapper end -->
     <!--employee dashboard wrapper start-->
     <div class="employe_dashboard_wrapper jb_cover">
         <div class="container">
@@ -60,6 +46,23 @@
                                                 <input type="text" required value="{{$Job->position}}" name="position" placeholder="Job Position">
                                             </div>
                                         </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <div class="contect_form3">
+                                                <label>@lang('dash/company.JobStudy')</label>
+                                                <div class="select_box">
+                                                    <select name="study" required>
+                                                        @if(old('study'))
+                                                        <option value="{{old('study')}}">{{old('study')}}</option>
+                                                        @endif
+                                                        <option value="Illiterate">@lang('dash/company.Illiterate')</option>
+                                                        <option value="Elementary">@lang('dash/company.Elementary')</option>
+                                                        <option value="Middle School">@lang('dash/company.MiddleSchool')</option>
+                                                        <option value="BA">@lang('dash/company.BA')</option>
+                                                        <option value="PHD">@lang('dash/company.PHD')</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                             <div class="select_box">
                                                 <label>@lang('dash/company.JobType')</label>
@@ -70,7 +73,6 @@
                                                     <option value="Temporary">@lang('layout/parts.Temporary')</option>
                                                     <option value="Rotation">@lang('layout/parts.Rotation')</option>
                                                     <option value="Remotely">@lang('layout/parts.Remotely')</option>
-
                                                 </select>
                                             </div>
                                         </div>

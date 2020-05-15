@@ -54,5 +54,6 @@ return [
   'ResumeI' => 'Resume',
   'ResumeLimits' => '5MB PDF',
   'JobsSpotlight' => 'Jobs Spotlight',
-  'Submit' => 'Submit'
+  'Submit' => 'Submit',
+  'Study' => 'Study'
 ];
